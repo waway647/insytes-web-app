@@ -4,11 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Insytes Admin | Invitation</title>
+	<title>Insytes Admin | Notifications</title>
 </head>
 <body>
 	<div id="container">
-		<h1>Insytes Admin | Invitation</h1>
+		<h1>Insytes Admin | Notifications</h1>
 	</div>
 </body>
 </html>
