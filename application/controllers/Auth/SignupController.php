@@ -22,4 +22,9 @@ class SignupController extends CI_Controller {
 	{
 		$this->load->view('auth/signup_step3');
 	}
+
+	public function show_signup_success()
+	{
+		$this->load->view('auth/signup_success');
+	}
 }

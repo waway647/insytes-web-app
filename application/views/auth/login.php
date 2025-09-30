@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="h-full">
 	<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-		<div class="sm:mx-auto sm:w-full sm:max-w-sm">
+		<div class="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col gap-2">
 			<img src="<?php echo base_url('assets/images/logo/logo-indigo.png'); ?>" alt="Your Company" class="mx-auto h-12 w-auto" />
 			<h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Welcome back</h2>
 		</div>
@@ -28,7 +28,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 
 		<div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
-			<form action="#" method="POST" class="space-y-6">
+			<form id="login-form" action="#" method="POST" class="space-y-6">
+			<!-- Feedback Area -->
+        	<p id="login-feedback" class="text-xs text-center hidden p-2 rounded-md bg-red-800/20"></p>
+			
 			<div>
 				<label for="email" class="block text-sm/6 font-medium text-gray-100">Email address</label>
 				<div class="mt-2">
@@ -47,21 +50,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 
 			<div>
-				<button type="submit" class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">Sign in</button>
+				<button id="login-button" type="submit" class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">Sign in</button>
 			</div>
 			</form>
 
 			<div class="my-5">
 				<p class="my-2 text-center text-sm/6 text-gray-400">
-				<a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Forgot your password?</a>
+				<a href="<?php echo site_url('auth/passwordresetcontroller/show_password_reset_step1'); ?>" class="font-semibold text-indigo-400 hover:text-indigo-300">Forgot your password?</a>
 				</p>
 
 				<p class="my-2 text-center text-sm/6 text-gray-400">
 				Don't have an account?
-				<a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Sign up</a>
+				<a href="<?php echo site_url('auth/signupcontroller/show_signup_step1'); ?>" class="font-semibold text-indigo-400 hover:text-indigo-300">Sign up</a>
 				</p>
 			</div>
 		</div>
 	</div>
+
+	<script src="<?php echo base_url('assets/js/loginHandler.js'); ?>"></script>
 </body>
 </html>
