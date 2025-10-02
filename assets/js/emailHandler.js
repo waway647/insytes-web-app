@@ -58,36 +58,35 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Server Check Simulation ---
-    const checkEmailUniqueness = async (email) => {
-        // IMPORTANT: You must create an endpoint in your CodeIgniter controller 
-        // (e.g., auth/check_email_unique) that handles this POST request and 
-        // queries your database for the email's existence.
-        
-        updateUI('loading');
+   const checkEmailUniqueness = async (email) => {
+    updateUI('loading');
 
         try {
-            // Placeholder: Assume your CI endpoint is at 'auth/check_email_unique'
-            const response = await fetch('auth/check_email_unique', { 
-                method: 'POST', 
+            const response = await fetch(checkEmailUrl, { 
+                method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: email }) 
+                body: JSON.stringify({ email: email })
             });
-            
-            // Assume the response body is JSON like: { unique: true/false }
-            const data = await response.json(); 
-            
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            const data = await response.json();
+            console.log("Server response:", data); // debug
+
             if (data.unique === true) {
                 updateUI('available');
             } else {
                 updateUI('used');
             }
         } catch (error) {
-            console.error("Uniqueness check failed (API/Network Error):", error);
-            // In a production environment, you might fail open (allow signup) or fail closed (error message) 
-            // depending on security policy. Failing open for demonstration:
-            updateUI('available'); 
+            console.error("Uniqueness check failed:", error);
+            // fallback → disable button
+            updateUI('initial');
         }
     };
+
 
     // --- Input Handling (Debounced) ---
     emailInput.addEventListener('input', () => {

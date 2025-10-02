@@ -1,11 +1,16 @@
 /**
- * Reusable Password Requirements Handler
- * * Attaches validation listeners to password and confirm password fields (ID: 'password', ID: 'retype_password') 
- * and provides real-time feedback to the UI elements defined in the view.
- * * Dependencies: 
- * - HTML elements with IDs: 'password', 'retype_password', 'password-requirements', 'match-error', 'continue-button', 'password-form'.
+ * Reusable Password Requirements + Show/Hide Handler
+ * * Validates password strength and confirm password field in real time.
+ * * Provides UI feedback + enables/disables submit button.
+ * * Adds show/hide toggle functionality for password inputs.
+ * 
+ * Dependencies: 
+ * - HTML elements with IDs: 'password', 'retype_password', 
+ *   'password-requirements', 'match-error', 'continue-button', 'password-form'.
  * - List items with IDs: 'req-length', 'req-uppercase', 'req-lowercase', 'req-number'.
+ * - Optional: Buttons with class 'toggle-password' and data-target="inputId"
  */
+
 document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('password');
     const confirmInput = document.getElementById('retype_password');
@@ -20,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Define the validation rules and their corresponding UI elements
+    // --- Rules ---
     const rules = [
         { id: 'req-length', regex: /.{8,50}/ },
         { id: 'req-uppercase', regex: /[A-Z]/ },
@@ -28,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'req-number', regex: /[0-9]/ }
     ];
 
-    // Helper function to update the button state
+    // --- Helpers ---
     function updateButtonState(isAllValid, isMatch) {
         const isValid = isAllValid && isMatch;
         continueButton.disabled = !isValid;
@@ -36,75 +41,93 @@ document.addEventListener('DOMContentLoaded', () => {
         continueButton.classList.toggle('cursor-not-allowed', !isValid);
     }
 
-    // --- Core Validation Logic ---
     function validatePassword() {
         const password = passwordInput.value;
         let allRulesValid = true;
 
-        // 1. Check Requirements and update UI icons/colors
+        // 1. Check Requirements
         rules.forEach(rule => {
             const isValid = rule.regex.test(password);
             const listItem = document.getElementById(rule.id);
-            
-            if (!listItem) return; // Skip if a requirement item is missing
-            
+            if (!listItem) return;
+
             if (!isValid) {
                 allRulesValid = false;
                 listItem.classList.replace('text-green-400', 'text-red-400');
-                // Change icon to X (for failure)
-                listItem.querySelector('svg path').setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                listItem.querySelector('svg path')
+                    .setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X
             } else {
                 listItem.classList.replace('text-red-400', 'text-green-400');
-                // Change icon to Checkmark (for success)
-                listItem.querySelector('svg path').setAttribute('d', 'M5 13l4 4L19 7');
+                listItem.querySelector('svg path')
+                    .setAttribute('d', 'M5 13l4 4L19 7'); // Check
             }
         });
 
-        // 2. Check Password Match
+        // 2. Match check
         const isMatch = password === confirmInput.value && (password.length > 0 || confirmInput.value.length === 0);
-        // Only show error if confirmation field has input OR if password has input but is empty/mismatched
         const shouldShowMatchError = confirmInput.value.length > 0 && !isMatch;
 
         if (matchError) {
-             matchError.classList.toggle('hidden', !shouldShowMatchError);
+            matchError.classList.toggle('hidden', !shouldShowMatchError);
         }
 
-        // 3. Update Continue Button
-        // Button is enabled ONLY if all rules are valid AND passwords match AND fields are not empty
+        // 3. Update button state
         const isReadyForSubmission = allRulesValid && isMatch && password.length > 0;
         updateButtonState(isReadyForSubmission, isMatch);
     }
 
-    // --- Event Listeners ---
+    // --- Show/Hide Toggle ---
+    const toggleButtons = document.querySelectorAll('.toggle-password');
+    toggleButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target');
+            const targetInput = document.getElementById(targetId);
 
-    // Show requirements on focus
+            if (!targetInput) return;
+
+            const eyeOpen = btn.querySelector('.eye-open');
+            const eyeClosed = btn.querySelector('.eye-closed');
+
+            if (targetInput.type === 'password') {
+                targetInput.type = 'text';
+                if (eyeOpen && eyeClosed) {
+                    eyeOpen.classList.add('hidden');
+                    eyeClosed.classList.remove('hidden');
+                }
+            } else {
+                targetInput.type = 'password';
+                if (eyeOpen && eyeClosed) {
+                    eyeOpen.classList.remove('hidden');
+                    eyeClosed.classList.add('hidden');
+                }
+            }
+        });
+    });
+
+    // --- Events ---
     passwordInput.addEventListener('focus', () => {
         requirementsBox.classList.remove('hidden');
-        validatePassword(); // Run validation immediately on focus
+        validatePassword();
     });
 
-    // Hide requirements on blur, but only if input is empty
     passwordInput.addEventListener('blur', () => {
         if (passwordInput.value.length === 0) {
-             requirementsBox.classList.add('hidden');
+            requirementsBox.classList.add('hidden');
         }
     });
 
-    // Validate on password input change
     passwordInput.addEventListener('input', validatePassword);
-
-    // Validate match on confirm input change
     confirmInput.addEventListener('input', validatePassword);
 
-    // Prevent form submission if validation fails (final safety check)
-    form.addEventListener('submit', (e) => {
-        // Since we disable the button, this should rarely be hit, but acts as a safeguard.
-        if (continueButton.disabled) {
-            e.preventDefault();
-            console.warn("Attempted submission with invalid or incomplete password.");
-        }
-    });
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            if (continueButton.disabled) {
+                e.preventDefault();
+                console.warn("Attempted submission with invalid or incomplete password.");
+            }
+        });
+    }
 
-    // Run validation on load to correctly initialize the button state (e.g., if using browser autofill)
+    // Initial validation (for autofill)
     validatePassword();
 });

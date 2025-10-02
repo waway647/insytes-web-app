@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+error_reporting(E_ALL ^ E_DEPRECATED);
+
 ?><!DOCTYPE html>
 <html lang="en" class="h-full bg-gray-900">
 <head>
@@ -29,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 
 		<div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
-			<form id="name-form" action="#" method="POST" class="space-y-6">
+			<form id="name-form" action="http://localhost/GitHub/insytes-web-app/index.php/Auth/SignupController/create_user3" method="POST" class="space-y-6">
 			<div class="flex items-center justify-center gap-1.5">
 				<span class="w-px h-px p-0.5 bg-gray-400 text-xs rounded-2xl">&nbsp</span>
 				<span class="w-px h-px p-0.5 bg-gray-400 text-xs rounded-2xl">&nbsp</span>
@@ -63,9 +65,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</form>
 
 			<div class="my-5">
-				<p class="my-2 text-center text-sm/6 text-gray-400">
+				<!-- <p class="my-2 text-center text-sm/6 text-gray-400">
 				<a href="<?php echo site_url('auth/passwordresetcontroller/show_password_reset_step1'); ?>" class="font-semibold text-indigo-400 hover:text-indigo-300">Forgot your password?</a>
-				</p>
+				</p> -->
 
 				<p class="my-2 text-center text-sm/6 text-gray-400">
 				<a href="<?php echo site_url('auth/logincontroller/show_login'); ?>" class="font-semibold text-indigo-400 hover:text-indigo-300">Login to an existing account</a>
