@@ -17,7 +17,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 		</div>
 
 		<div>
-			<a href="#" class="px-6 py-3 border border-gray-700 rounded-[100px] flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-800 max-w-sm mx-auto my-6"">
+			<a href="#" class="px-6 py-3 border border-gray-700 rounded-[100px] flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-800 max-w-sm mx-auto my-6">
 			<img src="<?php echo base_url('assets/images/icons/google.svg'); ?>" alt="">
 			<div class="w-full text-center">
 				<h4 class="text-gray-100">Continue with Google</h4>
@@ -63,7 +63,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 
 				<p class="my-2 text-center text-sm/6 text-gray-400">
 				Don't have an account?
-				<a href="<?php echo site_url('auth/signupcontroller/show_signup_step1'); ?>" class="font-semibold text-indigo-400 hover:text-indigo-300">Sign up</a>
+				<a href="<?php echo site_url('auth/signupcontroller/show_signup_step1'); ?>" class="font-semibold text-2xl text-indigo-400 hover:text-indigo-300">Sign up</a>
 				</p>
 			</div>
 		</div>

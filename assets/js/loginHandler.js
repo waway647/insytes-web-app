@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayFeedback("Login successful! Redirecting...", false);
                 // Redirect after short delay
                 setTimeout(() => {
-                    window.location.href = '/dashboard'; // adjust your redirect page
+                    window.location.href = data.redirect_url; // adjust your redirect page
                 }, 1000);
             } else {
                 displayFeedback(data.message || "Invalid email or password. Please try again.");

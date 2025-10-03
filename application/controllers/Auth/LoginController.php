@@ -52,26 +52,6 @@ class LoginController extends CI_Controller {
 
 				$this->session->set_userdata('role', $user->role);
 				$this->session->set_userdata('team_id', $user->team_id);
-
-				if($user->team_id){
-					switch ($user->role) {
-					case 'admin':
-						$redirect_url = '/Admin/DashboardController/adminDashboard';
-						break;
-					case 'player':
-						$redirect_url = '/Player/DashboardController/playerDashboard';
-						break;
-					case 'coach':
-						$redirect_url = '/Coach/DashboardController/coachDashboard';
-						break;
-					default:
-						$this->show_login();
-						return;
-					}
-				}else{
-					$this->show_login();
-					return;
-				}
 			}
 
 			$response = array(
@@ -89,6 +69,7 @@ class LoginController extends CI_Controller {
 				'redirect_url' => site_url('auth/login')
 			);
 			echo json_encode($response);
+			$this->show_login();
 			return;
 		}
 	}
