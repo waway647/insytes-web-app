@@ -76,7 +76,7 @@ class SignupController extends CI_Controller {
 		$inserted = $this->SignUp_Model->insert_user($userData);
 		if ($inserted) {
 			$this->session->set_flashdata('success', 'User registered successfully.');
-			$this->show_signup_step1();
+			$this->show_signup_success();
 		} else {
 			$this->session->set_flashdata('error', 'Failed to register user.');
 			$this->show_signup_step1();

@@ -30,9 +30,9 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 		</div>
 
 		<div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
-			<form id="login-form" action="#" method="POST" class="space-y-6">
+			<form id="login-form" action="http://localhost/github/insytes-web-app/index.php/Auth/LoginController/process_login" method="POST" class="space-y-6">
 			<!-- Feedback Area -->
-        	<p id="login-feedback" class="text-xs text-center hidden p-2 rounded-md bg-red-800/20"></p>
+        	<p id="login-feedback" class="text-xs text-center hidden p-2 rounded-md"></p>
 			
 			<div>
 				<label for="email" class="block text-sm/6 font-medium text-gray-100">Email address</label>
@@ -68,6 +68,9 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 			</div>
 		</div>
 	</div>
+	<script>
+		const validateLoginURL = "<?php echo site_url('Auth/LoginController/process_login'); ?>";
+	</script>
 
 	<script src="<?php echo base_url('assets/js/loginHandler.js'); ?>"></script>
 </body>
