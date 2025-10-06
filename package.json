@@ -1,0 +1,28 @@
+{
+  "name": "insytes-web-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "tw-watch": "npx @tailwindcss/cli -i assets/css/tailwind_input.css -o assets/css/tailwind_output.css --watch",
+    "dev": "npm run tw-watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waway647/insytes-web-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waway647/insytes-web-app/issues"
+  },
+  "homepage": "https://github.com/waway647/insytes-web-app#readme",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^4.1.14"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.14"
+  }
+}

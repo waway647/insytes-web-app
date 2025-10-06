@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* 1. Create your input file (e.g. tailwind_input.css)
+ 2. Add the @tailwind directives for each of Tailwind’s layers
+ 3. Run the Tailwind CLI tool to generate your output file (e.g. tailwind_output.css)
+ 4. Include the generated CSS file in your HTML
+
+ Example CLI command:
+  npx tailwindcss -i ./assets/css/tailwind_input.css -o ./assets/css/tailwind_output.css --watch
+*/
