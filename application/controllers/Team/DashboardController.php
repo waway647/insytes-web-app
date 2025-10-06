@@ -8,7 +8,7 @@ class DashboardController extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['title'] = 'dashboard';
+		$data['title'] = 'Dashboard';
 		$data['main_content'] = 'team/dashboard';
 		$this->load->view('layouts/main', $data);
 	}

@@ -8,7 +8,7 @@ class PeopleController extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['title'] = 'people';
+		$data['title'] = 'People';
 		$data['main_content'] = 'team/people';
 		$this->load->view('layouts/main', $data);
 	}

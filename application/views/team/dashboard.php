@@ -1,12 +1,10 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Insytes | Dashboard</title>
-</head>
-<body>
-<h1 class="text-white">DASHBOARD</h1>
-</body>
-</html>
+<!-- views/team/dashboard -->
+
+<h1 class="text-white font-bold text-2xl mb-10">Dashboard</h1>
+
+<div class="grid grid-cols-2 gap-10 w-full h-full">
+	<div class="bg-[#1D1D1D] rounded-xl"></div>
+	<div class="bg-[#1D1D1D] rounded-xl"></div>
+	<div class="bg-[#1D1D1D] rounded-xl"></div>
+	<div class="bg-[#1D1D1D] rounded-xl"></div>
+</div>
