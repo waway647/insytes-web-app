@@ -7,6 +7,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Insytes | Dashboard</title>
 </head>
 <body>
-
+<h1 class="text-white">DASHBOARD</h1>
 </body>
 </html>

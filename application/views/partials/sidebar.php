@@ -3,10 +3,10 @@
     $role = 'coach';
 ?>
 
-<div id="sidebar-nav" class="sidebar fixed top-0 left-0 h-full w-64 text-[#2A2A2A] flex flex-col justify-between p-4 border-r bg-[gray-900]">
+<div id="sidebar-nav" class="sidebar h-full w-64 text-[#2A2A2A] flex flex-col justify-between p-4 border-r bg-[gray-900]">
     <div class="upper-menu flex flex-col gap-10">
         <div class="logo-container px-5">
-            <a href="#" class="logo">
+            <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="logo">
                 <img src="<?php echo base_url('assets/images/logo/logo-text.svg'); ?>" alt="">
             </a>
         </div>
@@ -54,7 +54,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('reports/reportcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('reports/reportscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/reports.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/reports-active.svg'); ?>" alt="">
@@ -122,7 +122,7 @@
                 </div>
             </a>
 
-            <div x-data="{ open: false }" class="flex flex-col">
+            <div x-data="{ open: false, isHovering: false }" class="flex flex-col">
                 <a @click="open = !open" 
                 @mouseenter="isHovering = true" 
                 @mouseleave="isHovering = false"
@@ -132,16 +132,16 @@
                     <div class="nav-item flex justify-between items-center w-full">
                         <div class="flex items-center justify-between gap-3">
                             
-                            <img x-show="!open && !isHovering" 
+                            <img x-cloak x-show="!open && !isHovering" 
                                 src="<?php echo base_url('assets/images/icons/settings.svg'); ?>" alt="">
                             
-                            <img x-show="open || isHovering" 
+                            <img x-cloak x-show="open || isHovering" 
                                 src="<?php echo base_url('assets/images/icons/settings-active.svg'); ?>" alt="">
                             
                             <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white" :class="{'text-white' : open}">Settings</span>
                         </div>
                         
-                        <svg class="h-5 w-5 transition-transform duration-300 text-[#B6BABD]" :class="{'rotate-180 text-white': open}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 transition-transform duration-300 text-[#B6BABD] group-hover:text-white" :class="{'rotate-180 text-white': open}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>

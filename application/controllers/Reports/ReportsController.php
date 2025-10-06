@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class LibraryController extends CI_Controller {
+class ReportsController extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('session');
 	}
 	public function index()
 	{
-		$data['title'] = 'match library';
-		$data['main_content'] = 'match/library';
+		$data['title'] = 'reports';
+		$data['main_content'] = 'reports/reports';
 		$this->load->view('layouts/main', $data);
 	}
 }
