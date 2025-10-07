@@ -8,7 +8,7 @@ class PasswordResetController extends CI_Controller {
         $this->load->helper(['url','string']);
         $this->load->library('session');
         $this->load->model('PasswordResetModel');
-        $this->load->model('UserModel');
+        $this->load->model('User_Model');
         $this->load->library('email'); // CI email library
 		$this->load->database();
     }
@@ -23,7 +23,7 @@ class PasswordResetController extends CI_Controller {
 			$email = $this->input->post('email', TRUE);
 
 			// check if email exists in users
-			$user = $this->UserModel->getByEmail($email);
+			$user = $this->User_Model->getByEmail($email);
 			if (!$user) {
 				$this->session->set_flashdata('error', 'Email not found.');
 				redirect(site_url('auth/passwordresetcontroller/show_password_reset_step1'));
@@ -139,7 +139,7 @@ class PasswordResetController extends CI_Controller {
 			$hashed = password_hash($password, PASSWORD_BCRYPT);
 
 			// update user
-			$this->UserModel->updatePassword($email, $hashed);
+			$this->User_Model->updatePassword($email, $hashed);
 
 			// cleanup: delete reset codes
 			$this->PasswordResetModel->deleteByEmail($email);

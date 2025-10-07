@@ -3,6 +3,10 @@
     $role = $this->session->userdata('role');
 ?>
 
+<!-- SCRIPTS -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
 <div id="sidebar-nav" class="sidebar h-full w-64 text-[#2A2A2A] flex flex-col justify-between p-4 border-r bg-[gray-900]">
     <div class="upper-menu flex flex-col gap-10">
         <div class="logo-container px-5">
@@ -201,4 +205,3 @@
     </div>
 </div>
 
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
