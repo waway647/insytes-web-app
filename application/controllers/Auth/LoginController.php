@@ -47,11 +47,12 @@ class LoginController extends CI_Controller {
 			$this->session->set_userdata('email', $user->email);
 
 			if (empty($user->role) && empty($user->team_id)) {
-				$redirect_url = '/User/UserController/newUserSetup';
+				$redirect_url = '/User/NewUserController/newUser';
 			}else{
 
 				$this->session->set_userdata('role', $user->role);
 				$this->session->set_userdata('team_id', $user->team_id);
+				$redirect_url = '/Team/DashboardController/index';
 			}
 
 			$response = array(
@@ -72,5 +73,12 @@ class LoginController extends CI_Controller {
 			$this->show_login();
 			return;
 		}
+	}
+
+	public function logout()
+	{
+		// Destroy the session and redirect to login page
+		$this->session->sess_destroy();
+		redirect('auth/login');
 	}
 }

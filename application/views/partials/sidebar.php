@@ -1,6 +1,6 @@
 <?php
-    /* $role = $this->session->userdata('role'); */
-    $role = 'coach';
+    // Access session values
+    $role = $this->session->userdata('role');
 ?>
 
 <div id="sidebar-nav" class="sidebar h-full w-64 text-[#2A2A2A] flex flex-col justify-between p-4 border-r bg-[gray-900]">
@@ -13,7 +13,7 @@
 
         <div class="navigation-links flex flex-col gap-2">
             <!-- COACH nav-items -->
-            <?php if ($role == 'coach'): ?>
+            <?php if ($role == 'Coach'): ?>
             <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
@@ -64,7 +64,7 @@
             <?php endif; ?>
 
             <!-- PLAYER nav-items -->
-            <?php if ($role == 'player'): ?>
+            <?php if ($role == 'Player'): ?>
             <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
@@ -98,7 +98,7 @@
             </a>
             <?php endif; ?>
 
-            <?php if ($role == 'admin'): ?>
+            <?php if ($role == 'Admin'): ?>
             <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">

@@ -10,6 +10,8 @@ class DashboardController extends CI_Controller {
 	{
 		$data['title'] = 'Dashboard';
 		$data['main_content'] = 'team/dashboard';
+		$data['role'] = $this->session->userdata('role');
 		$this->load->view('layouts/main', $data);
 	}
+
 }
