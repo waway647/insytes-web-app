@@ -10,4 +10,5 @@ document.addEventListener("DOMContentLoaded", function () {
     closeModalButton.addEventListener("click", function () {
         inviteModal.hidden = true;
     });
+
 });

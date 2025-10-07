@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="m-0 p-0 h-full w-full flex">
 	<!-- Sidebar Navigation -->
+    <?php $team_id = $this->session->userdata('team_id'); ?>
     <?php $this->load->view('partials/sidebar'); ?>
 
     <!-- Main Content Area -->

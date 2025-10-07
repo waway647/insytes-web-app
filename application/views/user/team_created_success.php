@@ -33,7 +33,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 
         <div class="flex justify-center">
             <!-- Button -->
-            <button type="button" onclick="window.location.href='<?php echo site_url('/User/NewUserController/userCoach_step2'); ?>'"
+            <button type="button" onclick="window.location.href='<?php echo site_url('/Team/DashboardController/index'); ?>'"
                 class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">
                 Continue
             </button>

@@ -3,12 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 error_reporting(E_ALL ^ E_DEPRECATED);
 
 class NewUser_Model extends CI_Model {
-   /*  public function __construct() {
-        parent::__construct();
-        $this->load->database();
-        $this->load->helper('url');
-    } */
+    public function __construct()
+    {
+		$this->load->database();
+		$this->load->helper('url');
+    }
 
-    // Add your model methods here
+    public function create_team($data) {
+        $this->db->insert('teams', $data);
+        return $this->db->insert_id(); // Return the ID of the newly created team
+    }
+
+    public function setUserRoleAndTeamById($user_id, $team_id, $role) {
+        $data = array(
+            'role' => $role,
+            'team_id' => $team_id
+        );
+
+        $this->db->where('id', $user_id);
+        return $this->db->update('users', $data);
+    }
 }
-?>

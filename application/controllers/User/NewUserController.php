@@ -40,7 +40,7 @@ class NewUserController extends CI_Controller {
 		$this->load->view('user/user_player_step1');
 	}
 
-	public function process_invite_link()
+	/* public function process_invite_link()
 	{
 		$invite_link = $this->input->post('invite');
 
@@ -63,7 +63,7 @@ class NewUserController extends CI_Controller {
 			$this->session->set_flashdata('error', 'Invalid invite link. Please try again.');
 			redirect('Admin/UserController/userCoach_step1');
 		}
-	}
+	} */
 
 	public function userCoach_create_team()
 	{
