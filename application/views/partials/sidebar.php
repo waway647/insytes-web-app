@@ -182,7 +182,7 @@
                 </a>
 
                 <div x-show="open" x-collapse.duration.300ms class="flex flex-col">
-                    <a href="<?php echo site_url('account/personaldatacontroller/index'); ?>" class="group py-2.5 px-11 rounded-md hover:bg-gray-800">
+                    <a href="<?php echo site_url('account/accountmaincontroller/index'); ?>" class="group py-2.5 px-11 rounded-md hover:bg-gray-800">
                         <div class="nav-item flex items-center gap-3">
                             <img src="" alt="">
                             <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Account</span>
