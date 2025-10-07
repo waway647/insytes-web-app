@@ -25,9 +25,14 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 			</a>
 		</div>
 
-		<div class="text-center">
-			<p class="font-medium text-gray-400">or</p>
+		<div class=" sm:mx-auto sm:w-full sm:max-w-sm">
+			<div class="flex items-center">
+				<div class="flex-1 h-px bg-neutral-700"></div>
+				<span class="px-3 text-gray-500 text-sm">or</span>
+				<div class="flex-1 h-px bg-neutral-700"></div>
+			</div>
 		</div>
+
 
 		<div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
 			<form id="login-form" action="http://localhost/github/insytes-web-app/index.php/Auth/LoginController/process_login" method="POST" class="space-y-6">

@@ -24,7 +24,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
     </h1>
 
     <!-- Roles Container -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-15 w-full max-w-3xl p-10">
+    <div class="flex flex-row items-center justify-center gap-15 w-full max-w-3xl p-10">
       
       <!-- Coach -->
       <div class="flex flex-col items-center p-5">

@@ -8,7 +8,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Coach Step 1</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="<?php echo base_url('assets/css/tailwind_output.css'); ?>" rel="stylesheet">
 </head>
 <body class="bg-gray-900 min-h-screen flex flex-col overflow-hidden">
 
