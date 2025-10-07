@@ -22,7 +22,7 @@ class GoogleController extends CI_Controller {
         $this->load->library('Google'); // Load the Google library
         $this->load->helper('url');
         $this->load->library('session');
-        $this->load->model('usermodel');
+        $this->load->model('user_model');
     }
 
     // Google login page
@@ -44,16 +44,17 @@ class GoogleController extends CI_Controller {
                 $userInfo = $googleService->userinfo->get();
 
                 // 3. 
-                $user_data = $this->usermodel->verify_user_from_google($userInfo);
+                $user_data = $this->user_model->verify_user_from_google($userInfo);
 
                 if (isset($user_data['id'])) {
                     // User exists → login and redirect to dashboard
                     $this->session->set_userdata(array(
                         'user_id'      => $user_data['id'],
-                        'user_email'   => $user_data['email'],
-                        'google_id'    => $user_data['google_id']
+                        'email'   => $user_data['email'],
+                        'google_id'    => $user_data['google_id'],
+                        'role'        => $user_data['role'],
                     ));
-                    redirect(site_url('dashboard'));
+                    redirect(site_url('team/dashboardcontroller/index'));
                 } else {
                     // User does not exist → save Google info in session for signup step
                     $this->session->set_userdata(array(
@@ -89,7 +90,7 @@ class GoogleController extends CI_Controller {
             'last_name' => $last_name
         );
         
-        $user_data = $this->usermodel->create_new_user_from_google($user_data);
+        $user_data = $this->user_model->create_new_user_from_google($user_data);
 
         if($user_data) {
             // user created

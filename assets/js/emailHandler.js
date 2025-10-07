@@ -87,6 +87,11 @@ const isValidSuffix = (email) => {
 // --- REST OF THE CODE REMAINS THE SAME ---
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (typeof checkEmailUrl === 'undefined') {
+        console.error('Email Handler failed: Global variable checkEmailUrl is undefined.');
+        return;
+    }
+    
     const emailInput = document.getElementById('email');
     const emailFeedback = document.getElementById('email-feedback');
     const continueButton = document.getElementById('continue-button');

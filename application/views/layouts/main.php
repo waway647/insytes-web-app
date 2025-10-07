@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<title>Insytes Admin | <?php echo $title ?></title>
     <link href="<?php echo base_url('assets/css/tailwind_output.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/scrollBar.css'); ?>" rel="stylesheet">
 </head>
 <body class="m-0 p-0 h-full w-full flex">
 	<!-- Sidebar Navigation -->
