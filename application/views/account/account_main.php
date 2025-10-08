@@ -32,6 +32,20 @@
             
             <h3 :class="{'group-hover:text-white': activeTab !== 'security'}">Security</h3>
         </div>
+
+        <div 
+            @click="activeTab = 'team'" 
+            class="text-center border-t border-[#2A2A2A] py-4 px-10 cursor-pointer transition-colors duration-150"
+            
+            :class="{ 
+                // Set active classes if activeTab is 'security' (Requirement #2)
+                'bg-[#2A2A2A] text-white': activeTab === 'team', 
+                // Set inactive classes if activeTab is NOT 'team'
+                'text-[#B6BABD]': activeTab !== 'team'
+            }">
+            
+            <h3 :class="{'group-hover:text-white': activeTab !== 'team'}">Team</h3>
+        </div>
     </div>
 
     <div class="w-full h-full p-10">
@@ -42,6 +56,10 @@
         
         <div x-show="activeTab === 'security'">
             <?php $this->load->view('account/security'); ?>
+        </div>
+
+        <div x-show="activeTab === 'team'">
+            <?php $this->load->view('account/team'); ?>
         </div>
     </div>
 </div>

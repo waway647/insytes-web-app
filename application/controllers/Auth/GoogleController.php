@@ -47,14 +47,27 @@ class GoogleController extends CI_Controller {
                 $user_data = $this->user_model->verify_user_from_google($userInfo);
 
                 if (isset($user_data['id'])) {
-                    // User exists → login and redirect to dashboard
-                    $this->session->set_userdata(array(
-                        'user_id'      => $user_data['id'],
-                        'email'   => $user_data['email'],
-                        'google_id'    => $user_data['google_id'],
-                        'role'        => $user_data['role'],
-                    ));
-                    redirect(site_url('team/dashboardcontroller/index'));
+                    
+                    if (empty($user_data['role']) && empty($user_data['team_id'])) {
+                        // User exists → login and redirect to dashboard
+                        $this->session->set_userdata(array(
+                            'user_id' => $user_data['id'],
+                            'email' => $user_data['email'],
+                            'google_id' => $user_data['google_id'],
+                        ));
+
+                        redirect(site_url('user/NewUserController/newUser'));
+                    } else {
+                        $this->session->set_userdata(array(
+                            'user_id' => $user_data['id'],
+                            'email' => $user_data['email'],
+                            'google_id' => $user_data['google_id'],
+                            'role' => $user_data['role'],
+                            'team_id' => $user_data['team_id']
+                        ));
+
+                        redirect(site_url('team/dashboardcontroller/index'));
+                    }
                 } else {
                     // User does not exist → save Google info in session for signup step
                     $this->session->set_userdata(array(

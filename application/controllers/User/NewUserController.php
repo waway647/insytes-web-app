@@ -102,15 +102,22 @@ class NewUserController extends CI_Controller {
 
 		if ($created) {
 			$this->NewUser_Model->setUserRoleAndTeamById($created_by, $created, $role);
-		}
 
-		if (!$created) {
+			$user = $this->NewUser_Model->getUserById($created_by);
+
+			if($user){
+				$this->session->set_userdata('user_id', $user->id);
+				$this->session->set_userdata('email', $user->email);
+				$this->session->set_userdata('role', $user->role);
+				$this->session->set_userdata('team_id', $user->team_id);
+
+				$this->load->view('user/team_created_success'); 
+			}
+		}else {
 			$this->session->set_flashdata('error', 'Failed to create team. Please try again.');
 			redirect('User/NewUserController/userCoach_step2');
 			return;
 		}
-
-		$this->load->view('user/team_created_success');
 	}
 
 	public function userPlayer_join_team()

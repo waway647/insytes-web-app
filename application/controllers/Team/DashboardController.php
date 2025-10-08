@@ -12,5 +12,4 @@ class DashboardController extends CI_Controller {
 		$data['main_content'] = 'team/dashboard';
 		$this->load->view('layouts/main', $data);
 	}
-
 }

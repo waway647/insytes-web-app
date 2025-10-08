@@ -18,7 +18,7 @@
                     first_name: 'N/A',
                     last_name: 'N/A',
                     role: 'N/A', // Initialize
-                    team: 'N/A'
+                    team_name: 'N/A'
             },
             isEditingEmail: false,
             tempEmail: '',
@@ -65,7 +65,7 @@
                                 email: data.email || 'N/A',
                                 first_name: data.first_name || 'N/A',
                                 last_name: data.last_name || 'N/A',
-                                team: data.team || 'N/A',
+                                team_name: data.team_name || 'N/A',
                                 // FIX: Check for data.role (state name) AND data.user_role (potential backend field name)
                                 role: data.role || data.user_role || 'N/A', 
                             };
@@ -351,7 +351,7 @@
     <div class="flex flex-col gap-6 border-t border-[#2A2A2A] pt-10 pb-6">
         <div class="flex items-end gap-2">
             <label for="affiliated_team" class="block text-xs font-medium text-[#B6BABD]">Affiliated Team:</label>
-            <p class="text-white font-medium" x-text="user.team"></p>
+            <p class="text-white font-medium" x-text="user.team_name"></p>
         </div>
 
         <div class="flex items-end gap-2">

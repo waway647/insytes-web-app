@@ -5,13 +5,15 @@
    	$team_id = $this->session->userdata('team_id');
 	  $user_id = $this->session->userdata('user_id');
 ?>
+
+
  
  <div class="blur-bg flex flex-col lg:flex-row w-full h-full gap-6">
     <!-- LEFT SIDE -->
     <div class="flex-1 rounded-2xl flex flex-col">
       <!-- Header -->
       <div class="flex justify-between items-center">
-        <h1 class="text-2xl text-white font-semibold">People <!-- <?php echo $user_id ?> --></h1>
+        <h1 class="text-2xl text-white font-semibold">People <?php echo $team_id ?></h1>
         <button id="openModal" class="generate-link bg-indigo-500 hover:bg-indigo-400 transition px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium">
 			<img src="<?php echo base_url('assets/images/icons/invite.png'); ?>" alt="Plus Icon" class="h-4 w-4">
           <span class="text-white">Invite people</span>

@@ -63,12 +63,12 @@ class User_Model extends CI_Model {
 
 	public function get_user_by_id($user_id) {
 		$this->db->where('id', $user_id);
-		$query = $this->db->get('users');
+		$query = $this->db->get('users_vw');
 		$user = $query->row_array();
 		
 		return $user;
 	}
-
+	
 	public function update_user_data($user_id, $update_data) {
         // Set the WHERE condition to target the specific user
         $this->db->where('id', $user_id);
