@@ -90,17 +90,18 @@ class User_Model extends CI_Model {
             // Example: $this->db->table('user_logs')->where('user_id', $userId)->delete();
             // Example: $this->db->table('user_settings')->where('user_id', $userId)->delete();
             
-            // 2. Delete the user record from the 'users' table
-            $isDeleted = $this->delete($userId);
+			// 2. Delete the user record from the 'users' table
+			$this->db->where('id', $userId);
+			$isDeleted = $this->db->delete('users');
 
-            if ($isDeleted) {
-                $this->db->transCommit();
-                return true;
-            } else {
-                // User ID not found
-                $this->db->transRollback();
-                return false;
-            }
+			if ($isDeleted && $this->db->affected_rows() > 0) {
+				$this->db->transCommit();
+				return true;
+			} else {
+				// User ID not found
+				$this->db->transRollback();
+				return false;
+			}
 
         } catch (\Exception $e) {
             $this->db->transRollback();

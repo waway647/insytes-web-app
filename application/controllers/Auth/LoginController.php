@@ -79,6 +79,6 @@ class LoginController extends CI_Controller {
 	{
 		// Destroy the session and redirect to login page
 		$this->session->sess_destroy();
-		$this->show_login();
+		$this->load->view('auth/login');
 	}
 }
