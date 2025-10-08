@@ -23,4 +23,9 @@ class NewUser_Model extends CI_Model {
         $this->db->where('id', $user_id);
         return $this->db->update('users', $data);
     }
+
+    public function getUserById($id){
+        $query = $this->db->get_where('users', array('id' => $id));
+        return $query->row();
+    }
 }
