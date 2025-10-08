@@ -16,4 +16,18 @@ class People_Model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function getTeamById($team_id){
+      $this->db->select('team_name');
+      $this->db->from('teams');
+      $this->db->where('id', $team_id);
+      $query = $this->db->get();
+      return $query->row_array();
+    }
+
+    public function getTotalMembers($team_id){
+      $this->db->from('users');
+      $this->db->where('team_id', $team_id);
+      return $this->db->count_all_results();
+    }
 }

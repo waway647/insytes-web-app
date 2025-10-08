@@ -29,4 +29,27 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         })
         .catch(error => console.error("Error fetching team members:", error));
+
+        fetch(`http://localhost/github/insytes-web-app/index.php/Team/PeopleController/getTeamName?team_id=${TEAM_ID}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.team_name) {
+            document.querySelectorAll(".team-name").forEach(el => el.textContent = data.team_name);
+            } else {
+            console.error("No team name found:", data);
+            }
+        })
+        .catch(error => console.error("Error fetching team name:", error));
+
+        fetch(`http://localhost/github/insytes-web-app/index.php/Team/PeopleController/getTotalTeamMembers?team_id=${TEAM_ID}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.total_members) {
+                document.querySelector(".team-member-count").textContent = data.total_members;
+            } else {
+            console.error("No team name found:", data);
+            }
+        })
+        .catch(error => console.error("Error fetching team name:", error));
+
 });

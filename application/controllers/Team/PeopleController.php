@@ -28,4 +28,35 @@ class PeopleController extends CI_Controller {
 		echo json_encode($members);
 	}
 
+	public function getTeamName() {
+		$team_id = $this->input->get('team_id'); // e.g. 1 from users.team_id
+    
+		if (!$team_id) {
+			echo json_encode(['error' => 'No team ID provided']);
+			return;
+		}
+
+		$team = $this->People_Model->getTeamById($team_id);
+
+		if ($team) {
+			echo json_encode($team);
+		} else {
+			echo json_encode(['error' => 'Team not found']);
+		}
+	}
+
+	public function getTotalTeamMembers(){
+		$team_id = $this->input->get('team_id');
+
+		if (!$team_id) {
+			echo json_encode(['error' => 'No team ID provided']);
+			return;
+		}
+
+		$totalMembers = $this->People_Model->getTotalMembers($team_id);
+
+		echo json_encode(['total_members' => $totalMembers]);
+	}
+
+
 }

@@ -3,7 +3,7 @@
     // Access session values
     $role = $this->session->userdata('role');
    	$team_id = $this->session->userdata('team_id');
-	$user_id = $this->session->userdata('user_id');
+	  $user_id = $this->session->userdata('user_id');
 ?>
  
  <div class="blur-bg flex flex-col lg:flex-row w-full h-full gap-6">
@@ -11,7 +11,7 @@
     <div class="flex-1 rounded-2xl flex flex-col">
       <!-- Header -->
       <div class="flex justify-between items-center">
-        <h1 class="text-2xl text-white font-semibold">People <?php echo $user_id ?></h1>
+        <h1 class="text-2xl text-white font-semibold">People <!-- <?php echo $user_id ?> --></h1>
         <button id="openModal" class="generate-link bg-indigo-500 hover:bg-indigo-400 transition px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium">
 			<img src="<?php echo base_url('assets/images/icons/invite.png'); ?>" alt="Plus Icon" class="h-4 w-4">
           <span class="text-white">Invite people</span>
@@ -32,7 +32,7 @@
 					<div class="p-2 bg-indigo-500 rounded-full">	
 						<img src="<?php echo base_url('assets/images/icons/invite.png'); ?>" alt="Invite Icon" class="w-6 h-6">
 					</div>
-				<h2 class="text-white font-semibold text-lg">Invite people to <span class="font-bold">San Beda</span></h2>
+				<h2 class="text-white font-semibold text-lg">Invite people to <span class="font-bold team-name"></span></h2>
 				</div>
 
 				<!-- Body -->
@@ -57,7 +57,7 @@
       </div>
 
       <!-- People list -->
-      <p class="text-gray-400 text-sm mb-5">All people in this team (5)</p>
+      <p class="text-gray-400 text-sm mb-5">All people in this team (<span class="team-member-count"></span>)</p>
 
       <div class="custom-scroll flex-1 overflow-y-auto bg-transparent">
         <div class="divide-y divide-[#2A2A2A] people-list">
@@ -77,7 +77,7 @@
   </div>
   <script>
   		const TEAM_ID = <?php echo json_encode($this->session->userdata('team_id')); ?>;
-		const USER_ID = <?php echo json_encode($this->session->userdata('user_id')); ?>;
+		  const USER_ID = <?php echo json_encode($this->session->userdata('user_id')); ?>;
   </script>
   <script src="<?php echo base_url('assets/js/modalHandler.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/inviteLinkHandler.js'); ?>"></script>
