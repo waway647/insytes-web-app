@@ -396,6 +396,9 @@
   .h-\[300px\] {
     height: 300px;
   }
+  .h-auto {
+    height: auto;
+  }
   .h-full {
     height: 100%;
   }
@@ -687,6 +690,9 @@
   }
   .bg-\[\#181818\] {
     background-color: #181818;
+  }
+  .bg-\[\#a50101\] {
+    background-color: #a50101;
   }
   .bg-\[gray-900\] {
     background-color: gray-900;
