@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-6">
 	<div class="flex flex-col gap-2">
-		<h3 class="text-[#B6BABD] text-xl font-bold">Login</h3>
-		<p class="text-[#B6BABD]">Manage your passwords</p>
+		<h3 class="text-white font-medium">Login</h3>
+		<p class="block text-xs font-medium text-[#B6BABD]">Manage your passwords</p>
 	</div>
 
 	<div>
