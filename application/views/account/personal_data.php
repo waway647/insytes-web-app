@@ -349,12 +349,7 @@
 
     <!-- Affiliated Team & Role Section -->
     <div class="flex flex-col gap-6 border-t border-[#2A2A2A] pt-10 pb-6">
-        <div class="flex items-end gap-2">
-            <label for="affiliated_team" class="block text-xs font-medium text-[#B6BABD]">Affiliated Team:</label>
-            <p class="text-white font-medium" x-text="user.team_name"></p>
-        </div>
-
-        <div class="flex items-end gap-2">
+        <div class="flex items-center gap-2">
             <label for="user_role" class="block text-xs font-medium text-[#B6BABD]">Role:</label>
             <!-- REMOVED hardcoded default value 'Coach' to avoid confusion -->
             <p class="text-white font-medium" x-text="user.role"></p> 

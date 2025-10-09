@@ -185,7 +185,7 @@
                     </div>
                 </a>
 
-                <div x-show="open" x-collapse.duration.300ms class="flex flex-col gap-1 mt-2 pl-8">
+                <div x-show="open" x-collapse.duration.300ms class="flex flex-col gap-1 mt-2">
                     <a href="<?php echo site_url('account/accountmaincontroller/index'); ?>" class="group py-2.5 px-11 rounded-md hover:bg-gray-800">
                         <div class="nav-item flex items-center gap-3">
                             <img src="" alt="">
