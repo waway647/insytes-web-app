@@ -37,13 +37,13 @@ error_reporting(E_ALL ^ E_DEPRECATED);
             <form id="invite-link-form" action="http://localhost/github/insytes-web-app/index.php/User/NewUserController/process_invite_link" method="POST" class="space-y-6">
                 <!-- Input -->
                 <div>
-                <label for="invite" class="block text-sm font-medium text-gray-300 mb-2">Invite link</label>
-                <input id="invite" type="text" placeholder="Input team link"
+                <label for="invite_link" class="block text-sm font-medium text-gray-300 mb-2">Invite link</label>
+                <input id="invite_link" name="invite_link" placeholder="Input team link"
                     class="w-full px-4 py-2 rounded-md bg-neutral-800 text-gray-200 placeholder-gray-500 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 mb-2">
                 </div>
                 
                 <!-- Button -->
-                <button type="button" onclick="window.location.href='<?php echo site_url('/User/NewUserController/userPlayer_join_team'); ?>'"
+                <button type="submit"
                 class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">
                 Join Team
                 </button>

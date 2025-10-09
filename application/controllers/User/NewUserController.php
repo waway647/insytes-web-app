@@ -9,6 +9,9 @@ class NewUserController extends CI_Controller {
         $this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('UserModel/NewUser_Model');
+		$this->load->database();
+		$this->load->library('form_validation');
+		$this->load->helper('string');
     }
 
 	public function newUser()
@@ -40,30 +43,51 @@ class NewUserController extends CI_Controller {
 		$this->load->view('user/user_player_step1');
 	}
 
-	/* public function process_invite_link()
-	{
-		$invite_link = $this->input->post('invite');
+	public function process_invite_link()
+    {
+        $invite_link = $this->input->post('invite_link');
 
-		// Basic validation
-		if (empty($invite_link)) {
-			$this->session->set_flashdata('error', 'Invite link cannot be empty.');
-			redirect('Admin/UserController/userCoach_step1');
-			return;
-		}
+        // Validate input
+        if (empty($invite_link)) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Invite link is required.'
+            ]);
+            return;
+        }
 
-		// Process the invite link (e.g., check if it's valid, extract team info, etc.)
-		// This is a placeholder for actual invite link processing logic.
-		$is_valid_link = $this->NewUser_Model->validate_invite_link($invite_link);
+        // Extract invite_code from the link
+        // Expected format: http://localhost/github/insytes-web-app/index.php/team/join/{invite_code}
+        $base_url = base_url('team/join/');
+        if (strpos($invite_link, $base_url) !== 0) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Invalid invite link format.'
+            ]);
+            return;
+        }
 
-		if ($is_valid_link) {
-			// If valid, redirect to the next step or dashboard
-			redirect('Team/TeamController/index');
-		} else {
-			// If invalid, show an error message
-			$this->session->set_flashdata('error', 'Invalid invite link. Please try again.');
-			redirect('Admin/UserController/userCoach_step1');
-		}
-	} */
+        // Extract the invite_code
+        $invite_code = substr($invite_link, strlen($base_url));
+
+        // Basic validation of invite_code (alphanumeric, 16 characters)
+        if (!preg_match('/^[a-zA-Z0-9]{16}$/', $invite_code)) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Invalid invite code.'
+            ]);
+            return;
+        }
+
+        // Redirect to the join method
+        /* echo json_encode([
+            'success' => true,
+            'message' => 'Valid invite link. Redirecting...',
+            'redirect_url' => site_url('team/join/' . $invite_code)
+        ]); */
+
+		redirect('Team/InvitationController/join/' . $invite_code);
+    }
 
 	public function userCoach_create_team()
 	{
@@ -86,6 +110,8 @@ class NewUserController extends CI_Controller {
 			$attachment_path = 'assets/team_logos/' . $uploaded_data['file_name'];
 		}
 
+		$invite_code = random_string('alnum', 16); // Generate a random alphanumeric string of length 16
+
 		// Basic validation (you can expand this as needed)
 		$team_data = array(
 			'team_name' => $team_name,
@@ -95,23 +121,35 @@ class NewUserController extends CI_Controller {
 			'secondary_color' => $secondary_color,
 			'team_logo' => $attachment_path ?? null,
 			'created_by' => $created_by,
-			'created_at' => $created_at
+			'created_at' => $created_at,
+			'invite_code' => $invite_code
 		);
 
-		$created = $this->NewUser_Model->create_team($team_data);
+		$team_id = $this->NewUser_Model->create_team($team_data);
 
-		if ($created) {
-			$this->NewUser_Model->setUserRoleAndTeamById($created_by, $created, $role);
+		if ($team_id) {
+			$this->NewUser_Model->setUserRoleAndTeamById($created_by, $team_id, $role);
 
 			$user = $this->NewUser_Model->getUserById($created_by);
 
 			if($user){
-				$this->session->set_userdata('user_id', $user->id);
-				$this->session->set_userdata('email', $user->email);
-				$this->session->set_userdata('role', $user->role);
-				$this->session->set_userdata('team_id', $user->team_id);
+				$this->session->set_userdata([
+					'user_id' => $user->id,
+					'role' => $user->role,
+					'team_id' => $user->team_id,
+					'team_name' => $user->team_name,
+				]);
 
-				$this->load->view('user/team_created_success'); 
+				$data['user'] = [
+					'team_name' => $user->team_name,
+					'role' => $user->role,
+					'team_logo' => $user->team_logo,
+					'user_id' => $user->id,
+					'team_id' => $user->team_id
+				];
+
+				$this->load->view('user/team_created_success', $data); // Pass $data to the view
+				return;
 			}
 		}else {
 			$this->session->set_flashdata('error', 'Failed to create team. Please try again.');
@@ -125,7 +163,6 @@ class NewUserController extends CI_Controller {
 		$this->load->view('user/user_player_join_team');
 	}
 
-	
 	public function setUserRole() {
 		$role = $this->input->post('role');
 		if ($role) {

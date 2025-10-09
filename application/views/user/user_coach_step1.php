@@ -34,18 +34,27 @@ error_reporting(E_ALL ^ E_DEPRECATED);
       <form id="invite-link-form" action="http://localhost/github/insytes-web-app/index.php/User/NewUserController/process_invite_link" method="POST" class="space-y-6">
         <!-- Input -->
         <div>
-          <label for="invite" class="block text-sm font-medium text-gray-300 mb-1">Invite link</label>
-          <input id="invite" type="text" placeholder="Input team link"
+          <label for="invite_link" class="block text-sm font-medium text-gray-300 mb-1">Invite link</label>
+          <input id="invite_link" name="invite_link" placeholder="Input team link"
             class="w-full px-4 py-2 rounded-md bg-neutral-800 text-gray-200 placeholder-gray-500 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
         </div>
+        <!-- <label for="invite_link" class="block text-sm font-medium text-gray-300 mb-1">Invite link</label>
+        <div class="flex items-center bg-[#111111] rounded-lg overflow-hidden border border-[#2A2A2A]">
+          <input type="text" id="invite_link" name="invite_link" value="Input team link"
+            class="w-full bg-transparent text-gray-300 text-sm px-4 py-2 outline-none">
+          <button type="submit" class="bg-indigo-500 hover:bg-indigo-400 text-white text-sm px-4 py-2 font-medium">
+            Join
+          </button>
+        </div> -->
         <p id="login-feedback" class="text-xs text-center hidden p-2 rounded-md"></p>
           <!-- OR text -->
+      </form>
+
         <div class="flex items-center my-4">
           <div class="flex-grow h-px bg-neutral-700"></div>
           <span class="px-3 text-gray-500 text-sm">or</span>
           <div class="flex-grow h-px bg-neutral-700"></div>
         </div>
-      </form>
 
         <!-- Button -->
         <div class="mt-4">
@@ -56,6 +65,5 @@ error_reporting(E_ALL ^ E_DEPRECATED);
         </div>
     </div>
   </div>
-
 </body>
 </html>

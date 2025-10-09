@@ -25,7 +25,7 @@ class NewUser_Model extends CI_Model {
     }
 
     public function getUserById($id){
-        $query = $this->db->get_where('users', array('id' => $id));
+        $query = $this->db->get_where('users_vw', array('id' => $id));
         return $query->row();
     }
 }

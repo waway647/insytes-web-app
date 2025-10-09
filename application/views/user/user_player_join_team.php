@@ -24,7 +24,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
         <div>
             <!-- Title -->
             <h1 class="text-center text-2xl font-semibold text-white mb-2">
-                <span>You are now part of FC Barcelona!</span>
+                You are now part of <span class="font-semibold"><?php echo $user['team_name']; ?></span>!
             </h1>
             <p class="text-center text-gray-400 text-sm mb-6">
                 Good luck on your football journey!

@@ -20,14 +20,17 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 
   <!-- Centered Card -->
   <div class="flex-grow flex items-center justify-center">
-    <div class="bg-[#1D1D1D] rounded-2xl shadow-xl p-8 w-full max-w-md h-[300px] flex-col flex justify-center">
+
+    <!-- Show image of the team logo here -->
+
+    <div class="bg-[#1D1D1D] rounded-2xl shadow-xl p-8 w-full max-w-lg h-[300px] flex-col flex justify-center">
         <div>
             <!-- Title -->
             <h1 class="text-center text-2xl font-semibold text-white mb-2">
-                You created a team successfully!
+                You successfully created <span class="font-semibold"><?php echo $user['team_name']; ?></span> team!
             </h1>
             <p class="text-center text-gray-400 text-sm mb-6">
-                Good luck on your coaching journey!
+                Good luck on your coaching journey! 
             </p>
         </div>
 

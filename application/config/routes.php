@@ -57,3 +57,4 @@ $route['translate_uri_dashes'] = FALSE;
 /* GOOGLE ROUTES */
 $route['google'] = 'auth/googlecontroller/index';  // Google login page
 $route['google/callback'] = 'auth/googlecontroller/callback';  // Google login callback
+$route['team/join/(:any)'] = 'Team/InvitationController/join/$1';
