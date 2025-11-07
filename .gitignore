@@ -29,3 +29,8 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 google-secret.txt
 
 application/libraries/Google.php
+
+assets/videos/
+
+writable_data/
+

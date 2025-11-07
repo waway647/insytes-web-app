@@ -1,0 +1,7 @@
+/* Selected state */
+  button.selected {
+    background-color: rgb(3, 7, 18); /* Tailwind bg-gray-950 */
+  }
+  button.selected:hover {
+    background-color: rgb(3, 7, 18); /* Keep same on hover */
+  }
