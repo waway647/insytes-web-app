@@ -58,3 +58,14 @@ $route['translate_uri_dashes'] = FALSE;
 $route['google'] = 'auth/googlecontroller/index';  // Google login page
 $route['google/callback'] = 'auth/googlecontroller/callback';  // Google login callback
 $route['team/join/(:any)'] = 'Team/InvitationController/join/$1';
+
+$route['tagging'] = 'studio/taggingcontroller/index';
+$route['tagging/get_config'] = 'studio/taggingcontroller/get_config';
+$route['tagging/save_positions'] = 'studio/taggingcontroller/save_positions';
+$route['tagging/save_event'] = 'studio/taggingcontroller/save_event';
+$route['tagging/undo_event'] = 'studio/taggingcontroller/undo_event';
+$route['tagging/get_events'] = 'studio/taggingcontroller/get_events';
+
+// Mock API for dropdown testing
+$route['mock/(:any)'] = 'match/mockapi/index/$1';
+$route['mock/(:any)/(:num)'] = 'match/mockapi/index/$1/$2';
