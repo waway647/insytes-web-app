@@ -1,0 +1,147 @@
+{
+  "San Beda": {
+    "team_name": "San Beda",
+    "possession": {
+      "your_possession_time_seconds": 1476.0,
+      "attacking_third_possession_seconds": 159.0,
+      "attacking_third_possession_pct_of_team": 10.77,
+      "possession_pct": 52.027
+    },
+    "distribution": {
+      "passes": 272,
+      "successful_passes": 227,
+      "intercepted_passes": 23,
+      "unsuccessful_passes": 22,
+      "short_passes": 215,
+      "long_passes": 27,
+      "crosses": 7,
+      "through_passes": 23,
+      "header_passes": 0,
+      "forward_passes": 169,
+      "lateral_passes": 26,
+      "back_passes": 77,
+      "passing_accuracy_pct": 83.46
+    },
+    "attack": {
+      "goals": 4,
+      "shots": 18,
+      "shots_on_target": 7,
+      "shots_off_target": 6,
+      "blocked_shots": 5,
+      "header_shots": 0,
+      "right_foot_shots": 11,
+      "left_foot_shots": 6,
+      "shots_inside_box": 7,
+      "shots_outside_box": 11,
+      "shot_accuracy_pct": 38.89,
+      "goal_conversion_pct": 22.22,
+      "shot_accuracy_excl_blocked_pct": 53.85,
+      "key_passes": 3
+    },
+    "defense": {
+      "tackles": 7,
+      "successful_tackles": 5,
+      "tackles_success_rate_pct": 71.43,
+      "clearances": 5,
+      "interceptions": 3,
+      "recoveries": 19,
+      "recoveries_attacking_third": 1,
+      "recoveries_attacking_third_pct": 5.26,
+      "blocks": 2
+    },
+    "general": {
+      "duels": 31,
+      "duels_won": 16,
+      "duels_success_rate_pct": 51.61,
+      "aerial_duels": 8,
+      "ground_duels": 15,
+      "offsides": 3,
+      "corner_awarded": 5
+    },
+    "discipline": {
+      "fouls_conceded": 15,
+      "yellow_cards": 1,
+      "red_cards": 0
+    },
+    "match_rating_attack": 2.15,
+    "match_rating_defense": 3.38,
+    "match_rating_distribution": 5.59,
+    "match_rating_general": 3.7,
+    "match_rating_discipline": 9.37,
+    "match_rating": 4.18,
+    "outcome_score": 0.5
+  },
+  "2 Worlds FC": {
+    "team_name": "2 Worlds FC",
+    "possession": {
+      "your_possession_time_seconds": 1361.0,
+      "attacking_third_possession_seconds": 164.0,
+      "attacking_third_possession_pct_of_team": 12.05,
+      "possession_pct": 47.973
+    },
+    "distribution": {
+      "passes": 206,
+      "successful_passes": 147,
+      "intercepted_passes": 35,
+      "unsuccessful_passes": 24,
+      "short_passes": 133,
+      "long_passes": 38,
+      "crosses": 9,
+      "through_passes": 23,
+      "header_passes": 0,
+      "forward_passes": 144,
+      "lateral_passes": 20,
+      "back_passes": 42,
+      "passing_accuracy_pct": 71.36
+    },
+    "attack": {
+      "goals": 4,
+      "shots": 17,
+      "shots_on_target": 9,
+      "shots_off_target": 6,
+      "blocked_shots": 2,
+      "header_shots": 2,
+      "right_foot_shots": 13,
+      "left_foot_shots": 2,
+      "shots_inside_box": 6,
+      "shots_outside_box": 11,
+      "shot_accuracy_pct": 52.94,
+      "goal_conversion_pct": 23.53,
+      "shot_accuracy_excl_blocked_pct": 60.0,
+      "key_passes": 2
+    },
+    "defense": {
+      "tackles": 5,
+      "successful_tackles": 5,
+      "tackles_success_rate_pct": 100.0,
+      "clearances": 6,
+      "interceptions": 2,
+      "recoveries": 8,
+      "recoveries_attacking_third": 1,
+      "recoveries_attacking_third_pct": 12.5,
+      "blocks": 5
+    },
+    "general": {
+      "duels": 16,
+      "duels_won": 10,
+      "duels_success_rate_pct": 62.5,
+      "aerial_duels": 7,
+      "ground_duels": 4,
+      "offsides": 3,
+      "corner_awarded": 5
+    },
+    "discipline": {
+      "fouls_conceded": 13,
+      "yellow_cards": 2,
+      "red_cards": 0
+    },
+    "match_rating_attack": 2.69,
+    "match_rating_defense": 4.38,
+    "match_rating_distribution": 4.54,
+    "match_rating_general": 3.86,
+    "match_rating_discipline": 9.42,
+    "match_rating": 4.39,
+    "outcome_score": 0.5
+  },
+  "match_duration_seconds": 346500.0
+}
