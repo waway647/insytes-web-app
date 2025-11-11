@@ -1,6 +1,6 @@
-<!-- Add Competition Modal -->
+<!-- Add Venue Modal -->
 <div 
-    id="add-new-competition-modal"
+    id="add-new-venue-modal"
     data-modal 
     role="document" 
     class="flex flex-col w-100 py-5 bg-[#131313] rounded-lg"
@@ -47,7 +47,7 @@
         }
     }"
 >
-    <form @submit.prevent="submitForm" action="<?php echo site_url('match/modalInsertsController/create_competition'); ?>" method="POST">
+    <form @submit.prevent="submitForm" action="<?php echo site_url('match/modalInsertsController/create_venue'); ?>" method="POST">
         <div class="px-5 py-3">
             <template x-if="successMessage">
                 <p x-text="successMessage" class="text-sm text-green-500"></p>
@@ -56,16 +56,16 @@
                 <p x-text="errorMessage" class="text-sm text-red-500"></p>
             </template>
         </div>
-    
+
         <!-- Header -->
         <h3 class="flex w-full justify-center items-center py-5 border-b border-b-[#2A2A2A] text-white text-lg font-medium">
-            Add New Competition
+            Add New Venue
         </h3>
 
         <!-- Fields -->
         <div class="flex flex-col w-full justify-center items-center gap-10 py-5 border-b border-b-[#2A2A2A]">
             <div class="flex flex-col w-full gap-1 items-center">
-                <p class="text-xs text-[#B6BABD]">Competition Name</p>
+                <p class="text-xs text-[#B6BABD]">Venue Name</p>
                 <input 
                     type="text" 
                     name="name" 
@@ -74,16 +74,12 @@
             </div>
 
             <div class="flex flex-col w-full gap-1 items-center">
-                <p class="text-xs text-[#B6BABD]">Competition Type</p>
-                <select 
-                    name="type"
-                    class="w-40 h-9 px-3 py-1.5 rounded-md border border-[#2A2A2A] text-white bg-[#131313] focus:border-white focus:outline-none cursor-pointer"
+                <p class="text-xs text-[#B6BABD]">City</p>
+                <input 
+                    type="text"
+                    name="city" 
+                    class="date-input w-40 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] text-white focus:border-white"
                 >
-                    <option value="" disabled selected></option>
-                    <option value="league">League</option>
-                    <option value="cup">Cup</option>
-                    <option value="friendly">Friendly</option>
-                </select>
             </div>
         </div>
 
@@ -97,7 +93,7 @@
             </button>
 
             <button 
-                id="save-add-competition-btn" 
+                id="save-add-venue-btn" 
                 type="submit"
                 :disabled="isSaving"
                 class="flex justify-center items-center w-full text-white bg-[#6366F1] rounded-lg cursor-pointer hover:bg-indigo-400 transition px-4 py-2">

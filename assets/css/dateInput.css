@@ -1,0 +1,38 @@
+.date-input::-webkit-calendar-picker-indicator {
+    filter: invert(62%) sepia(6%) saturate(125%) hue-rotate(162deg) brightness(95%) contrast(90%);
+    cursor: pointer;
+  }
+
+input[type="color"] {
+  border: 1px solid #2a2a2a;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none; 
+}
+
+/* animate player icons and team circles so visual changes are simultaneous */
+.player-jersey {
+  transition: left 260ms ease, top 260ms ease;
+  /* ensure transform-layer acceleration in some browsers */
+  will-change: left, top;
+}
+
+.team-circle {
+  transition: transform 260ms ease, opacity 180ms ease;
+  will-change: transform, opacity;
+}
+
+/* small visual "swap" effect for circles while switching */
+.team-circle.swapping {
+  transform: scale(0.92);
+  opacity: 0.95;
+}

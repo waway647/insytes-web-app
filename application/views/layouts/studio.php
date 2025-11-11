@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url(); ?>assets/css/tailwind_output.css?v=<?php echo time(); ?>" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/scrollBar.css?v=<?php echo time(); ?>" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/btn_select.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/dateInput.css?v=<?php echo time(); ?>" rel="stylesheet">
     
 </head>
 <body class="m-0 p-0 h-full w-full flex flex-col">

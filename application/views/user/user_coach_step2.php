@@ -73,19 +73,6 @@ error_reporting(E_ALL ^ E_DEPRECATED);
           </label>
         </div>
 
-
-        <div>
-          <label for="primary_color" class="block text-sm font-medium text-gray-300">Primary Team Color</label>
-          <input id="primary_color" type="color" name="primary_color" required
-          class="w-full p-0.5 h-10 cursor-pointer rounded-md bg-transparent focus:outline-none" style="border: none;">
-        </div>
-
-        <div>
-          <label for="secondary_color" class="block text-sm font-medium text-gray-300">Secondary Team Color</label>
-          <input id="secondary_color" type="color" name="secondary_color" required
-          class="w-full p-0.5 h-10 cursor-pointer rounded-md bg-transparent focus:outline-none" style="border: none;">
-        </div>
-
         <!-- Button -->
         <div>
           <button type="submit"

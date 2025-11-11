@@ -14,8 +14,6 @@
                 // Assuming $teamData is available in your view for the initial load
                 echo isset($teamData['team_logo']) ? base_url('assets/team_logos/' . $teamData['team_logo']) : 'logo.png'; 
             ?>',
-            primary_color: '#4f46e5',
-            secondary_color: '#6366f1',
             team_link: '#',
             created_by: '...',
             role: '...' 
@@ -60,8 +58,6 @@
             this.tempCountry = this.team.country;
             this.tempCity = this.team.city;
             this.tempTeamLogo = this.team.team_logo;
-            this.tempPrimaryColor = this.team.primary_color;
-            this.tempSecondaryColor = this.team.secondary_color;
             this.tempTeamLink = this.team.team_link;
             this.tempCreatedBy = this.team.created_by;
 
@@ -155,8 +151,6 @@
             formData.append('team_name', this.tempTeamName);
             formData.append('country', this.tempCountry);
             formData.append('city', this.tempCity);
-            formData.append('primary_color', this.tempPrimaryColor);
-            formData.append('secondary_color', this.tempSecondaryColor);
             formData.append('team_link', this.tempTeamLink);
             
             // Check if a new file was selected
@@ -239,7 +233,7 @@
                 if (result.success) { 
                     this.successMessage = result.message || 'Team successfully deleted. Redirecting...'; 
                     this.isDeletingTeam = false;
-                    this.team = { team_name: 'DELETED', country: '', city: '', team_logo: '', primary_color: '', secondary_color: '', team_link: '', created_by: '', role: '' };
+                    this.team = { team_name: 'DELETED', country: '', city: '', team_logo: '', team_link: '', created_by: '', role: '' };
                 } else {
                     this.deleteError = result.message || 'Unknown deletion error.';
                 }
@@ -459,18 +453,6 @@
                                 <div>
                                     <label for="city" class="block text-sm font-medium text-[#B6BABD]">City</label>
                                     <input type="text" x-model="tempCity" id="city" class="mt-1 block w-full rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 p-2">
-                                </div>
-                                
-                                <div>
-                                    <label for="primary_color" class="block text-sm font-medium text-[#B6BABD]">Primary Color</label>
-                                    <input type="color" x-model="tempPrimaryColor" id="primary_color" class="mt-1 block w-full h-10 rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 p-1">
-                                    <p class="text-xs text-[#B6BABD] mt-1" x-text="tempPrimaryColor"></p>
-                                </div>
-
-                                <div>
-                                    <label for="secondary_color" class="block text-sm font-medium text-[#B6BABD]">Secondary Color</label>
-                                    <input type="color" x-model="tempSecondaryColor" id="secondary_color" class="mt-1 block w-full h-10 rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 p-1">
-                                    <p class="text-xs text-[#B6BABD] mt-1" x-text="tempSecondaryColor"></p>
                                 </div>
 
                                 <div>

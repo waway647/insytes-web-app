@@ -1,3 +1,5 @@
+<script src="<?php echo base_url('assets/js/modalManager.js') . '?v=' . time(); ?>"></script>
+
 <!-- Add New Season Modal -->
 <div 
     id="add-new-season-modal" 
@@ -7,16 +9,89 @@
     x-data="{
         startYear: '',
         showEndDate: false,
+        isSaving: false,             // ✨ NEW: State for button loading/disabling
+        successMessage: '',          // ✨ NEW: State for success feedback
+        errorMessage: '',            // ✨ NEW: State for error feedback
+
+        // ... existing computed properties (seasonPreview, minStartDate, etc.) ...
+        
         get seasonPreview() {
             const year = parseInt(this.startYear);
             if (!isNaN(year) && year >= 2000 && year <= 2050) {
                 return `${year}/${year + 1}`;
             }
             return '';
+        },
+
+        get minStartDate() {
+            const year = parseInt(this.startYear);
+            return (!isNaN(year) && year >= 2000) ? `${year}-01-01` : '';
+        },
+
+        get maxStartDate() {
+            const year = parseInt(this.startYear);
+            return (!isNaN(year) && year >= 2000) ? `${year}-12-31` : '';
+        },
+        
+        get minEndDate() {
+            const year = parseInt(this.startYear);
+            return (!isNaN(year) && year <= 2050) ? `${year + 1}-01-01` : '';
+        },
+
+        get maxEndDate() {
+            const year = parseInt(this.startYear);
+            return (!isNaN(year) && year <= 2050) ? `${year + 1}-12-31` : '';
+        },
+        
+        // ✨ NEW: Fetch API Submission Function
+        async submitForm(event) {
+            this.isSaving = true;
+            this.successMessage = '';
+            this.errorMessage = '';
+
+            try {
+                const form = event.target;
+                const formData = new FormData(form);
+                
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    this.successMessage = data.message;
+                    // Optional: Reset the form fields and close the modal after a short delay
+                    setTimeout(() => {
+                        // This assumes you have a way to close the modal (e.g., a global Alpine property or function)
+                        ModalManager.closeModal();
+                    }, 500);
+
+                } else {
+                    // Handle server-side validation/error messages from the JSON
+                    this.errorMessage = data.message || 'An unknown error occurred during saving.';
+                }
+            } catch (e) {
+                // Handle network errors (e.g., server unreachable)
+                this.errorMessage = 'Could not connect to the server. Please check your connection.';
+                console.error('Fetch Error:', e);
+            } finally {
+                this.isSaving = false;
+            }
         }
     }"
 >
-    <form action="" method="POST">
+    <form @submit.prevent="submitForm" action="<?php echo site_url('match/modalInsertsController/create_season'); ?>" method="POST">
+        <div class="px-5 py-3">
+            <template x-if="successMessage">
+                <p x-text="successMessage" class="text-sm text-green-500"></p>
+            </template>
+            <template x-if="errorMessage">
+                <p x-text="errorMessage" class="text-sm text-red-500"></p>
+            </template>
+        </div>
+        
         <!-- Header -->
         <h3 class="flex w-full justify-center items-center py-5 border-b border-b-[#2A2A2A] text-white text-lg font-medium">
             Add New Season
@@ -55,6 +130,8 @@
                 <input 
                     type="date" 
                     name="start_date" 
+                    :min="minStartDate"
+                    :max="maxStartDate"
                     class="date-input w-40 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] text-white focus:border-white"
                 >
             </div>
@@ -64,6 +141,8 @@
                     id="is-end-date-true-checkbox" 
                     type="checkbox"
                     x-model="showEndDate"
+                    name="end_date_known"
+                    value="true"
                 >
                 <span class="text-[#B6BABD]">End Date is known</span>
             </div>
@@ -78,6 +157,8 @@
                 <input 
                     type="date" 
                     name="end_date" 
+                    :min="minEndDate"
+                    :max="maxEndDate"
                     class="date-input w-40 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] text-white focus:border-white"
                 >
             </div>
@@ -86,7 +167,7 @@
         <!-- Active Season -->
         <div class="flex flex-col w-full justify-center items-center py-5 border-b border-b-[#2A2A2A]">
             <div class="flex gap-2">
-                <input id="is-active-season-checkbox" type="checkbox" name="">
+                <input id="is-active-season-checkbox" type="checkbox" name="is_active" value="true">
                 <span class="text-[#B6BABD]">Set as Active Season</span>
             </div>
         </div>
@@ -103,8 +184,10 @@
             <button 
                 id="save-add-season-btn" 
                 type="submit"
+                :disabled="isSaving"
                 class="flex justify-center items-center w-full text-white bg-[#6366F1] rounded-lg cursor-pointer hover:bg-indigo-400 transition px-4 py-2">
-                Save & Add
+                <span x-show="!isSaving">Save & Add</span>
+                <span x-show="isSaving">Saving...</span>
             </button>
         </div>
     </form>
@@ -112,11 +195,3 @@
 
 <!-- AlpineJS -->
 <script src="//unpkg.com/alpinejs" defer></script>
-
-<!-- Date Icon Color -->
-<style>
-  .date-input::-webkit-calendar-picker-indicator {
-    filter: invert(62%) sepia(6%) saturate(125%) hue-rotate(162deg) brightness(95%) contrast(90%);
-    cursor: pointer;
-  }
-</style>

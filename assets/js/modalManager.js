@@ -133,13 +133,16 @@ const ModalManager = (() => {
         }
       });
 
-      // if fetched html contains a root with data-modal attribute, mark it hosted
+      // after inserting html into dialog, and after you find hostedRoot:
       const hostedRoot = dialog.querySelector('[data-modal]');
       if (hostedRoot) {
         hostedRoot.setAttribute('data-modal-hosted', 'true');
+
+        // --- NEW: forward team info (if present) so Alpine can pick it up in x-init ---
+        if (opts.teamId !== undefined) hostedRoot.dataset.teamId = String(opts.teamId);
+        if (opts.teamName !== undefined) hostedRoot.dataset.teamName = String(opts.teamName);
       } else {
-        // if no [data-modal], wrap content with an inner container so closing logic can find a root
-        // (we already are inside .mm-dialog)
+        // existing fallback behavior...
       }
 
       // set data attributes from opts on the dialog

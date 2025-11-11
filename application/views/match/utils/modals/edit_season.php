@@ -1,4 +1,6 @@
-<!-- Edit Season Modal -->
+<script src="<?php echo base_url('assets/js/modalManager.js') . '?v=' . time(); ?>"></script>
+
+<!-- Edit New Season Modal -->
 <div 
     id="edit-season-modal" 
     data-modal 
@@ -6,24 +8,70 @@
     class="flex flex-col w-100 py-5 bg-[#131313] rounded-lg"
     x-data="{
         startYear: '',
+        startDate: '',
+        endDate: '',
         showEndDate: false,
+        isActive: false,
+        isSaving: false,
+        successMessage: '',
+        errorMessage: '',
+
         get seasonPreview() {
             const year = parseInt(this.startYear);
             if (!isNaN(year) && year >= 2000 && year <= 2050) {
                 return `${year}/${year + 1}`;
             }
             return '';
+        },
+
+        get minStartDate() { return `${this.startYear}-01-01`; },
+        get maxStartDate() { return `${this.startYear}-12-31`; },
+        get minEndDate() { return `${parseInt(this.startYear) + 1}-01-01`; },
+        get maxEndDate() { return `${parseInt(this.startYear) + 1}-12-31`; },
+
+        async submitForm(event) {
+            this.isSaving = true;
+            this.successMessage = '';
+            this.errorMessage = '';
+
+            try {
+                const formData = new FormData(event.target);
+                const res = await fetch(event.target.action, { method: 'POST', body: formData });
+                const data = await res.json();
+
+                if (data.success) {
+                    this.successMessage = data.message;
+                    setTimeout(() => this.closeModal(), 500);
+                } else {
+                    this.errorMessage = data.message || 'Unknown error';
+                }
+            } catch (e) {
+                this.errorMessage = 'Network error';
+            } finally {
+                this.isSaving = false;
+            }
         }
     }"
 >
-    <form action="" method="POST">
+    <form @submit.prevent="submitForm" action="<?php echo site_url('match/modalInsertsController/update_season'); ?>" method="POST">
+        <div class="px-5 py-3">
+            <template x-if="successMessage">
+                <p x-text="successMessage" class="text-sm text-green-500"></p>
+            </template>
+            <template x-if="errorMessage">
+                <p x-text="errorMessage" class="text-sm text-red-500"></p>
+            </template>
+        </div>
+        
         <!-- Header -->
         <h3 class="flex w-full justify-center items-center py-5 border-b border-b-[#2A2A2A] text-white text-lg font-medium">
-            Add New Season
+            Edit Season
         </h3>
 
         <!-- Start Year + Preview -->
         <div class="flex w-full justify-between py-5 px-5 border-b border-b-[#2A2A2A]">
+            <input type="hidden" name="id">    
+
             <div class="flex flex-col w-full gap-1 items-center">
                 <p class="text-xs text-[#B6BABD]">Start Year</p>
                 <input 
@@ -55,6 +103,8 @@
                 <input 
                     type="date" 
                     name="start_date" 
+                    :min="minStartDate"
+                    :max="maxStartDate"
                     class="date-input w-40 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] text-white focus:border-white"
                 >
             </div>
@@ -64,6 +114,8 @@
                     id="is-end-date-true-checkbox" 
                     type="checkbox"
                     x-model="showEndDate"
+                    name="end_date_known"
+                    value="true"
                 >
                 <span class="text-[#B6BABD]">End Date is known</span>
             </div>
@@ -78,6 +130,8 @@
                 <input 
                     type="date" 
                     name="end_date" 
+                    :min="minEndDate"
+                    :max="maxEndDate"
                     class="date-input w-40 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] text-white focus:border-white"
                 >
             </div>
@@ -86,7 +140,13 @@
         <!-- Active Season -->
         <div class="flex flex-col w-full justify-center items-center py-5 border-b border-b-[#2A2A2A]">
             <div class="flex gap-2">
-                <input id="is-active-season-checkbox" type="checkbox" name="">
+                <input 
+                    id="is-active-season-checkbox" 
+                    type="checkbox" 
+                    name="is_active" 
+                    value="true"
+                    x-model="isActive"
+                    >
                 <span class="text-[#B6BABD]">Set as Active Season</span>
             </div>
         </div>
@@ -101,10 +161,12 @@
             </button>
 
             <button 
-                id="save-add-season-btn" 
+                id="save-edit-season-btn" 
                 type="submit"
+                :disabled="isSaving"
                 class="flex justify-center items-center w-full text-white bg-[#6366F1] rounded-lg cursor-pointer hover:bg-indigo-400 transition px-4 py-2">
-                Save & Add
+                <span x-show="!isSaving">Save Changes</span>
+                <span x-show="isSaving">Saving...</span>
             </button>
         </div>
     </form>
@@ -112,11 +174,3 @@
 
 <!-- AlpineJS -->
 <script src="//unpkg.com/alpinejs" defer></script>
-
-<!-- Date Icon Color -->
-<style>
-  .date-input::-webkit-calendar-picker-indicator {
-    filter: invert(62%) sepia(6%) saturate(125%) hue-rotate(162deg) brightness(95%) contrast(90%);
-    cursor: pointer;
-  }
-</style>

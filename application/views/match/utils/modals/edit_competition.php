@@ -1,6 +1,6 @@
-<!-- Add Competition Modal -->
+<!-- Edit Competition Modal -->
 <div 
-    id="add-new-competition-modal"
+    id="edit-competition-modal"
     data-modal 
     role="document" 
     class="flex flex-col w-100 py-5 bg-[#131313] rounded-lg"
@@ -47,7 +47,7 @@
         }
     }"
 >
-    <form @submit.prevent="submitForm" action="<?php echo site_url('match/modalInsertsController/create_competition'); ?>" method="POST">
+    <form @submit.prevent="submitForm" action="<?php echo site_url('match/modalInsertsController/update_competition'); ?>" method="POST">
         <div class="px-5 py-3">
             <template x-if="successMessage">
                 <p x-text="successMessage" class="text-sm text-green-500"></p>
@@ -59,11 +59,13 @@
     
         <!-- Header -->
         <h3 class="flex w-full justify-center items-center py-5 border-b border-b-[#2A2A2A] text-white text-lg font-medium">
-            Add New Competition
+            Edit Competition
         </h3>
 
         <!-- Fields -->
         <div class="flex flex-col w-full justify-center items-center gap-10 py-5 border-b border-b-[#2A2A2A]">
+            <input type="hidden" name="id">
+
             <div class="flex flex-col w-full gap-1 items-center">
                 <p class="text-xs text-[#B6BABD]">Competition Name</p>
                 <input 
@@ -97,11 +99,11 @@
             </button>
 
             <button 
-                id="save-add-competition-btn" 
+                id="save-edit-competition-btn" 
                 type="submit"
                 :disabled="isSaving"
                 class="flex justify-center items-center w-full text-white bg-[#6366F1] rounded-lg cursor-pointer hover:bg-indigo-400 transition px-4 py-2">
-                <span x-show="!isSaving">Save & Add</span>
+                <span x-show="!isSaving">Save Changes</span>
                 <span x-show="isSaving">Saving...</span>
             </button>
         </div>
