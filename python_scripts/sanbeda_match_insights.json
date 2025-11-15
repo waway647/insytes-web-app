@@ -1,0 +1,21 @@
+{
+    "team": "San Beda",
+    "timestamp": "2025-11-15 16:17:52",
+    "predicted_scores": {
+        "san_beda_attack": null,
+        "san_beda_defense": null,
+        "san_beda_discipline": null,
+        "san_beda_distribution": null,
+        "san_beda_general": null,
+        "san_beda_overall": null,
+        "overall": 0.0
+    },
+    "interpretation": {
+        "attack": "No prediction available",
+        "defense": "No prediction available",
+        "distribution": "No prediction available",
+        "discipline": "No prediction available",
+        "general": "No prediction available",
+        "overall": "Needs significant improvement"
+    }
+}

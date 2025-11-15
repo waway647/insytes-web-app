@@ -1,0 +1,74 @@
+{
+    "team": "San Beda",
+    "trained_at": "2025-11-15T07:54:56.751053+00:00",
+    "total_matches": 3,
+    "total_samples": 46,
+    "models": {
+        "attacker": {
+            "R2": 0.9993739943739395,
+            "MAE": 0.27553838393267455,
+            "model_path": "python_scripts/models_players\\sanbeda_role_attacker.pkl",
+            "pos_R2": {
+                "LW": 0.999014811078454,
+                "RW": 0.9999555376541838,
+                "ST": 0.999136983115896
+            },
+            "role_weights": {
+                "attack": 0.6,
+                "distribution": 0.25,
+                "discipline": 0.15
+            },
+            "trained_samples": 17,
+            "fallback_used": false
+        },
+        "midfielder": {
+            "R2": 0.9994974568993369,
+            "MAE": 0.11459276835123777,
+            "model_path": "python_scripts/models_players\\sanbeda_role_midfielder.pkl",
+            "pos_R2": {
+                "CAM": 0.9999040597606011,
+                "CDM": 0.9964631902492456
+            },
+            "role_weights": {
+                "attack": 0.3,
+                "defense": 0.3,
+                "distribution": 0.25,
+                "discipline": 0.15
+            },
+            "trained_samples": 12,
+            "fallback_used": false
+        },
+        "defender": {
+            "R2": 0.999813637243393,
+            "MAE": 0.16096537344796324,
+            "model_path": "python_scripts/models_players\\sanbeda_role_defender.pkl",
+            "pos_R2": {
+                "CB": 0.99991111133447,
+                "LWB": 0.9994757626241916,
+                "RWB": 0.9998424524344826
+            },
+            "role_weights": {
+                "defense": 0.5,
+                "distribution": 0.3,
+                "discipline": 0.2
+            },
+            "trained_samples": 14,
+            "fallback_used": false
+        },
+        "goalkeeper": {
+            "R2": -0.09528176513711531,
+            "MAE": 0.07694513967955312,
+            "model_path": "python_scripts/models_players\\sanbeda_role_goalkeeper_understat.pkl",
+            "pos_R2": {
+                "GK": -0.09528176513711531
+            },
+            "role_weights": {
+                "defense": 0.6,
+                "distribution": 0.3,
+                "discipline": 0.1
+            },
+            "trained_samples": 98,
+            "fallback_used": false
+        }
+    }
+}

@@ -1,875 +1,340 @@
-# python_scripts/regression_model.py
+#!/usr/bin/env python3
+"""
+regression_model.py
+
+Advanced simulation + aggregation + training.
+
+Automatically tracks synthetic matches via 'is_synthetic' column.
+"""
+
 import json
-import pandas as pd
 import os
 import pickle
-import numpy as np
 from datetime import datetime, timezone
+import numpy as np
+import pandas as pd
 
-# ML libs
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
-# Try to import XGBoost; fallback to linear regression if missing
+# Optional XGBoost
 try:
     from xgboost import XGBRegressor
     XGBOOST_AVAILABLE = True
 except Exception:
     XGBOOST_AVAILABLE = False
 
-# Try to import shap for explainability (optional)
-try:
-    import shap
-    SHAP_AVAILABLE = True
-except Exception:
-    SHAP_AVAILABLE = False
-
-# ---------- CONFIG ----------
-INPUT_JSON = "python_scripts/sanbeda_derived_metrics.json"
-TEAM_NAME = "San Beda"
-OUTPUT_TRAIN_PATH = "data/sanbeda_training_data.csv"
+# ---------------- CONFIG ----------------
+DATA_PATH = "python_scripts/sanbeda_team_derived_metrics.json"
 OUTPUT_MODEL_DIR = "python_scripts/models"
-OUTPUT_MODEL_PREFIX = "sanbeda"  # models saved as sanbeda_general.pkl, etc.
-OUTPUT_RESULTS_JSON = "python_scripts/model_results.json"
-INSIGHTS_PATH = "python_scripts/performance_insights.json"
-SHAP_SUMMARY_PATH = "python_scripts/shap_summary.json"
+OUTPUT_TRAIN_DATA = "data/sanbeda_team_training_data.csv"
+OUTPUT_RESULTS = "python_scripts/team_model_results.json"
 
-USE_XGBOOST = True and XGBOOST_AVAILABLE  # set False to force LinearRegression
-MIN_REAL_MATCHES_FOR_NO_SIM = 5  # if real matches >= this, DO NOT simulate
+TEAM_NAME = "San Beda"
 
-RANDOM_SEED = 42
-np.random.seed(RANDOM_SEED)
+# Simulation controls
+MIN_REAL_MATCHES = 5
+SIMULATED_MATCHES_TO_ADD = 50
+SIM_VARIATION_SCALE = 0.20
 
+# Training controls
+TEST_SIZE = 0.2
+CROSS_VALIDATE = True
+CV_FOLDS = 4
+MIN_TRAIN_FOR_SPLIT = 6
 
-# ---------- HELPERS ----------
-def flatten_dict(d, parent_key="", sep="__"):
-    """Flatten nested dict to single level with separator"""
-    items = []
-    for k, v in d.items():
-        new_key = f"{parent_key}{sep}{k}" if parent_key else k
-        if isinstance(v, dict):
-            items.extend(flatten_dict(v, new_key, sep=sep).items())
+os.makedirs(OUTPUT_MODEL_DIR, exist_ok=True)
+os.makedirs(os.path.dirname(OUTPUT_TRAIN_DATA), exist_ok=True)
+
+# ---------------- HELPERS ----------------
+def safe_float(x, default=0.0):
+    try:
+        return float(x)
+    except Exception:
+        return default
+
+def make_match_id(team, match_number):
+    ts = datetime.now().strftime("%Y%m%d%H%M%S")
+    return f"{team.replace(' ','_')}_{ts}_{match_number}"
+
+def flatten_match_obj(match_obj):
+    r = {}
+    for cat, sub in match_obj.items():
+        if isinstance(sub, dict):
+            for k, v in sub.items():
+                r[f"{cat}__{k}"] = v
         else:
-            items.append((new_key, v))
-    return dict(items)
+            r[cat] = sub
+    return r
 
-
-def compute_composite_scores(flat_row):
-    """
-    Compute fallback composite scores (general, attack, defense) from flattened row.
-    Returns scores on 0-100 scale.
-    """
-    get = lambda k, default=0.0: float(flat_row.get(k, default) or 0.0)
-
-    # Attack composite: prioritized on finishing & shot quality
-    attack_score = (
-        0.35 * get("attack__goal_conversion_pct") +
-        0.25 * get("attack__shot_accuracy_pct") +
-        0.15 * get("attack__key_passes") +     # numeric count influence
-        0.15 * (get("attack__shots_on_target")) +  # raw shot quality
-        0.10 * get("attack__shots") * 0.01
-    )
-
-    # Defense composite: tackling, recoveries, clearances
-    defense_score = (
-        0.35 * get("defense__tackles_success_rate_pct") +
-        0.25 * (get("defense__recoveries") * 0.5) +  # scale raw counts
-        0.20 * get("defense__recoveries_attacking_third_pct") +
-        0.10 * (get("defense__clearances") * 0.3) +
-        0.10 * (100 - get("discipline__fouls_conceded", 0)) * 0.01  # fewer fouls better
-    )
-
-    # General/balanced composite: possession + passing + duels
-    general_score = (
-        0.35 * get("distribution__passing_accuracy_pct") +
-        0.25 * get("possession__possession_pct") +
-        0.2 * get("general__duels_success_rate_pct") +
-        0.15 * get("distribution__passes") * 0.01 +
-        0.05 * (100 - get("discipline__fouls_conceded", 0)) * 0.01
-    )
-
-    # Clip to 0-100
-    attack_score = float(np.clip(attack_score, 0, 100))
-    defense_score = float(np.clip(defense_score, 0, 100))
-    general_score = float(np.clip(general_score, 0, 100))
-
-    return general_score, attack_score, defense_score
-
-
-# --- NEW: compute category ratings using same formulas as derived-metrics script
-def compute_category_ratings_from_flat(flat):
-    """
-    Given a flattened match dictionary (keys like 'attack__goal_conversion_pct'), compute:
-    - match_rating_attack
-    - match_rating_defense
-    - match_rating_distribution
-    - match_rating_general
-    - match_rating_discipline
-    All returned on 0-10 scale (float).
-    These formulas mirror the ones in your derived metrics script.
-    """
-    get = lambda k, default=0.0: float(flat.get(k, default) or 0.0)
-
-    # Attack rating (scale/weights) -> base 0-100 then divided by 10 => 0-10
-    atk_score = (
-        0.30 * get("attack__goal_conversion_pct") +
-        0.25 * get("attack__shot_accuracy_pct") +
-        0.20 * get("attack__key_passes") +
-        0.15 * get("possession__attacking_third_possession_pct_of_team") +
-        0.10 * get("attack__shots_on_target")
-    )
-    match_rating_attack = float(np.clip(atk_score / 10.0, 0, 10))
-
-    # Defense rating
-    def_score = (
-        0.35 * get("defense__tackles_success_rate_pct") +
-        0.25 * get("defense__interceptions") +
-        0.20 * get("defense__recoveries_attacking_third_pct") +
-        0.10 * get("defense__clearances") -
-        0.10 * (get("discipline__yellow_cards") + get("discipline__red_cards"))
-    )
-    match_rating_defense = float(np.clip(def_score / 10.0, 0, 10))
-
-    # Distribution rating (use successful/intercepted/unsuccessful composition if available)
-    passes = max(get("distribution__passes"), 1.0)
-    success_rate = (get("distribution__successful_passes") / passes) * 100.0 if passes > 0 else get("distribution__passing_accuracy_pct")
-    intercept_rate = (get("distribution__intercepted_passes") / passes) * 100.0 if passes > 0 else 0.0
-    unsuccess_rate = (get("distribution__unsuccessful_passes") / passes) * 100.0 if passes > 0 else (100.0 - success_rate)
-
-    dist_score = (0.7 * success_rate) - (0.2 * intercept_rate) - (0.1 * unsuccess_rate)
-    if get("distribution__passing_accuracy_pct") > 0:
-        dist_score = 0.5 * get("distribution__passing_accuracy_pct") + 0.5 * (dist_score)
-
-    match_rating_distribution = float(np.clip(dist_score / 10.0, 0, 10))
-
-    # General rating
-    gen_score = (
-        0.40 * get("general__duels_success_rate_pct") +
-        0.20 * get("possession__possession_pct") +
-        0.20 * get("general__corner_awarded") -
-        0.10 * (get("discipline__yellow_cards") + get("discipline__red_cards"))
-    )
-    match_rating_general = float(np.clip(gen_score / 10.0, 0, 10))
-
-    # Discipline rating (inverse of fouls/cards)
-    fouls = get("discipline__fouls_conceded")
-    ycards = get("discipline__yellow_cards")
-    rcards = get("discipline__red_cards")
-    disc_penalty = (0.4 * fouls) + (0.8 * ycards) + (1.5 * rcards)
-    match_rating_discipline = float(np.clip(10.0 - (disc_penalty / 10.0), 0, 10))
-
-    # Round to 2 decimals to match JSON formatting used elsewhere
-    return {
-        "match_rating_attack": round(match_rating_attack, 2),
-        "match_rating_defense": round(match_rating_defense, 2),
-        "match_rating_distribution": round(match_rating_distribution, 2),
-        "match_rating_general": round(match_rating_general, 2),
-        "match_rating_discipline": round(match_rating_discipline, 2)
+def synthesize_match_from_template(template, scale=SIM_VARIATION_SCALE):
+    out = {}
+    defaults = {
+        "attack__goals": 1.0,
+        "attack__shots": 8.0,
+        "attack__shots_on_target": 3.0,
+        "attack__blocked_shots": 1.0,
+        "attack__shot_creating_actions": 4.0,
+        "distribution__passes": 250.0,
+        "distribution__successful_passes": 200.0,
+        "distribution__passing_accuracy_pct": 80.0,
+        "distribution__key_passes": 3.0,
+        "defense__tackles": 18.0,
+        "defense__successful_tackles": 12.0,
+        "defense__clearances": 15.0,
+        "defense__interceptions": 8.0,
+        "general__duels": 60.0,
+        "general__duels_won": 34.0,
+        "discipline__fouls_conceded": 10.0,
+        "discipline__yellow_cards": 1.0,
+        "discipline__red_cards": 0.0,
+        "possession__your_possession_time_seconds": 1800.0,
+        "possession__possession_pct": 50.0,
+        "attack__shots_off_target": 4.0,
+        "defense__saves": 3.0
     }
 
+    base = {k: float(v) for k,v in template.items() if isinstance(v, (int,float,np.integer,np.floating))}
+    for k,v in defaults.items():
+        if k not in base:
+            base[k] = float(v)
 
-def safe_mkdir(path):
-    os.makedirs(path, exist_ok=True)
-
-
-# ---------- LOAD & PREP ----------
-print(f"📂 Loading match JSON(s) for {TEAM_NAME}...")
-
-if not os.path.exists(INPUT_JSON):
-    raise FileNotFoundError(f"❌ File not found: {INPUT_JSON}")
-
-with open(INPUT_JSON, "r") as f:
-    match_data = json.load(f)
-
-if TEAM_NAME not in match_data:
-    raise KeyError(f"❌ '{TEAM_NAME}' not found in sanbeda_derived_metrics.json keys: {list(match_data.keys())}")
-
-team_metrics = match_data[TEAM_NAME]
-
-# Accept both single-match dict or list of matches
-if isinstance(team_metrics, dict):
-    real_matches = [team_metrics]
-else:
-    # Could be already a list of match dicts
-    real_matches = team_metrics
-
-n_real = len(real_matches)
-print(f"ℹ️ Real matches found for {TEAM_NAME}: {n_real}")
-
-# ---------- SIMULATION (only when too few real matches) ----------
-simulate = False
-if n_real < MIN_REAL_MATCHES_FOR_NO_SIM:
-    simulate = True
-    print(f"⚠️ Only {n_real} real match(es) found. Simulating additional matches for testing and scalability...")
-
-    base = real_matches[0] if n_real > 0 else {}
-    simulated = []
-    needed = max(MIN_REAL_MATCHES_FOR_NO_SIM - n_real, 50)
-
-    for i in range(needed):
-        varied = json.loads(json.dumps(base)) if base else {}
-        for cat, sub in varied.items():
-            if isinstance(sub, dict):
-                for key, val in sub.items():
-                    if isinstance(val, (int, float)):
-                        # More realistic variability depending on feature type
-                        if "shots" in key or "goals" in key:
-                            varied[cat][key] = int(np.random.randint(0, 10))
-                        elif "passes" in key or "duels" in key:
-                            varied[cat][key] = int(np.random.randint(100, 500))
-                        elif "recoveries" in key or "tackles" in key:
-                            varied[cat][key] = int(np.random.randint(20, 100))
-                        elif "possession" in key:
-                            varied[cat][key] = round(np.random.uniform(30, 70), 2)
-                        else:
-                            varied[cat][key] = round(np.random.uniform(0, 50), 2)
-                            
-                    # 🔧 Apply ±20% variability factor to any numeric stat
-                    if isinstance(varied[cat][key], (int, float)):
-                        factor = np.random.uniform(0.8, 1.2)  # ±20% variance
-                        varied[cat][key] = round(varied[cat][key] * factor, 2)
-
-
-        simulated.append(varied)
-
-    # Convert simulated dicts to flat DataFrame-like rows
-    flattened = []
-    for match in simulated:
-        row = {}
-        for cat, sub in match.items():
-            if isinstance(sub, dict):
-                for key, val in sub.items():
-                    row[f"{cat}__{key}"] = val
-        # Create synthetic ratings with partial correlation + noise
-        base_score = np.random.uniform(60, 90)
-
-        # Category weights simulate real contribution patterns
-        attack_factor = np.random.uniform(0.8, 1.2)
-        defense_factor = np.random.uniform(0.7, 1.1)
-        dist_factor = np.random.uniform(0.9, 1.3)
-        discip_factor = np.random.uniform(0.8, 1.2)
-        general_factor = np.random.uniform(0.85, 1.15)
-
-        row.update({
-            "match_rating_attack": round(base_score * attack_factor + np.random.uniform(-15, 15)
-, 2),
-            "match_rating_defense": round(base_score * defense_factor + np.random.uniform(-15, 15)
-, 2),
-            "match_rating_distribution": round(base_score * dist_factor + np.random.uniform(-15, 15)
-, 2),
-            "match_rating_discipline": round(base_score * discip_factor + np.random.uniform(-15, 15)
-, 2),
-            "match_rating_general": round(base_score * general_factor + np.random.uniform(-15, 15)
-, 2)
-        })
-
-        # Overall rating as weighted average with randomness
-        row["match_rating_overall"] = round((
-            row["match_rating_attack"] * 0.25 +
-            row["match_rating_defense"] * 0.25 +
-            row["match_rating_distribution"] * 0.20 +
-            row["match_rating_discipline"] * 0.10 +
-            row["match_rating_general"] * 0.20
-        ) / 1.0 + np.random.uniform(-5, 5), 2)
-
-        flattened.append(row)
-
-    all_matches = real_matches + flattened
-else:
-    all_matches = real_matches
-
-print(f"ℹ️ Total matches used for training: {len(all_matches)} (simulate={simulate})")
-
-# ---------- FLATTEN MATCHES INTO DF ----------
-# Determine starting match_id offset if training CSV already exists (so we append safely)
-start_id = 1
-if os.path.exists(OUTPUT_TRAIN_PATH):
-    try:
-        existing_df = pd.read_csv(OUTPUT_TRAIN_PATH)
-        if "match_id" in existing_df.columns and not existing_df.empty:
-            start_id = int(existing_df["match_id"].max()) + 1
+    for k,b in base.items():
+        if b == 0:
+            val = np.abs(np.random.normal(loc=0.0, scale=1.0))
         else:
-            start_id = len(existing_df) + 1
-        print(f"ℹ️ Existing training CSV found. New match_id will start at {start_id}.")
-    except Exception:
-        # if any problem reading existing file, fallback
-        start_id = 1
-
-# record real match ids (they will be assigned sequentially from start_id)
-real_match_ids = list(range(start_id, start_id + n_real))
-
-flattened = []
-for i, match in enumerate(all_matches, start=start_id):
-    flat = flatten_dict(match)
-    flat["match_id"] = i
-    flat["team_name"] = TEAM_NAME
-
-    # If JSON already contained per-category match_rating_* use them.
-    # If not, compute them from stats (use compute_category_ratings_from_flat).
-    if not any(k in flat for k in ("match_rating_general", "match_rating_attack", "match_rating_defense")):
-        computed = compute_category_ratings_from_flat(flat)
-        # store per-category ratings on 0-10 scale
-        flat.update(computed)
-        # also compute an overall weighted match_rating consistent with derived script's weighted_overall
-        weighted_overall = (
-            0.25 * computed["match_rating_attack"] +
-            0.25 * computed["match_rating_defense"] +
-            0.20 * computed["match_rating_distribution"] +
-            0.15 * computed["match_rating_general"] +
-            0.15 * computed["match_rating_discipline"]
-        )
-        flat["match_rating"] = round(float(np.clip(weighted_overall, 0, 10)), 2)
-    else:
-        # If provided in JSON, ensure match_rating exists (fallback to average)
-        if "match_rating" not in flat:
-            vals = []
-            for k in ("match_rating_attack", "match_rating_defense", "match_rating_general"):
-                if k in flat:
-                    try:
-                        vals.append(float(flat[k]))
-                    except Exception:
-                        pass
-            flat["match_rating"] = round(np.mean(vals) if vals else 0.0, 2)
-
-    # Also compute score_* composites (0-100) used as fallback targets if desired
-    g, a, d = compute_composite_scores(flat)
-    flat["score_general"] = g
-    flat["score_attack"] = a
-    flat["score_defense"] = d
-
-    flattened.append(flat)
-
-df = pd.DataFrame(flattened)
-
-# If existing training CSV exists, append only new rows (by match_id)
-if os.path.exists(OUTPUT_TRAIN_PATH):
-    try:
-        existing_df = pd.read_csv(OUTPUT_TRAIN_PATH)
-        # combine and drop duplicates on match_id and team_name
-        combined = pd.concat([existing_df, df], ignore_index=True, sort=False)
-        combined = combined.drop_duplicates(subset=["match_id", "team_name"], keep="first")
-        df = combined.reset_index(drop=True)
-        print(f"ℹ️ Appended to existing training CSV; total rows now: {len(df)}")
-    except Exception as e:
-        print("⚠️ Failed to append to existing CSV (will overwrite). Error:", str(e))
-        # fallback: keep new df only
-
-# ---------- TARGET SELECTION: use data-driven category ratings if present else fallback to computed scores ----------
-# We will prefer match_rating_general / _attack / _defense (0-10) if present; otherwise use score_* (0-100)
-def choose_target_columns(df):
-    # prefer per-category match_rating columns if present (0-10 scale)
-    if "match_rating_general" in df.columns:
-        tg = "match_rating_general"
-    else:
-        tg = "score_general"
-
-    if "match_rating_attack" in df.columns:
-        ta = "match_rating_attack"
-    else:
-        ta = "score_attack"
-
-    if "match_rating_defense" in df.columns:
-        td = "match_rating_defense"
-    else:
-        td = "score_defense"
-
-    # also support distribution and discipline as targets (new)
-    if "match_rating_distribution" in df.columns:
-        tdistr = "match_rating_distribution"
-    else:
-        tdistr = None  # we will not train distribution separately if no column or compute fallback later
-
-    if "match_rating_discipline" in df.columns:
-        tdisc = "match_rating_discipline"
-    else:
-        tdisc = None
-
-    return tg, ta, td, tdistr, tdisc
-
-target_general_col, target_attack_col, target_defense_col, target_distribution_col, target_discipline_col = choose_target_columns(df)
-print(f"🎯 Targets chosen -> general: {target_general_col}, attack: {target_attack_col}, defense: {target_defense_col}, distribution: {target_distribution_col}, discipline: {target_discipline_col}")
-
-# Ensure the target columns exist (should, but be defensive)
-for col in [target_general_col, target_attack_col, target_defense_col]:
-    if col not in df.columns:
-        # create from computed scores
-        if col.startswith("match_rating") and col.replace("match_rating_", "score_") in df.columns:
-            df[col] = df[col.replace("match_rating_", "score_")]
+            sd = max(abs(b) * scale, 0.5)
+            val = np.random.normal(loc=b, scale=sd)
+        if any(token in k for token in ["goals","shots","passes","tackles","clearances","interceptions","duels","saves","key_passes","yellow_cards","red_cards","fouls_conceded","blocked_shots","shots_on_target","shots_off_target"]):
+            val = max(0,int(round(val)))
         else:
-            df[col] = 0.0
+            if "possession_pct" in k:
+                val = float(np.clip(val, 10.0, 90.0))
+            else:
+                val = float(np.clip(val, 0.0, None))
+        out[k] = val
 
-# If distribution/discipline targets missing, create them from computed category ratings we generated earlier
-if target_distribution_col is None:
-    df["match_rating_distribution"] = df.get("score_general", 0.0) * 0.1  # placeholder if truly missing (rare)
-    target_distribution_col = "match_rating_distribution"
+    if out.get("distribution__passes", None) and out.get("distribution__successful_passes", None) is None:
+        acc = template.get("distribution__passing_accuracy_pct", defaults["distribution__passing_accuracy_pct"])
+        out["distribution__successful_passes"] = int(round(out["distribution__passes"]*(safe_float(acc)/100.0)))
+    if "distribution__passing_accuracy_pct" not in out and out.get("distribution__passes",0)>0:
+        out["distribution__passing_accuracy_pct"] = round(out.get("distribution__successful_passes",0)/max(out.get("distribution__passes",1),1)*100.0,2)
 
-if target_discipline_col is None:
-    # discipline ratings exist from compute_category_ratings_from_flat if not in JSON, so ensure present
-    if "match_rating_discipline" not in df.columns:
-        # approximate discipline from discipline__fouls_conceded / cards
-        def approx_discipline(row):
-            fouls = float(row.get("discipline__fouls_conceded", 0.0) or 0.0)
-            y = float(row.get("discipline__yellow_cards", 0.0) or 0.0)
-            r = float(row.get("discipline__red_cards", 0.0) or 0.0)
-            penalty = (0.4 * fouls) + (0.8 * y) + (1.5 * r)
-            return float(max(0.0, min(10.0, 10.0 - (penalty / 10.0))))
-        df["match_rating_discipline"] = df.apply(approx_discipline, axis=1)
-    target_discipline_col = "match_rating_discipline"
+    atk_score = (out.get("attack__goals",0)*5.0 + out.get("attack__shots_on_target",0)*1.0 + out.get("attack__shot_creating_actions",0)*0.8 + out.get("distribution__key_passes",0)*1.5)
+    atk_score *= 2.2
+    def_score = (out.get("defense__tackles",0)*0.6 + out.get("defense__clearances",0)*0.4 + out.get("defense__interceptions",0)*0.9 + out.get("defense__saves",0)*1.8)
+    def_score *= 1.4
+    dist_score = out.get("distribution__passing_accuracy_pct", 70.0)
+    disc_pen = out.get("discipline__fouls_conceded",0)*0.4 + out.get("discipline__yellow_cards",0)*1.2 + out.get("discipline__red_cards",0)*3.0
+    gen_score = out.get("general__duels_won",0)/max(out.get("general__duels",1),1)*100.0
 
-# ---------- SAVE TRAINING DATA ----------
-safe_mkdir(os.path.dirname(OUTPUT_TRAIN_PATH) or ".")
-df.to_csv(OUTPUT_TRAIN_PATH, index=False)
-print(f"\n✅ Training dataset saved to: {OUTPUT_TRAIN_PATH}")
+    match_rating_attack = np.clip(50 + atk_score/(max(1.0,np.mean(list(base.values())))/3.0)+np.random.normal(0,5),30,95)
+    match_rating_defense = np.clip(50 + def_score/(max(1.0,np.mean(list(base.values())))/4.0)+np.random.normal(0,5),30,95)
+    match_rating_distribution = np.clip(dist_score + np.random.normal(0,4),30,95)
+    match_rating_discipline = np.clip(80-disc_pen + np.random.normal(0,3),20,95)
+    match_rating_general = np.clip(50+gen_score/1.5 + np.random.normal(0,4),30,95)
+    overall = np.clip(0.25*match_rating_attack + 0.25*match_rating_defense + 0.2*match_rating_distribution + 0.1*match_rating_discipline + 0.2*match_rating_general + np.random.normal(0,3),30,95)
 
-# ---------- FEATURE MATRIX ----------
-# Build X from all numeric columns except match identifiers and the category targets (for per-category models)
-exclude = {
-    "match_id", "team_name",
-    target_general_col, target_attack_col, target_defense_col,
-    # exclude raw match_rating_* from features (we're predicting them)
-    "match_rating", "match_rating_general", "match_rating_attack", "match_rating_defense",
-    # exclude composite score columns if they are used as targets
-    "score_general", "score_attack", "score_defense",
-    # leave match_rating_distribution and match_rating_discipline excluded as well (we will predict them separately)
-    "match_rating_distribution", "match_rating_discipline"
-}
-numeric_cols = []
-for c in df.columns:
-    if c in exclude:
-        continue
-    # keep numeric inputs only
-    try:
-        # try coercing to numeric to check if usable
-        pd.to_numeric(df[c], errors='raise')
-        numeric_cols.append(c)
-    except Exception:
-        # non-numeric column (e.g., team_name string) -> skip
-        continue
+    out["match_rating_attack"] = round(float(match_rating_attack),2)
+    out["match_rating_defense"] = round(float(match_rating_defense),2)
+    out["match_rating_distribution"] = round(float(match_rating_distribution),2)
+    out["match_rating_discipline"] = round(float(match_rating_discipline),2)
+    out["match_rating_general"] = round(float(match_rating_general),2)
+    out["match_rating_overall"] = round(float(overall),2)
 
-X = df[numeric_cols].fillna(0.0).astype(float)
-# Target series (per-category)
-y_general = df[target_general_col].astype(float).fillna(0.0)
-y_attack = df[target_attack_col].astype(float).fillna(0.0)
-y_defense = df[target_defense_col].astype(float).fillna(0.0)
-y_distribution = df[target_distribution_col].astype(float).fillna(0.0)
-y_discipline = df[target_discipline_col].astype(float).fillna(0.0)
+    return out
 
-print(f"ℹ️ Features used ({len(X.columns)}): {list(X.columns)[:8]}{'...' if len(X.columns)>8 else ''}")
-
-# ---------- TRAIN FUNCTION ----------
-def train_and_save_model(X, y, target_name, use_xgb=USE_XGBOOST, prefix=OUTPUT_MODEL_PREFIX):
-    safe_mkdir(OUTPUT_MODEL_DIR)
-    model_path = os.path.join(OUTPUT_MODEL_DIR, f"{prefix}_{target_name}.pkl")
-    if use_xgb and XGBOOST_AVAILABLE:
-        model = XGBRegressor(
-            n_estimators=250,
-            learning_rate=0.08,
-            max_depth=5,
-            subsample=0.9,
-            colsample_bytree=0.9,
-            random_state=RANDOM_SEED,
-            verbosity=0
-        )
-        model_name = "XGBoost"
+# ---------------- Synthetic match generator (incremental-safe) ----------------
+def generate_synthetic_matches(df_existing, flattened_real):
+    if df_existing.empty:
+        next_match_number = 1
     else:
-        model = LinearRegression()
-        model_name = "LinearRegression"
+        real_matches_csv = df_existing[df_existing["is_synthetic"]==0]
+        if not real_matches_csv.empty:
+            next_match_number = real_matches_csv["match_number"].max() + 1
+        else:
+            next_match_number = 1
 
-    print(f"🚀 Training {model_name} model for target '{target_name}' (rows={len(X)})...")
-    # handle degenerate case (no features) gracefully
-    if X.shape[1] == 0:
-        print("⚠️ No numeric features found. Skipping training and returning defaults.")
-        return {
-            "model_path": None,
-            "model_name": model_name,
-            "r2": 0.0,
-            "feature_importance_df": pd.DataFrame(columns=["feature", "coefficient"]),
-            "model_obj": None,
-            "preds": np.array([])
-        }
+    latest_real = flattened_real[-1]
+    latest_real_numeric = {k: safe_float(v) for k,v in latest_real.items()}
 
-    model.fit(X, y)
-    preds = model.predict(X)
-    # r2 may be nan if constant; handle
-    try:
-        r2 = float(r2_score(y, preds)) if len(y) > 0 else float("nan")
-    except Exception:
-        r2 = 0.0
+    synthetic_rows = []
+    for _ in range(SIMULATED_MATCHES_TO_ADD):
+        synth = synthesize_match_from_template(latest_real_numeric)
+        synth["added_at"] = datetime.now(timezone.utc).isoformat()
+        synth["team_name"] = TEAM_NAME
+        synth["match_number"] = next_match_number
+        synth["match_id"] = make_match_id(TEAM_NAME,next_match_number)
+        synth["is_synthetic"] = 1
+        synthetic_rows.append(synth)
+        next_match_number += 1
 
-    # Save model
-    if model is not None:
-        with open(model_path, "wb") as f:
-            pickle.dump(model, f)
-        print(f"✅ Model saved to: {model_path} (R2={r2:.4f})")
+    return synthetic_rows
+
+# ---------------- MAIN ----------------
+def main():
+    if not os.path.exists(DATA_PATH):
+        raise SystemExit(f"❌ Input JSON not found at {DATA_PATH}")
+
+    with open(DATA_PATH,"r",encoding="utf-8") as f:
+        raw = json.load(f)
+
+    # Extract real matches
+    if TEAM_NAME in raw and isinstance(raw[TEAM_NAME], dict):
+        match_obj_raw = raw[TEAM_NAME]
+        real_matches = [match_obj_raw]
+    elif "matches" in raw and isinstance(raw["matches"], list):
+        real_matches = []
+        for m in raw["matches"]:
+            if isinstance(m, dict) and TEAM_NAME in m and isinstance(m[TEAM_NAME], dict):
+                real_matches.append(m[TEAM_NAME])
+            elif isinstance(m, dict) and m.get("team_name","").lower()==TEAM_NAME.lower():
+                real_matches.append(m)
+        if not real_matches:
+            real_matches = raw["matches"]
     else:
-        print("⚠️ No model to save.")
+        raise SystemExit("❌ Unexpected JSON structure")
 
-    # Get feature importance or coef
-    if use_xgb and XGBOOST_AVAILABLE and model is not None:
-        importance = getattr(model, "feature_importances_", None)
-        feat_imp = list(zip(X.columns.tolist(), importance.tolist() if importance is not None else [0.0]*X.shape[1]))
+    # Load existing CSV
+    if os.path.exists(OUTPUT_TRAIN_DATA):
+        df_existing = pd.read_csv(OUTPUT_TRAIN_DATA)
+        if "is_synthetic" in df_existing.columns:
+            n_real_csv = len(df_existing[df_existing["is_synthetic"]==0])
+        else:
+            df_existing["is_synthetic"] = 0
+            n_real_csv = len(df_existing)
     else:
-        coef = getattr(model, "coef_", None)
-        feat_imp = list(zip(X.columns.tolist(), coef.tolist() if coef is not None else [0.0]*X.shape[1]))
+        df_existing = pd.DataFrame()
+        n_real_csv = 0
 
-    # Build DataFrame of importances (sort by abs)
-    feat_df = pd.DataFrame(feat_imp, columns=["feature", "coefficient"])
-    feat_df = feat_df.sort_values(by="coefficient", key=lambda s: np.abs(s), ascending=False)
+    n_real_current = 1
+    n_real_total = n_real_csv + n_real_current
 
-    return {
-        "model_path": model_path,
-        "model_name": model_name,
-        "r2": r2,
-        "feature_importance_df": feat_df,
-        "model_obj": model,
-        "preds": preds
+    print(f"📂 Real matches in CSV: {n_real_csv}")
+    print(f"📂 Including current match: {n_real_total}")
+
+    use_simulation = n_real_total < MIN_REAL_MATCHES
+
+    flattened_real = [flatten_match_obj(m) for m in real_matches]
+    appended_rows = []
+
+    # Append new real matches
+    next_match_number = int(df_existing["match_number"].max())+1 if not df_existing.empty else 1
+    for real in flattened_real:
+        row = real.copy()
+        row["added_at"] = datetime.now(timezone.utc).isoformat()
+        row["team_name"] = TEAM_NAME
+        row["match_number"] = next_match_number
+        row["match_id"] = make_match_id(TEAM_NAME,next_match_number)
+        row["is_synthetic"] = 0
+        appended_rows.append(row)
+        next_match_number += 1
+
+    # Generate synthetic matches
+    print(f"⚠️ Generating {SIMULATED_MATCHES_TO_ADD} synthetic matches based on latest real match...")
+    synthetic_rows = generate_synthetic_matches(df_existing, flattened_real)
+    appended_rows.extend(synthetic_rows)
+
+    # Aggregate
+    df_new = pd.DataFrame(appended_rows)
+    if not df_existing.empty:
+        df_all = pd.concat([df_existing, df_new], ignore_index=True, sort=False)
+    else:
+        df_all = df_new
+
+    df_all.to_csv(OUTPUT_TRAIN_DATA,index=False)
+    print(f"💾 Aggregated dataset saved: {OUTPUT_TRAIN_DATA} (total samples: {len(df_all)})")
+
+    # -------------- Prepare features & targets --------------
+    targets_map = {
+        "general": "match_rating_general",
+        "attack": "match_rating_attack",
+        "defense": "match_rating_defense",
+        "distribution": "match_rating_distribution",
+        "discipline": "match_rating_discipline",
+        "overall": "match_rating_overall"
     }
 
-# ---------- TRAIN CATEGORY MODELS ----------
-# create results holder BEFORE training
-results = {"team": TEAM_NAME, "trained_at": datetime.now(timezone.utc).isoformat(), "models": {}}
+    for col in targets_map.values():
+        if col not in df_all.columns:
+            df_all[col] = 0.0
 
-# train attack/defense/general/distribution/discipline using the same feature set X
-general_res = train_and_save_model(X, y_general, "general")
-attack_res = train_and_save_model(X, y_attack, "attack")
-defense_res = train_and_save_model(X, y_defense, "defense")
-distribution_res = train_and_save_model(X, y_distribution, "distribution")
-discipline_res = train_and_save_model(X, y_discipline, "discipline")
+    exclude_cols = set(list(targets_map.values()) + ["match_id","match_number","added_at","team_name","is_synthetic"])
+    features = [c for c in df_all.columns if c not in exclude_cols]
+    X = df_all[features].apply(pd.to_numeric,errors="coerce").fillna(0.0)
+    y_dict = {cat: pd.to_numeric(df_all[col],errors="coerce").fillna(0.0) for cat,col in targets_map.items()}
 
-# Populate results for category models
-results["models"]["general"] = {
-    "model_type": general_res["model_name"],
-    "model_path": general_res["model_path"],
-    "r2": round(general_res["r2"], 4),
-    "top_features": general_res["feature_importance_df"].head(10).to_dict(orient="records")
-}
-results["models"]["attack"] = {
-    "model_type": attack_res["model_name"],
-    "model_path": attack_res["model_path"],
-    "r2": round(attack_res["r2"], 4),
-    "top_features": attack_res["feature_importance_df"].head(10).to_dict(orient="records")
-}
-results["models"]["defense"] = {
-    "model_type": defense_res["model_name"],
-    "model_path": defense_res["model_path"],
-    "r2": round(defense_res["r2"], 4),
-    "top_features": defense_res["feature_importance_df"].head(10).to_dict(orient="records")
-}
-results["models"]["distribution"] = {
-    "model_type": distribution_res["model_name"],
-    "model_path": distribution_res["model_path"],
-    "r2": round(distribution_res["r2"], 4),
-    "top_features": distribution_res["feature_importance_df"].head(10).to_dict(orient="records")
-}
-results["models"]["discipline"] = {
-    "model_type": discipline_res["model_name"],
-    "model_path": discipline_res["model_path"],
-    "r2": round(discipline_res["r2"], 4),
-    "top_features": discipline_res["feature_importance_df"].head(10).to_dict(orient="records")
-}
+    n_samples = len(X)
+    print(f"ℹ️ Features prepared ({len(features)} features). Samples: {n_samples}")
 
-# ---------- BUILD & TRAIN OVERALL MODEL ----------
-# Overall model inputs: the 5 category ratings (ensure columns exist and are numeric)
-cat_cols = [
-    "match_rating_attack",
-    "match_rating_defense",
-    "match_rating_distribution",
-    "match_rating_general",
-    "match_rating_discipline"
-]
-# ensure these columns exist in df (they should, from earlier computation)
-for c in cat_cols:
-    if c not in df.columns:
-        df[c] = 0.0
+    # -------------- Training --------------
+    results = {"team":TEAM_NAME,"timestamp":datetime.now(timezone.utc).isoformat(),"total_samples":n_samples,"simulate_used":True,"models":{}}
 
-X_overall = df[cat_cols].astype(float).fillna(0.0)
-y_overall = df["match_rating"].astype(float).fillna(0.0)  # overall team rating is target
+    for cat,y in y_dict.items():
+        print(f"\n🚀 Preparing model for '{cat}' (N={n_samples})")
+        safe_X = X.copy()
+        safe_y = y.copy()
 
-# Train overall model (saved as prefix_overall.pkl)
-overall_res = train_and_save_model(X_overall, y_overall, "overall", prefix=OUTPUT_MODEL_PREFIX)
+        if XGBOOST_AVAILABLE:
+            model = XGBRegressor(n_estimators=150,learning_rate=0.08,max_depth=5,subsample=0.9,colsample_bytree=0.9,random_state=42,verbosity=0)
+        else:
+            model = LinearRegression()
 
-# Add overall model result entry
-results["models"]["overall"] = {
-    "model_type": overall_res["model_name"],
-    "model_path": overall_res["model_path"],
-    "r2": round(overall_res["r2"], 4),
-    "top_features": overall_res["feature_importance_df"].head(10).to_dict(orient="records")
-}
+        model_path = os.path.join(OUTPUT_MODEL_DIR,f"{TEAM_NAME.replace(' ','_').lower()}_{cat}.pkl")
+        r2_test = None
+        cv_mean = None
 
-# ---------- PREDICTIONS FOR (REAL) MATCHES ----------
-# Build full predictions table aligned with df rows (only if preds present)
-predictions_output = []
-try:
-    # preds arrays correspond to X rows (in same order) for per-category models (they were trained on X)
-    preds_general = general_res.get("preds", np.array([]))
-    preds_attack = attack_res.get("preds", np.array([]))
-    preds_defense = defense_res.get("preds", np.array([]))
-    preds_distribution = distribution_res.get("preds", np.array([]))
-    preds_discipline = discipline_res.get("preds", np.array([]))
-    preds_overall = overall_res.get("preds", np.array([]))
-
-    # assemble preds_all DataFrame - use appropriate columns depending on availability
-    if preds_general.size and preds_attack.size and preds_defense.size and preds_distribution.size and preds_discipline.size and preds_overall.size:
-        preds_all = df[["match_id", "team_name"]].copy().reset_index(drop=True)
-        preds_all["pred_general"] = preds_general
-        preds_all["pred_attack"] = preds_attack
-        preds_all["pred_defense"] = preds_defense
-        preds_all["pred_distribution"] = preds_distribution
-        preds_all["pred_discipline"] = preds_discipline
-        preds_all["pred_overall"] = preds_overall
-
-        # collect predictions only for the real matches you provided (their match_id values)
-        real_preds = preds_all[preds_all["match_id"].isin(real_match_ids)]
-        for _, r in real_preds.iterrows():
-            predictions_output.append({
-                "match_id": int(r["match_id"]),
-                "team_name": r["team_name"],
-                # keep predicted scales as-is (these match the training target scale)
-                "predicted_match_rating_general": float(round(r["pred_general"], 4)),
-                "predicted_match_rating_attack": float(round(r["pred_attack"], 4)),
-                "predicted_match_rating_defense": float(round(r["pred_defense"], 4)),
-                "predicted_match_rating_distribution": float(round(r["pred_distribution"], 4)),
-                "predicted_match_rating_discipline": float(round(r["pred_discipline"], 4)),
-                "predicted_match_rating_overall": float(round(r["pred_overall"], 4))
-            })
-    else:
-        # partial preds may exist; still attempt to build per-model prediction rows individually
-        preds_all = df[["match_id", "team_name"]].copy().reset_index(drop=True)
-        if preds_general.size:
-            preds_all["pred_general"] = preds_general
-        if preds_attack.size:
-            preds_all["pred_attack"] = preds_attack
-        if preds_defense.size:
-            preds_all["pred_defense"] = preds_defense
-        if preds_distribution.size:
-            preds_all["pred_distribution"] = preds_distribution
-        if preds_discipline.size:
-            preds_all["pred_discipline"] = preds_discipline
-        if preds_overall.size:
-            preds_all["pred_overall"] = preds_overall
-
-        real_preds = preds_all[preds_all["match_id"].isin(real_match_ids)]
-        for _, r in real_preds.iterrows():
-            out = {"match_id": int(r["match_id"]), "team_name": r["team_name"]}
-            if "pred_general" in r:
-                out["predicted_match_rating_general"] = float(round(r["pred_general"], 4))
-            if "pred_attack" in r:
-                out["predicted_match_rating_attack"] = float(round(r["pred_attack"], 4))
-            if "pred_defense" in r:
-                out["predicted_match_rating_defense"] = float(round(r["pred_defense"], 4))
-            if "pred_distribution" in r:
-                out["predicted_match_rating_distribution"] = float(round(r["pred_distribution"], 4))
-            if "pred_discipline" in r:
-                out["predicted_match_rating_discipline"] = float(round(r["pred_discipline"], 4))
-            if "pred_overall" in r:
-                out["predicted_match_rating_overall"] = float(round(r["pred_overall"], 4))
-            predictions_output.append(out)
-except Exception as e:
-    print("⚠️ Failed to assemble predictions:", str(e))
-    predictions_output = []
-
-# ---------- SHAP (optional, best-effort) ----------
-shap_summary = {}
-# We'll compute SHAP where sensible: category-general (if XGBoost) and overall (if XGBoost)
-if SHAP_AVAILABLE and XGBOOST_AVAILABLE:
-    try:
-        if general_res.get("model_obj") is not None and getattr(general_res["model_obj"], "__class__", None) is not None:
+        if n_samples >= MIN_TRAIN_FOR_SPLIT:
             try:
-                print("🧾 Computing SHAP for general...")
-                explainer = shap.TreeExplainer(general_res["model_obj"])
-                shap_vals = explainer.shap_values(X)
-                mean_abs = np.mean(np.abs(shap_vals), axis=0)
-                shap_df = pd.DataFrame({"feature": X.columns, "mean_abs_shap": mean_abs})
-                shap_df = shap_df.sort_values(by="mean_abs_shap", ascending=False)
-                shap_summary["general"] = shap_df.head(20).to_dict(orient="records")
-            except Exception as e:
-                print("⚠️ SHAP for general failed:", str(e))
+                X_train,X_test,y_train,y_test = train_test_split(safe_X,safe_y,test_size=TEST_SIZE,random_state=42)
+            except Exception:
+                X_train,X_test,y_train,y_test = safe_X,None,safe_y,None
 
-        if overall_res.get("model_obj") is not None and getattr(overall_res["model_obj"], "__class__", None) is not None:
-            try:
-                print("🧾 Computing SHAP for overall...")
-                explainer_o = shap.TreeExplainer(overall_res["model_obj"])
-                shap_vals_o = explainer_o.shap_values(X_overall)
-                mean_abs_o = np.mean(np.abs(shap_vals_o), axis=0)
-                shap_df_o = pd.DataFrame({"feature": X_overall.columns, "mean_abs_shap": mean_abs_o})
-                shap_summary["overall"] = shap_df_o.sort_values(by="mean_abs_shap", ascending=False).head(20).to_dict(orient="records")
-            except Exception as e:
-                print("⚠️ SHAP for overall failed:", str(e))
+            model.fit(X_train,y_train)
 
-        # Save shap summary if anything computed
-        if shap_summary:
-            with open(SHAP_SUMMARY_PATH, "w") as f:
-                json.dump(shap_summary, f, indent=2)
-            print(f"✅ SHAP summary saved to: {SHAP_SUMMARY_PATH}")
-    except Exception as e:
-        print("⚠️ SHAP analysis failed:", str(e))
-        # don't disable SHAP globally; just skip
-else:
-    if not SHAP_AVAILABLE:
-        print("ℹ️ shap not installed — skipping SHAP explainability.")
-    if not XGBOOST_AVAILABLE:
-        print("ℹ️ XGBoost not available — SHAP TreeExplainer requires tree model.")
+            if X_test is not None and len(X_test)>0:
+                try:
+                    y_pred = model.predict(X_test)
+                    r2_test = float(round(r2_score(y_test,y_pred),4))
+                except Exception:
+                    r2_test = None
+            else:
+                r2_test = None
 
-# ---------- INSIGHTS GENERATION ----------
-def summarize_category(feat_df, category_label, top_n=5):
-    # Convert feature names -> more readable and filter by category prefix
-    feats = feat_df.copy()
-    # Filter only features that start with category_label__ if that category exists; else take top overall
-    filtered = feats[feats["feature"].str.startswith(f"{category_label}__")]
-    if filtered.empty:
-        top = feats.head(top_n)
-    else:
-        top = filtered.head(top_n)
-    # readable list
-    readable = []
-    for _, r in top.iterrows():
-        name = r["feature"].split("__", 1)[1].replace("_", " ")
-        coef = float(r["coefficient"])
-        readable.append({"metric": name, "impact": round(float(coef), 6)})
-    # short summary sentence generation
-    if not readable:
-        summary = f"{category_label.capitalize()} has neutral contribution (no top numeric features found)."
-    else:
-        top_metrics = ", ".join([r["metric"] for r in readable[:3]])
-        summary = f"Top {category_label} contributors: {top_metrics}."
-    return {"summary": summary, "top_metrics": readable}
-
-insights = {"team": TEAM_NAME, "generated_at": datetime.now(timezone.utc).isoformat(), "categories": {}}
-
-# Build per-category feature frames
-gen_feat_df = general_res["feature_importance_df"]
-atk_feat_df = attack_res["feature_importance_df"]
-def_feat_df = defense_res["feature_importance_df"]
-distr_feat_df = distribution_res["feature_importance_df"]
-disc_feat_df = discipline_res["feature_importance_df"]
-
-insights["categories"]["general"] = summarize_category(gen_feat_df, "distribution")
-insights["categories"]["attack"] = summarize_category(atk_feat_df, "attack")
-insights["categories"]["defense"] = summarize_category(def_feat_df, "defense")
-insights["categories"]["distribution"] = summarize_category(distr_feat_df, "distribution")
-insights["categories"]["discipline"] = summarize_category(disc_feat_df, "discipline")
-
-# Overall model: compute category contribution percentages.
-# Prefer SHAP if available (and shap+XGBoost computed for overall), otherwise fallback to normalized absolute coefficients.
-def compute_category_contributions_from_coeffs(overall_model_res, feature_names):
-    contributions = []
-    feat_df = overall_model_res["feature_importance_df"]
-    if feat_df.empty:
-        return []
-    feat_df = feat_df[feat_df["feature"].isin(feature_names)].copy()
-    if feat_df.empty:
-        return []
-    feat_df["abs_imp"] = feat_df["coefficient"].abs()
-    s = float(feat_df["abs_imp"].sum())
-    if s == 0:
-        # equal shares if all zero
-        for _, r in feat_df.iterrows():
-            contributions.append({"category": r["feature"], "contribution_pct": round(100.0 / len(feat_df), 2)})
-    else:
-        for _, r in feat_df.iterrows():
-            contributions.append({"category": r["feature"], "contribution_pct": round((r["abs_imp"] / s) * 100.0, 2)})
-    contributions = sorted(contributions, key=lambda x: x["contribution_pct"], reverse=True)
-    return contributions
-
-def compute_category_contributions_from_shap(shap_summary_overall):
-    """
-    shap_summary_overall: DataFrame-like iterable with columns 'feature' and 'mean_abs_shap'
-    """
-    contributions = []
-    try:
-        df_sh = pd.DataFrame(shap_summary_overall)
-        if df_sh.empty:
-            return []
-        df_sh["abs_shap"] = df_sh["mean_abs_shap"].astype(float).abs()
-        s = float(df_sh["abs_shap"].sum())
-        if s == 0:
-            for _, r in df_sh.iterrows():
-                contributions.append({"category": r["feature"], "contribution_pct": round(100.0 / len(df_sh), 2)})
+            if CROSS_VALIDATE and len(X_train)>=CV_FOLDS:
+                try:
+                    cv_scores = cross_val_score(model,X_train,y_train,cv=CV_FOLDS,scoring="r2")
+                    cv_mean = float(round(np.nanmean(cv_scores),4))
+                except Exception:
+                    cv_mean = None
         else:
-            for _, r in df_sh.iterrows():
-                contributions.append({"category": r["feature"], "contribution_pct": round((r["abs_shap"] / s) * 100.0, 2)})
-        contributions = sorted(contributions, key=lambda x: x["contribution_pct"], reverse=True)
-        return contributions
-    except Exception:
-        return []
+            model.fit(safe_X,safe_y)
+            r2_test = None
+            if CROSS_VALIDATE and n_samples>=CV_FOLDS:
+                try:
+                    cv_scores = cross_val_score(model,safe_X,safe_y,cv=CV_FOLDS,scoring="r2")
+                    cv_mean = float(round(np.nanmean(cv_scores),4))
+                except Exception:
+                    cv_mean = None
 
-# compute category contributions (overall model uses cat_cols)
-overall_contribs = []
-# Try SHAP first if available and computed above
-if SHAP_AVAILABLE and XGBOOST_AVAILABLE and shap_summary.get("overall"):
-    try:
-        overall_contribs = compute_category_contributions_from_shap(shap_summary["overall"])
-        # map feature names to our category names (if necessary)
-        # shap returns features as the same names as X_overall.columns (match_rating_*)
-    except Exception:
-        overall_contribs = compute_category_contributions_from_coeffs(overall_res, cat_cols)
-else:
-    overall_contribs = compute_category_contributions_from_coeffs(overall_res, cat_cols)
+        try:
+            with open(model_path,"wb") as fh:
+                pickle.dump(model,fh)
+            saved = True
+        except Exception as e:
+            print(f"⚠️ Failed to save model for {cat}: {e}")
+            saved = False
 
-# also include within-category top metrics in the overall insights:
-insights["overall"] = {
-    "overall_model": {
-        "model_type": overall_res["model_name"],
-        "r2": round(overall_res["r2"], 4),
-        "category_contributions": overall_contribs,
-        "note": "Category contributions are derived from SHAP mean-absolute values when available (XGBoost+shap). Otherwise normalized absolute coefficients are used."
-    },
-    "by_category": {
-        "general": insights["categories"]["general"]["top_metrics"],
-        "attack": insights["categories"]["attack"]["top_metrics"],
-        "defense": insights["categories"]["defense"]["top_metrics"],
-        "distribution": insights["categories"]["distribution"]["top_metrics"],
-        "discipline": insights["categories"]["discipline"]["top_metrics"]
-    }
-}
+        results["models"][cat] = {"model_path":model_path if saved else None,"R2_test":r2_test,"R2_CV_mean":cv_mean,"trained_on_samples":n_samples}
+        print(f"✅ Model '{cat}' trained. R2_test={r2_test}, R2_CV_mean={cv_mean}, saved={saved}")
 
-# Add top features to the overall summary (keeps backward compatibility)
-insights["overall_summary"] = {
-    "general_top": insights["categories"]["general"]["top_metrics"],
-    "attack_top": insights["categories"]["attack"]["top_metrics"],
-    "defense_top": insights["categories"]["defense"]["top_metrics"],
-    "distribution_top": insights["categories"]["distribution"]["top_metrics"],
-    "discipline_top": insights["categories"]["discipline"]["top_metrics"],
-    "note": "Interpret coefficients / importances with caution for small datasets; retrain with more matches for robust models."
-}
+    with open(OUTPUT_RESULTS,"w",encoding="utf-8") as f:
+        json.dump(results,f,indent=2)
 
-# Save insights together in one file (as requested)
-with open(INSIGHTS_PATH, "w") as f:
-    json.dump(insights, f, indent=2)
-print(f"✅ Insights saved to: {INSIGHTS_PATH}")
+    print("\n✅ Training complete — results saved to:",OUTPUT_RESULTS)
+    print("Summary:")
+    print(json.dumps(results,indent=2))
 
-# ---------- RESULTS OUTPUT ----------
-# Collate results summary JSON
-results_summary = {
-    "team": TEAM_NAME,
-    "trained_at": datetime.now(timezone.utc).isoformat(),
-    "simulate_used": simulate,
-    "n_real_matches": n_real,
-    "n_used_for_training": len(df),
-    "models": results["models"],
-    "shap_available": SHAP_AVAILABLE,
-    "insights_path": INSIGHTS_PATH,
-    "training_dataset": OUTPUT_TRAIN_PATH,
-    # include the model predictions for the real match(es)
-    "predictions": predictions_output
-}
-
-with open(OUTPUT_RESULTS_JSON, "w") as f:
-    json.dump(results_summary, f, indent=2)
-print(f"✅ Model results saved to: {OUTPUT_RESULTS_JSON}")
-
-# ---------- PRINT SUMMARY ----------
-print("\n=== TRAINING SUMMARY ===")
-print(f"Team: {TEAM_NAME}")
-print(f"Real matches: {n_real} (simulate used: {simulate})")
-print(f"Training rows: {len(df)}")
-print(f"Model (general) R²: {results_summary['models']['general']['r2']}")
-print(f"Model (attack) R²: {results_summary['models']['attack']['r2']}")
-print(f"Model (defense) R²: {results_summary['models']['defense']['r2']}")
-print(f"Model (distribution) R²: {results_summary['models']['distribution']['r2']}")
-print(f"Model (discipline) R²: {results_summary['models']['discipline']['r2']}")
-print(f"Model (overall) R²: {results_summary['models']['overall']['r2']}")
-print("Top features (general):")
-for r in results_summary["models"]["general"]["top_features"][:6]:
-    print(" -", r["feature"], ":", round(r["coefficient"], 6))
-print("\nDone.")
+if __name__=="__main__":
+    main()

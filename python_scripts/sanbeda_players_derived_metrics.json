@@ -1,0 +1,534 @@
+{
+    "San Beda": {
+        "Bel": {
+            "position": "CAM",
+            "possession": {
+                "your_possession_time_seconds": 106.0,
+                "possession_pct": 3.57
+            },
+            "distribution": {
+                "passes": 19.0,
+                "successful_passes": 14.0,
+                "unsuccessful_passes": 5.0,
+                "passing_accuracy_pct": 73.68,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": -4.7,
+                "progressive_passes": 5.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 1.0,
+                "shots_on_target": 0.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 0.0,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 3.0,
+                "duels_won": 1.0,
+                "duel_success_rate_pct": 33.33,
+                "tackles": 0.0,
+                "successful_tackles": 0.0,
+                "tackle_success_rate_pct": 0.0,
+                "interceptions": 0.0,
+                "clearances": 0.0,
+                "recoveries": 0.0,
+                "blocked_shots": 0.0
+            },
+            "discipline": {
+                "fouls_conceded": 0.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 5.0,
+            "match_rating_defense": 2.0,
+            "match_rating_distribution": 47.16,
+            "match_rating_discipline": 100.0,
+            "match_rating_general": 29.0,
+            "match_rating_overall": 36.2
+        },
+        "Diego": {
+            "position": "CB",
+            "possession": {
+                "your_possession_time_seconds": 108.0,
+                "possession_pct": 3.64
+            },
+            "distribution": {
+                "passes": 28.0,
+                "successful_passes": 27.0,
+                "unsuccessful_passes": 1.0,
+                "passing_accuracy_pct": 96.43,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": -4.89,
+                "progressive_passes": 4.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 0.0,
+                "shots_on_target": 0.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 0.0,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 0.0,
+                "duels_won": 0.0,
+                "duel_success_rate_pct": 0.0,
+                "tackles": 0.0,
+                "successful_tackles": 0.0,
+                "tackle_success_rate_pct": 0.0,
+                "interceptions": 0.0,
+                "clearances": 2.0,
+                "recoveries": 0.0,
+                "blocked_shots": 0.0
+            },
+            "discipline": {
+                "fouls_conceded": 0.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 0.0,
+            "match_rating_defense": 24.62,
+            "match_rating_distribution": 54.59,
+            "match_rating_discipline": 100.0,
+            "match_rating_general": 25.39,
+            "match_rating_overall": 44.73
+        },
+        "Edvard Omitade": {
+            "position": "RW",
+            "possession": {
+                "your_possession_time_seconds": 92.0,
+                "possession_pct": 3.1
+            },
+            "distribution": {
+                "passes": 17.0,
+                "successful_passes": 15.0,
+                "unsuccessful_passes": 2.0,
+                "passing_accuracy_pct": 88.24,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": 7.78,
+                "progressive_passes": 3.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 4.0,
+                "shots_on_target": 2.0,
+                "goals": 2.0,
+                "shot_accuracy_pct": 50.0,
+                "goal_conversion_pct": 50.0
+            },
+            "defense": {
+                "duels": 8.0,
+                "duels_won": 3.0,
+                "duel_success_rate_pct": 37.5,
+                "tackles": 0.0,
+                "successful_tackles": 0.0,
+                "tackle_success_rate_pct": 0.0,
+                "interceptions": 0.0,
+                "clearances": 0.0,
+                "recoveries": 2.0,
+                "blocked_shots": 0.0
+            },
+            "discipline": {
+                "fouls_conceded": 1.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 80.0,
+            "match_rating_defense": 12.0,
+            "match_rating_distribution": 48.11,
+            "match_rating_discipline": 94.0,
+            "match_rating_general": 20.08,
+            "match_rating_overall": 68.03
+        },
+        "Harvy Barro": {
+            "position": "CDM",
+            "possession": {
+                "your_possession_time_seconds": 138.0,
+                "possession_pct": 4.65
+            },
+            "distribution": {
+                "passes": 38.0,
+                "successful_passes": 32.0,
+                "unsuccessful_passes": 6.0,
+                "passing_accuracy_pct": 84.21,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": 1.47,
+                "progressive_passes": 11.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 0.0,
+                "shots_on_target": 0.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 0.0,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 1.0,
+                "duels_won": 1.0,
+                "duel_success_rate_pct": 100.0,
+                "tackles": 4.0,
+                "successful_tackles": 2.0,
+                "tackle_success_rate_pct": 50.0,
+                "interceptions": 0.0,
+                "clearances": 0.0,
+                "recoveries": 2.0,
+                "blocked_shots": 1.0
+            },
+            "discipline": {
+                "fouls_conceded": 1.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 0.0,
+            "match_rating_defense": 48.0,
+            "match_rating_distribution": 65.89,
+            "match_rating_discipline": 94.0,
+            "match_rating_general": 51.02,
+            "match_rating_overall": 50.67
+        },
+        "Jaro Libarnes": {
+            "position": "CB",
+            "possession": {
+                "your_possession_time_seconds": 60.0,
+                "possession_pct": 2.02
+            },
+            "distribution": {
+                "passes": 23.0,
+                "successful_passes": 15.0,
+                "unsuccessful_passes": 8.0,
+                "passing_accuracy_pct": 65.22,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": -1.83,
+                "progressive_passes": 6.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 0.0,
+                "shots_on_target": 0.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 0.0,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 1.0,
+                "duels_won": 1.0,
+                "duel_success_rate_pct": 100.0,
+                "tackles": 0.0,
+                "successful_tackles": 0.0,
+                "tackle_success_rate_pct": 0.0,
+                "interceptions": 0.0,
+                "clearances": 2.0,
+                "recoveries": 3.0,
+                "blocked_shots": 0.0
+            },
+            "discipline": {
+                "fouls_conceded": 1.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 0.0,
+            "match_rating_defense": 49.0,
+            "match_rating_distribution": 46.15,
+            "match_rating_discipline": 94.0,
+            "match_rating_general": 28.46,
+            "match_rating_overall": 52.39
+        },
+        "Jul Aningalan": {
+            "position": "CB",
+            "possession": {
+                "your_possession_time_seconds": 221.0,
+                "possession_pct": 7.45
+            },
+            "distribution": {
+                "passes": 34.0,
+                "successful_passes": 33.0,
+                "unsuccessful_passes": 1.0,
+                "passing_accuracy_pct": 97.06,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": -0.65,
+                "progressive_passes": 6.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 0.0,
+                "shots_on_target": 0.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 0.0,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 0.0,
+                "duels_won": 0.0,
+                "duel_success_rate_pct": 0.0,
+                "tackles": 1.0,
+                "successful_tackles": 1.0,
+                "tackle_success_rate_pct": 100.0,
+                "interceptions": 0.0,
+                "clearances": 1.0,
+                "recoveries": 1.0,
+                "blocked_shots": 1.0
+            },
+            "discipline": {
+                "fouls_conceded": 3.0,
+                "yellow_cards": 1.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 0.0,
+            "match_rating_defense": 33.0,
+            "match_rating_distribution": 60.48,
+            "match_rating_discipline": 60.0,
+            "match_rating_general": 43.66,
+            "match_rating_overall": 41.97
+        },
+        "Kirvy Tabelin": {
+            "position": "CAM",
+            "possession": {
+                "your_possession_time_seconds": 196.0,
+                "possession_pct": 6.6
+            },
+            "distribution": {
+                "passes": 36.0,
+                "successful_passes": 27.0,
+                "unsuccessful_passes": 9.0,
+                "passing_accuracy_pct": 75.0,
+                "key_passes": 3.0,
+                "key_pass_rate_pct": 8.33,
+                "avg_pass_distance": 2.93,
+                "progressive_passes": 12.0,
+                "assists": 3.0
+            },
+            "attack": {
+                "shots": 6.0,
+                "shots_on_target": 1.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 16.67,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 2.0,
+                "duels_won": 1.0,
+                "duel_success_rate_pct": 50.0,
+                "tackles": 0.0,
+                "successful_tackles": 0.0,
+                "tackle_success_rate_pct": 0.0,
+                "interceptions": 0.0,
+                "clearances": 0.0,
+                "recoveries": 2.0,
+                "blocked_shots": 0.0
+            },
+            "discipline": {
+                "fouls_conceded": 2.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 35.0,
+            "match_rating_defense": 8.0,
+            "match_rating_distribution": 90.0,
+            "match_rating_discipline": 88.0,
+            "match_rating_general": 56.48,
+            "match_rating_overall": 58.05
+        },
+        "Laurence Fernandez": {
+            "position": "LW",
+            "possession": {
+                "your_possession_time_seconds": 185.0,
+                "possession_pct": 6.23
+            },
+            "distribution": {
+                "passes": 20.0,
+                "successful_passes": 18.0,
+                "unsuccessful_passes": 2.0,
+                "passing_accuracy_pct": 90.0,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": 0.61,
+                "progressive_passes": 5.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 5.0,
+                "shots_on_target": 4.0,
+                "goals": 2.0,
+                "shot_accuracy_pct": 80.0,
+                "goal_conversion_pct": 40.0
+            },
+            "defense": {
+                "duels": 4.0,
+                "duels_won": 3.0,
+                "duel_success_rate_pct": 75.0,
+                "tackles": 0.0,
+                "successful_tackles": 0.0,
+                "tackle_success_rate_pct": 0.0,
+                "interceptions": 0.0,
+                "clearances": 0.0,
+                "recoveries": 4.0,
+                "blocked_shots": 0.0
+            },
+            "discipline": {
+                "fouls_conceded": 1.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 90.0,
+            "match_rating_defense": 18.0,
+            "match_rating_distribution": 54.5,
+            "match_rating_discipline": 94.0,
+            "match_rating_general": 36.44,
+            "match_rating_overall": 74.72
+        },
+        "Pedro Tagara": {
+            "position": "GK",
+            "possession": {
+                "your_possession_time_seconds": 166.0,
+                "possession_pct": 5.59
+            },
+            "distribution": {
+                "passes": 19.0,
+                "successful_passes": 19.0,
+                "unsuccessful_passes": 0.0,
+                "passing_accuracy_pct": 100.0,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": -6.8,
+                "progressive_passes": 1.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 0.0,
+                "shots_on_target": 0.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 0.0,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 0.0,
+                "duels_won": 0.0,
+                "duel_success_rate_pct": 0.0,
+                "tackles": 0.0,
+                "successful_tackles": 0.0,
+                "tackle_success_rate_pct": 0.0,
+                "interceptions": 2.0,
+                "clearances": 0.0,
+                "recoveries": 1.0,
+                "blocked_shots": 0.0,
+                "saves": 6.0,
+                "goals_conceded": 4.0
+            },
+            "discipline": {
+                "fouls_conceded": 0.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 0.0,
+            "match_rating_defense": 80.0,
+            "match_rating_distribution": 47.8,
+            "match_rating_discipline": 100.0,
+            "match_rating_general": 19.45,
+            "match_rating_overall": 70.95
+        },
+        "Pius Encaya": {
+            "position": "ST",
+            "possession": {
+                "your_possession_time_seconds": 116.0,
+                "possession_pct": 3.91
+            },
+            "distribution": {
+                "passes": 12.0,
+                "successful_passes": 9.0,
+                "unsuccessful_passes": 3.0,
+                "passing_accuracy_pct": 75.0,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": -1.62,
+                "progressive_passes": 2.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 2.0,
+                "shots_on_target": 0.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 0.0,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 2.0,
+                "duels_won": 0.0,
+                "duel_success_rate_pct": 0.0,
+                "tackles": 0.0,
+                "successful_tackles": 0.0,
+                "tackle_success_rate_pct": 0.0,
+                "interceptions": 1.0,
+                "clearances": 0.0,
+                "recoveries": 2.0,
+                "blocked_shots": 0.0
+            },
+            "discipline": {
+                "fouls_conceded": 6.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 10.0,
+            "match_rating_defense": 10.0,
+            "match_rating_distribution": 39.35,
+            "match_rating_discipline": 64.0,
+            "match_rating_general": 18.55,
+            "match_rating_overall": 28.14
+        },
+        "Sam Salingay": {
+            "position": "ST",
+            "possession": {
+                "your_possession_time_seconds": 88.0,
+                "possession_pct": 2.96
+            },
+            "distribution": {
+                "passes": 26.0,
+                "successful_passes": 18.0,
+                "unsuccessful_passes": 8.0,
+                "passing_accuracy_pct": 69.23,
+                "key_passes": 0.0,
+                "key_pass_rate_pct": 0.0,
+                "avg_pass_distance": -1.49,
+                "progressive_passes": 5.0,
+                "assists": 0.0
+            },
+            "attack": {
+                "shots": 0.0,
+                "shots_on_target": 0.0,
+                "goals": 0.0,
+                "shot_accuracy_pct": 0.0,
+                "goal_conversion_pct": 0.0
+            },
+            "defense": {
+                "duels": 3.0,
+                "duels_won": 1.0,
+                "duel_success_rate_pct": 33.33,
+                "tackles": 2.0,
+                "successful_tackles": 2.0,
+                "tackle_success_rate_pct": 100.0,
+                "interceptions": 0.0,
+                "clearances": 0.0,
+                "recoveries": 2.0,
+                "blocked_shots": 0.0
+            },
+            "discipline": {
+                "fouls_conceded": 0.0,
+                "yellow_cards": 0.0,
+                "red_cards": 0.0
+            },
+            "match_rating_attack": 0.0,
+            "match_rating_defense": 14.0,
+            "match_rating_distribution": 45.15,
+            "match_rating_discipline": 100.0,
+            "match_rating_general": 27.29,
+            "match_rating_overall": 31.99
+        }
+    }
+}
