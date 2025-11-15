@@ -44,8 +44,6 @@ class TeamController extends CI_Controller {
 			'team_name' => $this->input->post('team_name'),
 			'country' => $this->input->post('country'),
 			'city' => $this->input->post('city'),
-			'primary_color' => $this->input->post('primary_color'),
-			'secondary_color' => $this->input->post('secondary_color'),
 			'team_link' => $this->input->post('team_link'),
 		);
 

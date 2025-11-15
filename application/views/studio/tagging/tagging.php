@@ -1,3 +1,5 @@
+<?php $match_video_exist = $this->session->userdata('tagging_video_url'); ?>
+
 <div class="flex h-full w-full">
     <div class="flex flex-col w-full h-full">
         <!-- Custom Video Player with Custom Controls -->
@@ -45,7 +47,7 @@
           <div class="flex flex-col w-full h-full border-1 border-black">
             <div id="video-player-container" class="flex items-center w-full h-full overflow-hidden border-b-1 border-black">
                 <video id="video-player" class="w-full object-fill transform-origin-top-left">
-                    <source src="<?php echo base_url('assets/videos/SBU_vs_2WORLDS.mp4'); ?>" type="video/mp4">
+                    <source src="<?php echo base_url($match_video_exist); ?>" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -87,18 +89,11 @@
                 <p>Origin X: <span id="origin-x"></span></p>
                 <p>Origin Y: <span id="origin-y"></span></p>
                 <p>Outcome: <span id="outcome"></span></p>
-                <p>Created At: <span id="created-at"></span></p>
             </div>
         </div>
     </div>
 
-    <div class="bg-gray-900">
-        <div class="flex gap-2 mt-4">
-          <button id="setup-mode-btn" class="px-3 py-1 bg-blue-500 text-white rounded">Setup Positions</button>
-          <button id="save-positions-btn" class="px-3 py-1 bg-green-500 text-white rounded hidden">Save Positions</button>
-          <button id="start-tagging-btn" class="px-3 py-1 bg-gray-700 text-white rounded hidden">Start Tagging</button>
-        </div>
-
+    <div class="bg-[#131313]">
         <div class="mt-3 flex gap-2 items-center">
           <div id="info-text" class="px-3 py-1 bg-gray-700 text-white rounded">Mode: Setup</div>
           <button id="cancel-tag-btn" class="px-3 py-1 bg-red-600 text-white rounded hidden">Cancel Tag</button>
@@ -163,7 +158,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col w-[70%] h-full bg-gray-800 items-center">
+    <div class="flex flex-col w-[70%] h-full bg-[#1C1C1C] items-center">
         <div class="flex w-full">
             <button id="substitution-btn" class="ctr-btn w-full py-2 bg-indigo-950 text-white cursor-pointer hover:bg-gray-700">Substitutions</button>
             <button id="half-time-btn" class="ctr-btn w-full py-2 bg-gray-600 cursor-pointer hover:bg-gray-700">End 1st Half</button>
@@ -216,12 +211,13 @@
           </div>
         </div>
 
-        <div id="kick-off-buttons" class="flex w-full mt-4">
+        <div id="kick-off-buttons" class="flex w-full mt-4 hidden">
             <button id="kick-off-home-btn" class="ctr-btn w-full py-2 bg-gray-600 cursor-pointer hover:bg-gray-700">Kickoff</button>
             <button id="kick-off-away-btn" class="ctr-btn w-full py-2 bg-gray-600 cursor-pointer hover:bg-gray-700">Kickoff</button>
         </div>
 
-        <div id="tagging-events-button" class="flex w-full mt-4 h-[60%]">
+        <div id="tagging-events-button" class="flex flex-col w-full h-full justify-between">
+          <div class="mt-4 flex h-[60%]">
             <div class="flex flex-col w-full h-full border-5 border-gray-700">
                 <div class="flex w-full h-[50%] border-b border-gray-700">
                     <div class="flex flex-col w-full h-full border-r border-gray-700">
@@ -310,6 +306,17 @@
                     <button id="tag-throw-in-btn-2" data-event="Throw In" class="ctr-btn w-full h-full py-1 bg-gray-400 border-r border-gray-700 cursor-pointer hover:bg-gray-500">Throw In</button>
                 </div>
             </div>
+          </div> 
+        
+            <div class="flex w-full justify-end p-6 border-t border-[#2a2a2a]">
+              <button 
+                id="submit-form" 
+                type="submit" 
+                class="px-6 py-2 bg-[#6366F1] rounded-md font-semibold text-sm text-white hover:bg-[#5052ec] cursor-pointer"
+              >
+                Finish and Save Tagging Data
+              </button>
+            </div>
         </div>
     </div>
 </div>
@@ -322,17 +329,62 @@
   (original comments preserved)
 */
 
+window.SERVER_MATCH_ID = <?php echo json_encode($match_id ?? null); ?>;
+window.API_GET_MATCH_DATA = <?php echo json_encode(site_url('studio/taggingcontroller/get_match_data')); ?>;
+
+(function resolveAndExposeMatchId() {
+  function fromPath() {
+    try {
+      const parts = location.pathname.split('/').filter(Boolean);
+      // Attempt to locate 'tagging' then 'index' then the next segment
+      const t = parts.indexOf('tagging');
+      if (t >= 0 && parts[t + 1] === 'index' && parts[t + 2]) {
+        return decodeURIComponent(parts[t + 2]);
+      }
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+
+  function fromQuery() {
+    try {
+      return (new URL(location.href)).searchParams.get('match_id');
+    } catch (e) { return null; }
+  }
+
+  const resolved = window.SERVER_MATCH_ID || fromPath() || fromQuery() || sessionStorage.getItem('current_match_id') || null;
+
+  if (!resolved) {
+    // keep previous behavior: window.TAGGING_MATCH_ID will be null and your code will handle it
+    window.TAGGING_MATCH_ID = null;
+    console.warn('[TAGGING] No match_id resolved from server / URL / sessionStorage.');
+    return;
+  }
+
+  // Persist per-tab (avoids multi-tab collisions)
+  sessionStorage.setItem('current_match_id', resolved);
+  window.TAGGING_MATCH_ID = resolved;
+
+  // Ensure address bar has /tagging/index/{match_id} path (won't reload page)
+  try {
+    const parts = location.pathname.split('/').filter(Boolean);
+    const t = parts.indexOf('tagging');
+    const alreadyHasSegment = (t >= 0 && parts[t + 1] === 'index' && parts[t + 2]);
+  } catch (e) {
+    console.debug('Failed to update URL path with match_id:', e);
+  }
+})();
+
 let mode = 'setup'; // 'setup' | 'tagging'
 let positionsLocked = false;
+let config = null;
 
 (async function () {
   const base = 'http://localhost/github/insytes-web-app/index.php/studio/'; // your base
   const endpoints = {
-    getConfig: base + 'taggingcontroller/get_config',
     savePositions: base + 'taggingcontroller/save_positions',
     saveEvent: base + 'taggingcontroller/save_event',
     undoEvent: base + 'taggingcontroller/undo_event',
-    getEvents: base + 'taggingcontroller/get_events'
+    getEvents: (id) => base + 'taggingcontroller/get_events/' + encodeURIComponent(id)
   };
 
   // DOM refs
@@ -388,7 +440,6 @@ let positionsLocked = false;
     });
 
   // state
-  let config = null;
   let playersMap = {}; // id -> DOM element
   let selectedTeam = null; // will be set at kickoff: 'home'|'away'
   let kickoffVideoTime = null; // when kickoff button clicked (video.currentTime)
@@ -398,20 +449,109 @@ let positionsLocked = false;
   let flipHorizontal = false;
   let eventsList = [];
 
-  // state specific to substitutions
-  let subsActive = false;
-  let subsOpenFor = null; // 'home'|'away' or null (when none)
-  let substitutionsList = []; // { team_side, out, in }
-  let originalTeamSnapshots = {}; // backup to restore on cancel: { home: {...}, away: {...} }
-
-  // maps for substitution UI elements
+  // state specific to substitutionstagStep
   let subsPitchMap = {}; // playerId -> DOM element (for players-on-pitch in subs UI)
   let subsBenchMap = {};  // benchId -> DOM element
+  let subsActive = false;
+  let subsOpenFor = null;
+  let originalTeamSnapshots = {};
+  let substitutionsList = [];
 
   // tag state
   // steps: 'idle' -> 'awaiting_origin' -> 'awaiting_type' -> 'awaiting_outcome' -> 'awaiting_player_1' -> 'awaiting_player_2' -> 'awaiting_end' -> 'ready'
   let currentTag = null;
   let tagStep = 'idle';
+
+  const matchId = window.TAGGING_MATCH_ID;
+
+  if (!matchId) {
+    console.warn('[TAGGING] No match_id provided.');
+    alert('No match_id provided.');
+    return;
+  }
+
+  console.debug('[TAGGING] Loading match data for', matchId);
+
+  try {
+    const res = await fetch(`${window.API_GET_MATCH_DATA}/${encodeURIComponent(matchId)}`);
+
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
+
+    const payload = await res.json();
+    console.debug('[TAGGING] API payload:', payload);
+
+    if (!payload.success) {
+      alert('Error: ' + (payload.message || 'Failed to load match data.'));
+      return;
+    }
+
+    // ✅ Initialize config safely
+    config = payload.config || {};
+    positionsLocked = !!(config.match && config.match.positions_locked);
+
+    try {
+      let cfgMode = (config && (config.mode || (config.match && config.match.mode))) || 'setup';
+      cfgMode = String(cfgMode || '').toLowerCase();
+      if (cfgMode !== 'setup' && cfgMode !== 'tagging') cfgMode = 'setup';
+      mode = cfgMode;
+      window.mode = mode; // keep global in sync for devtools
+    } catch (e) {
+      console.debug('[TAGGING] apply mode from config error', e);
+    }
+
+    // Safe function calls
+    if (typeof renderPlayers === 'function') renderPlayers();
+    if (typeof showTeamNameScoreboard === 'function') showTeamNameScoreboard();
+
+    console.debug('[TAGGING] Config loaded successfully:', config);
+
+    if (mode === 'tagging') {
+      console.debug('[TAGGING] Tagging mode active: applying kickoff setup');
+
+      // Show kickoff buttons, hide event buttons
+      if (kickOffButtonsContainer) kickOffButtonsContainer.classList.remove('hidden');
+      if (taggingEventsButtonContainer) taggingEventsButtonContainer.classList.add('hidden');
+
+      updateInfoText('Select which team kicks off (click a Kickoff button).');
+
+      // Disable dragging and reset click handlers for all players
+      Object.values(playersMap || {}).forEach(entry => {
+        const div = entry.el || entry;
+        if (!div) return;
+
+        if (div._dragCleanup) {
+          try { div._dragCleanup(); } catch (e) {}
+          delete div._dragCleanup;
+        }
+
+        try { div.removeEventListener('click', playerClickHandler); } catch (e) {}
+        div.addEventListener('click', playerClickHandler);
+        div.style.cursor = 'pointer';
+        div.style.display = ''; // ✅ don’t hide players, just make them clickable
+      });
+
+      // Disable action buttons until kickoff selected
+      setActionButtonsEnabled(false);
+      setTypeOutcomeGroupsActive([]);
+
+      // Reset kickoff metadata
+      kickoffVideoTime = null;
+      selectedTeam = null;
+      halfOffsetSeconds = 0;
+      half = 0;
+
+      // Apply positions locked UI (so players can’t be moved)
+      if (typeof applyPositionsLockedUI === 'function') {
+        applyPositionsLockedUI();
+      }
+    }
+
+  } catch (err) {
+    console.error('[TAGGING] Failed to fetch match data:', err);
+    alert('Failed to load match data. Check console for details.');
+  }
 
   // helper: get team data and bench from config with fallbacks
   function getTeamData(side) {
@@ -435,6 +575,7 @@ let positionsLocked = false;
     substitutionToggleBtn.addEventListener('click', () => {
       subsActive = !subsActive;
       substitutionsPanel.style.display = subsActive ? 'block' : 'none';
+      taggingEventsButtonContainer.classList.add('hidden');
       if (!subsActive) cancelSubstitutions();
     });
   }
@@ -743,7 +884,7 @@ let positionsLocked = false;
         const resp = await fetch(endpoints.saveEvent, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ event: eventObj })
+          body: JSON.stringify({ match_id: matchId, event: eventObj })
         });
         const data = await resp.json();
         if (!(data && data.success)) {
@@ -778,6 +919,8 @@ let positionsLocked = false;
       else config[subsOpenFor].bench = originalTeamSnapshots[subsOpenFor].bench.map(p => ({ ...p }));
     }
 
+    taggingEventsButtonContainer.classList.remove('hidden');
+
     substitutionsList = [];
     originalTeamSnapshots = {};
     updateInfoText('Substitutions cancelled (reverted).', { temporary: true });
@@ -790,6 +933,7 @@ let positionsLocked = false;
     subsOpenFor = null;
     subsActive = false;
     substitutionsPanel.style.display = 'none';
+    taggingEventsButtonContainer.classList.remove('hidden');
     subsSelection = null;
     subsPitchMap = {};
     subsBenchMap = {};
@@ -806,7 +950,7 @@ let positionsLocked = false;
   // start hidden
   if (substitutionsPanel) substitutionsPanel.style.display = 'none';
 
-  // Flip is determined by config.attacking_direction (flipHorizontal) XOR half==2.
+  // Flip is determined by config.match.attacking_direction (flipHorizontal) XOR half==2.
   function effectiveFlip() {
     // returns true if visual coords should be mirrored horizontally
     return Boolean(flipHorizontal) !== (half === 2);
@@ -865,19 +1009,6 @@ let positionsLocked = false;
     if (matchMinuteEl) matchMinuteEl.innerText = formatSecondsToMMSS(seconds);
     if (matchMinuteElVid) matchMinuteElVid.innerText = formatSecondsToMMSS(seconds);
   }, 400);
-
-  async function loadConfig() {
-    const resp = await fetchJSON(endpoints.getConfig);
-    if (!resp || !resp.home) {
-      alert('Could not load config.json. Place it at writable_data/config.json and ensure server can read it.');
-      return;
-    }
-    config = resp;
-    positionsLocked = !!config.positions_locked;
-    renderPlayers();
-
-    showTeamNameScoreboard();
-  }
 
   function renderPlayers() {
     if (!pitchContainer) return;
@@ -1023,7 +1154,7 @@ let positionsLocked = false;
         positions.push({ id: p.id, x: Number(p.x), y: Number(p.y) });
       });
     });
-    const payload = { positions: positions, lock: !!lock };
+    const payload = { match_id: matchId, positions: positions, lock: !!lock };
     const resp = await fetch(endpoints.savePositions, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -1031,7 +1162,7 @@ let positionsLocked = false;
     });
     const data = await resp.json();
     if (data && data.success) {
-      if (lock) config.positions_locked = true;
+      if (lock) config.match.positions_locked = true;
       return true;
     } else {
       console.error('Save positions failed', data);
@@ -1654,7 +1785,7 @@ let positionsLocked = false;
     };
 
     // 1. Get necessary variables
-    const attackDir = config && config.attacking_direction ? String(config.attacking_direction).toLowerCase() : null;
+    const attackDir = config && config.match.attacking_direction ? String(config.match.attacking_direction).toLowerCase() : null;
     const team = resolvedTeamSide; // 'home' or 'away'
     const currentHalf = half;      // '1', '2', etc.
 
@@ -1718,7 +1849,7 @@ let positionsLocked = false;
     const resp = await fetch(endpoints.saveEvent, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ event: eventObj })
+      body: JSON.stringify({ match_id: matchId, event: eventObj })
     });
     const data = await resp.json();
     if (data && data.success) {
@@ -1796,7 +1927,7 @@ let positionsLocked = false;
       const resp = await fetch(endpoints.saveEvent, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ event: eventObj })
+        body: JSON.stringify({ match_id: matchId, event: eventObj })
       });
       const data = await resp.json();
       if (data && data.success) {
@@ -1911,7 +2042,8 @@ let positionsLocked = false;
   }
 
   async function loadEvents() {
-    const res = await fetchJSON(endpoints.getEvents);
+    // endpoints.getEvents is a function now
+    const res = await fetchJSON(endpoints.getEvents(matchId));
     eventsList = res.events || [];
     if (eventsList.length > 0) showEventCard(eventsList[eventsList.length - 1]);
 
@@ -1966,7 +2098,6 @@ let positionsLocked = false;
     // show pass end when present
     // (if you want dedicated UI fields for pass_end_x/pass_end_y add them to your markup and set here)
     if (el('outcome')) el('outcome').innerText = ev.outcome || '';
-    if (el('created-at')) el('created-at').innerText = ev.created_at || '';
   }
 
   // pitch click wiring
@@ -2050,7 +2181,11 @@ let positionsLocked = false;
   window.addEventListener('keydown', async (e) => {
     if (e.key === 'z' || e.key === 'Z') {
       if (!confirm('Undo most recent tag?')) return;
-      const res = await fetch(endpoints.undoEvent, { method: 'POST' });
+      const res = await fetch(endpoints.undoEvent, { 
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ match_id: matchId }) 
+      });
       const data = await res.json();
       if (data && data.success) {
         await loadEvents();
@@ -2059,84 +2194,19 @@ let positionsLocked = false;
     }
   });
 
-  // Mode / Start Tagging flow
-  const setupBtn = document.getElementById('setup-mode-btn');
-  const saveBtn = document.getElementById('save-positions-btn');
-  const startTaggingBtn = document.getElementById('start-tagging-btn');
-
-  if (setupBtn) {
-    setupBtn.addEventListener('click', () => {
-      mode = 'setup';
-      positionsLocked = false;
-      updateInfoText('Mode: Setup — drag players to set x/y');
-      if (saveBtn) saveBtn.classList.remove('hidden');
-      if (startTaggingBtn) startTaggingBtn.classList.add('hidden');
-      // ensure kickoff UI hidden initially
-      if (kickOffButtonsContainer) kickOffButtonsContainer.classList.add('hidden');
-      if (taggingEventsButtonContainer) taggingEventsButtonContainer.classList.remove('hidden');
-      renderPlayers();
-    });
-  }
-
-  if (saveBtn) {
-    saveBtn.addEventListener('click', async () => {
-      const ok = await savePositionsToBackend({ lock: true });
-      if (ok) {
-        positionsLocked = true;
-        updateInfoText('Positions saved and locked. Click Start Tagging to begin.');
-        saveBtn.classList.add('hidden');
-        if (startTaggingBtn) startTaggingBtn.classList.remove('hidden');
-      } else alert('Failed to save positions.');
-    });
-  }
-
-  // When Start Tagging clicked: show kickoff selection, hide events, disable action buttons until kickoff selected
-  if (startTaggingBtn) {
-    startTaggingBtn.addEventListener('click', () => {
-      mode = 'tagging';
-      // show kickoff selection, hide events area
-      if (kickOffButtonsContainer) kickOffButtonsContainer.classList.remove('hidden');
-      if (taggingEventsButtonContainer) taggingEventsButtonContainer.classList.add('hidden');
-
-      updateInfoText('Select which team kicks off (click a Kickoff button).');
-
-      // prepare players to be clickable later but hide them now
-      Object.values(playersMap).forEach(div => {
-        if (div._dragCleanup) {
-          try { div._dragCleanup(); } catch (e) {}
-          delete div._dragCleanup;
-        }
-        try { div.removeEventListener('click', playerClickHandler); } catch (e) {}
-        div.addEventListener('click', playerClickHandler);
-        div.style.display = 'none';
-        div.style.cursor = 'pointer';
-      });
-
-      // disable action buttons until kickoff chosen
-      setActionButtonsEnabled(false);
-      setTypeOutcomeGroupsActive([]);
-
-      // reset kickoff time until user clicks kickoff
-      kickoffVideoTime = null;
-      selectedTeam = null;
-      halfOffsetSeconds = 0;
-      half = 0;
-    });
-  }
-
   // Helper to toggle the config direction (for reference & saving)
   function toggleAttackingDirection() {
-    if (String(config.attacking_direction).toLowerCase() === 'left-to-right') {
-      config.attacking_direction = 'right-to-left';
+    if (String(config.match.attacking_direction).toLowerCase() === 'left-to-right') {
+      config.match.attacking_direction = 'right-to-left';
     } else {
-      config.attacking_direction = 'left-to-right';
+      config.match.attacking_direction = 'left-to-right';
     }
     // Update flipHorizontal to match
     flipHorizontal = !!(
-      config.attacking_direction &&
-      String(config.attacking_direction).toLowerCase() === 'left-to-right'
+      config.match.attacking_direction &&
+      String(config.match.attacking_direction).toLowerCase() === 'left-to-right'
     );
-    console.log('Attacking direction toggled to:', config.attacking_direction);
+    console.log('Attacking direction toggled to:', config.match.attacking_direction);
   }
 
   // Unified match-event handler that saves Kickoff / Half-Time / Full-Time events
@@ -2233,7 +2303,7 @@ let positionsLocked = false;
 
     let finalTeamSide = currentTeamSide; // Default to 'home'/'away' for safety
 
-    const attackDir = config && config.attacking_direction ? String(config.attacking_direction).toLowerCase() : null;
+    const attackDir = config && config.match.attacking_direction ? String(config.match.attacking_direction).toLowerCase() : null;
     const team = currentTeamSide; // 'home' or 'away'
     const currentHalf = half;    // 1 or 2
 
@@ -2284,7 +2354,7 @@ let positionsLocked = false;
       const resp = await fetch(endpoints.saveEvent, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ event: eventObj })
+        body: JSON.stringify({ match_id: matchId, event: eventObj })
       });
       const data = await resp.json();
       if (data && data.success) {
@@ -2339,10 +2409,10 @@ let positionsLocked = false;
       kickoffVideoTime = null;
       half = 2;
       // Reset attacking direction back to original (if you keep that behaviour)
-      config.attacking_direction = originalDirection;
+      config.match.attacking_direction = originalDirection;
       flipHorizontal = !!(
-        config.attacking_direction &&
-        String(config.attacking_direction).toLowerCase() === 'left-to-right'
+        config.match.attacking_direction &&
+        String(config.match.attacking_direction).toLowerCase() === 'left-to-right'
       );
       updateInfoText('2nd half ended (timer stopped).');
       setActionButtonsEnabled(false);
@@ -2360,18 +2430,10 @@ let positionsLocked = false;
   wireGroupButtons(penaltyOutcomeGroup, (txt) => { chooseOutcome(txt); });
   wireGroupButtons(outcomeGroup, (txt) => { chooseOutcome(txt); });
 
-  // initial load
-  if (kickOffButtonsContainer) {
-    // keep it hidden until Start Tagging
-    kickOffButtonsContainer.classList.add('hidden');
-  }
-
-  await loadConfig();
-
-  originalDirection = config.attacking_direction;
+  originalDirection = config.match.attacking_direction;
   flipHorizontal = !!(
-    config.attacking_direction &&
-    String(config.attacking_direction).toLowerCase() === 'left-to-right'
+    config.match.attacking_direction &&
+    String(config.match.attacking_direction).toLowerCase() === 'left-to-right'
   );
 
   await loadEvents();

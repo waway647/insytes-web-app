@@ -8,310 +8,184 @@
 	</div>
 
 	<!-- new match panel -->
-	<div id="new-match-panel" class="flex flex-col w-full h-fit p-5 rounded-lg bg-[#1D1D1D] hidden">
-		<img id="close-new-match-panel" src="<?php echo base_url('assets/images/icons/close.svg'); ?>" class="w-3 h-auto cursor-pointer" alt="">
-		<div class="flex flex-col items-center px-80 py-4 gap-4 border-b-1 border-b-[#2A2A2A]">
-			<h2 class="text-[#B6BABD] text-xl font-bold">New Match</h2>
-			<div class="flex w-full justify-between gap-10 py-4">
-				<div class="flex flex-col w-full gap-1 items-center">
-					<p class="text-xs text-[#B6BABD]">Season</p>
-					<div id="season-btn" class="w-full h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-						<span id="season" class="text-white font-medium"></span>
-					</div>
-				</div>
-				<div class="flex flex-col w-full gap-1 items-center">
-					<p class="text-xs text-[#B6BABD]">Competition</p>
-					<div id="competition-btn" class="w-full h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-						<span id="competition" class="text-white font-medium"></span>
-					</div>
-				</div>
-				<div class="flex flex-col w-full gap-1 items-center">
-					<p class="text-xs text-[#B6BABD]">Date of Match</p>
-					<div id="match-date-btn" class="w-full h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-						<span id="match-date" class="text-white font-medium"></span>
-					</div>
-				</div>
-				<div class="flex flex-col w-full gap-1 items-center">
-					<p class="text-xs text-[#B6BABD]">Venue</p>
-					<div id="venue-btn" class="w-full h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-						<span id="venue" class="text-white font-medium"></span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="flex flex-col w-full h-full py-4 items-center border-b-1 border-b-[#2A2A2A]">
-			<h3 class="text-[#B6BABD] text-md font-bold py-4">Team Roster</h3>
-			<div class="flex w-full mt-4">
-				<!-- your team -->
-				<div class="flex flex-col w-full h-full py-8 px-14 border-r-1 border-r-[#2A2A2A]">
-					<div class="flex w-full justify-end gap-10">
-						<div class="flex flex-col gap-1 items-center">
-							<p class="text-xs text-[#B6BABD]">My Team</p>
-							<div id="my-team-btn" class="w-50 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-								<span id="my-team" class="text-white font-medium"></span>
-							</div>
-						</div>
-						<div class="flex flex-col gap-1 items-center">
-							<p class="text-xs text-[#B6BABD]">Result</p>
-							<div id="my-team-result-btn" class="w-20 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-								<span id="my-team-result" class="text-white font-medium"></span>
-							</div>
-						</div>
-						<div class="flex flex-col gap-1 items-center">
-							<p class="text-xs text-[#B6BABD]">Goals</p>
-							<div id="my-team-goals-btn" class="w-20 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-								<span id="my-team-goals" class="text-white font-medium"></span>
-							</div>
-						</div>
-					</div>
-					<div class="w-full px-4 py-6">
-						<table class="w-full table-fixed border-collapse">
-							<thead class="text-[#B6BABD] text-xs border-b border-neutral-700">
-								<tr>
-									<th class="py-2 px-6 font-normal text-center w-16">#</th>
-									
-									<th class="py-2 px-6 font-normal text-left">Player Name</th>
-									
-									<th class="py-2 px-6 font-normal text-center w-28">Jersey No.</th>
-									<th class="py-2 px-6 font-normal text-center w-28">XI</th>
-								</tr>
-							</thead>
-							<tbody class="text-white text-sm">
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">1</td>
-									<td id="player-name" class="py-2 px-6">Mapula, Paul Jsoshua</td>
-									<td id="jersey-num" class="py-2 px-6 text-center">20</td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800">
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">2</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">3</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">4</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">5</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">6</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">7</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">8</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">9</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">10</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">11</td>
-									<td id="player-name" class="py-2 px-6"></td>
-									<td id="jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="border-b border-neutral-800 hover:bg-neutral-800 transition-colors">
-							<button id="add-player-btn" class="flex justify-center w-full cursor-pointer py-2.5">
-								<img src="<?php echo base_url('assets/images/icons/plus.svg'); ?>" class="w-3">
-							</button>
-						</div>
-					</div>
-				</div>
+	<div id="new-match-panel" class="flex flex-col w-full h-fit p-5 rounded-t-lg bg-[#1D1D1D] hidden">
+		<form
+			id="new-match-panel-form"
+			x-data="matchMetadataForm()"
+			x-init="init()"
+			@submit.prevent="submitForm"
+			action="<?php echo site_url('match/metadataController/create_match'); ?>"
+			method="POST"
+			class=""
+			novalidate
+		>
+			<!-- Hidden inputs mirrored by the Alpine component -->
+			<input type="hidden" name="season_id" value="" />
+			<input type="hidden" name="season_name" value="" />
 
-				<!-- opponent team -->
-				<div class="flex flex-col w-full h-full py-8 px-14 border-r-1 border-r-[#2A2A2A]">
-					<div class="flex w-full justify-baseline gap-10">
-						<div class="flex flex-col gap-1 items-center">
-							<p class="text-xs text-[#B6BABD]">Goals</p>
-							<div id="opponent-goals-btn" class="w-20 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-								<span id="opponent-goals" class="text-white font-medium"></span>
-							</div>
-						</div>
-						<div class="flex flex-col gap-1 items-center">
-							<p class="text-xs text-[#B6BABD]">Result</p>
-							<div id="opponent-result-btn" class="w-20 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-								<span id="opponent-result" class="text-white font-medium"></span>
-							</div>
-						</div>
-						<div class="flex flex-col gap-1 items-center">
-							<p class="text-xs text-[#B6BABD]">Your Opponent's Team</p>
-							<div id="opponent-team-btn" class="w-50 h-9 px-3 py-1.5 rounded-md border-1 border-[#2A2A2A] cursor-pointer">
-								<span id="opponent-team" class="text-white font-medium"></span>
-							</div>
+			<input type="hidden" name="competition_id" value="" />
+			<input type="hidden" name="competition_name" value="" />
+
+			<input type="hidden" name="venue_id" value="" />
+			<input type="hidden" name="venue_name" value="" />
+
+			<input type="hidden" name="my_team_id" value="<?php echo $this->session->userdata('team_id'); ?>" />
+			<input type="hidden" name="my_team_name" value="<?php echo $this->session->userdata('team_abbreviation'); ?>" />
+
+			<input type="hidden" name="opponent_team_id" value="" />
+			<input type="hidden" name="opponent_team_name" value="" />
+
+			<img id="close-new-match-panel" src="<?php echo base_url('assets/images/icons/close.svg'); ?>" class="w-3 h-auto cursor-pointer" alt="">
+			<div class="flex flex-col items-center px-80 py-4 gap-4 border-b-1 border-b-[#2A2A2A]">
+				<h2 class="text-[#B6BABD] text-xl font-bold">New Match</h2>
+				<div class="flex w-full justify-between gap-10 py-4">
+					<div class="flex flex-col w-full gap-1 items-center">
+						<p class="text-xs text-[#B6BABD]">Season</p>
+						<div id="season-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+							<span id="season" class="text-white font-medium"></span>
 						</div>
 					</div>
-					<div class="w-full px-4 py-6">
-						<table class="w-full table-fixed border-collapse">
-							<thead class="text-[#B6BABD] text-xs border-b border-neutral-700">
-								<tr>
-									<th class="py-2 px-6 font-normal text-center w-16">#</th>
-									
-									<th class="py-2 px-6 font-normal text-left">Player Name</th>
-									
-									<th class="py-2 px-6 font-normal text-center w-28">Jersey No.</th>
-									<th class="py-2 px-6 font-normal text-center w-28">XI</th>
-								</tr>
-							</thead>
-							<tbody class="text-white text-sm">
-								<tr id="fill-opponent-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">1</td>
-									<td id="opponent-player-name" class="py-2 px-6">Mapula, Paul Jsoshua</td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center">20</td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800">
-									</td>
-								</tr>
-								<tr id="fill-opponent-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">2</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">3</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent-player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">4</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent--player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">5</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent--player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">6</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent--player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">7</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent--player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">8</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent--player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">9</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent--player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">10</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-								<tr id="fill-opponent--player-btn" class="border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors">
-									<td id="opponent-index-of-player" class="py-2 px-6 text-center text-[#B6BABD]">11</td>
-									<td id="opponent-player-name" class="py-2 px-6"></td>
-									<td id="opponent-jersey-num" class="py-2 px-6 text-center"></td>
-									<td class="py-2 px-6 flex justify-center items-center">
-										<!-- <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800"> -->
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="border-b border-neutral-800 hover:bg-neutral-800 transition-colors">
-							<button id="add-opponent-player-btn" class="flex justify-center w-full cursor-pointer py-2.5">
-								<img src="<?php echo base_url('assets/images/icons/plus.svg'); ?>" class="w-3">
-							</button>
+					<div class="flex flex-col w-full gap-1 items-center">
+						<p class="text-xs text-[#B6BABD]">Competition</p>
+						<div id="competition-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+							<span id="competition" class="text-white font-medium"></span>
+						</div>
+					</div>
+					<div class="flex flex-col w-full gap-1 items-center">
+						<p class="text-xs text-[#B6BABD]">Date of Match</p>
+						<input 
+							type="date" 
+							name="match_date" 
+							class="date-input text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] text-white focus:outline-0 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
+						>
+					</div>
+					<div class="flex flex-col w-full gap-1 items-center">
+						<p class="text-xs text-[#B6BABD]">Venue</p>
+						<div id="venue-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+							<span id="venue" class="text-white font-medium"></span>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="w-full px-4 py-6">
-			<button id="create-match-btn" class="flex justify-center items-center w-full text-white bg-[#6366F1] rounded-lg cursor-pointer hover:bg-indigo-400 transition px-4 py-2">Save & Create Match Metadata</button>
-		</div>
+			<div class="flex flex-col w-full py-4 items-center border-b-1 border-b-[#2A2A2A]">
+				<h3 class="text-[#B6BABD] text-md font-bold py-4">Team Roster</h3>
+				<div class="flex w-full mt-4">
+					<!-- your team -->
+					<div class="flex flex-col w-full h-full py-8 px-14 border-r-1 border-r-[#2A2A2A]">
+						<div class="flex w-full justify-end gap-10">
+							<div class="flex flex-col gap-1 items-center">
+								<p class="text-xs text-[#B6BABD]">My Team</p>
+								<div id="my-team-btn" class="text-center w-50 h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+									<span 
+									id="my-team" 
+									class="text-white font-medium"
+									data-team-id="<?php echo $this->session->userdata('team_id'); ?>"
+									>
+									<?php echo $this->session->userdata('team_abbreviation'); ?>
+									</span>
+								</div>
+							</div>
+
+							<div class="flex flex-col gap-1 items-center">
+								<p class="text-xs text-[#B6BABD]">Result</p>
+								<select 
+									name="my_team_result"
+									class="text-center w-26 h-9 px-3 py-1.5 rounded-md border border-[#2A2A2A] text-white bg-[#131313] hover:bg-[#2a2a2a] focus:outline-none cursor-pointer [-moz-appearance:none] [-webkit-appearance:none] [background-image:none]"
+								>
+									<option value="" disabled selected></option>
+									<option value="Win">Win</option>
+									<option value="Lose">Lose</option>
+								</select>
+							</div>
+							<div class="flex flex-col gap-1 items-center">
+								<p class="text-xs text-[#B6BABD]">Goals</p>
+								<input 
+									type="number" 
+									name="my_team_goals" 
+									class="text-center w-20 h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] text-white focus:outline-0 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
+								>
+							</div>
+						</div>
+						<div class="w-full px-4 py-6">
+							<table class="w-full table-fixed border-collapse">
+								<thead class="text-[#B6BABD] text-xs border-b border-neutral-700">
+									<tr>
+										<th class="py-2 px-6 font-normal text-center w-16">#</th>
+										<th class="py-2 px-6 font-normal text-left">Player Name</th>
+										<th class="py-2 px-6 font-normal text-center w-28">Jersey No.</th>
+										<th class="py-2 px-6 font-normal text-center w-28">Position</th>
+										<th class="py-2 px-6 font-normal text-center w-28">XI</th>
+									</tr>
+								</thead>
+								<tbody id="my-players-tbody" class="text-white text-sm bg-[#131313]">
+								<!-- rows will be created dynamically -->
+								</tbody>
+							</table>
+							<div class="bg-[#131313] border-b border-neutral-800 hover:bg-neutral-800 transition-colors">
+								<button id="add-player-btn" type="button" class="flex justify-center w-full cursor-pointer py-2.5">
+									<img src="<?php echo base_url('assets/images/icons/plus.svg'); ?>" class="w-3">
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- opponent team -->
+					<div class="flex flex-col w-full h-full py-8 px-14 border-r-1 border-r-[#2A2A2A]">
+						<div class="flex w-full justify-baseline gap-10">
+							<div class="flex flex-col gap-1 items-center">
+								<p class="text-xs text-[#B6BABD]">Goals</p>
+								<input 
+									type="number" 
+									name="opponent_team_goals" 
+									class="text-center w-20 h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] text-white focus:outline-0 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
+								>
+							</div>
+							<div class="flex flex-col gap-1 items-center">
+								<p class="text-xs text-[#B6BABD]">Result</p>
+								<select 
+									name="opponent_team_result"
+									class="text-center w-26 h-9 px-3 py-1.5 rounded-md border border-[#2A2A2A] text-white bg-[#131313] hover:bg-[#2a2a2a] focus:outline-none cursor-pointer [-moz-appearance:none] [-webkit-appearance:none] [background-image:none]"
+								>
+									<option value="" disabled selected></option>
+									<option value="Win">Win</option>
+									<option value="Lose">Lose</option>
+								</select>
+							</div>
+							<div class="flex flex-col gap-1 items-center">
+								<p class="text-xs text-[#B6BABD]">Your Opponent's Team</p>
+								<div id="opponent-team-btn" class="text-center w-50 h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+									<span id="opponent-team" class="text-white font-medium"></span>
+								</div>
+							</div>
+						</div>
+						<div class="w-full px-4 py-6">
+							<table class="w-full table-fixed border-collapse">
+								<thead class="text-[#B6BABD] text-xs border-b border-neutral-700">
+									<tr>
+										<th class="py-2 px-6 font-normal text-center w-16">#</th>
+										<th class="py-2 px-6 font-normal text-left">Player Name</th>
+										<th class="py-2 px-6 font-normal text-center w-28">Jersey No.</th>
+										<th class="py-2 px-6 font-normal text-center w-28">Position</th>
+										<th class="py-2 px-6 font-normal text-center w-28">XI</th>
+									</tr>
+								</thead>
+								<tbody id="opponent-players-tbody" class="text-white text-sm bg-[#131313]">
+								<!-- rows will be created dynamically -->
+								</tbody>
+							</table>
+							<div class="bg-[#131313] border-b border-neutral-800 hover:bg-neutral-800 transition-colors">
+								<button id="add-opponent-player-btn" type="button" class="flex justify-center w-full cursor-pointer py-2.5">
+									<img src="<?php echo base_url('assets/images/icons/plus.svg'); ?>" class="w-3">
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w-full px-4 py-6">
+				<button id="create-match-btn" type="submit" class="flex justify-center items-center w-full text-white bg-[#6366F1] rounded-lg cursor-pointer hover:bg-indigo-400 transition px-4 py-2">Save & Create Match Metadata</button>
+			</div>
+		</form>
 	</div>
 
 	<div id="match-library-main-content" class="">
@@ -350,11 +224,15 @@
 					<div id="match-card" class="flex flex-col w-full bg-[#2A2A2A] rounded-lg"> 
 						<div id="thumbnail" class="flex w-full h-64 bg-[#363636] rounded-lg">
 							<div class="flex w-full h-fit p-2 justify-end">
-								<button class="p-1 hover:bg-[#2A2A2A] rounded-full cursor-pointer">
+								<button id="card-options-btn" type="button" class="p-1 hover:bg-[#2A2A2A] rounded-full cursor-pointer">
 									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
 										<path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
 									</svg>
 								</button>
+								<div id="match-options" class="flex flex-col bg-[#1d1d1d] border-1 border-[#2a2a2a] text-white absolute hidden">
+									<span id="start-tagging-btn" class="px-10 py-2 cursor-pointer hover:bg-[#2a2a2a] transition-colors">Start Tagging</span>
+									<span id="remove-match-card-btn" class="px-10 py-2 cursor-pointer hover:bg-[#2a2a2a] transition-colors">Remove</span>
+								</div>
 							</div>
 						</div>
 						<!-- match info -->
@@ -375,10 +253,203 @@
 	</div>
 </div>
 
-<script>window.APP_BASE_URL = '<?php echo base_url(); ?>index.php/';</script>
+<script>
+	window.APP_BASE_URL = '<?php echo base_url(); ?>index.php/';
+
+	window.SESSION_TEAM = {
+		id: "<?php echo $this->session->userdata('team_id'); ?>",
+		abbr: "<?php echo $this->session->userdata('team_abbreviation'); ?>"
+	};
+</script>
 
 <script src="<?php echo base_url('assets/js/modalManager.js') . '?v=' . time(); ?>"></script>
 <script src="<?php echo base_url('assets/js/dropdownHandler.js') . '?v=' . time(); ?>"></script>
+<script src="<?php echo base_url('assets/js/matchMetadataFormHandler.js') . '?v=' . time(); ?>"></script>
 
 <script src="<?php echo base_url('assets/js/matchCardHandler.js') . '?v=' . time(); ?>"></script>
 <script src="<?php echo base_url('assets/js/newMatchPanelHandler.js') . '?v=' . time(); ?>"></script>
+
+<script>
+(function () {
+  // Helpers to find the tbody for each panel.
+  function findMyTeamTbody() {
+    // Prefer explicit id if present
+    const explicit = document.getElementById('my-players-tbody');
+    if (explicit) return explicit;
+    // Fallback: find container that holds #my-team-btn and get the first tbody inside it
+    const container = document.querySelector('#my-team-btn')?.closest('div.flex');
+    if (!container) {
+      // last fallback: first table in document (risky)
+      return document.querySelector('table tbody');
+    }
+    return container.querySelector('table tbody');
+  }
+
+  function findOpponentTbody() {
+    const explicit = document.getElementById('opponent-players-tbody');
+    if (explicit) return explicit;
+    const container = document.querySelector('#opponent-team-btn')?.closest('div.flex');
+    if (!container) {
+      // fallback: second table tbody on the page
+      return document.querySelectorAll('table tbody')[1] || document.querySelector('table tbody');
+    }
+    return container.querySelector('table tbody');
+  }
+
+  // Generic row creation for both tables
+  function createRowHTML(index, name = '', jersey = '', position = '') {
+    return `
+      <td class="py-2 px-6 text-center text-[#B6BABD]">${index}</td>
+      <td class="player-name py-2 px-6">${name}</td>
+	  <td class="jersey-num py-2 px-6 text-center">${jersey}</td>
+      <td class="player-position py-2 px-6 text-center">${position}</td>
+      <td class="py-2 px-6 flex justify-center items-center">
+        <input type="checkbox" class="w-5 h-5 rounded bg-neutral-700 border-neutral-600 text-indigo-500 cursor-pointer focus:ring-indigo-600 focus:ring-offset-neutral-800">
+      </td>
+    `;
+  }
+
+  // Attach listeners and MutationObserver to a row element
+  function attachRow(row) {
+    if (!row || row._dropdownAttached) return;
+    row._dropdownAttached = true;
+
+    // Click opens dropdown for 'player' with the row as trigger
+    row.addEventListener('click', function (e) {
+      // if checkbox clicked, ignore
+      if (e.target.closest('input[type="checkbox"]')) return;
+      if (window.dropdownHandler && typeof window.dropdownHandler.openDropdown === 'function') {
+        // Pass the actual row element as trigger (this is what dropdownHandler expects)
+        window.dropdownHandler.openDropdown('player', row);
+      } else {
+        console.warn('dropdownHandler.openDropdown not available yet');
+      }
+    });
+
+    // Observe dataset changes set by dropdownHandler.selectItem (data-selected-name/data-selected-id/data-selected-jersey)
+    const mo = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        if (m.type === 'attributes' && ['data-selected-name', 'data-selected-id', 'data-selected-jersey', 'data-selected-position'].includes(m.attributeName)) {
+          const selectedName = row.dataset.selectedName || '';
+          const selectedJersey = row.dataset.selectedJersey || '';
+		  const selectedPosition = row.dataset.selectedPosition || '';
+
+          const nameCell = row.querySelector('.player-name');
+          const jerseyCell = row.querySelector('.jersey-num');
+		  const positionCell = row.querySelector('.player-position');
+
+          if (nameCell) nameCell.textContent = selectedName;
+          if (jerseyCell) jerseyCell.textContent = selectedJersey;
+		  if (positionCell) positionCell.textContent = selectedPosition;
+        }
+      }
+    });
+
+    mo.observe(row, { attributes: true, attributeFilter: ['data-selected-name', 'data-selected-id', 'data-selected-jersey', 'data-selected-position'] });
+    row._mo = mo;
+  }
+
+  // Render initial rows if tbody is empty; otherwise attach to existing rows
+  function initTable(tbody, addBtnId, initialPlayers = [], rowClass = 'fill-player-row') {
+    if (!tbody) {
+      console.warn('tbody not found for', addBtnId);
+      return { addRow: () => {} };
+    }
+
+    // Count existing rows
+    let existingRows = Array.from(tbody.querySelectorAll('tr'));
+    let rowCount = existingRows.length;
+
+    // If no rows or all rows are placeholders (empty cells), create 11 initial rows
+    if (rowCount === 0) {
+      for (let i = 0; i < 11; i++) {
+        const idx = i + 1;
+        const data = initialPlayers[i] || { name: '', jersey: '', position: '' };
+        const tr = document.createElement('tr');
+        tr.className = `${rowClass} border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors`;
+        tr.dataset.rowIndex = String(idx);
+        tr.innerHTML = createRowHTML(idx, data.name || '', data.jersey || '', data.jersey || '');
+        tbody.appendChild(tr);
+        attachRow(tr);
+      }
+      rowCount = 11;
+    } else {
+      // attach to existing rows found in the DOM
+      existingRows.forEach((r, idx) => {
+        // ensure there's a name/jersy cell classes for our script to update
+        if (!r.querySelector('.player-name')) {
+          // try to map known ids (legacy): replace cells if they exist
+          const playerNameCell = r.querySelector('[id^="player-name"], [id^="opponent-player-name"]');
+          const jerseyCell = r.querySelector('[id^="jersey-num"], [id^="opponent-jersey-num"]');
+		  const positionCell = r.querySelector('[id^="player-position"], [id^="opponent-player-position"]');
+          if (playerNameCell) playerNameCell.classList.add('player-name');
+          if (jerseyCell) jerseyCell.classList.add('jersey-num');
+		  if (positionCell) positionCell.classList.add('player-position');
+        }
+        attachRow(r);
+      });
+      rowCount = tbody.querySelectorAll('tr').length;
+    }
+
+    // Add button behavior
+    const addBtn = document.getElementById(addBtnId);
+    if (addBtn) {
+      // If this is the "player" add buttons, open the Add Player modal with team info
+      if (addBtnId === 'add-player-btn' || addBtnId === 'add-opponent-player-btn') {
+    
+        // legacy behavior: create a blank row
+        addBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          rowCount++;
+          const tr = document.createElement('tr');
+          tr.className = `${rowClass} border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors`;
+          tr.dataset.rowIndex = String(rowCount);
+          tr.innerHTML = createRowHTML(rowCount, '', '');
+          tbody.appendChild(tr);
+          // attach listeners after appended
+          attachRow(tr);
+          // ensure visible
+          tr.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }, { passive: true });
+      }
+    } else {
+      console.warn('Add button not found:', addBtnId);
+    }
+
+    // Expose programmatic add
+    return {
+      addRow(player = {}) {
+        rowCount++;
+        const tr = document.createElement('tr');
+        tr.className = `${rowClass} border-b border-neutral-800 cursor-pointer hover:bg-neutral-800 transition-colors`;
+        tr.dataset.rowIndex = String(rowCount);
+        tr.innerHTML = createRowHTML(rowCount, player.name || '', player.jersey || '', player.position || '');
+        tbody.appendChild(tr);
+        attachRow(tr);
+        return tr;
+      }
+    };
+  }
+
+  // Initialize on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const myTbody = findMyTeamTbody();
+    const oppTbody = findOpponentTbody();
+
+    const myPlayers = [
+      // first row example with known player — keeps the one you already had
+      // { name: 'Mapula, Paul Jsoshua', jersey: '20' }
+      // others left blank
+    ];
+
+    const myTable = initTable(myTbody, 'add-player-btn', myPlayers, 'fill-player-row');
+    const oppTable = initTable(oppTbody, 'add-opponent-player-btn', [], 'fill-opponent-player-row');
+
+    // Expose helpers for other scripts
+    window.addPlayerRow = (player = {}) => myTable.addRow(player);
+    window.addOpponentPlayerRow = (player = {}) => oppTable.addRow(player);
+
+    console.log('Player row initializer ready. MyTeam tbody:', !!myTbody, 'Opponent tbody:', !!oppTbody);
+  });
+})();
+</script>

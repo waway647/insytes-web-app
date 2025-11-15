@@ -96,8 +96,6 @@ class NewUserController extends CI_Controller {
 		$team_name = $this->input->post('team_name');
 		$country = $this->input->post('country');
 		$city = $this->input->post('city');
-		$primary_color = $this->input->post('primary_color');
-		$secondary_color = $this->input->post('secondary_color');
 		$created_by = $this->session->userdata('user_id');
 		$created_at = date('Y-m-d H:i:s');
 		
@@ -117,8 +115,6 @@ class NewUserController extends CI_Controller {
 			'team_name' => $team_name,
 			'country' => $country,
 			'city' => $city,
-			'primary_color' => $primary_color,
-			'secondary_color' => $secondary_color,
 			'team_logo' => $attachment_path ?? null,
 			'created_by' => $created_by,
 			'created_at' => $created_at,

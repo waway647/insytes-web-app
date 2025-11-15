@@ -75,11 +75,11 @@ def calculate_is_opponent_half(team_side: str, origin_x: Union[float, None]) -> 
     
     is_opponent_half_val = None
     if team_side == "left":
-        # Rule: true if origin_x < 50, false if origin_x > 50.
-        is_opponent_half_val = origin_x < 50
+        # Rule: true if origin_x > 50, false if origin_x < 50.
+        is_opponent_half_val = origin_x > 50
     elif team_side == "right":
         # Rule: false if origin_x < 50, true if origin_x > 50.
-        is_opponent_half_val = origin_x > 50
+        is_opponent_half_val = origin_x < 50
         
     return str(is_opponent_half_val).lower() if is_opponent_half_val is not None else ""
 
@@ -90,19 +90,19 @@ def calculate_third(team_side: str, x: Union[float, None]) -> str:
         
     if team_side == "left":
         # Rule: Defensive third if x > 60, Middle third if 25 <= x <= 60, Attacking third if x < 25.
-        if x > 60:
-            return "defensive third"
-        elif x >= 25 and x <= 60:
-            return "middle third"
-        elif x < 25:
-            return "attacking third"
-    elif team_side == "right":
-        # Rule: Defensive third if x < 40, Middle third if 40 <= x <= 75, Attacking third if x > 75.
         if x < 40:
             return "defensive third"
         elif x >= 40 and x <= 75:
             return "middle third"
         elif x > 75:
+            return "attacking third"
+    elif team_side == "right":
+        # Rule: Defensive third if x < 40, Middle third if 40 <= x <= 75, Attacking third if x > 75.
+        if x > 60:
+            return "defensive third"
+        elif x >= 25 and x <= 60:
+            return "middle third"
+        elif x < 25:
             return "attacking third"
             
     return ""
@@ -139,13 +139,13 @@ def calculate_pass_direction(
         # Team on the 'left' side attacks to the right (from X=100 towards X=0).
         # Forward pass is to the RIGHT (X decreases, raw_delta_x is negative).
         # To make "Forward" positive, we must invert raw_delta_x.
-        delta_x_attacking = -raw_delta_x
+        delta_x_attacking = raw_delta_x
     
     elif team_side == "right":
         # Team on the 'right' side attacks to the left (from X=0 towards X=100).
         # Forward pass is to the LEFT (X increases, raw_delta_x is positive).
         # "Forward" is already positive, so we use raw_delta_x directly.
-        delta_x_attacking = raw_delta_x
+        delta_x_attacking = -raw_delta_x
     
     else:
         # Fallback or unhandled team_side
@@ -179,12 +179,12 @@ def calculate_is_outside_the_box(team_side: str, origin_x: Union[float, None], o
     if team_side == "left":
         # Team 'left' attacks Right (towards X=0). Penalty box X-boundary is X <= 17.5.
         # It's 'inside' only if BOTH X and Y are in range.
-        is_in_penalty_area = (origin_x <= 17.5) and y_in_range
+        is_in_penalty_area = (origin_x >= 82.5) and y_in_range
         
     elif team_side == "right":
         # Team 'right' attacks Left (towards X=100). Penalty box X-boundary is X >= 82.5.
         # It's 'inside' only if BOTH X and Y are in range.
-        is_in_penalty_area = (origin_x >= 82.5) and y_in_range
+        is_in_penalty_area = (origin_x <= 17.5) and y_in_range
 
     # The result is 'true' if it is NOT inside the penalty area.
     is_outside_the_box_val = not is_in_penalty_area
@@ -329,8 +329,8 @@ def convert(json_path: Path, out_csv: Path):
 if __name__ == "__main__":
     # default input is events.json in same folder as script
     script_dir = Path(__file__).resolve().parent
-    default_input = script_dir / "writable_data/events.json"
-    default_output = script_dir / "output_dataset/events.csv"
+    default_input = script_dir / "writable_data/events_vs_siniloan.json"
+    default_output = script_dir / "output_dataset/events_vs_siniloan.csv"
 
     argv = sys.argv
     input_path = Path(argv[1]) if len(argv) > 1 else default_input

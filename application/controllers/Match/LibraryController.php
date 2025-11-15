@@ -5,6 +5,8 @@ class LibraryController extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('session');
+        $this->load->model('LibraryModel');
+        $this->load->database();
         // Allow JSON responses
 
 	}
@@ -15,206 +17,134 @@ class LibraryController extends CI_Controller {
 		$this->load->view('layouts/main', $data);
 	}
 
-	public function get_all_matches() {
-		$data = [
-            'season' => '2025/2026',
-            'months' => [
-                [
-                    'monthName' => 'July',
-                    'year' => 2026,
-                    'matches' => [
-                        [
-                            'matchId' => 101,
-                            'thumbnailUrl' => '<?php echo base_url("assets/images/thumbnails/match1.jpg"); ?>',
-                            'status' => 'Ready',
-                            'statusColor' => '#48ADF9', // Tailwind color class
-                            'matchName' => 'vs. Ateneo',
-                            'matchDate' => 'Jul 28'
-                        ],
-                        [
-                            'matchId' => 102,
-                            'thumbnailUrl' => '<?php echo base_url("assets/images/thumbnails/match2.jpg"); ?>',
-                            'status' => 'Tagging in progress',
-                            'statusColor' => '#B14D35',
-                            'matchName' => 'vs. La Salle',
-                            'matchDate' => 'Jul 15'
-                        ]
-                    ]
-                ],
-                [
-                    'monthName' => 'August',
-                    'year' => 2026,
-                    'matches' => [
-                        [
-                            'matchId' => 103,
-                            'thumbnailUrl' => '<?php echo base_url("assets/images/thumbnails/match3.jpg"); ?>',
-                            'status' => 'Completed',
-                            'statusColor' => '#209435',
-                            'matchName' => 'vs. UP',
-                            'matchDate' => 'Aug 05'
-                        ],
-                        [
-                            'matchId' => 104,
-                            'thumbnailUrl' => '<?php echo base_url("assets/images/thumbnails/match4.jpg"); ?>',
-                            'status' => 'Waiting for video',
-                            'statusColor' => '#B6BABD',
-                            'matchName' => 'vs. FEU',
-                            'matchDate' => 'Aug 12'
-                        ]
-                    ]
-                ]
-            ]
-        ];
-		
-        // Set the content type header to application/json and output the JSON data
-        $this->output
-            ->set_content_type('application/json')
-            ->set_output(json_encode($data));
-	}
-
-    // Utility: return or initialize mock storage
-    private function storage()
+	public function get_all_matches()
     {
-        $storage = $this->session->userdata('library_storage');
-        if (!$storage || !is_array($storage)) {
-            // initial mock data
-            $storage = [
-                'season' => [
-                    ['id' => 's1', 'name' => '2024/2025'],
-                    ['id' => 's2', 'name' => '2025/2026']
-                ],
-                'competition' => [
-                    ['id' => 'c1', 'name' => 'Premier League'],
-                    ['id' => 'c2', 'name' => 'FA Cup']
-                ],
-                'venue' => [
-                    ['id' => 'v1', 'name' => 'Old Trafford'],
-                    ['id' => 'v2', 'name' => 'Anfield']
-                ],
-                'team' => [
-                    ['id' => 't1', 'name' => 'My FC'],
-                    ['id' => 't2', 'name' => 'Opponents United']
-                ]
+        $this->output->set_content_type('application/json');
+
+        try {
+            // Fetch all matches
+            $matches = $this->LibraryModel->get_all_matches();
+
+            if (empty($matches)) {
+                $this->output->set_output(json_encode([
+                    'success' => true,
+                    'season' => date('Y') . '/' . (date('Y') + 1),
+                    'months' => []
+                ]));
+                return;
+            }
+
+            // Group matches by month-year
+            $grouped = [];
+            foreach ($matches as $match) {
+                $timestamp = strtotime($match['match_date']);
+                $monthName = date('F', $timestamp);
+                $year = date('Y', $timestamp);
+
+                $groupKey = "{$monthName}_{$year}";
+                if (!isset($grouped[$groupKey])) {
+                    $grouped[$groupKey] = [
+                        'monthName' => $monthName,
+                        'year' => (int)$year,
+                        'matches' => []
+                    ];
+                }
+
+                // Determine status color based on status text
+                $statusColor = '#B6BABD'; // default gray
+                switch (strtolower($match['status'])) {
+                    case 'ready': $statusColor = '#48ADF9'; break;
+                    case 'completed': $statusColor = '#209435'; break;
+                    case 'tagging in progress': $statusColor = '#B14D35'; break;
+                    case 'waiting for video': $statusColor = '#B6BABD'; break;
+                }
+
+                // Format match display name (e.g., vs. La Salle)
+                $matchName = 'vs. ' . ($match['opponent_team_name'] ?? 'Unknown');
+
+                // Optional: provide a placeholder thumbnail
+                $thumbnailUrl = base_url('assets/images/thumbnails/default.jpg');
+                if (!empty($match['thumbnail_url'])) {
+                    $thumbnailUrl = base_url($match['video_thumbnail']);
+                }
+
+                $grouped[$groupKey]['matches'][] = [
+                    'matchId' => $match['match_id'],
+                    'thumbnailUrl' => $thumbnailUrl,
+                    'status' => $match['status'],
+                    'statusColor' => $statusColor,
+                    'matchName' => $matchName,
+                    'matchDate' => date('M d', $timestamp)
+                ];
+            }
+
+            // Transform grouped array to indexed array
+            $months = array_values($grouped);
+
+            $data = [
+                'success' => true,
+                'season' => '2025/2026',
+                'months' => $months
             ];
-            $this->session->set_userdata('library_storage', $storage);
-        }
-        return $storage;
-    }
 
-    private function save_storage($storage)
-    {
-        $this->session->set_userdata('library_storage', $storage);
+            $this->output->set_output(json_encode($data));
+
+        } catch (Exception $e) {
+            log_message('error', 'get_all_matches failed: ' . $e->getMessage());
+            $this->output
+                ->set_status_header(500)
+                ->set_output(json_encode([
+                    'success' => false,
+                    'message' => 'Failed to fetch matches'
+                ]));
+        }
     }
 
     // GET /match/library_controller/get_items/{type}
-    public function get_items($type = null)
-    {
-        $storage = $this->storage();
-
-        // Allow query param ?type=...
+    public function get_items($type = null) {
         if (!$type && $this->input->get('type')) {
             $type = $this->input->get('type');
         }
 
-        if (!$type || !isset($storage[$type])) {
+        if (!$type) {
+            echo json_encode(['success' => false, 'message' => 'Missing type', 'items' => []]);
+            return;
+        }
+
+        $items = $this->LibraryModel->get_items($type);
+        if ($items === false) {
             echo json_encode(['success' => false, 'message' => 'Invalid type', 'items' => []]);
             return;
         }
 
-        echo json_encode(['success' => true, 'items' => $storage[$type]]);
+        echo json_encode(['success' => true, 'items' => $items]);
     }
 
-    // POST /match/library_controller/add_item
-    public function add_item()
+    public function get_item()
     {
-        $payload = json_decode(trim(file_get_contents('php://input')), true);
-        if (!$payload) $payload = $this->input->post();
+        $type = $this->input->get('type');
+        $id = $this->input->get('id');
+        
+        // Fetch item
+        $item = $this->LibraryModel->get_item($type, $id);
 
-        $type = isset($payload['type']) ? $payload['type'] : null;
-        $name = isset($payload['name']) ? trim($payload['name']) : null;
-
-        $storage = $this->storage();
-
-        if (!$type || !$name || !isset($storage[$type])) {
-            echo json_encode(['success' => false, 'message' => 'Missing parameters']);
-            return;
+        if (!$item) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode([
+                    'success' => false,
+                    'message' => 'Invalid type or item not found'
+                ]));
         }
 
-        // produce an id
-        $prefix = substr($type, 0, 1);
-        $id = $prefix . uniqid();
-
-        $item = ['id' => $id, 'name' => $name];
-        $storage[$type][] = $item;
-        $this->save_storage($storage);
-
-        echo json_encode(['success' => true, 'item' => $item, 'message' => 'Added (mock)']);
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode([
+                'success' => true,
+                'item' => $item
+            ]));
     }
 
-    // POST /match/library_controller/edit_item
-    public function edit_item()
-    {
-        $payload = json_decode(trim(file_get_contents('php://input')), true);
-        if (!$payload) $payload = $this->input->post();
-
-        $type = isset($payload['type']) ? $payload['type'] : null;
-        $id = isset($payload['id']) ? $payload['id'] : null;
-        $name = isset($payload['name']) ? trim($payload['name']) : null;
-
-        $storage = $this->storage();
-
-        if (!$type || !$id || !$name || !isset($storage[$type])) {
-            echo json_encode(['success' => false, 'message' => 'Missing parameters']);
-            return;
-        }
-
-        $updated = false;
-        foreach ($storage[$type] as &$it) {
-            if ($it['id'] === $id) {
-                $it['name'] = $name;
-                $updated = true;
-                break;
-            }
-        }
-        if ($updated) {
-            $this->save_storage($storage);
-            echo json_encode(['success' => true, 'message' => 'Updated (mock)', 'item' => ['id' => $id, 'name' => $name]]);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Item not found']);
-        }
-    }
-
-    // POST /match/library_controller/delete_item
-    public function delete_item()
-    {
-        $payload = json_decode(trim(file_get_contents('php://input')), true);
-        if (!$payload) $payload = $this->input->post();
-
-        $type = isset($payload['type']) ? $payload['type'] : null;
-        $id = isset($payload['id']) ? $payload['id'] : null;
-
-        $storage = $this->storage();
-
-        if (!$type || !$id || !isset($storage[$type])) {
-            echo json_encode(['success' => false, 'message' => 'Missing parameters']);
-            return;
-        }
-
-        $found = false;
-        foreach ($storage[$type] as $idx => $it) {
-            if ($it['id'] === $id) {
-                array_splice($storage[$type], $idx, 1);
-                $found = true;
-                break;
-            }
-        }
-        if ($found) {
-            $this->save_storage($storage);
-            echo json_encode(['success' => true, 'message' => 'Deleted (mock)']);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Item not found']);
-        }
-    }
     public function load_modal()
     {
         $this->load->helper('url'); // if not already loaded
@@ -233,7 +163,9 @@ class LibraryController extends CI_Controller {
             'add_new_venue'          => 'match/utils/modals/add_venue',
             'edit_venue'             => 'match/utils/modals/edit_venue',
             'add_new_team'           => 'match/utils/modals/add_team',
-            'edit_team'              => 'match/utils/modals/edit_team'
+            'edit_team'              => 'match/utils/modals/edit_team',
+            'add_new_player'         => 'match/utils/modals/add_player',
+            'edit_player'         => 'match/utils/modals/edit_player'
         ];
 
         if (!isset($mapping[$name])) {
@@ -247,4 +179,44 @@ class LibraryController extends CI_Controller {
         echo $html;
     }
 
+    public function start_tagging()
+    {
+        $input = json_decode(trim(file_get_contents('php://input')), true);
+        if (!$input || !isset($input['match_id'])) {
+            $this->output->set_status_header(400)
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success'=>false,'message'=>'Missing match_id']));
+            return;
+        }
+
+        $match_id = $input['match_id'];
+
+        $data = $this->LibraryModel->get_match_data($match_id);
+
+        $video_file_name_for_tagging = str_replace('assets/videos/matches/match_' . $match_id . '/', '', $data['video_url']);
+
+        // SESSION
+            $this->session->set_userdata('active_match_id', $match_id);
+
+            $this->session->set_userdata('my_team_id', $data['my_team_id']);
+            $this->session->set_userdata('my_team_name', $data['my_team_name']);
+            $this->session->set_userdata('my_team_abbreviation', $data['my_team_abbreviation']);
+
+            $this->session->set_userdata('opponent_team_id', $data['opponent_team_id']);
+            $this->session->set_userdata('opponent_team_name', $data['opponent_team_name']);
+            $this->session->set_userdata('opponent_team_abbreviation', $data['opponent_team_abbreviation']);
+
+            $this->session->set_userdata('tagging_video_url', $data['video_url']);
+            $this->session->set_userdata('tagging_thumbnail_url', $data['video_thumbnail']);
+            $this->session->set_userdata('video_file_name_for_tagging', $video_file_name_for_tagging);
+
+        $redirect_url = site_url('studio/mediacontroller/index?match_id=' . $match_id);
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode([
+                'success' => true,
+                'redirect_url' => $redirect_url
+            ]));
+    }
 }
