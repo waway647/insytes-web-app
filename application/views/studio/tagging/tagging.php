@@ -1846,6 +1846,139 @@ let config = null;
     }
     if (currentTag.event === 'Shot' && currentTag.type) eventObj.additional.shot_type = currentTag.type;
 
+        // --- Attach canonical opposite goalkeeper when appropriate (fixed opponent side resolution) ---
+    (function attachOppositeGK() {
+      const evt = String(currentTag.event || '').toLowerCase();
+      const outcome = String(currentTag.outcome || '').toLowerCase();
+      const shotMatches = (evt === 'shot' && (outcome === 'on target' || outcome === 'goal'));
+      const penMatches  = (evt === 'penalty' && (outcome === 'goal' || outcome === 'saved'));
+      if (!shotMatches && !penMatches) return;
+
+      if (!eventObj.additional) eventObj.additional = {};
+
+      // ---- CORRECT: determine the logical team key (home/away) ----
+      // prefer canonical resolvedTeamSide (set earlier in commitTag), fall back to actor/team button/selectedTeam or eventObj.team matching config
+      let ourTeamKey = null;
+      if (typeof resolvedTeamSide !== 'undefined' && (resolvedTeamSide === 'home' || resolvedTeamSide === 'away')) {
+        ourTeamKey = resolvedTeamSide;
+      } else if (actor && (actor.side === 'home' || actor.side === 'away')) {
+        ourTeamKey = actor.side;
+      } else if (typeof teamSideFromButton !== 'undefined' && (teamSideFromButton === 'home' || teamSideFromButton === 'away')) {
+        ourTeamKey = teamSideFromButton;
+      } else if (config && config.home && config.home.name && eventObj.team === config.home.name) {
+        ourTeamKey = 'home';
+      } else {
+        // final fallback: assume 'home' (safer to pick a deterministic default)
+        ourTeamKey = 'home';
+      }
+
+      const opponentSide = ourTeamKey === 'home' ? 'away' : 'home';
+
+      const isGoalkeeper = p => {
+        if (!p) return false;
+        const pos = String(p.position || p.role || p.type || '').toLowerCase();
+        if (!pos) return false;
+        if (pos === 'gk' || pos === 'goalkeeper') return true;
+        if (pos.indexOf('goal') !== -1) return true;
+        return false;
+      };
+
+      let resolvedGK = null;
+
+      // 1) Try reconstructing on-pitch opponent starting XI from eventsList up to tag time
+      (function tryFromEventsList() {
+        if (!Array.isArray(eventsList) || !config || !config.match) return null;
+        const cutoff = typeof matchSeconds === 'number' ? matchSeconds : Number(eventObj.match_time_minute || 0);
+        const teamCfg = (config && config[opponentSide]) ? config[opponentSide] : null;
+        if (!teamCfg || !Array.isArray(teamCfg.starting11)) return null;
+
+        const currentStarting = teamCfg.starting11.map(p => ({ ...(p || {}), side: opponentSide }));
+
+        const relevantEvents = eventsList
+          .filter(e => e && String(e.match_id) === String((config.match && config.match.id) || '') && e.team_side === opponentSide)
+          .filter(e => typeof e.match_time_minute !== 'undefined' && Number(e.match_time_minute) <= cutoff)
+          .sort((a,b) => Number(a.match_time_minute || 0) - Number(b.match_time_minute || 0));
+
+        for (const ev of relevantEvents) {
+          const evName = String(ev.event || '').toLowerCase();
+          if (evName === 'substitution') {
+            const outId = (typeof ev.player_id !== 'undefined' && ev.player_id !== null) ? String(ev.player_id) : null;
+            const outName = ev.player_name ? String(ev.player_name) : null;
+
+            let inPlayer = null;
+            if (ev.additional && ev.additional.secondary_player) {
+              const s = ev.additional.secondary_player;
+              inPlayer = {
+                id: s.id ?? s.player_id ?? null,
+                name: s.name ?? null,
+                number: s.number ?? null,
+                position: s.position ?? s.role ?? null,
+                side: opponentSide
+              };
+            } else if (ev.secondary_player) {
+              const s = ev.secondary_player;
+              inPlayer = {
+                id: s.id ?? null,
+                name: s.name ?? null,
+                number: s.number ?? null,
+                position: s.position ?? s.role ?? null,
+                side: opponentSide
+              };
+            }
+
+            let outIndex = -1;
+            if (outId) outIndex = currentStarting.findIndex(p => String(p.id) === String(outId));
+            if (outIndex === -1 && outName) outIndex = currentStarting.findIndex(p => String(p.name || '').toLowerCase() === outName.toLowerCase());
+
+            if (outIndex !== -1 && inPlayer) {
+              currentStarting[outIndex] = inPlayer;
+            } else if (inPlayer) {
+              currentStarting.push(inPlayer);
+            }
+          }
+        }
+
+        const gk = currentStarting.find(isGoalkeeper);
+        if (gk) {
+          resolvedGK = { id: gk.id ?? null, name: gk.name ?? null, number: gk.number ?? null, position: gk.position ?? gk.role ?? null, side: opponentSide };
+        }
+        return resolvedGK;
+      })();
+
+      // 2) Fallback to config lookup if not found in eventsList
+      if (!resolvedGK) {
+        const opponentTeamData = (typeof getTeamData === 'function') ? getTeamData(opponentSide) : null;
+        const teamCfg = (config && config[opponentSide]) ? config[opponentSide] : null;
+
+        let candidates = [];
+        if (teamCfg && Array.isArray(teamCfg.starting11)) candidates = candidates.concat(teamCfg.starting11);
+        if (opponentTeamData && Array.isArray(opponentTeamData.bench)) candidates = candidates.concat(opponentTeamData.bench);
+        if (teamCfg && Array.isArray(teamCfg.players)) candidates = candidates.concat(teamCfg.players);
+
+        const seen = new Set();
+        const uniq = [];
+        for (const p of candidates) {
+          if (!p) continue;
+          const key = (typeof p.id !== 'undefined' && p.id !== null) ? String(p.id) : (p.name ? ('name:' + String(p.name)) : null);
+          if (!key) continue;
+          if (!seen.has(key)) { seen.add(key); uniq.push(p); }
+        }
+
+        const gk = uniq.find(isGoalkeeper);
+        if (gk) {
+          resolvedGK = { id: gk.id ?? null, name: gk.name ?? null, number: gk.number ?? null, position: gk.position ?? gk.role ?? null, side: opponentSide };
+        }
+      }
+
+      // 3) Always attach an opponent_goalkeeper object (explicit 'not_found' when unresolved)
+      if (resolvedGK) {
+        eventObj.additional.opponent_goalkeeper = resolvedGK;
+      } else {
+        eventObj.additional.opponent_goalkeeper = { id: null, name: null, number: null, position: null, side: opponentSide };
+      }
+    })();
+
+
     const resp = await fetch(endpoints.saveEvent, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

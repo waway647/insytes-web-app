@@ -26,7 +26,7 @@ def safe_float(v: Any) -> Union[float, None]:
 # Corrected and updated DEFAULT_COLUMNS
 DEFAULT_COLUMNS = [
     "id", "match_id", "team", "team_side", "event",
-    "player_id", "player_name",
+    "player_id", "player_name", "player_position",
     "match_time_minute", "half_period", "video_timestamp", "duration",
     "in_possession",
     "origin_x", "origin_y", "is_opponent_half", "origin_third", # 'is_opponent_half' used instead of 'origin_half'
@@ -37,6 +37,8 @@ DEFAULT_COLUMNS = [
     "shot_type", "is_outside_the_box", "blocker_name", "keeper_name",
     # duels additional attribute
     "duel_type", "defender_name",
+    # substitutions
+    "player_out", "player_out_position", "player_in", "player_in_position",
     "created_at"
 ]
 
@@ -203,6 +205,26 @@ def get_secondary_player_name(ev: Dict[str, Any]) -> str:
     # Access nested key
     return additional.get("secondary_player", {}).get("name", "")
 
+def get_secondary_player_position(ev: Dict[str, Any]) -> str:
+    """Helper for Rule 8: extract secondary player name."""
+    additional = ev.get("additional_attributes", {})
+    # Check both 'additional_attributes' and the user's snippet which shows 'additional' as a list/dict
+    if not additional and ev.get("additional") and isinstance(ev["additional"], dict):
+        additional = ev["additional"]
+    
+    # Access nested key
+    return additional.get("secondary_player", {}).get("position", "")
+
+def get_goalkeeper_name(ev: Dict[str, Any]) -> str:
+    """Helper for Rule 8: extract secondary player name."""
+    additional = ev.get("additional_attributes", {})
+    # Check both 'additional_attributes' and the user's snippet which shows 'additional' as a list/dict
+    if not additional and ev.get("additional") and isinstance(ev["additional"], dict):
+        additional = ev["additional"]
+    
+    # Access nested key
+    return additional.get("opponent_goalkeeper", {}).get("name", "")
+
 def flatten_event(ev: Dict[str, Any], event_list: List[Dict[str, Any]]) -> Dict[str, Any]:
     
     # Use 'team_side' if 'side' is missing (based on JSON snippet)
@@ -240,6 +262,10 @@ def flatten_event(ev: Dict[str, Any], event_list: List[Dict[str, Any]]) -> Dict[
     is_outside_the_box_val = calculate_is_outside_the_box(team_side, origin_x, origin_y) # Rule 7
 
     secondary_player_name = get_secondary_player_name(ev) # Rule 8 extraction
+    secondary_player_position = get_secondary_player_position(ev)
+
+    # NEW: prefer keeper name provided in additional.opponent_goalkeeper if present
+    goalkeeper_name = get_goalkeeper_name(ev)
 
     # Rule 8: Populate player names based on event context
     receiver_name_val = ""
@@ -248,15 +274,50 @@ def flatten_event(ev: Dict[str, Any], event_list: List[Dict[str, Any]]) -> Dict[
     defender_name_val = ""
     
     event_name = ev.get("event", "")
-    if secondary_player_name:
-        if event_name == "Pass":
-            receiver_name_val = secondary_player_name
-        # For shot, blocker and keeper names often refer to the same secondary player in different contexts
-        if event_name == "Shot":
-            blocker_name_val = secondary_player_name
+    outcome_lower = (ev.get("outcome") or "").strip().lower()
+
+    # receiver / blocker / keeper / defender assignment
+    if event_name == "Pass":
+        receiver_name_val = secondary_player_name
+
+    if event_name == "Shot":
+        # blocker is always the secondary player (when provided)
+        blocker_name_val = secondary_player_name
+
+        # keeper: only set for non-blocked shot outcomes.
+        # Prefer explicit opponent goalkeeper (additional.opponent_goalkeeper.name),
+        # otherwise fall back to the secondary player (but not when outcome is 'blocked').
+        if outcome_lower != "blocked":
+            if goalkeeper_name:
+                keeper_name_val = goalkeeper_name
+            else:
+                keeper_name_val = secondary_player_name or ""
+        else:
+            # blocked shots: goalkeeper is NOT the blocker — clear keeper_name
+            keeper_name_val = ""
+
+    if event_name == "Duel":
+        defender_name_val = secondary_player_name
+
+    # ALSO attach keeper_name for Penalty events (prefer explicit opponent_goalkeeper)
+    if event_name == "Penalty":
+        # for penalty outcomes saved/goal, prefer GK from opponent_goalkeeper if present
+        if goalkeeper_name:
+            keeper_name_val = goalkeeper_name
+        elif secondary_player_name and not keeper_name_val:
             keeper_name_val = secondary_player_name
-        if event_name == "Duel":
-            defender_name_val = secondary_player_name
+
+
+    # --- Only populate substitution fields when event is a substitution (case-insensitive) ---
+    player_out_val = ""
+    player_out_position_val = ""
+    player_in_val = ""
+    player_in_position_val = ""
+    if isinstance(event_name, str) and event_name.lower() == "substitution":
+        player_out_val = ev.get("player_name", "")
+        player_out_position_val = ev.get("player_position", "")
+        player_in_val = secondary_player_name
+        player_in_position_val = secondary_player_position
 
     # --- Building the output dictionary ---
     out = {
@@ -267,6 +328,7 @@ def flatten_event(ev: Dict[str, Any], event_list: List[Dict[str, Any]]) -> Dict[
         "event": ev.get("event",""),
         "player_id": ev.get("player_id",""),
         "player_name": ev.get("player_name",""),
+        "player_position": ev.get("player_position",""),
         "match_time_minute": ev.get("match_time_minute",""),
         "half_period": ev.get("half_period",""),
         "video_timestamp": ev.get("video_timestamp",""),
@@ -281,21 +343,24 @@ def flatten_event(ev: Dict[str, Any], event_list: List[Dict[str, Any]]) -> Dict[
         # for pass
         "pass_type": additional_attrs.get("pass_type",""),
         "receiver_name": receiver_name_val, # CALCULATED (Rule 8)
-        # 🌟 FIX: Pull pass_end_x/y from additional_attrs for the output column (consistent)
         "pass_end_x": additional_attrs.get("pass_end_x", ""),
         "pass_end_y": additional_attrs.get("pass_end_y", ""),
         "pass_end_third": pass_end_third_val, # CALCULATED (Rule 5) - uses resolved coordinate
         "pass_direction": pass_direction_val, # CALCULATED (Rule 6) - uses resolved coordinates
         "is_key_pass": additional_attrs.get("key_pass", ""),
-#        "is_assist": 
         # for shot
         "shot_type": additional_attrs.get("shot_type", ""),
         "is_outside_the_box": is_outside_the_box_val, # CALCULATED (Rule 7)
         "blocker_name": blocker_name_val, # CALCULATED (Rule 8)
-        "keeper_name": keeper_name_val, # CALCULATED (Rule 8)
+        "keeper_name": keeper_name_val, # NOW uses opponent goalkeeper when available
         # for duel
         "duel_type": additional_attrs.get("duel_type", ""),
         "defender_name": defender_name_val, # CALCULATED (Rule 8)
+        # substitution (only if event == "substitution")
+        "player_out": player_out_val,
+        "player_out_position": player_out_position_val,
+        "player_in": player_in_val,
+        "player_in_position": player_in_position_val,
         "created_at": ev.get("created_at",""),
     }
     

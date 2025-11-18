@@ -230,7 +230,7 @@
 									</svg>
 								</button>
 								<div id="match-options" class="flex flex-col bg-[#1d1d1d] border-1 border-[#2a2a2a] text-white absolute hidden">
-									<span id="start-tagging-btn" class="px-10 py-2 cursor-pointer hover:bg-[#2a2a2a] transition-colors">Start Tagging</span>
+									<span id="start-tagging-btn" class="px-10 py-2 cursor-pointer hover:bg-[#2a2a2a] transition-colors">Open in Tagging Studio</span>
 									<span id="remove-match-card-btn" class="px-10 py-2 cursor-pointer hover:bg-[#2a2a2a] transition-colors">Remove</span>
 								</div>
 							</div>

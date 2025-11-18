@@ -252,10 +252,53 @@ class TaggingController extends CI_Controller {
         $match_id = $input['match_id'];
         $event = $input['event'];
 
+        // Try to read the per-match config so we can copy season/competition
+        $configFile = $this->configs_dir . 'match_' . $match_id . '.json';
+        $config = null;
+        if (file_exists($configFile)) {
+            $cfgRaw = @file_get_contents($configFile);
+            if ($cfgRaw !== false) {
+                $decoded = json_decode($cfgRaw, true);
+                if ($decoded !== null) {
+                    $config = $decoded;
+                } else {
+                    log_message('debug', "Config JSON decode error for {$configFile}: " . json_last_error_msg());
+                }
+            } else {
+                log_message('debug', "Could not read config file: {$configFile}");
+            }
+        }
+
+        // helper: lookup possible keys/locations inside config
+        $lookupFromConfig = function ($cfg, $keys) {
+            foreach ($keys as $k) {
+                // direct key
+                if (isset($cfg[$k])) return $cfg[$k];
+                // nested under match
+                if (isset($cfg['match']) && isset($cfg['match'][$k])) return $cfg['match'][$k];
+                // nested under meta
+                if (isset($cfg['meta']) && isset($cfg['meta'][$k])) return $cfg['meta'][$k];
+                // competition.name shape
+                if ($k === 'competition' && isset($cfg['competition']['name'])) return $cfg['competition']['name'];
+            }
+            return null;
+        };
+
         $eventsFile = $this->events_dir . 'match_' . $match_id . '_events.json';
+
+        // If events file doesn't exist, create an initial skeleton that includes season/competition when available
         if (!file_exists($eventsFile)) {
-            // create an empty events file first
-            file_put_contents($eventsFile, json_encode(['match_id' => $match_id, 'events' => []], JSON_PRETTY_PRINT));
+            $initial = ['match_id' => $match_id];
+
+            if ($config !== null) {
+                $season = $lookupFromConfig($config, ['season', 'season_name', 'season_id', 'year']);
+                $competition = $lookupFromConfig($config, ['competition', 'competition_name', 'league', 'tournament']);
+                if ($season !== null) $initial['season'] = $season;
+                if ($competition !== null) $initial['competition'] = $competition;
+            }
+
+            $initial['events'] = [];
+            file_put_contents($eventsFile, json_encode($initial, JSON_PRETTY_PRINT));
         }
 
         $fp = fopen($eventsFile, 'c+');
@@ -283,7 +326,17 @@ class TaggingController extends CI_Controller {
                 ->set_output(json_encode(['success' => false, 'message' => 'Events JSON decode error', 'path' => $eventsFile]));
             return;
         }
+
+        // ensure minimal structure
         if (!$data || !isset($data['events'])) $data = ['match_id' => $match_id, 'events' => []];
+
+        // If config available, ensure season/competition are present (copy/overwrite from config)
+        if ($config !== null) {
+            $season = $lookupFromConfig($config, ['season', 'season_name', 'season_id', 'year']);
+            $competition = $lookupFromConfig($config, ['competition', 'competition_name', 'league', 'tournament']);
+            if ($season !== null) $data['season'] = $season;
+            if ($competition !== null) $data['competition'] = $competition;
+        }
 
         // generate a non-colliding id (evt_0001 ...)
         $n = count($data['events']) + 1;
@@ -298,10 +351,24 @@ class TaggingController extends CI_Controller {
 
         $data['events'][] = $event;
 
-        // write back
+        // --- Ensure order: match_id, season, competition at top, preserve other keys, then events ---
+        $ordered = ['match_id' => $match_id];
+        if (isset($data['season'])) $ordered['season'] = $data['season'];
+        if (isset($data['competition'])) $ordered['competition'] = $data['competition'];
+
+        // append any other keys that aren't match_id/season/competition/events (preserve)
+        foreach ($data as $k => $v) {
+            if (in_array($k, ['match_id', 'season', 'competition', 'events'], true)) continue;
+            $ordered[$k] = $v;
+        }
+
+        // finally append events
+        $ordered['events'] = $data['events'];
+
+        // write back the ordered structure
         ftruncate($fp, 0);
         rewind($fp);
-        $written = fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
+        $written = fwrite($fp, json_encode($ordered, JSON_PRETTY_PRINT));
         fflush($fp);
         flock($fp, LOCK_UN);
         fclose($fp);

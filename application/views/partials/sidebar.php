@@ -26,14 +26,6 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('clips/resultscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
-                <div class="nav-item flex items-center gap-3">
-                    <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/results.svg'); ?>" alt="">
-                    <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/results-active.svg'); ?>" alt="">
-                    <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Results</span>
-                </div>
-            </a>
-
             <a href="<?php echo site_url('match/librarycontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/match-library.svg'); ?>" alt="">
@@ -50,19 +42,11 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('clips/reviewcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
-                <div class="nav-item flex items-center gap-3">
-                    <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/review.svg'); ?>" alt="">
-                    <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/review-active.svg'); ?>" alt="">
-                    <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Review</span>
-                </div>
-            </a>
-
             <a href="<?php echo site_url('reports/reportscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/reports.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/reports-active.svg'); ?>" alt="">
-                    <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Reports</span>
+                    <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Match Reports</span>
                 </div>
             </a>
             <?php endif; ?>
@@ -76,14 +60,6 @@
                     <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Dashboard</span>
                 </div>
             </a>
-
-            <a href="<?php echo site_url('clips/resultscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
-                <div class="nav-item flex items-center gap-3">
-                    <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/results.svg'); ?>" alt="">
-                    <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/results-active.svg'); ?>" alt="">
-                    <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Results</span>
-                </div>
-            </a>
             
             <a href="<?php echo site_url('team/peoplecontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
@@ -93,11 +69,11 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('clips/reviewcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('reports/reportscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
-                    <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/review.svg'); ?>" alt="">
-                    <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/review-active.svg'); ?>" alt="">
-                    <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Review</span>
+                    <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/reports.svg'); ?>" alt="">
+                    <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/reports-active.svg'); ?>" alt="">
+                    <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Match Reports</span>
                 </div>
             </a>
             <?php endif; ?>
