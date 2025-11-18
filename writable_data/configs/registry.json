@@ -1,0 +1,20 @@
+{
+    "matches": [
+        {
+            "id": "match_11",
+            "season": "2025/2026",
+            "competition": "Ang Liga",
+            "date": "2025-11-14",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "FC Barcelona",
+            "away_team": "Real Madrid",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_11.json",
+                "events": "../events/match_11_events.json"
+            },
+            "created_at": "2025-11-18T07:29:23+01:00",
+            "updated_at": "2025-11-18T07:29:23+01:00"
+        }
+    ]
+}

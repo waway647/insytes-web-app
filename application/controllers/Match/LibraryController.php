@@ -64,7 +64,7 @@ class LibraryController extends CI_Controller {
 
                 // Optional: provide a placeholder thumbnail
                 $thumbnailUrl = base_url('assets/images/thumbnails/default.jpg');
-                if (!empty($match['thumbnail_url'])) {
+                if (!empty($match['video_thumbnail'])) {
                     $thumbnailUrl = base_url($match['video_thumbnail']);
                 }
 

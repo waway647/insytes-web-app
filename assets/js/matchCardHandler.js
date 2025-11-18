@@ -292,12 +292,30 @@ if (isOpen) {
           // Remove ids to avoid duplication in the DOM (we query inside clone)
           if (matchCardClone.hasAttribute('id')) matchCardClone.removeAttribute('id');
 
-          // Thumbnail
+          // Thumbnail — replace your existing thumbnail handling with this
           const thumbnailEl = matchCardClone.querySelector('#thumbnail, .thumbnail, [data-role="thumbnail"]');
-          if (thumbnailEl && match.thumbnailUrl) {
-            thumbnailEl.style.backgroundImage = `url('${match.thumbnailUrl}')`;
-            thumbnailEl.style.backgroundSize = 'cover';
-            thumbnailEl.style.backgroundPosition = 'center';
+          if (thumbnailEl) {
+            // support either backend key name
+            const thumbRaw = match.video_thumbnail || match.thumbnailUrl || match.thumbnail || null;
+
+            if (thumbRaw) {
+              // build an absolute URL if the backend returned a relative path
+              let thumbUrl = thumbRaw;
+              if (!/^https?:\/\//i.test(thumbUrl)) {
+                // prefer ASSET_BASE_URL if available (your script uses it), otherwise use origin
+                const base = (window.ASSET_BASE_URL && window.ASSET_BASE_URL.replace(/\/$/, ''))
+                            || window.location.origin;
+                thumbUrl = base + '/' + thumbUrl.replace(/^\/+/, '');
+              }
+
+              // set background-image properly (use url(...))
+              thumbnailEl.style.backgroundImage = `url("${thumbUrl}")`;
+              thumbnailEl.style.backgroundSize = 'cover';
+              thumbnailEl.style.backgroundPosition = 'center';
+            } else {
+              // optional: clear background if none
+              thumbnailEl.style.backgroundImage = '';
+            }
           }
 
           // Status & color
