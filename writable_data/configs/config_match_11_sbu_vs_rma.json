@@ -1,17 +1,17 @@
 {
     "match": {
-        "id": "match_11",
+        "id": "match_11_sbu_vs_rma",
         "season": "2025/2026",
         "competition": "Ang Liga",
         "venue": "Ayala Vermosa Sports Hub",
         "date": "2025-11-14",
         "attacking_direction": "left-to-right",
-        "positions_locked": false
+        "positions_locked": true
     },
     "home": {
         "name": "FC Barcelona",
         "jersey_color": "",
-        "jersey_text_color": "",
+        "jersey_text_color": "rgb(255, 255, 255)",
         "starting11": [
             {
                 "id": "6",
@@ -126,7 +126,7 @@
     "away": {
         "name": "Real Madrid",
         "jersey_color": "",
-        "jersey_text_color": "",
+        "jersey_text_color": "rgb(255, 255, 255)",
         "starting11": [
             {
                 "id": "11",
@@ -231,5 +231,6 @@
                 "position": ""
             }
         ]
-    }
+    },
+    "mode": "tagging"
 }

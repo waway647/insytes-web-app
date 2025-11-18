@@ -88,8 +88,10 @@ class TaggingController extends CI_Controller {
             log_message('debug', "Error fetching DB match details for {$match_id}: " . $ex->getMessage());
         }
 
+        $opponent = $dbMatch['opponent_team_abbreviation'] ?? $dbMatch['opponent_team_name'] ?? $this->session->userdata('opponent_team_abbreviation') ?? $this->session->userdata('opponent_team_name');
+
         // read per-match config file
-        $configFile = $this->configs_dir . 'match_' . $match_id . '.json';
+        $configFile = $this->configs_dir . 'config_match_' . $match_id . '_sbu_vs_' . $opponent . '.json';
         $config = null;
         if (file_exists($configFile)) {
             $cfgRaw = file_get_contents($configFile);
@@ -101,7 +103,7 @@ class TaggingController extends CI_Controller {
         }
 
         // read per-match events file
-        $eventsFile = $this->events_dir . 'match_' . $match_id . '_events.json';
+        $eventsFile = $this->events_dir . 'match_' . $match_id . '_sbu_vs_' . $opponent . '_events.json';
         $events = ['match_id' => $match_id, 'events' => []];
         if (file_exists($eventsFile)) {
             $evRaw = file_get_contents($eventsFile);
@@ -144,11 +146,28 @@ class TaggingController extends CI_Controller {
         }
 
         $match_id = $input['match_id'];
+        
+        // Optional DB fetch (LibraryModel must implement get_match_details)
+        $dbMatch = null;
+        try {
+            if (method_exists($this->LibraryModel, 'get_match_details')) {
+                $dbMatch = $this->LibraryModel->get_match_details($match_id);
+            } else {
+                // model method missing — return null and keep going
+                log_message('debug', "LibraryModel::get_match_details not found. Skipping DB fetch for match {$match_id}");
+            }
+        } catch (Exception $ex) {
+            log_message('debug', "Error fetching DB match details for {$match_id}: " . $ex->getMessage());
+        }
+
+        $opponent = $dbMatch['opponent_team_abbreviation'] ?? $dbMatch['opponent_team_name'] ?? $this->session->userdata('opponent_team_abbreviation') ?? $this->session->userdata('opponent_team_name');
+
+        $match_id = $input['match_id'];
         $positions = $input['positions'];
         $lockProvided = array_key_exists('lock', $input);
         $lock = $lockProvided ? (bool)$input['lock'] : null;
 
-        $fn = $this->configs_dir . 'match_' . $match_id . '.json';
+        $fn = $this->configs_dir . 'config_match_' . $match_id . '_sbu_vs_' . $opponent . '.json';
         if (!file_exists($fn)) {
             $this->output->set_status_header(404)->set_content_type('application/json')
                 ->set_output(json_encode(['success' => false, 'message' => 'Config not found for given match', 'path' => $fn]));
@@ -252,8 +271,23 @@ class TaggingController extends CI_Controller {
         $match_id = $input['match_id'];
         $event = $input['event'];
 
+        // Optional DB fetch (LibraryModel must implement get_match_details)
+        $dbMatch = null;
+        try {
+            if (method_exists($this->LibraryModel, 'get_match_details')) {
+                $dbMatch = $this->LibraryModel->get_match_details($match_id);
+            } else {
+                // model method missing — return null and keep going
+                log_message('debug', "LibraryModel::get_match_details not found. Skipping DB fetch for match {$match_id}");
+            }
+        } catch (Exception $ex) {
+            log_message('debug', "Error fetching DB match details for {$match_id}: " . $ex->getMessage());
+        }
+
+        $opponent = $dbMatch['opponent_team_abbreviation'] ?? $dbMatch['opponent_team_name'] ?? $this->session->userdata('opponent_team_abbreviation') ?? $this->session->userdata('opponent_team_name');
+
         // Try to read the per-match config so we can copy season/competition
-        $configFile = $this->configs_dir . 'match_' . $match_id . '.json';
+        $configFile = $this->configs_dir . 'config_match_' . $match_id . '_sbu_vs_' . $opponent . '.json';
         $config = null;
         if (file_exists($configFile)) {
             $cfgRaw = @file_get_contents($configFile);
@@ -284,7 +318,7 @@ class TaggingController extends CI_Controller {
             return null;
         };
 
-        $eventsFile = $this->events_dir . 'match_' . $match_id . '_events.json';
+        $eventsFile = $this->events_dir . 'match_' . $match_id . '_sbu_vs_' . $opponent . '_events.json';
 
         // If events file doesn't exist, create an initial skeleton that includes season/competition when available
         if (!file_exists($eventsFile)) {
@@ -399,7 +433,22 @@ class TaggingController extends CI_Controller {
             return;
         }
 
-        $eventsFile = $this->events_dir . 'match_' . $match_id . '_events.json';
+        // Optional DB fetch (LibraryModel must implement get_match_details)
+        $dbMatch = null;
+        try {
+            if (method_exists($this->LibraryModel, 'get_match_details')) {
+                $dbMatch = $this->LibraryModel->get_match_details($match_id);
+            } else {
+                // model method missing — return null and keep going
+                log_message('debug', "LibraryModel::get_match_details not found. Skipping DB fetch for match {$match_id}");
+            }
+        } catch (Exception $ex) {
+            log_message('debug', "Error fetching DB match details for {$match_id}: " . $ex->getMessage());
+        }
+
+        $opponent = $dbMatch['opponent_team_abbreviation'] ?? $dbMatch['opponent_team_name'] ?? $this->session->userdata('opponent_team_abbreviation') ?? $this->session->userdata('opponent_team_name');
+
+        $eventsFile = $this->events_dir . 'match_' . $match_id . '_sbu_vs_' . $opponent . '_events.json';
         if (!file_exists($eventsFile)) {
             $this->output->set_status_header(404)->set_content_type('application/json')
                 ->set_output(json_encode(['success' => false, 'message' => 'Events file not found']));
@@ -489,7 +538,23 @@ class TaggingController extends CI_Controller {
             $this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode(['success'=>false,'message'=>'Missing match_id']));
             return;
         }
-        $eventsFile = $this->events_dir . 'match_' . $match_id . '_events.json';
+
+        // Optional DB fetch (LibraryModel must implement get_match_details)
+        $dbMatch = null;
+        try {
+            if (method_exists($this->LibraryModel, 'get_match_details')) {
+                $dbMatch = $this->LibraryModel->get_match_details($match_id);
+            } else {
+                // model method missing — return null and keep going
+                log_message('debug', "LibraryModel::get_match_details not found. Skipping DB fetch for match {$match_id}");
+            }
+        } catch (Exception $ex) {
+            log_message('debug', "Error fetching DB match details for {$match_id}: " . $ex->getMessage());
+        }
+
+        $opponent = $this->session->userdata('opponent_team_abbreviation') ?? $this->session->userdata('opponent_team_name');
+
+        $eventsFile = $this->events_dir . 'match_' . $match_id . '_sbu_vs_' . $opponent . '_events.json';
         if (!file_exists($eventsFile)) {
             $this->output->set_content_type('application/json')->set_output(json_encode(['match_id'=>$match_id,'events'=>[]]));
             return;

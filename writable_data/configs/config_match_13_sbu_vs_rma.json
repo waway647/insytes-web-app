@@ -1,0 +1,25 @@
+{
+    "match": {
+        "id": "match_13_sbu_vs_rma",
+        "season": "2025/2026",
+        "competition": "Ang Liga",
+        "venue": "Ayala Vermosa Sports Hub",
+        "date": "2025-10-30",
+        "attacking_direction": "left-to-right",
+        "positions_locked": false
+    },
+    "home": {
+        "name": "FC Barcelona",
+        "jersey_color": "",
+        "jersey_text_color": "",
+        "starting11": [],
+        "bench": []
+    },
+    "away": {
+        "name": "FC Barcelona",
+        "jersey_color": "",
+        "jersey_text_color": "",
+        "starting11": [],
+        "bench": []
+    }
+}

@@ -15,6 +15,70 @@
             },
             "created_at": "2025-11-18T07:29:23+01:00",
             "updated_at": "2025-11-18T07:29:23+01:00"
+        },
+        {
+            "id": "match_11_sbu_vs_rma",
+            "season": "2025/2026",
+            "competition": "Ang Liga",
+            "date": "2025-11-14",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "FC Barcelona",
+            "away_team": "Real Madrid",
+            "status": "",
+            "files": {
+                "config": "match_11_sbu_vs_rma.json",
+                "events": "../events/match_11_sbu_vs_rma_events.json"
+            },
+            "created_at": "2025-11-18T08:47:45+01:00",
+            "updated_at": "2025-11-18T08:47:45+01:00"
+        },
+        {
+            "id": "match_12_sbu_vs_rma",
+            "season": "2025/2026",
+            "competition": "Ang Liga",
+            "date": "2025-10-30",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "FC Barcelona",
+            "away_team": "FC Barcelona",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_12_sbu_vs_rma.json",
+                "events": "../events/match_12_sbu_vs_rma_events.json"
+            },
+            "created_at": "2025-11-18T08:49:55+01:00",
+            "updated_at": "2025-11-18T08:49:55+01:00"
+        },
+        {
+            "id": "match_13_sbu_vs_rma",
+            "season": "2025/2026",
+            "competition": "Ang Liga",
+            "date": "2025-10-30",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "FC Barcelona",
+            "away_team": "FC Barcelona",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_13_sbu_vs_rma.json",
+                "events": "../events/match_13_sbu_vs_rma_events.json"
+            },
+            "created_at": "2025-11-18T08:50:26+01:00",
+            "updated_at": "2025-11-18T08:50:26+01:00"
+        },
+        {
+            "id": "match_14_sbu_vs_fcb",
+            "season": "2025/2026",
+            "competition": "Tuloy Invitational Cup",
+            "date": "2025-11-06",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "FC Barcelona",
+            "away_team": "FC Barcelona",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_14_sbu_vs_fcb.json",
+                "events": "../events/match_14_sbu_vs_fcb_events.json"
+            },
+            "created_at": "2025-11-18T08:54:22+01:00",
+            "updated_at": "2025-11-18T08:54:22+01:00"
         }
     ]
 }

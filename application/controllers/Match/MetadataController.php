@@ -173,14 +173,17 @@ class MetadataController extends CI_Controller {
             return false;
         }
 
+        $opponent = $this->Match_model->get_opponent_name($match_id);
+        $opponent = strtolower($opponent);
+
         // If match_id is numeric and you want file name like "match_123", prefix "match_"
         // If your DB already returns a string id like "match_20252026_001", skip prefixing.
         $file_id = (string)$match_id;
-        if (!preg_match('/^match_/', $file_id)) {
-            $file_id = 'match_' . $file_id;
+        if (!preg_match('/^match_/', $file_id . '_sbu_vs_' . $opponent)) {
+            $file_id = 'match_' . $file_id . '_sbu_vs_' . strtolower(preg_replace('/\s+/', '_', $opponent));
         }
 
-        $configFile = $configsDir . '/' . $file_id . '.json';
+        $configFile = $configsDir . '/' . 'config_' . $file_id . '.json';
         $registryFile = $configsDir . '/registry.json';
         $eventsFileRelative = '../events/' . $file_id . '_events.json'; // stored in registry files.path
         $eventsFile = $eventsDir . '/' . $file_id . '_events.json'; // actual events file path (can be created later)
@@ -421,16 +424,20 @@ class MetadataController extends CI_Controller {
             return;
         }
 
-        // Normalize file id (same convention as create_match_config_json)
+        $opponent = $this->session->userdata('opponent_team_abbreviation') ?? $this->session->userdata('opponent_team_name');
+        $opponent = strtolower($opponent);
+
+        // If match_id is numeric and you want file name like "match_123", prefix "match_"
+        // If your DB already returns a string id like "match_20252026_001", skip prefixing.
         $file_id = (string)$match_id;
-        if (!preg_match('/^match_/', $file_id)) {
-            $file_id = 'match_' . $file_id;
+        if (!preg_match('/^match_/', $file_id . '_sbu_vs_' . $opponent)) {
+            $file_id = 'match_' . $file_id . '_sbu_vs_' . strtolower(preg_replace('/\s+/', '_', $opponent));
         }
 
         $baseDir = FCPATH . 'writable_data';
         $configsDir = $baseDir . '/configs';
         $registryFile = $configsDir . '/registry.json';
-        $configFile = $configsDir . '/' . $file_id . '.json';
+        $configFile = $configsDir . '/' . 'config_' . $file_id . '.json';
         $eventsFileRelative = '../events/' . $file_id . '_events.json';
         $eventsFile = $baseDir . '/events/' . $file_id . '_events.json';
 

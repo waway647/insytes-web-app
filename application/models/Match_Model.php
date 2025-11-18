@@ -165,4 +165,31 @@ class Match_Model extends CI_Model {
 
         return $query->result_array();
     }
+
+    public function get_opponent_name($match_id)
+    {
+        if ($match_id === null || $match_id === '') return null;
+
+        $this->db->select('opponent_team_abbreviation, opponent_team_name');
+        // Use the view/table you have that contains these fields:
+        $this->db->from('matches_vw'); // change to 'matches' if you use a different table
+        $this->db->where('match_id', $match_id);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+        if (!$query || $query->num_rows() === 0) {
+            return null;
+        }
+
+        $row = $query->row_array();
+
+        // prefer abbreviation if present & non-empty
+        if (!empty($row['opponent_team_abbreviation'])) {
+            return trim($row['opponent_team_abbreviation']);
+        }
+        if (!empty($row['opponent_team_name'])) {
+            return trim($row['opponent_team_name']);
+        }
+        return null;
+    }
 }
