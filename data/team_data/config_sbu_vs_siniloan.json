@@ -1,0 +1,277 @@
+{
+    "match": {
+        "id": "match_20252026_003",
+        "season": "2025\/2026",
+        "competition": "Ang Liga",
+        "venue": "Vermosa Sports Hub",
+        "date": "2025-11-05"
+    },
+    "home": {
+        "name": "San Beda",
+        "jersey_color": "red",
+        "jersey_text_color": "white",
+        "starting11": [
+            {
+                "id": "h1",
+                "name": "Austin Dilodilo",
+                "number": 1,
+                "position": "GK",
+                "x": 92.75,
+                "y": 49.618002812939515
+            },
+            {
+                "id": "h2",
+                "name": "Jaro Libarnes",
+                "number": 28,
+                "position": "CB",
+                "x": 61,
+                "y": 8.495077355836848
+            },
+            {
+                "id": "h3",
+                "name": "Jul Aningalan",
+                "number": 2,
+                "position": "CB",
+                "x": 80.25,
+                "y": 72.75086732301924
+            },
+            {
+                "id": "h4",
+                "name": "Diego",
+                "number": 9,
+                "position": "CB",
+                "x": 81.5,
+                "y": 28.866760431317395
+            },
+            {
+                "id": "h5",
+                "name": "Harvy Barro",
+                "number": 8,
+                "position": "CDM",
+                "x": 68.5,
+                "y": 65.37308954524144
+            },
+            {
+                "id": "h6",
+                "name": "Jaryl Pineda",
+                "number": 57,
+                "position": "CAM",
+                "x": 68.25,
+                "y": 40.496952648851384
+            },
+            {
+                "id": "h7",
+                "name": "Kirvy Tabelin",
+                "number": 11,
+                "position": "CAM",
+                "x": 58.25,
+                "y": 55.12423816221285
+            },
+            {
+                "id": "h8",
+                "name": "Laurence Fernandez",
+                "number": 38,
+                "position": "LW",
+                "x": 81.25,
+                "y": 50.12283169245194
+            },
+            {
+                "id": "h9",
+                "name": "Edvard Omitade",
+                "number": 11,
+                "position": "RW",
+                "x": 63,
+                "y": 90.2604781997187
+            },
+            {
+                "id": "h10",
+                "name": "Pius Encaya",
+                "number": 17,
+                "position": "ST",
+                "x": 51.5,
+                "y": 32.49657759024848
+            },
+            {
+                "id": "h11",
+                "name": "Sam Salingay",
+                "number": 18,
+                "position": "ST",
+                "x": 53.749995899200755,
+                "y": 68.8766022184625
+            }
+        ],
+        "bench": [
+            {
+                "id": "h12",
+                "name": "Bel",
+                "number": 13,
+                "position": "CAM"
+            },
+            {
+                "id": "h13",
+                "name": "Trillo",
+                "number": 3,
+                "position": "ST"
+            },
+            {
+                "id": "h14",
+                "name": " James Paquite",
+                "number": 99,
+                "position": "LWB"
+            },
+            {
+                "id": "h15",
+                "name": "Louie Bacnis",
+                "number": 34,
+                "position": "CDM"
+            },
+            {
+                "id": "h16",
+                "name": "James Acebedo",
+                "number": 19,
+                "position": "CAM"
+            },
+            {
+                "id": "h17",
+                "name": "Kurt Bacaycay",
+                "number": 71,
+                "position": "RW"
+            },
+            {
+                "id": "h18",
+                "name": "Cesar Bayubay",
+                "number": 14,
+                "position": "LW"
+            },
+            {
+                "id": "h19",
+                "name": "Hugo Bacnis",
+                "number": 30,
+                "position": "LW"
+            },
+            {
+                "id": "h20",
+                "name": "Prince Mellendrez",
+                "number": 30,
+                "position": "LW"
+            }
+        ]
+    },
+    "away": {
+        "name": "Siniloan Blues",
+        "jersey_color": "White",
+        "jersey_text_color": "Black",
+        "starting11": [
+            {
+                "id": "a1",
+                "name": "",
+                "number": 1,
+                "position": "",
+                "x": 6.75,
+                "y": 50.00693858415378
+            },
+            {
+                "id": "a2",
+                "name": "",
+                "number": 19,
+                "position": "",
+                "x": 19.25,
+                "y": 15.874355368026254
+            },
+            {
+                "id": "a3",
+                "name": "",
+                "number": 9,
+                "position": "",
+                "x": 40.25,
+                "y": 42.62766057196437
+            },
+            {
+                "id": "a4",
+                "name": "",
+                "number": 11,
+                "position": "",
+                "x": 19,
+                "y": 86.50951711204875
+            },
+            {
+                "id": "a5",
+                "name": "",
+                "number": 22,
+                "position": "",
+                "x": 36.5,
+                "y": 15.874355368026254
+            },
+            {
+                "id": "a6",
+                "name": "",
+                "number": 3,
+                "position": "",
+                "x": 17.25,
+                "y": 60.25316455696203
+            },
+            {
+                "id": "a7",
+                "name": "",
+                "number": 14,
+                "position": "",
+                "x": 35.75,
+                "y": 86.50726676043132
+            },
+            {
+                "id": "a8",
+                "name": "",
+                "number": 20,
+                "position": "",
+                "x": 28.25,
+                "y": 58.126957337083915
+            },
+            {
+                "id": "a9",
+                "name": "",
+                "number": 6,
+                "position": "",
+                "x": 40.25,
+                "y": 57.37458977965307
+            },
+            {
+                "id": "a10",
+                "name": "",
+                "number": 16,
+                "position": "",
+                "x": 28.5,
+                "y": 40.87426160337553
+            },
+            {
+                "id": "a11",
+                "name": "",
+                "number": 4,
+                "position": "",
+                "x": 15.5,
+                "y": 39.749085794655414
+            }
+        ],
+        "bench": [
+            {
+                "id": "a12",
+                "name": "",
+                "number": 7,
+                "position": "DEF"
+            },
+            {
+                "id": "a13",
+                "name": "",
+                "number": 10,
+                "position": "MID"
+            },
+            {
+                "id": "a14",
+                "name": "",
+                "number": 12,
+                "position": "FWD"
+            }
+        ]
+    },
+    "attacking_direction": "right-to-left",
+    "positions_locked": true
+}

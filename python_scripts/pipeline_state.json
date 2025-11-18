@@ -1,0 +1,234 @@
+{
+  "processed_datasets": {
+    "sbu_vs_2worlds": {
+      "file_hash": "95fc0ab9b9ce4c411b6459b4834a9bb4",
+      "completed_steps": [
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "heatmaps",
+        "team_summary",
+        "team_metrics",
+        "team_model",
+        "team_insights"
+      ],
+      "last_processed": "2025-11-17T03:07:46.392699",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-17T02:28:49.747901",
+          "step": "team_summary",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 321, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 306, in main\n    analysis = generate_comprehensive_analysis()\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 199, in generate_comprehensive_analysis\n    with open(PLAYER_METRICS_JSON, 'r') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'python_scripts/sanbeda_players_derived_metrics.json'\n"
+        },
+        {
+          "timestamp": "2025-11-17T02:30:42.953069",
+          "step": "team_summary",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 332, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 317, in main\n    analysis = generate_comprehensive_analysis()\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 210, in generate_comprehensive_analysis\n    with open(PLAYER_METRICS_JSON, 'r') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'python_scripts/sanbeda_players_derived_metrics.json'\n"
+        },
+        {
+          "timestamp": "2025-11-17T02:32:06.112506",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        },
+        {
+          "timestamp": "2025-11-17T02:32:13.455278",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        },
+        {
+          "timestamp": "2025-11-17T02:53:55.093026",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        },
+        {
+          "timestamp": "2025-11-17T03:04:09.940487",
+          "step": "team_metrics",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\derived_metrics_team.py.temp\", line 363, in <module>\n    print(\"\\u2705 Metrics computed and saved to\", OUTPUT_PATH)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2705' in position 0: character maps to <undefined>\n"
+        },
+        {
+          "timestamp": "2025-11-17T03:04:52.204383",
+          "step": "team_metrics",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\derived_metrics_team.py.temp\", line 367, in <module>\n    print(\"\\U0001f4be SCAs, Key Passes & Defensive Effectiveness included\")\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\U0001f4be' in position 0: character maps to <undefined>\n"
+        },
+        {
+          "timestamp": "2025-11-17T03:06:30.840066",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary",
+            "team_metrics",
+            "team_model",
+            "team_insights"
+          ]
+        },
+        {
+          "timestamp": "2025-11-17T03:07:46.393563",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary",
+            "team_metrics",
+            "team_model",
+            "team_insights"
+          ]
+        }
+      ]
+    },
+    "sbu_vs_siniloan": {
+      "file_hash": "7e6b8cd8542d7781faaaaf1dd3f04458",
+      "completed_steps": [
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "heatmaps",
+        "team_summary",
+        "team_metrics",
+        "team_model",
+        "team_insights"
+      ],
+      "last_processed": "2025-11-17T03:07:46.394307",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-17T02:29:01.450979",
+          "step": "team_summary",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 321, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 306, in main\n    analysis = generate_comprehensive_analysis()\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 199, in generate_comprehensive_analysis\n    with open(PLAYER_METRICS_JSON, 'r') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'python_scripts/sanbeda_players_derived_metrics.json'\n"
+        },
+        {
+          "timestamp": "2025-11-17T02:30:43.522994",
+          "step": "team_summary",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 332, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 317, in main\n    analysis = generate_comprehensive_analysis()\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 210, in generate_comprehensive_analysis\n    with open(PLAYER_METRICS_JSON, 'r') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'python_scripts/sanbeda_players_derived_metrics.json'\n"
+        },
+        {
+          "timestamp": "2025-11-17T02:32:14.133266",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        },
+        {
+          "timestamp": "2025-11-17T02:53:55.093963",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        },
+        {
+          "timestamp": "2025-11-17T03:07:53.515230",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary",
+            "team_metrics",
+            "team_model",
+            "team_insights"
+          ]
+        }
+      ]
+    },
+    "sbu_vs_up": {
+      "file_hash": "2aa9bc22be186d3fc311eb5832174076",
+      "completed_steps": [
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "heatmaps",
+        "team_summary",
+        "team_metrics",
+        "team_model",
+        "team_insights"
+      ],
+      "last_processed": "2025-11-17T03:07:53.516337",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-17T02:29:12.753640",
+          "step": "team_summary",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 321, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 306, in main\n    analysis = generate_comprehensive_analysis()\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 199, in generate_comprehensive_analysis\n    with open(PLAYER_METRICS_JSON, 'r') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'python_scripts/sanbeda_players_derived_metrics.json'\n"
+        },
+        {
+          "timestamp": "2025-11-17T02:30:44.076275",
+          "step": "team_summary",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 332, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 317, in main\n    analysis = generate_comprehensive_analysis()\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\heatmap_analysis.py.temp\", line 210, in generate_comprehensive_analysis\n    with open(PLAYER_METRICS_JSON, 'r') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'python_scripts/sanbeda_players_derived_metrics.json'\n"
+        },
+        {
+          "timestamp": "2025-11-17T02:32:14.802276",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        },
+        {
+          "timestamp": "2025-11-17T02:53:55.094523",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        },
+        {
+          "timestamp": "2025-11-17T03:08:01.171029",
+          "status": "completed",
+          "steps": [
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "heatmaps",
+            "team_summary",
+            "team_metrics",
+            "team_model",
+            "team_insights"
+          ]
+        }
+      ]
+    }
+  },
+  "last_updated": "2025-11-17T03:18:09.702067"
+}

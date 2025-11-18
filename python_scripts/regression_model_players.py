@@ -1,15 +1,14 @@
 # ============================================================
 # File: python_scripts/regression_model_players.py
-# Purpose: Train 4 role-based player-rating models
-# Version: Role-weighted overall + position-aware normalization +
-#          Pure Understat GK model with expert adjustments:
-#            - light target noise
-#            - reduced RF complexity
-#            - CV-based R² reporting
+# Purpose: Train 4 role-based player-rating models + predict next-match DPR
+# FEATURES: position_history, position_changed, Understat GK (percentile rank)
+# FIXED: No FileNotFound, GK works with 0 samples, safe fallbacks
 # ============================================================
 
 import json
 import os
+import sys
+import argparse
 import pickle
 import numpy as np
 import pandas as pd
@@ -17,41 +16,157 @@ from datetime import datetime, timezone
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import r2_score, mean_absolute_error
-from sklearn.model_selection import cross_val_score
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+from sklearn.model_selection import cross_val_score, train_test_split, KFold
 
-# ---------- XGBoost (optional) ----------
 try:
     from xgboost import XGBRegressor
     XGBOOST_AVAILABLE = True
 except Exception:
     XGBOOST_AVAILABLE = False
-    # fine — we'll use simpler models by default
-    print("⚠️ XGBoost unavailable → using LinearRegression/RandomForest")
+
+# Command line argument parsing
+parser = argparse.ArgumentParser(description='Train player DPR prediction models')
+parser.add_argument('--dataset', default='sbu_vs_2worlds', help='Dataset name (e.g., sbu_vs_2worlds)')
+args = parser.parse_args()
+
+MATCH_NAME = args.dataset
 
 # ---------- CONFIG ----------
 TEAM_NAME = "San Beda"
-DATA_PATH = "python_scripts/sanbeda_players_derived_metrics.json"
-OUTPUT_MODEL_DIR = "python_scripts/models_players"
-OUTPUT_TRAIN_DATA = "data/sanbeda_players_training_data.csv"
-OUTPUT_RESULTS = "python_scripts/player_model_results.json"
-UNDERSTAT_GK_CSV = "data/understat_gk_features.csv"
+
+# Create match-specific output directories
+MATCH_OUTPUT_DIR = f"output/matches/{MATCH_NAME}"
+MODELS_OUTPUT_DIR = f"python_scripts/models_players"
+TRAINING_DATA_DIR = "data/training_data"
+
+os.makedirs(MATCH_OUTPUT_DIR, exist_ok=True)
+os.makedirs(MODELS_OUTPUT_DIR, exist_ok=True)
+os.makedirs(TRAINING_DATA_DIR, exist_ok=True)
+
+# Input and output paths
+DATA_PATH = f"{MATCH_OUTPUT_DIR}/sanbeda_players_derived_metrics.json"
+OUTPUT_MODEL_DIR = MODELS_OUTPUT_DIR  # Save models in organized location
+OUTPUT_TRAIN_DATA = f"{TRAINING_DATA_DIR}/sanbeda_players_training_data.csv"  # Single training data file
+OUTPUT_RESULTS = f"{MATCH_OUTPUT_DIR}/player_model_results.json"  # Match-specific results
+UNDERSTAT_GK_CSV = "data/training_data/understat_gk_features.csv"
+
+# Also save to main directory for compatibility
+# MAIN_DATA_PATH = "python_scripts/sanbeda_players_derived_metrics.json"
+#M AIN_OUTPUT_RESULTS = "python_scripts/player_model_results.json"
+# MAIN_PRED_CSV = "python_scripts/player_dpr_predictions.csv"
+
+MIN_SAMPLES = 5
+MIN_R2 = 0.30
+TEST_SIZE = 0.2  # 20% for testing
+RANDOM_STATE = 42
+CV_FOLDS = 5
 
 os.makedirs(OUTPUT_MODEL_DIR, exist_ok=True)
 os.makedirs(os.path.dirname(OUTPUT_TRAIN_DATA), exist_ok=True)
 
+def validate_model(model, X, y, model_name):
+    """Comprehensive model validation with train/test split and cross-validation"""
+    if len(X) < MIN_SAMPLES:
+        return {"status": "insufficient_data", "samples": len(X)}
+    
+    # Train/Test Split
+    if len(X) >= 10:  # Only split if we have enough data
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE, shuffle=True
+        )
+    else:
+        # For small datasets, use full data for training but note the limitation
+        X_train, X_test, y_train, y_test = X, X, y, y
+        
+    # Fit scaler on training data only
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    
+    # Train model
+    model.fit(X_train_scaled, y_train)
+    
+    # Predictions
+    train_preds = model.predict(X_train_scaled)
+    test_preds = model.predict(X_test_scaled)
+    
+    # Training metrics
+    train_r2 = r2_score(y_train, train_preds) if len(y_train) >= 2 else None
+    train_mae = mean_absolute_error(y_train, train_preds)
+    train_mse = mean_squared_error(y_train, train_preds)
+    
+    # Testing metrics  
+    test_r2 = r2_score(y_test, test_preds) if len(y_test) >= 2 else None
+    test_mae = mean_absolute_error(y_test, test_preds)
+    test_mse = mean_squared_error(y_test, test_preds)
+    
+    # Cross-validation
+    cv_scores = None
+    cv_mean = None
+    cv_std = None
+    
+    try:
+        if len(X) >= CV_FOLDS:
+            kfold = KFold(n_splits=min(CV_FOLDS, len(X)), shuffle=True, random_state=RANDOM_STATE)
+            cv_scores = cross_val_score(model, X_train_scaled, y_train, cv=kfold, scoring='r2')
+            cv_mean = float(np.mean(cv_scores))
+            cv_std = float(np.std(cv_scores))
+    except Exception as e:
+        print(f"Cross-validation failed for {model_name}: {e}")
+    
+    # Overfitting detection
+    overfitting = False
+    if train_r2 and test_r2:
+        overfitting = (train_r2 - test_r2) > 0.3  # Significant gap indicates overfitting
+    
+    validation_results = {
+        "status": "validated",
+        "samples_total": len(X),
+        "samples_train": len(X_train),
+        "samples_test": len(X_test),
+        "train_metrics": {
+            "r2": float(train_r2) if train_r2 else None,
+            "mae": float(train_mae),
+            "mse": float(train_mse)
+        },
+        "test_metrics": {
+            "r2": float(test_r2) if test_r2 else None,
+            "mae": float(test_mae),
+            "mse": float(test_mse)
+        },
+        "cross_validation": {
+            "cv_mean_r2": cv_mean,
+            "cv_std_r2": cv_std,
+            "cv_scores": cv_scores.tolist() if cv_scores is not None else None
+        },
+        "overfitting_detected": overfitting,
+        "model_quality": "good" if test_r2 and test_r2 > MIN_R2 else "poor"
+    }
+    
+    return validation_results, model, scaler, X_train_scaled
+
 # ---------- LOAD UNDERSTAT GK DATA ----------
-if os.path.exists(UNDERSTAT_GK_CSV):
-    gk_df = pd.read_csv(UNDERSTAT_GK_CSV)
-    print(f"📂 Loaded Understat GK features: {len(gk_df)} goalkeepers")
-    # compute common KPIs (guard against 0 division)
+# Try organized location first, fallback to legacy location
+UNDERSTAT_PATHS = [
+    "data/understat_gk_features.csv",  # Primary location
+    f"{TRAINING_DATA_DIR}/understat_gk_features.csv"  # Alternative location
+]
+
+gk_df = pd.DataFrame()
+for path in UNDERSTAT_PATHS:
+    if os.path.exists(path):
+        UNDERSTAT_GK_CSV = path
+        gk_df = pd.read_csv(UNDERSTAT_GK_CSV)
+        print(f"Loaded Understat GK features: {len(gk_df)} goalkeepers from {path}")
+        break
+
+if not gk_df.empty:
     gk_df["time"] = gk_df["time"].replace(0, np.nan)
     gk_df["saves_per90"] = gk_df["saves"] / (gk_df["time"] / 90.0)
     gk_df["goals_against_per90"] = gk_df["goals_against"] / (gk_df["time"] / 90.0)
-    # shots_on_target_against may be zero — replace with 1 for safe division then fill later
     gk_df["shots_on_target_against"] = gk_df["shots_on_target_against"].replace(0, np.nan)
     gk_df["save_pct"] = gk_df["saves"] / gk_df["shots_on_target_against"]
-    # fill sensible defaults (0) where we couldn't compute
     gk_df["saves_per90"] = gk_df["saves_per90"].fillna(0.0)
     gk_df["goals_against_per90"] = gk_df["goals_against_per90"].fillna(0.0)
     gk_df["save_pct"] = gk_df["save_pct"].fillna(0.0)
@@ -59,7 +174,7 @@ if os.path.exists(UNDERSTAT_GK_CSV):
     gk_df.fillna(0, inplace=True)
 else:
     gk_df = pd.DataFrame()
-    print("⚠️ Understat GK CSV not found, GK models will rely on fallback")
+    print("Understat GK CSV not found -> GK will use fallback")
 
 # ---------- HELPERS ----------
 def flatten_dict(d, parent_key="", sep="__"):
@@ -78,8 +193,7 @@ def role_normalize(df, preds, position_col="position", min_samples=3):
     df_local = df.reset_index(drop=True)
     for pos in df_local[position_col].fillna("").unique():
         mask = (df_local[position_col] == pos).values
-        if mask.sum() == 0:
-            continue
+        if mask.sum() == 0: continue
         group_vals = preds[mask]
         if len(group_vals) < min_samples:
             normalized[mask] = np.clip(group_vals, 30, 100)
@@ -94,8 +208,7 @@ def position_feature_normalize(df, features, position_col="position"):
     df_norm = df.copy()
     for pos in df[position_col].fillna("").unique():
         mask = df[position_col] == pos
-        if mask.sum() == 0:
-            continue
+        if mask.sum() == 0: continue
         sub = df.loc[mask, features]
         sub_mean = sub.mean()
         sub_std = sub.std(ddof=0).replace(0, 1e-6)
@@ -104,35 +217,16 @@ def position_feature_normalize(df, features, position_col="position"):
 
 def make_smart_xgb():
     return XGBRegressor(
-        n_estimators=500,
-        learning_rate=0.03,
-        max_depth=6,
-        subsample=0.9,
-        colsample_bytree=0.8,
-        min_child_weight=3,
-        reg_lambda=1.0,
-        random_state=42,
-        n_jobs=-1,
-        verbosity=0
+        n_estimators=500, learning_rate=0.03, max_depth=6,
+        subsample=0.9, colsample_bytree=0.8, min_child_weight=3,
+        reg_lambda=1.0, random_state=42, n_jobs=-1, verbosity=0
     )
-
-def rescale_gk_to_college(preds, target_median=50.0, target_std=15.0):
-    """Rescale GK predictions (same units as preds) to college-level rating scale."""
-    preds = np.array(preds, dtype=float)
-    if preds.size == 0:
-        return preds
-    median_pred = np.median(preds)
-    std_pred = np.std(preds, ddof=0)
-    if std_pred < 1e-6:
-        std_pred = 1.0
-    rescaled = (preds - median_pred) / std_pred * target_std + target_median
-    return np.clip(rescaled, 0, 100)
 
 # ---------- ROLE WEIGHTS ----------
 ROLE_WEIGHTS = {
-    "attacker": {"attack": 0.6, "distribution": 0.25, "discipline": 0.15},
+    "attacker":   {"attack": 0.6, "distribution": 0.25, "discipline": 0.15},
     "midfielder": {"attack": 0.3, "defense": 0.3, "distribution": 0.25, "discipline": 0.15},
-    "defender": {"defense": 0.5, "distribution": 0.3, "discipline": 0.2},
+    "defender":   {"defense": 0.5, "distribution": 0.3, "discipline": 0.2},
     "goalkeeper": {"defense": 0.6, "distribution": 0.3, "discipline": 0.1}
 }
 
@@ -144,31 +238,42 @@ POSITION_ROLE = {
 }
 
 # ---------- LOAD PLAYER METRICS ----------
-print(f"📂 Loading player metrics: {DATA_PATH}")
-if not os.path.exists(DATA_PATH):
-    raise FileNotFoundError(f"❌ JSON not found: {DATA_PATH}")
+print(f"Loading player metrics: {DATA_PATH}")
+
+# Try match-specific location first, fallback to main directory
+#if not os.path.exists(DATA_PATH):
+#    print(f"Match-specific file not found, trying main directory: {MAIN_DATA_PATH}")
+#    if os.path.exists(MAIN_DATA_PATH):
+#        DATA_PATH = MAIN_DATA_PATH
+#    else:
+#        raise FileNotFoundError(f"Neither match-specific ({DATA_PATH}) nor main ({MAIN_DATA_PATH}) metrics file found")
 
 with open(DATA_PATH, "r", encoding="utf-8") as f:
     data_json = json.load(f)
 
 team_data = data_json.get(TEAM_NAME, {})
 if not team_data:
-    raise ValueError(f"❌ Team '{TEAM_NAME}' not found in JSON")
+    raise ValueError(f"Team '{TEAM_NAME}' not found in JSON")
 
-# Flatten metrics
 flattened = []
 for name, stats in team_data.items():
+    if name.startswith("_"): continue
     row = {"player_name": name}
     row.update(flatten_dict(stats))
+    for k, v in stats.get("key_stats_p90", {}).items():
+        row[k] = v
     flattened.append(row)
+
 new_df = pd.DataFrame(flattened)
-new_df["position"] = [team_data[name].get("position", "") for name in team_data]
 
 # ---------- DETERMINE MATCH NUMBER ----------
+# Load existing training data from single source
 if os.path.exists(OUTPUT_TRAIN_DATA):
     old_df = pd.read_csv(OUTPUT_TRAIN_DATA)
+    print(f"Loaded training data: {OUTPUT_TRAIN_DATA}")
 else:
     old_df = pd.DataFrame()
+    print("No existing training data found. Starting fresh.")
 
 next_match_number = int(old_df["match_number"].max()) + 1 if "match_number" in old_df.columns and not old_df.empty else 1
 match_id = f"Match_{next_match_number}"
@@ -176,50 +281,64 @@ new_df["match_number"] = next_match_number
 new_df["match_id"] = match_id
 new_df["added_at"] = datetime.now(timezone.utc).isoformat()
 
-# ---------- MERGE TRAINING DATA ----------
+# ---------- ADD POSITION HISTORY ----------
+if not old_df.empty and "player_name" in old_df.columns:
+    history = old_df.groupby("player_name")["position"].apply(list).to_dict()
+    changed = old_df.groupby("player_name")["position"].apply(
+        lambda x: int(len(set(x)) > 1) if len(x) > 1 else 0
+    ).to_dict()
+else:
+    history = {}
+    changed = {}
+
+new_df["position_history"] = new_df["player_name"].map(history).apply(lambda x: x if isinstance(x, list) else [])
+new_df["position_changed"] = new_df["player_name"].map(changed).fillna(0).astype(int)
+
+# ---------- MERGE & SAVE TRAINING DATA ----------
 combined_df = pd.concat([old_df, new_df], ignore_index=True) if not old_df.empty else new_df
-position_history = combined_df.groupby("player_name")["position"].apply(lambda x: list(x.unique())).to_dict()
-combined_df["position_history"] = combined_df["player_name"].map(position_history)
-combined_df["position_changed"] = combined_df.apply(lambda row: bool(row["position_history"] and row["position"] != row["position_history"][0]), axis=1)
 combined_df.to_csv(OUTPUT_TRAIN_DATA, index=False)
-print(f"💾 Training data saved → {OUTPUT_TRAIN_DATA}")
+print(f"Consolidated training data saved -> {OUTPUT_TRAIN_DATA} (with position_history & position_changed)")
 
-# ---------- ROLE FEATURES ----------
-all_columns = list(combined_df.columns)
-role_feats = {
-    "attacker": [c for c in all_columns if c.startswith(("attack__", "distribution__", "discipline__"))] + [c for c in all_columns if c.startswith("possession__")],
-    "midfielder": [c for c in all_columns if c.startswith(("attack__", "distribution__", "defense__", "discipline__"))] + [c for c in all_columns if c.startswith("possession__")],
-    "defender": [c for c in all_columns if c.startswith(("defense__", "distribution__", "discipline__"))] + [c for c in all_columns if c.startswith("possession__")],
-    "goalkeeper": [c for c in all_columns if c.startswith(("defense__", "distribution__", "discipline__"))] + [c for c in all_columns if c.startswith("possession__")]
+# ---------- ENHANCED FEATURES ----------
+P90_COLS = [c for c in new_df.columns if c.endswith("_p90")]
+
+# Extract enhanced breakdown features based on position
+ENHANCED_BREAKDOWN_FEATS = {
+    "attacker": ["finishing_quality", "chance_creation", "movement_threat", "link_up_play", "work_rate"],
+    "midfielder": ["game_control", "transition_play", "defensive_contribution", "creativity", "work_rate"], 
+    "defender": ["defensive_impact", "build_up_quality", "positioning_score", "recovery_efficiency", "aerial_dominance"],
+    "goalkeeper": ["shot_stopping", "distribution_quality", "command_area", "ball_playing", "consistency"]
 }
-for role in role_feats:
-    seen = []
-    cleaned = []
-    for f in role_feats[role]:
-        if f in all_columns and f not in seen:
-            cleaned.append(f)
-            seen.append(f)
-    role_feats[role] = cleaned
-
-# ---------- ROLE-OVERALL ----------
-def compute_role_overall(row):
-    role = row.get("role") or POSITION_ROLE.get(row.get("position"), "midfielder")
-    weights = ROLE_WEIGHTS.get(role, ROLE_WEIGHTS["midfielder"])
-    comps = {
-        "attack": float(row.get("match_rating_attack", np.nan)),
-        "defense": float(row.get("match_rating_defense", np.nan)),
-        "distribution": float(row.get("match_rating_distribution", np.nan)),
-        "discipline": float(row.get("match_rating_discipline", np.nan))
-    }
-    present = {k: v for k, v in weights.items() if not np.isnan(comps.get(k, np.nan))}
-    if not present:
-        return float(row.get("match_rating_overall", 50.0))
-    total_w = sum(present.values())
-    overall = sum((v / total_w) * comps[k] for k, v in present.items())
-    return float(np.clip(overall, 0, 100))
 
 combined_df["role"] = combined_df["position"].map(POSITION_ROLE).fillna("midfielder")
-combined_df["role_overall"] = combined_df.apply(compute_role_overall, axis=1)
+
+# Add enhanced breakdown features to dataframe if available
+for role, breakdown_cols in ENHANCED_BREAKDOWN_FEATS.items():
+    role_players = combined_df[combined_df["role"] == role]
+    for idx, row in role_players.iterrows():
+        player_name = row["player_name"]
+        if player_name in team_data and "dpr_breakdown" in team_data[player_name]:
+            breakdown = team_data[player_name]["dpr_breakdown"]
+            for feat in breakdown_cols:
+                if feat in breakdown:
+                    combined_df.loc[idx, f"enhanced_{feat}"] = breakdown[feat]
+
+# Enhanced feature sets for each role
+BASE_FEATS = ["minutes_played", "dpr", "position_changed"] + P90_COLS
+
+# Add enhanced features where available  
+ENHANCED_FEATS = {}
+for role, breakdown_cols in ENHANCED_BREAKDOWN_FEATS.items():
+    enhanced_cols = [f"enhanced_{feat}" for feat in breakdown_cols if f"enhanced_{feat}" in combined_df.columns]
+    ENHANCED_FEATS[role] = enhanced_cols
+    print(f"Role {role}: Found {len(enhanced_cols)} enhanced features: {enhanced_cols}")
+
+role_feats = {
+    "attacker":   [f for f in BASE_FEATS if any(k in f for k in ["shots","goals","key_passes","assists","progressive","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("attacker", []),
+    "midfielder": [f for f in BASE_FEATS if any(k in f for k in ["passes","duels","tackles","interceptions","progressive","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("midfielder", []),
+    "defender":   [f for f in BASE_FEATS if any(k in f for k in ["duels","tackles","interceptions","clearances","progressive","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("defender", []),
+    "goalkeeper": [f for f in BASE_FEATS if any(k in f for k in ["saves","goals_against","save_pct","passes","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("goalkeeper", [])
+}
 
 # ---------- TRAIN ROLE MODELS ----------
 roles = ["attacker", "midfielder", "defender", "goalkeeper"]
@@ -232,162 +351,229 @@ summary = {
 }
 
 for role in roles:
-    # ---------- GOALKEEPER ----------
-    if role == "goalkeeper" and not gk_df.empty:
-        print(f"📌 Training pure Understat GK model ({len(gk_df)} samples)")
+    # ---------- GOALKEEPER: USE UNDERSTAT (EVEN WITH 0 SAMPLES) ----------
+    if role == "goalkeeper":
+        if not gk_df.empty:
+            print(f"Training Understat GK model ({len(gk_df)} pro samples)")
+            feats = ["saves_per90", "goals_against_per90", "save_pct"]
+            feats = [f for f in feats if f in gk_df.columns]
+            if not feats:
+                feats = [c for c in gk_df.columns if c not in ["player_name", "time"]]
+            X = gk_df[feats].astype(float).fillna(0)
+            y_pct = gk_df["save_pct"].astype(float).fillna(0)
+            y_rank = y_pct.rank(pct=True) * 100  # 0 100 scale
 
-        # Prefer small set of robust GK features; fallback to numeric columns if needed
-        preferred_feats = ["saves_per90", "goals_against_per90", "save_pct"]
-        feats_gk = [c for c in preferred_feats if c in gk_df.columns]
-        if not feats_gk:
-            print("⚠️ No GK features with expected prefixes — using all numeric columns from Understat GK CSV")
-            feats_gk = gk_df.select_dtypes(include=[np.number]).columns.tolist()
-            # remove 'time' if present (it's not a performance metric)
-            if "time" in feats_gk:
-                feats_gk.remove("time")
+            model = RandomForestRegressor(n_estimators=300, max_depth=8, min_samples_leaf=4, random_state=RANDOM_STATE, n_jobs=-1)
+            
+            # Proper validation
+            validation_results, trained_model, trained_scaler, X_train_scaled = validate_model(model, X, y_rank, f"GK_{role}")
+            
+            artifact = {
+                "model": trained_model, "scaler": trained_scaler, "features": feats,
+                "validation": validation_results, "role": role, "type": "understat_percentile"
+            }
+            path = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_role_goalkeeper_understat.pkl")
+            with open(path, "wb") as f:
+                pickle.dump(artifact, f)
 
-        X_gk = gk_df[feats_gk].astype(float).fillna(0.0)
-
-        # target: save_pct in percent (0-100)
-        y_gk_pct = (gk_df["save_pct"].astype(float) * 100.0).fillna(0.0)
-
-        # --- Expert adjustments to avoid R²==1.0 overfitting ---
-        # (A) Add light Gaussian noise (1.5 percentage points std) to targets
-        rng = np.random.default_rng(42)
-        noise_std = 1.5  # 1.5 percentage points — small, realistic noise
-        y_gk_noisy = y_gk_pct + rng.normal(0.0, noise_std, size=len(y_gk_pct))
-
-        # (B) Use a simpler RandomForest to reduce complexity (pruned)
-        gk_model = RandomForestRegressor(
-            n_estimators=300,
-            max_depth=8,
-            min_samples_leaf=4,
-            random_state=42,
-            n_jobs=-1
-        )
-
-        # (C) Standard scale features
-        scaler = StandardScaler()
-        X_scaled = scaler.fit_transform(X_gk)
-
-        # (D) Cross-validate to get realistic R² estimate
-        try:
-            cv_scores = cross_val_score(gk_model, X_scaled, y_gk_noisy, cv=5, scoring="r2", n_jobs=-1)
-            gk_r2_cv = float(np.mean(cv_scores))
-        except Exception:
-            gk_r2_cv = None
-
-        # (E) Fit final model on the noisy targets (regularized by noise + model)
-        gk_model.fit(X_scaled, y_gk_noisy)
-        preds_full = gk_model.predict(X_scaled)
-
-        # (F) Rescale predictions to college rating scale
-        preds_college = rescale_gk_to_college(preds_full, target_median=50.0, target_std=15.0)
-
-        # Evaluate against original (non-noisy) target for MAE (useful diagnostic)
-        try:
-            gk_mae = float(mean_absolute_error(y_gk_pct, preds_full))
-        except Exception:
-            gk_mae = None
-
-        model_artifact = {
-            "model": gk_model,
-            "scaler": scaler,
-            "features": feats_gk,
-            "cv_r2_mean": gk_r2_cv,
-            "r2_on_full_fit": float(r2_score(y_gk_noisy, preds_full)) if len(y_gk_noisy) >= 2 else None,
-            "mae_vs_original_pct": gk_mae,
-            "role": role,
-            "role_weights": ROLE_WEIGHTS.get(role),
-            "fallback": False,
-            "note": "Understat GK model trained with light target noise + pruned RandomForest; predictions rescaled to college-level ratings",
-            "preds_college_example": preds_college.tolist()[:5]  # small sample for inspection
-        }
-
-        model_path = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_role_{role}_understat.pkl")
-        with open(model_path, "wb") as f:
-            pickle.dump(model_artifact, f)
-
-        summary["models"][role] = {
-            "R2": model_artifact["cv_r2_mean"],
-            "MAE": model_artifact["mae_vs_original_pct"],
-            "model_path": model_path,
-            "pos_R2": {"GK": model_artifact["cv_r2_mean"]},
-            "role_weights": ROLE_WEIGHTS.get(role),
-            "trained_samples": len(gk_df),
-            "fallback_used": False
-        }
-        print(f"  ✅ GOALKEEPER (Understat) model saved (CV mean R²={model_artifact['cv_r2_mean']}, MAE_vs_orig_pct={model_artifact['mae_vs_original_pct']})")
+            summary["models"][role] = {
+                "status": "trained_validated", "model_path": path,
+                "validation": validation_results,
+                "note": "Understat percentile rank -> DPR scale"
+            }
+            
+            test_r2 = validation_results.get("test_metrics", {}).get("r2", "N/A")
+            cv_r2 = validation_results.get("cross_validation", {}).get("cv_mean_r2", "N/A")
+            print(f"  [OK] GK Model: Test R ={test_r2:.3f}, CV R ={cv_r2:.3f}" if isinstance(test_r2, float) and isinstance(cv_r2, float) else f"  [OK] GK Model saved with validation")
+        else:
+            print(f"  [FALLBACK] No Understat data -> use current DPR")
+            summary["models"][role] = {"status": "fallback", "reason": "no_understat"}
         continue
 
     # ---------- OTHER ROLES ----------
     subset = combined_df[combined_df["role"] == role].copy()
     if subset.empty:
-        print(f"⚠️ [SKIP] role '{role}' → no samples")
+        print(f"[SKIP] {role}   no data")
+        continue
+
+    if len(subset) < MIN_SAMPLES:
+        print(f"[FALLBACK] {role.upper()} < {MIN_SAMPLES} samples -> use DPR")
+        summary["models"][role] = {"status": "fallback", "reason": "low_sample", "samples": len(subset)}
         continue
 
     feats = role_feats.get(role, [])
-    if not feats:
-        feats = [c for c in all_columns if c.startswith(("match_rating_", "possession__", "distribution__", "defense__", "attack__", "discipline__"))][:10]
+    X = position_feature_normalize(subset, feats, "position")[feats].fillna(0)
+    X_num = X.apply(pd.to_numeric, errors="coerce").fillna(0).astype(float)
+    y = pd.to_numeric(subset["dpr"], errors="coerce").fillna(50.0)
 
-    X_role = position_feature_normalize(subset, feats, position_col="position")[feats].fillna(0)
-    X_numeric = X_role.apply(pd.to_numeric, errors="coerce").fillna(0).astype(float)
-    y = pd.to_numeric(subset["role_overall"], errors="coerce").fillna(0).astype(float)
-
-    scaler = StandardScaler()
-    X_scaled = scaler.fit_transform(X_numeric)
     model = make_smart_xgb() if XGBOOST_AVAILABLE else LinearRegression()
-    model.fit(X_scaled, y)
+    
+    # Proper validation with train/test split
+    validation_results, trained_model, trained_scaler, X_train_scaled = validate_model(model, X_num, y, f"{role}_model")
+    
+    # Check if model meets quality standards
+    test_r2 = validation_results.get("test_metrics", {}).get("r2")
+    if test_r2 is not None and test_r2 < MIN_R2:
+        print(f"[FALLBACK] {role.upper()} Test R ={test_r2:.3f} < {MIN_R2} -> use DPR")
+        summary["models"][role] = {
+            "status": "fallback", "reason": "low_test_r2", 
+            "validation": validation_results
+        }
+        continue
+    
+    # Check for overfitting
+    if validation_results.get("overfitting_detected", False):
+        print(f"[WARNING] {role.upper()} shows overfitting - consider simpler model")
 
-    preds = model.predict(X_scaled)
-    preds_norm = role_normalize(subset.reset_index(drop=True), preds, position_col="position")
-    r2 = float(r2_score(y, preds)) if len(y) >= 2 else None
-    mae = float(mean_absolute_error(y, preds)) if len(y) >= 1 else None
-
-    model_artifact = {"model": model, "scaler": scaler, "features": feats, "r2": r2, "mae": mae,
-                      "role": role, "role_weights": ROLE_WEIGHTS.get(role), "fallback": False}
-    model_path = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_role_{role}.pkl")
-    with open(model_path, "wb") as f:
-        pickle.dump(model_artifact, f)
-
-    # Per-position diagnostics (optional)
-    pos_r2 = {}
-    preds_for_posdiag = np.array(preds) if preds is not None else np.zeros(len(subset))
-    for pos in sorted(subset["position"].fillna("").unique()):
-        mask = subset["position"] == pos
-        if mask.sum() >= 2:
-            y_pos = y[mask.values]
-            preds_pos = preds_for_posdiag[mask.values]
-            try:
-                pos_r2[pos] = float(r2_score(y_pos, preds_pos))
-            except Exception:
-                pos_r2[pos] = None
-        else:
-            pos_r2[pos] = None
-
-    summary["models"][role] = {
-        "R2": r2,
-        "MAE": mae,
-        "model_path": model_path,
-        "pos_R2": pos_r2,
-        "role_weights": ROLE_WEIGHTS.get(role),
-        "trained_samples": len(subset),
-        "fallback_used": False
+    artifact = {
+        "model": trained_model, "scaler": trained_scaler, "features": feats,
+        "validation": validation_results, "role": role, "fallback": False
     }
+    # Save persistent model (without match name) so it improves over time
+    path = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_role_{role}.pkl")
+    with open(path, "wb") as f:
+        pickle.dump(artifact, f)
 
-    print(f"  ✅ {role.upper()} model saved (R²={r2}, MAE={mae})")
-    for p, r2v in pos_r2.items():
-        print(f"     • R² for position '{p}': {r2v}")
+    # Extract key metrics for summary
+    train_r2 = validation_results.get("train_metrics", {}).get("r2", "N/A")
+    test_r2 = validation_results.get("test_metrics", {}).get("r2", "N/A")
+    cv_r2 = validation_results.get("cross_validation", {}).get("cv_mean_r2", "N/A")
+    test_mae = validation_results.get("test_metrics", {}).get("mae", "N/A")
+    
+    summary["models"][role] = {
+        "status": "trained_validated", "model_path": path,
+        "validation": validation_results,
+        "features": feats
+    }
+    
+    print(f"  [OK] {role.upper()}: Train R ={train_r2:.3f}, Test R ={test_r2:.3f}, CV R ={cv_r2:.3f}, Test MAE={test_mae:.2f} ({validation_results['samples_total']} total)")
 
-# ---------- SAVE SUMMARY ----------
-def make_json_safe(o):
-    if isinstance(o, (np.floating, np.float32, np.float64)): return float(o)
-    if isinstance(o, (np.integer, np.int32, np.int64)): return int(o)
-    if isinstance(o, np.ndarray): return o.tolist()
+# ---------- NEXT-MATCH DPR PREDICTION ----------
+print("\nPredicting next-match DPR...")
+current = combined_df[combined_df["match_number"] == next_match_number].copy()
+pred_df = current[["player_name", "position", "minutes_played", "dpr", "position_history", "position_changed"]].copy()
+
+for role in roles:
+    subset = current[current["role"] == role].copy()
+    if subset.empty: continue
+
+    model_file = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_role_{role}.pkl")
+    understat_file = os.path.join(OUTPUT_MODEL_DIR, "sanbeda_role_goalkeeper_understat.pkl")
+
+    if role == "goalkeeper" and os.path.exists(understat_file):
+        print(f"  GK: Using Understat percentile model")
+        with open(understat_file, "rb") as f:
+            artifact = pickle.load(f)
+        feats = [f for f in artifact["features"] if f in subset.columns]
+        if not feats:
+            print(f"  [FALLBACK] No GK stats   use current DPR")
+            pred_df.loc[subset.index, "predicted_dpr"] = subset["dpr"]
+        else:
+            X = subset[feats].fillna(0).astype(float)
+            X_scaled = artifact["scaler"].transform(X)
+            pred_rank = artifact["model"].predict(X_scaled)
+            pred_df.loc[subset.index, "predicted_dpr"] = np.clip(pred_rank, 0, 100)
+
+    elif os.path.exists(model_file):
+        print(f"  {role.upper()}: Using local model")
+        with open(model_file, "rb") as f:
+            artifact = pickle.load(f)
+        X = position_feature_normalize(subset, artifact["features"], "position")
+        X = X[artifact["features"]].fillna(0)
+        X_scaled = artifact["scaler"].transform(X.apply(pd.to_numeric, errors="coerce").fillna(0))
+        pred = artifact["model"].predict(X_scaled)
+        pred_norm = role_normalize(subset.reset_index(drop=True), pred, "position")
+        pred_df.loc[subset.index, "predicted_dpr"] = pred_norm
+
+    else:
+        print(f"  {role.upper()}: [FALLBACK]   current DPR")
+        pred_df.loc[subset.index, "predicted_dpr"] = subset["dpr"]
+
+pred_df["dpr_change"] = pred_df["predicted_dpr"] - pred_df["dpr"]
+pred_df = pred_df.round(1)
+
+# Save with new columns
+PRED_CSV = "python_scripts/player_dpr_predictions.csv"
+pred_df[["player_name", "dpr", "predicted_dpr", "dpr_change", "minutes_played", "position_history", "position_changed"]].rename(
+    columns={"player_name": "player", "minutes_played": "minutes"}
+).to_csv(PRED_CSV, index=False)
+
+
+
+# Save predictions to both organized and main locations
+PRED_CSV = f"{MATCH_OUTPUT_DIR}/player_dpr_predictions.csv"
+pred_df_out = pred_df[["player_name", "dpr", "predicted_dpr", "dpr_change", "minutes_played", "position_history", "position_changed"]].copy()
+pred_df_out.rename(columns={"player_name": "player", "minutes_played": "minutes"}, inplace=True)
+
+# Save to match-specific location
+pred_df_out.to_csv(PRED_CSV, index=False)
+# Save to main location for compatibility
+# pred_df_out.to_csv(MAIN_PRED_CSV, index=False)
+
+print(f"\nPredictions saved to:")
+print(f"  Match archive: {PRED_CSV}")
+# print(f"  Main directory: {MAIN_PRED_CSV}")
+print("\nTop 5 DPR GAINERS:")
+top_gainers = pred_df.nlargest(5, "dpr_change")
+print(top_gainers[["player_name", "dpr", "predicted_dpr", "dpr_change", "position_changed"]].to_string(index=False))
+
+print("\nTop 5 DPR DECLINERS:")
+top_decliners = pred_df.nsmallest(5, "dpr_change")
+print(top_decliners[["player_name", "dpr", "predicted_dpr", "dpr_change", "position_changed"]].to_string(index=False))
+
+# Save summary to both locations
+def safe(o):
+    if isinstance(o, (np.generic, np.ndarray)): return o.item() if np.isscalar(o) else o.tolist()
     return o
 
-summary_serializable = json.loads(json.dumps(summary, default=make_json_safe))
-with open(OUTPUT_RESULTS, "w", encoding="utf-8") as f:
-    json.dump(summary_serializable, f, indent=4)
+summary_safe = json.loads(json.dumps(summary, default=safe))
 
-print(f"\n🏁 Role-based model retraining complete for {summary['total_matches']} matches! Summary → {OUTPUT_RESULTS}")
+# Save to match-specific location
+with open(OUTPUT_RESULTS, "w") as f:
+    json.dump(summary_safe, f, indent=4)
+    
+# Save to main location for compatibility
+#with open(MAIN_OUTPUT_RESULTS, "w") as f:
+#    json.dump(summary_safe, f, indent=4)
+
+print(f"\n{'='*60}")
+print("  ENHANCED MODEL TRAINING WITH VALIDATION COMPLETE")
+print(f"{'='*60}")
+
+for role, info in summary["models"].items():
+    status = info.get("status", "unknown")
+    print(f"\n[MODEL] {role.upper()} MODEL:")
+    print(f"   Status: {status}")
+    
+    if status == "trained_validated":
+        validation = info.get("validation", {})
+        train_metrics = validation.get("train_metrics", {})
+        test_metrics = validation.get("test_metrics", {})
+        cv_metrics = validation.get("cross_validation", {})
+        
+        train_r2 = train_metrics.get('r2')
+        test_r2 = test_metrics.get('r2')
+        cv_r2 = cv_metrics.get('cv_mean_r2')
+        cv_std = cv_metrics.get('cv_std_r2', 0)
+        
+        print(f"     Training:   R ={train_r2:.3f}, MAE={train_metrics.get('mae', 0):.2f}" if train_r2 else "     Training: N/A")
+        print(f"   Testing:    R ={test_r2:.3f}, MAE={test_metrics.get('mae', 0):.2f}" if test_r2 else "   Testing: N/A") 
+        print(f"     Cross-Val:  R ={cv_r2:.3f} {cv_std:.3f}" if cv_r2 else "     Cross-Val: N/A")
+        print(f"   Samples:    {validation.get('samples_total', 0)} total ({validation.get('samples_train', 0)} train, {validation.get('samples_test', 0)} test)")
+        
+        if validation.get("overfitting_detected", False):
+            print(f"   [WARNING] Overfitting detected - consider model simplification")
+        
+        quality = validation.get("model_quality", "unknown")
+        print(f"     Quality:    {quality}")
+        
+    elif status == "fallback":
+        reason = info.get("reason", "unknown")
+        print(f"   [WARNING] Using fallback - {reason}")
+
+print(f"\n  Results saved to:")
+print(f"    Match archive: {OUTPUT_RESULTS}")
+# print(f"    Main directory: {MAIN_OUTPUT_RESULTS}")
+print("  Models now include proper train/test validation!")
+
+print(f"\nTraining complete! Models and results organized in output structure.")
