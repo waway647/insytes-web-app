@@ -62,6 +62,8 @@ class LibraryController extends CI_Controller {
                 // Format match display name (e.g., vs. La Salle)
                 $matchName = 'vs. ' . ($match['opponent_team_name'] ?? 'Unknown');
 
+                $matchNameConfig = 'sbu_vs_' . strtolower(str_replace(' ', '_', $match['opponent_team_abbreviation'] ?? 'unknown'));
+
                 // Optional: provide a placeholder thumbnail
                 $thumbnailUrl = base_url('assets/images/thumbnails/default.jpg');
                 if (!empty($match['video_thumbnail'])) {
@@ -74,7 +76,9 @@ class LibraryController extends CI_Controller {
                     'status' => $match['status'],
                     'statusColor' => $statusColor,
                     'matchName' => $matchName,
-                    'matchDate' => date('M d', $timestamp)
+                    'matchNameConfig' => $matchNameConfig,
+                    'matchDate' => date('M d', $timestamp),
+                    'MyTeamResult' => $match['my_team_result']
                 ];
             }
 

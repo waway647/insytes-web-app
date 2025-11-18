@@ -1,0 +1,236 @@
+{
+    "match": {
+        "id": "match_11_sbu_vs_rma",
+        "season": "2025/2026",
+        "competition": "Ang Liga",
+        "venue": "Ayala Vermosa Sports Hub",
+        "date": "2025-11-14",
+        "attacking_direction": "left-to-right",
+        "positions_locked": true
+    },
+    "home": {
+        "name": "San Beda",
+        "jersey_color": "",
+        "jersey_text_color": "rgb(255, 255, 255)",
+        "starting11": [
+            {
+                "id": "6",
+                "name": "Bayubay, Cesar D.",
+                "number": 34,
+                "position": "LWB",
+                "x": 7,
+                "y": 23
+            },
+            {
+                "id": "10",
+                "name": "Jardiniano, Jason",
+                "number": 24,
+                "position": "CB",
+                "x": 7,
+                "y": 34
+            },
+            {
+                "id": "8",
+                "name": "Lampines, Alexis Jeremy",
+                "number": 6,
+                "position": "CB",
+                "x": 7,
+                "y": 45
+            },
+            {
+                "id": "1",
+                "name": "Mapula, Paul W.",
+                "number": 20,
+                "position": "ST",
+                "x": 7,
+                "y": 56
+            },
+            {
+                "id": "5",
+                "name": "Tagara, Pedro J.",
+                "number": 15,
+                "position": "GK",
+                "x": 7,
+                "y": 67
+            },
+            {
+                "id": "9",
+                "name": "Tanamor, Jacob",
+                "number": 9,
+                "position": "CB",
+                "x": 7,
+                "y": 78
+            },
+            {
+                "id": "6",
+                "name": "Bayubay, Cesar D.",
+                "number": 34,
+                "position": "LWB",
+                "x": 16,
+                "y": 23
+            },
+            {
+                "id": "10",
+                "name": "Jardiniano, Jason",
+                "number": 24,
+                "position": "CB",
+                "x": 16,
+                "y": 34
+            },
+            {
+                "id": "8",
+                "name": "Lampines, Alexis Jeremy",
+                "number": 6,
+                "position": "CB",
+                "x": 16,
+                "y": 45
+            },
+            {
+                "id": "1",
+                "name": "Mapula, Paul W.",
+                "number": 20,
+                "position": "ST",
+                "x": 16,
+                "y": 56
+            },
+            {
+                "id": "9",
+                "name": "Tanamor, Jacob",
+                "number": 9,
+                "position": "CB",
+                "x": 16,
+                "y": 67
+            }
+        ],
+        "bench": [
+            {
+                "id": "7",
+                "name": "Unnamed",
+                "number": 12,
+                "position": ""
+            },
+            {
+                "id": "7",
+                "name": "Unnamed",
+                "number": 12,
+                "position": ""
+            },
+            {
+                "id": "7",
+                "name": "Unnamed",
+                "number": 12,
+                "position": ""
+            }
+        ]
+    },
+    "away": {
+        "name": "2 Worlds FC",
+        "jersey_color": "",
+        "jersey_text_color": "rgb(255, 255, 255)",
+        "starting11": [
+            {
+                "id": "11",
+                "name": "Courtois, Thibaut",
+                "number": 1,
+                "position": "GK",
+                "x": 93,
+                "y": 23
+            },
+            {
+                "id": "3",
+                "name": "Guler, Arda",
+                "number": 15,
+                "position": "CAM",
+                "x": 93,
+                "y": 34
+            },
+            {
+                "id": "2",
+                "name": "Mbappe, Kylian",
+                "number": 10,
+                "position": "ST",
+                "x": 93,
+                "y": 45
+            },
+            {
+                "id": "4",
+                "name": "Valverde, Fede",
+                "number": 22,
+                "position": "CDM",
+                "x": 93,
+                "y": 56
+            },
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": "",
+                "x": 93,
+                "y": 67
+            },
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": "",
+                "x": 93,
+                "y": 78
+            },
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": "",
+                "x": 84,
+                "y": 23
+            },
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": "",
+                "x": 84,
+                "y": 34
+            },
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": "",
+                "x": 84,
+                "y": 45
+            },
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": "",
+                "x": 84,
+                "y": 56
+            },
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": "",
+                "x": 84,
+                "y": 67
+            }
+        ],
+        "bench": [
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": ""
+            },
+            {
+                "id": "12",
+                "name": "Unnamed",
+                "number": 0,
+                "position": ""
+            }
+        ]
+    },
+    "mode": "tagging"
+}
