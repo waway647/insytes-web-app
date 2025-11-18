@@ -20,11 +20,24 @@ args = parser.parse_args()
 MATCH_NAME = args.dataset
 
 # ---------- CONFIG ----------
+# Load team name from config file (use home team as featured team)
+TEAM_CONFIG_JSON = f"writable_data/configs/config_{MATCH_NAME}.json"
+try:
+    with open(TEAM_CONFIG_JSON, "r", encoding="utf-8") as f:
+        config_data = json.load(f)
+    TEAM_NAME = config_data["home"]["name"]
+    print(f"Using home team as featured team: {TEAM_NAME}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load team name from config: {e}")
+    TEAM_NAME = "San Beda"  # Fallback
+    print(f"Using fallback team name: {TEAM_NAME}")
+
 # Use match-specific output directories
 MATCH_OUTPUT_DIR = f"output/matches/{MATCH_NAME}"
-EVENTS_CSV = f"data/{MATCH_NAME}.csv"
-PLAYER_METRICS_JSON = f"{MATCH_OUTPUT_DIR}/sanbeda_players_derived_metrics.json"
-INSIGHTS_JSON = f"{MATCH_OUTPUT_DIR}/sanbeda_player_insights.json"
+EVENTS_CSV = f"output_dataset/{MATCH_NAME}_events.csv"
+team_name_safe = TEAM_NAME.lower().replace(" ", "_")
+PLAYER_METRICS_JSON = f"{MATCH_OUTPUT_DIR}/{team_name_safe}_players_derived_metrics.json"
+INSIGHTS_JSON = f"{MATCH_OUTPUT_DIR}/{team_name_safe}_player_insights.json"
 OUTPUT_FILE = f"{MATCH_OUTPUT_DIR}/heatmap_analysis_report.json"
 
 def analyze_positioning_compliance(player_name, events_df, position):
@@ -231,6 +244,13 @@ def generate_comprehensive_analysis():
     
     print("Analyzing players...")
     for player_name, metrics in player_metrics.items():
+        # Skip metadata and lineup data
+        if player_name.startswith("_") or player_name in ['match_id', 'match_name']:
+            continue
+        # Skip if metrics is not a dictionary
+        if not isinstance(metrics, dict):
+            continue
+            
         print(f"Processing {player_name}...")
         
         position = metrics.get('position', 'Unknown')

@@ -84,21 +84,41 @@ def clamp_pct(val, min_val=0, max_val=100):
 
 # ---------- CONFIG ----------
 # MATCH_NAME is set by command line argument handling above
-EVENTS_CSV = f"output_dataset/{MATCH_NAME}.csv"
+EVENTS_CSV = f"output_dataset/{MATCH_NAME}_events.csv"
 TEAM_CONFIG_JSON = f"writable_data/configs/config_{MATCH_NAME}.json"
+
+# Load team name from config file (use home team as featured team)
+try:
+    with open(TEAM_CONFIG_JSON, "r", encoding="utf-8") as f:
+        config_data = json.load(f)
+    TEAM_NAME = config_data["home"]["name"]
+    print(f"Using home team as featured team: {TEAM_NAME}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load team name from config: {e}")
+    TEAM_NAME = "San Beda"  # Fallback
+    print(f"Using fallback team name: {TEAM_NAME}")
+
+# Load match_id from events file
+EVENTS_JSON = f"writable_data/events/{MATCH_NAME}_events.json"
+MATCH_ID = None
+try:
+    with open(EVENTS_JSON, "r", encoding="utf-8") as f:
+        events_data = json.load(f)
+    MATCH_ID = events_data.get("match_id", MATCH_NAME)
+    print(f"Loaded match ID: {MATCH_ID}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load match ID from events: {e}")
+    MATCH_ID = MATCH_NAME  # Fallback to dataset name
+    print(f"Using fallback match ID: {MATCH_ID}")
 
 # Create match-specific output directory
 MATCH_OUTPUT_DIR = f"output/matches/{MATCH_NAME}"
 os.makedirs(MATCH_OUTPUT_DIR, exist_ok=True)
 
-OUTPUT_JSON = f"{MATCH_OUTPUT_DIR}/sanbeda_players_derived_metrics.json"
-OUTPUT_CSV = f"{MATCH_OUTPUT_DIR}/sanbeda_players_derived_metrics.csv"
-
-# Also save to main directory for compatibility
-# MAIN_OUTPUT_JSON = "python_scripts/sanbeda_players_derived_metrics.json"
-# MAIN_OUTPUT_CSV = "python_scripts/sanbeda_players_derived_metrics.csv"
-
-TEAM_NAME = "San Beda"
+# Use dynamic team name for output files
+team_name_safe = TEAM_NAME.lower().replace(" ", "_")
+OUTPUT_JSON = f"{MATCH_OUTPUT_DIR}/{team_name_safe}_players_derived_metrics.json"
+OUTPUT_CSV = f"{MATCH_OUTPUT_DIR}/{team_name_safe}_players_derived_metrics.csv"
 
 # ---------- BENCHMARKS ----------
 COLLEGE_BENCHMARKS = {
@@ -195,6 +215,16 @@ for player, df in team_events.groupby("player_name"):
         "goals": clean_number(len(goals)),
         "shot_accuracy_pct": clamp_pct(clean_number(round((len(on_target) / len(shots)) * 100, 2)) if len(shots) > 0 else 0),
         "goal_conversion_pct": clamp_pct(clean_number(round((len(goals) / len(shots)) * 100, 2)) if len(shots) > 0 else 0)
+    }
+
+    # --- DRIBBLES ---
+    dribbles = df[df["event"].str.lower() == "dribble"]
+    successful_dribbles = dribbles[dribbles["outcome"].str.lower() == "successful"]
+
+    player_metrics[player]["dribbles"] = {
+        "dribbles": clean_number(len(dribbles)),
+        "successful_dribbles": clean_number(len(successful_dribbles)),
+        "dribble_success_rate_pct": clamp_pct(clean_number(round((len(successful_dribbles) / len(dribbles)) * 100, 2)) if len(dribbles) > 0 else 0)
     }
 
     # --- DEFENSE ---
@@ -329,13 +359,38 @@ for player, periods in timeline.items():
     player_metrics[player]["minutes_played"] = round(mins, 2)
 
     # --- PER-90 STATS ---
-    if mins > 0:
+    # Only calculate per-90 stats for players with meaningful playing time (≥20 minutes)
+    # This prevents misleading projections for substitute players with limited minutes
+    MINIMUM_MINUTES_FOR_PER90 = 20
+    
+    if mins >= MINIMUM_MINUTES_FOR_PER90:
         per90 = {}
         for cat in ["attack", "distribution", "defense", "goalkeeper"]:
             if cat in player_metrics[player]:
                 for k, v in player_metrics[player][cat].items():
-                    if isinstance(v, (int, float)) and k not in ["passing_accuracy_pct", "save_pct"]:
+                    # Exclude ALL percentage fields from per-90 scaling (percentages don't scale with time)
+                    percentage_fields = ["passing_accuracy_pct", "save_pct", "shot_accuracy_pct", 
+                                       "goal_conversion_pct", "key_pass_rate_pct", "duel_success_rate_pct"]
+                    if isinstance(v, (int, float)) and k not in percentage_fields:
                         per90[f"{k}_p90"] = clean_number(round(v / (mins / 90.0), 2))
+        
+        # Add dribble stats to per-90 calculations
+        if "dribbles" in player_metrics[player]:
+            dribble_stats = player_metrics[player]["dribbles"]
+            for k, v in dribble_stats.items():
+                if k != "dribble_success_rate_pct" and isinstance(v, (int, float)):
+                    per90[f"{k}_p90"] = clean_number(round(v / (mins / 90.0), 2))
+            # Keep percentage as original value
+            per90["dribble_success_rate_pct_p90"] = clean_number(dribble_stats.get("dribble_success_rate_pct", 0))
+
+        # Add percentage fields back as their original values (percentages don't need per-90 scaling)
+        for cat in ["attack", "distribution", "defense", "goalkeeper"]:
+            if cat in player_metrics[player]:
+                for k, v in player_metrics[player][cat].items():
+                    percentage_fields = ["passing_accuracy_pct", "save_pct", "shot_accuracy_pct", 
+                                       "goal_conversion_pct", "key_pass_rate_pct", "duel_success_rate_pct"]
+                    if k in percentage_fields and isinstance(v, (int, float)):
+                        per90[f"{k}_p90"] = clean_number(v)  # Keep original percentage value
         
         # Add Understat-compatible GK per-90 features
         if player_metrics[player].get("position") == "GK" and "goalkeeper" in player_metrics[player]:
@@ -348,7 +403,17 @@ for player, periods in timeline.items():
         
         player_metrics[player]["key_stats_p90"] = per90
     else:
-        player_metrics[player]["key_stats_p90"] = {}
+        # For players with <20 minutes: provide raw stats instead of misleading per-90 projections
+        raw_stats = {}
+        for cat in ["attack", "distribution", "defense", "goalkeeper", "dribbles"]:
+            if cat in player_metrics[player]:
+                for k, v in player_metrics[player][cat].items():
+                    if isinstance(v, (int, float)):
+                        raw_stats[f"{k}_raw"] = clean_number(v)
+        
+        # Add note about limited playing time
+        raw_stats["note"] = f"Raw stats shown - only {mins} minutes played (minimum 20 minutes required for per-90 calculations)"
+        player_metrics[player]["key_stats_p90"] = raw_stats
 
 # ========== ENHANCED EVENT-BASED METRICS ==========
 
@@ -530,11 +595,15 @@ def calculate_enhanced_midfielder_rating(player_stats, player_events, position):
     
     game_control = (0.50 * pass_success + 0.50 * possession_retention) * 100
     
-    # 2. Transition Play (25%)
+    # 2. Transition Play (25%) - Progressive passing, duels, and dribbling
     prog_passes = min(1.0, ks.get("progressive_passes_p90", 0) / 5.0)  # Scale to 0-1
     duels_won = min(1.0, ks.get("duels_won_p90", 0) / 6.0)  # Scale to 0-1
     
-    transition_play = (0.60 * prog_passes + 0.40 * duels_won) * 100
+    # Add dribbling for transition play (especially for CAMs)
+    dribbles_p90 = max(0, ks.get("successful_dribbles_p90", 0))
+    dribble_transition = min(1.0, dribbles_p90 / 3.0)  # Scale to 0-1 (3 successful dribbles/90 = good for midfielders)
+    
+    transition_play = (0.50 * prog_passes + 0.30 * duels_won + 0.20 * dribble_transition) * 100
     
     # 3. Defensive Contribution (20%)
     tackles = min(1.0, ks.get("tackles_p90", 0) / 2.0)  # Scale to 0-1
@@ -699,13 +768,15 @@ for player, s in player_metrics.items():
                 return 0.0
 
         if role == "attacker":
-            att = (dpr_component(kp("goals_p90"), bench.get("goals", 0.0), 40) * 0.4 +
-                   dpr_component(kp("shots_on_target_p90"), 2.5, 30) * 0.3 +
-                   dpr_component(kp("key_passes_p90"), bench.get("key_passes", 0.0), 30) * 0.3)
+            att = (dpr_component(kp("goals_p90"), bench.get("goals", 0.0), 40) * 0.35 +
+                   dpr_component(kp("shots_on_target_p90"), 2.5, 30) * 0.25 +
+                   dpr_component(kp("key_passes_p90"), bench.get("key_passes", 0.0), 30) * 0.25 +
+                   dpr_component(kp("successful_dribbles_p90"), 2.0, 40) * 0.15)  # Add dribbles for attackers
         elif role == "midfielder":
-            att = (dpr_component(kp("key_passes_p90"), bench.get("key_passes", 0.0), 40) * 0.5 +
-                   dpr_component(kp("goals_p90"), 0.2, 30) * 0.3 +
-                   dpr_component(kp("assists_p90"), 0.2, 30) * 0.2)
+            att = (dpr_component(kp("key_passes_p90"), bench.get("key_passes", 0.0), 40) * 0.45 +
+                   dpr_component(kp("goals_p90"), 0.2, 30) * 0.25 +
+                   dpr_component(kp("assists_p90"), 0.2, 30) * 0.20 +
+                   dpr_component(kp("successful_dribbles_p90"), 1.5, 30) * 0.10)  # Add dribbles for creative midfielders
         else:
             att = dpr_component(kp("goals_p90"), 0.15, 20) * 0.5
 
@@ -788,11 +859,17 @@ else:
 
 # ---------- FINAL CLEAN OUTPUT + STATUS FIX ----------
 final_players = {}
-lineup_players = {p["name"]: p for p in player_metrics.get("_lineup", {}).get("players", [])}
+lineup_data = player_metrics.get("_lineup", {})
+lineup_players = {p["name"]: p for p in lineup_data.get("players", [])} if lineup_data else {}
+
+# Extract match_id from lineup data if available
+lineup_match_id = lineup_data.get("match_id") if lineup_data else None
+if lineup_match_id and not MATCH_ID:
+    MATCH_ID = lineup_match_id
 
 for player, s in player_metrics.items():
     if player.startswith("_"): 
-        final_players[player] = s
+        # Skip lineup and other metadata - don't include in final output
         continue
 
     key_p90 = {}
@@ -830,13 +907,24 @@ for player, s in player_metrics.items():
 os.makedirs(os.path.dirname(OUTPUT_JSON), exist_ok=True)
 
 with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
-    json.dump({TEAM_NAME: final_players}, f, indent=4)
+    json.dump({
+        TEAM_NAME: {
+            "match_id": MATCH_ID,
+            "match_name": MATCH_NAME,
+            **final_players
+        }
+    }, f, indent=4)
 
 df_metrics = pd.DataFrame(rows_for_csv)
 
+# Add match_id to all rows in CSV
+if not df_metrics.empty:
+    df_metrics['match_id'] = MATCH_ID
+    df_metrics['match_name'] = MATCH_NAME
+
 # Apply clean_number only to numeric columns, preserve string columns
 numeric_columns = df_metrics.select_dtypes(include=[np.number]).columns
-string_columns = ['player_name', 'position', 'status', 'team', 'match_id']
+string_columns = ['player_name', 'position', 'status', 'team', 'match_id', 'match_name']
 
 for col in df_metrics.columns:
     if col in string_columns:

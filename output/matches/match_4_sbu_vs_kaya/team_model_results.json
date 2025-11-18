@@ -1,0 +1,44 @@
+{
+  "team": "Mendiola",
+  "timestamp": "2025-11-18T15:22:46.847475+00:00",
+  "total_samples": 306,
+  "simulate_used": true,
+  "models": {
+    "general": {
+      "model_path": "python_scripts/models_team\\team_general.pkl",
+      "R2_test": 0.8667,
+      "R2_CV_mean": 0.7044,
+      "trained_on_samples": 306
+    },
+    "attack": {
+      "model_path": "python_scripts/models_team\\team_attack.pkl",
+      "R2_test": 0.0672,
+      "R2_CV_mean": 0.4753,
+      "trained_on_samples": 306
+    },
+    "defense": {
+      "model_path": "python_scripts/models_team\\team_defense.pkl",
+      "R2_test": -0.7162,
+      "R2_CV_mean": 0.6033,
+      "trained_on_samples": 306
+    },
+    "distribution": {
+      "model_path": "python_scripts/models_team\\team_distribution.pkl",
+      "R2_test": 0.8531,
+      "R2_CV_mean": 0.8807,
+      "trained_on_samples": 306
+    },
+    "discipline": {
+      "model_path": "python_scripts/models_team\\team_discipline.pkl",
+      "R2_test": 0.4114,
+      "R2_CV_mean": 0.7204,
+      "trained_on_samples": 306
+    },
+    "overall": {
+      "model_path": "python_scripts/models_team\\team_overall.pkl",
+      "R2_test": -0.3347,
+      "R2_CV_mean": -0.1678,
+      "trained_on_samples": 306
+    }
+  }
+}

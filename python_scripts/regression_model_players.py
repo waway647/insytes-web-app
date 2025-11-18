@@ -33,7 +33,17 @@ args = parser.parse_args()
 MATCH_NAME = args.dataset
 
 # ---------- CONFIG ----------
-TEAM_NAME = "San Beda"
+# Load team name from config file (use home team as featured team)
+TEAM_CONFIG_JSON = f"writable_data/configs/config_{MATCH_NAME}.json"
+try:
+    with open(TEAM_CONFIG_JSON, "r", encoding="utf-8") as f:
+        config_data = json.load(f)
+    TEAM_NAME = config_data["home"]["name"]
+    print(f"Using home team as featured team: {TEAM_NAME}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load team name from config: {e}")
+    TEAM_NAME = "San Beda"  # Fallback
+    print(f"Using fallback team name: {TEAM_NAME}")
 
 # Create match-specific output directories
 MATCH_OUTPUT_DIR = f"output/matches/{MATCH_NAME}"
@@ -45,16 +55,12 @@ os.makedirs(MODELS_OUTPUT_DIR, exist_ok=True)
 os.makedirs(TRAINING_DATA_DIR, exist_ok=True)
 
 # Input and output paths
-DATA_PATH = f"{MATCH_OUTPUT_DIR}/sanbeda_players_derived_metrics.json"
+team_name_safe = TEAM_NAME.lower().replace(" ", "_")
+DATA_PATH = f"{MATCH_OUTPUT_DIR}/{team_name_safe}_players_derived_metrics.json"
 OUTPUT_MODEL_DIR = MODELS_OUTPUT_DIR  # Save models in organized location
-OUTPUT_TRAIN_DATA = f"{TRAINING_DATA_DIR}/sanbeda_players_training_data.csv"  # Single training data file
+OUTPUT_TRAIN_DATA = f"{TRAINING_DATA_DIR}/players_training_data.csv"  # Unified training data file across all teams
 OUTPUT_RESULTS = f"{MATCH_OUTPUT_DIR}/player_model_results.json"  # Match-specific results
 UNDERSTAT_GK_CSV = "data/training_data/understat_gk_features.csv"
-
-# Also save to main directory for compatibility
-# MAIN_DATA_PATH = "python_scripts/sanbeda_players_derived_metrics.json"
-#M AIN_OUTPUT_RESULTS = "python_scripts/player_model_results.json"
-# MAIN_PRED_CSV = "python_scripts/player_dpr_predictions.csv"
 
 MIN_SAMPLES = 5
 MIN_R2 = 0.30
@@ -240,15 +246,7 @@ POSITION_ROLE = {
 # ---------- LOAD PLAYER METRICS ----------
 print(f"Loading player metrics: {DATA_PATH}")
 
-# Try match-specific location first, fallback to main directory
-#if not os.path.exists(DATA_PATH):
-#    print(f"Match-specific file not found, trying main directory: {MAIN_DATA_PATH}")
-#    if os.path.exists(MAIN_DATA_PATH):
-#        DATA_PATH = MAIN_DATA_PATH
-#    else:
-#        raise FileNotFoundError(f"Neither match-specific ({DATA_PATH}) nor main ({MAIN_DATA_PATH}) metrics file found")
-
-with open(DATA_PATH, "r", encoding="utf-8") as f:
+with open(DATA_PATH, 'r') as f:
     data_json = json.load(f)
 
 team_data = data_json.get(TEAM_NAME, {})
@@ -257,7 +255,12 @@ if not team_data:
 
 flattened = []
 for name, stats in team_data.items():
-    if name.startswith("_"): continue
+    # Skip metadata and lineup data
+    if name.startswith("_") or name in ['match_id', 'match_name']: 
+        continue
+    # Skip if stats is not a dictionary (shouldn't happen but safety check)
+    if not isinstance(stats, dict):
+        continue
     row = {"player_name": name}
     row.update(flatten_dict(stats))
     for k, v in stats.get("key_stats_p90", {}).items():
@@ -334,8 +337,8 @@ for role, breakdown_cols in ENHANCED_BREAKDOWN_FEATS.items():
     print(f"Role {role}: Found {len(enhanced_cols)} enhanced features: {enhanced_cols}")
 
 role_feats = {
-    "attacker":   [f for f in BASE_FEATS if any(k in f for k in ["shots","goals","key_passes","assists","progressive","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("attacker", []),
-    "midfielder": [f for f in BASE_FEATS if any(k in f for k in ["passes","duels","tackles","interceptions","progressive","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("midfielder", []),
+    "attacker":   [f for f in BASE_FEATS if any(k in f for k in ["shots","goals","key_passes","assists","progressive","dribbles","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("attacker", []),
+    "midfielder": [f for f in BASE_FEATS if any(k in f for k in ["passes","duels","tackles","interceptions","progressive","dribbles","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("midfielder", []),
     "defender":   [f for f in BASE_FEATS if any(k in f for k in ["duels","tackles","interceptions","clearances","progressive","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("defender", []),
     "goalkeeper": [f for f in BASE_FEATS if any(k in f for k in ["saves","goals_against","save_pct","passes","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("goalkeeper", [])
 }
@@ -372,7 +375,7 @@ for role in roles:
                 "model": trained_model, "scaler": trained_scaler, "features": feats,
                 "validation": validation_results, "role": role, "type": "understat_percentile"
             }
-            path = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_role_goalkeeper_understat.pkl")
+            path = os.path.join(OUTPUT_MODEL_DIR, f"role_goalkeeper_understat.pkl")
             with open(path, "wb") as f:
                 pickle.dump(artifact, f)
 
@@ -430,7 +433,7 @@ for role in roles:
         "validation": validation_results, "role": role, "fallback": False
     }
     # Save persistent model (without match name) so it improves over time
-    path = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_role_{role}.pkl")
+    path = os.path.join(OUTPUT_MODEL_DIR, f"role_{role}.pkl")
     with open(path, "wb") as f:
         pickle.dump(artifact, f)
 
@@ -457,8 +460,8 @@ for role in roles:
     subset = current[current["role"] == role].copy()
     if subset.empty: continue
 
-    model_file = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_role_{role}.pkl")
-    understat_file = os.path.join(OUTPUT_MODEL_DIR, "sanbeda_role_goalkeeper_understat.pkl")
+    model_file = os.path.join(OUTPUT_MODEL_DIR, f"role_{role}.pkl")
+    understat_file = os.path.join(OUTPUT_MODEL_DIR, "role_goalkeeper_understat.pkl")
 
     if role == "goalkeeper" and os.path.exists(understat_file):
         print(f"  GK: Using Understat percentile model")
@@ -492,27 +495,15 @@ for role in roles:
 pred_df["dpr_change"] = pred_df["predicted_dpr"] - pred_df["dpr"]
 pred_df = pred_df.round(1)
 
-# Save with new columns
-PRED_CSV = "python_scripts/player_dpr_predictions.csv"
-pred_df[["player_name", "dpr", "predicted_dpr", "dpr_change", "minutes_played", "position_history", "position_changed"]].rename(
-    columns={"player_name": "player", "minutes_played": "minutes"}
-).to_csv(PRED_CSV, index=False)
-
-
-
-# Save predictions to both organized and main locations
+# Save predictions to match-specific location only
 PRED_CSV = f"{MATCH_OUTPUT_DIR}/player_dpr_predictions.csv"
 pred_df_out = pred_df[["player_name", "dpr", "predicted_dpr", "dpr_change", "minutes_played", "position_history", "position_changed"]].copy()
 pred_df_out.rename(columns={"player_name": "player", "minutes_played": "minutes"}, inplace=True)
 
 # Save to match-specific location
 pred_df_out.to_csv(PRED_CSV, index=False)
-# Save to main location for compatibility
-# pred_df_out.to_csv(MAIN_PRED_CSV, index=False)
 
-print(f"\nPredictions saved to:")
-print(f"  Match archive: {PRED_CSV}")
-# print(f"  Main directory: {MAIN_PRED_CSV}")
+print(f"\nPredictions saved to: {PRED_CSV}")
 print("\nTop 5 DPR GAINERS:")
 top_gainers = pred_df.nlargest(5, "dpr_change")
 print(top_gainers[["player_name", "dpr", "predicted_dpr", "dpr_change", "position_changed"]].to_string(index=False))
@@ -531,10 +522,6 @@ summary_safe = json.loads(json.dumps(summary, default=safe))
 # Save to match-specific location
 with open(OUTPUT_RESULTS, "w") as f:
     json.dump(summary_safe, f, indent=4)
-    
-# Save to main location for compatibility
-#with open(MAIN_OUTPUT_RESULTS, "w") as f:
-#    json.dump(summary_safe, f, indent=4)
 
 print(f"\n{'='*60}")
 print("  ENHANCED MODEL TRAINING WITH VALIDATION COMPLETE")
@@ -571,9 +558,7 @@ for role, info in summary["models"].items():
         reason = info.get("reason", "unknown")
         print(f"   [WARNING] Using fallback - {reason}")
 
-print(f"\n  Results saved to:")
-print(f"    Match archive: {OUTPUT_RESULTS}")
-# print(f"    Main directory: {MAIN_OUTPUT_RESULTS}")
+print(f"\n  Results saved to: {OUTPUT_RESULTS}")
 print("  Models now include proper train/test validation!")
 
 print(f"\nTraining complete! Models and results organized in output structure.")

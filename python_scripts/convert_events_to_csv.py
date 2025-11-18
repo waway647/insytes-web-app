@@ -1,19 +1,122 @@
 #!/usr/bin/env python3
 """
-convert_events.py
+convert_events_to_csv.py - Dynamic JSON to CSV converter for football event data
 
 Usage:
-  python convert_events_to_csv.py             # writes ./events.csv (reads ./events.json)
-  python convert_events_to_csv.py path/to/events.json out.csv
+  python convert_events_to_csv.py                                    # Auto-discover and convert all JSON files
+  python convert_events_to_csv.py --match-id match_1                 # Convert specific match by ID
+  python convert_events_to_csv.py path/to/events.json out.csv        # Direct file conversion
+  python convert_events_to_csv.py --check                            # Check status of all datasets
+  python convert_events_to_csv.py --from-controller match_1          # Convert from controller output (UI tagging)
 """
 
 import json
 import csv
 import sys
+import os
+import argparse
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Union
+from typing import Dict, Any, List, Optional, Union, Tuple
 import math
+from datetime import datetime
+import glob
 
+# ---------- DYNAMIC CONFIGURATION ----------
+class ConversionConfig:
+    """Dynamic configuration for JSON to CSV conversion"""
+    
+    def __init__(self):
+        # Base directories
+        self.base_dir = Path(__file__).resolve().parent.parent
+        self.events_input_dir = self.base_dir / "writable_data" / "events"  # Controller outputs go here
+        self.csv_output_dir = self.base_dir / "output_dataset"
+        self.config_dir = self.base_dir / "writable_data" / "configs"
+        
+        # Ensure directories exist
+        self.events_input_dir.mkdir(parents=True, exist_ok=True)
+        self.csv_output_dir.mkdir(parents=True, exist_ok=True)
+        self.config_dir.mkdir(parents=True, exist_ok=True)
+        
+    def discover_json_files(self) -> List[Dict[str, Any]]:
+        """Discover all JSON event files from writable_data/events/"""
+        datasets = []
+        
+        # Scan writable_data/events/ for all JSON files (both controller outputs and manual files)
+        if self.events_input_dir.exists():
+            json_files = list(self.events_input_dir.glob("*_events.json"))
+            for json_file in json_files:
+                match_id = json_file.stem.replace("_events", "")
+                
+                # Determine if this is fresh from controller or existing
+                # Check file modification time - if very recent (< 1 hour), likely from controller
+                file_age_hours = (datetime.now().timestamp() - json_file.stat().st_mtime) / 3600
+                source_type = "controller" if file_age_hours < 1 else "manual"
+                
+                datasets.append({
+                    "match_id": match_id,
+                    "json_path": json_file,
+                    "csv_path": self.csv_output_dir / f"{match_id}_events.csv",
+                    "config_path": self.config_dir / f"config_{match_id}.json",
+                    "source": source_type,
+                    "last_modified": json_file.stat().st_mtime,
+                    "exists_csv": (self.csv_output_dir / f"{match_id}_events.csv").exists(),
+                    "file_age_hours": file_age_hours
+                })
+        
+        # Sort by modification time (newest first)
+        datasets.sort(key=lambda x: x["last_modified"], reverse=True)
+        return datasets
+    
+    def get_dataset_info(self, match_id: str) -> Optional[Dict[str, Any]]:
+        """Get information about a specific dataset"""
+        datasets = self.discover_json_files()
+        return next((d for d in datasets if d["match_id"] == match_id), None)
+    
+    def check_conversion_needed(self, dataset: Dict[str, Any]) -> Tuple[bool, str]:
+        """Check if conversion is needed and return reason"""
+        json_path = dataset["json_path"]
+        csv_path = dataset["csv_path"]
+        
+        if not csv_path.exists():
+            return True, "CSV file does not exist"
+        
+        # Check if JSON is newer than CSV
+        json_mtime = json_path.stat().st_mtime
+        csv_mtime = csv_path.stat().st_mtime
+        
+        if json_mtime > csv_mtime:
+            return True, "JSON file is newer than CSV"
+        
+        return False, "CSV is up to date"
+    
+    def validate_json_structure(self, json_path: Path) -> Tuple[bool, str, Dict[str, Any]]:
+        """Validate JSON structure and return data"""
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            if not isinstance(data, dict):
+                return False, "JSON root must be an object", {}
+            
+            if "events" not in data:
+                return False, "Missing 'events' array in JSON", {}
+            
+            if not isinstance(data["events"], list):
+                return False, "'events' must be an array", {}
+            
+            match_id = data.get("match_id")
+            if not match_id:
+                return False, "Missing 'match_id' in JSON", {}
+            
+            return True, f"Valid JSON with {len(data['events'])} events", data
+            
+        except json.JSONDecodeError as e:
+            return False, f"Invalid JSON: {e}", {}
+        except Exception as e:
+            return False, f"Error reading file: {e}", {}
+
+# Global configuration instance
+config = ConversionConfig()
 # Helper function to safely convert a value to float, defaulting to None if conversion fails
 def safe_float(v: Any) -> Union[float, None]:
     if v is None or v == "":
@@ -372,6 +475,7 @@ def flatten_event(ev: Dict[str, Any], event_list: List[Dict[str, Any]]) -> Dict[
     return out
 
 def convert(json_path: Path, out_csv: Path):
+    """Convert single JSON file to CSV"""
     data = json.loads(json_path.read_text(encoding='utf-8'))
     events = data.get("events", [])
     rows = [flatten_event(ev, events) for ev in events]
@@ -391,23 +495,228 @@ def convert(json_path: Path, out_csv: Path):
 
     print(f"Wrote {len(rows)} rows to: {out_csv}")
 
-if __name__ == "__main__":
-    # default input is events.json in same folder as script
-    script_dir = Path(__file__).resolve().parent
-    default_input = script_dir / "../writable_data/events_vs_siniloan.json"
-    default_output = script_dir / "../output_dataset/events_vs_siniloan.csv"
-
-    argv = sys.argv
-    input_path = Path(argv[1]) if len(argv) > 1 else default_input
-    output_path = Path(argv[2]) if len(argv) > 2 else default_output
-
-    if not input_path.exists():
-        # try ../events.json (as you wrote "../events.json")
-        alt = script_dir.parent / "events.json"
-        if alt.exists():
-            input_path = alt
+def convert_dataset(dataset: Dict[str, Any], force: bool = False) -> Tuple[bool, str]:
+    """Convert a single dataset with validation and status checking"""
+    match_id = dataset["match_id"]
+    json_path = dataset["json_path"]
+    csv_path = dataset["csv_path"]
+    source = dataset["source"]
+    
+    print(f"\n[PROCESSING] {match_id} (from {source})...")
+    
+    # Validate JSON structure
+    is_valid, validation_msg, data = config.validate_json_structure(json_path)
+    if not is_valid:
+        return False, f"[ERROR] JSON validation failed: {validation_msg}"
+    
+    # Check if conversion is needed
+    if not force:
+        needs_conversion, reason = config.check_conversion_needed(dataset)
+        if not needs_conversion:
+            return True, f"[SKIPPED] {reason}"
+    
+    try:
+        # Perform conversion
+        convert(json_path, csv_path)
+        
+        # Verify output
+        if csv_path.exists() and csv_path.stat().st_size > 0:
+            return True, f"[SUCCESS] Converted {len(data['events'])} events"
         else:
-            print(f"ERROR: input file not found: {input_path}")
-            sys.exit(1)
+            return False, "[ERROR] Conversion failed: Empty or missing output file"
+            
+    except Exception as e:
+        return False, f"[ERROR] Conversion error: {e}"
 
-    convert(input_path, output_path)
+def convert_all_datasets(force: bool = False) -> Dict[str, Any]:
+    """Auto-discover and convert all JSON datasets"""
+    datasets = config.discover_json_files()
+    
+    if not datasets:
+        return {"success": False, "message": "No JSON event files found", "results": []}
+    
+    print(f"[INFO] Found {len(datasets)} JSON datasets to process")
+    
+    results = []
+    success_count = 0
+    skip_count = 0
+    error_count = 0
+    
+    for dataset in datasets:
+        success, message = convert_dataset(dataset, force)
+        
+        result = {
+            "match_id": dataset["match_id"],
+            "source": dataset["source"],
+            "success": success,
+            "message": message,
+            "json_path": str(dataset["json_path"]),
+            "csv_path": str(dataset["csv_path"]),
+            "timestamp": datetime.now().isoformat()
+        }
+        results.append(result)
+        
+        if success and "Converted" in message:
+            success_count += 1
+        elif success and "Skipped" in message:
+            skip_count += 1
+        else:
+            error_count += 1
+        
+        print(f"  {message}")
+    
+    summary = f"[SUMMARY] {success_count} converted, {skip_count} skipped, {error_count} errors"
+    print(f"\n{summary}")
+    
+    return {
+        "success": error_count == 0,
+        "message": summary,
+        "results": results,
+        "stats": {"converted": success_count, "skipped": skip_count, "errors": error_count}
+    }
+
+def convert_from_controller(match_id: str) -> Tuple[bool, str]:
+    """Convert specific dataset from controller output (UI tagging)"""
+    # Look in the standard events directory where controller saves files
+    events_json = config.events_input_dir / f"{match_id}_events.json"
+    
+    if not events_json.exists():
+        return False, f"[ERROR] Events JSON not found: {events_json}"
+    
+    dataset = {
+        "match_id": match_id,
+        "json_path": events_json,
+        "csv_path": config.csv_output_dir / f"{match_id}_events.csv",
+        "config_path": config.config_dir / f"config_{match_id}.json",
+        "source": "controller",
+        "last_modified": events_json.stat().st_mtime,
+        "exists_csv": (config.csv_output_dir / f"{match_id}_events.csv").exists()
+    }
+    
+    return convert_dataset(dataset, force=True)  # Always force conversion from controller
+
+def check_all_datasets() -> None:
+    """Check status of all datasets without converting"""
+    datasets = config.discover_json_files()
+    
+    if not datasets:
+        print("📂 No JSON event files found")
+        return
+    
+    print(f"📋 Dataset Status Report ({len(datasets)} datasets found)\n")
+    
+    for dataset in datasets:
+        match_id = dataset["match_id"]
+        source = dataset["source"]
+        json_path = dataset["json_path"]
+        csv_path = dataset["csv_path"]
+        config_path = dataset["config_path"]
+        
+        # Validate JSON
+        is_valid, validation_msg, data = config.validate_json_structure(json_path)
+        
+        # Check conversion status
+        needs_conversion, conv_reason = config.check_conversion_needed(dataset)
+        
+        # Check config file
+        has_config = config_path.exists()
+        
+        status_icon = "✅" if is_valid and not needs_conversion and has_config else "⚠️"
+        
+        print(f"{status_icon} {match_id} (from {source})")
+        print(f"   JSON: {json_path} - {validation_msg}")
+        print(f"   CSV: {csv_path} - {'Exists' if csv_path.exists() else 'Missing'}")
+        print(f"   Config: {config_path} - {'Exists' if has_config else 'Missing'}")
+        
+        if needs_conversion:
+            print(f"   Status: Needs conversion - {conv_reason}")
+        else:
+            print(f"   Status: Up to date")
+        print()
+
+def main():
+    """Main function with enhanced argument parsing"""
+    parser = argparse.ArgumentParser(
+        description="Dynamic JSON to CSV converter for football event data",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python convert_events_to_csv.py                        # Auto-convert all datasets
+  python convert_events_to_csv.py --match-id match_1     # Convert specific match
+  python convert_events_to_csv.py --check                # Check status only
+  python convert_events_to_csv.py --from-controller match_1  # Convert from UI tagging
+  python convert_events_to_csv.py --force                # Force reconversion of all
+        """
+    )
+    
+    parser.add_argument("input_file", nargs="?", help="Input JSON file path (legacy mode)")
+    parser.add_argument("output_file", nargs="?", help="Output CSV file path (legacy mode)")
+    parser.add_argument("--match-id", help="Convert specific match by ID")
+    parser.add_argument("--from-controller", help="Convert specific match from controller output")
+    parser.add_argument("--check", action="store_true", help="Check status of all datasets")
+    parser.add_argument("--force", action="store_true", help="Force reconversion even if up to date")
+    parser.add_argument("--list", action="store_true", help="List all discovered datasets")
+    
+    args = parser.parse_args()
+    
+    try:
+        # Legacy mode: direct file conversion
+        if args.input_file and args.output_file:
+            input_path = Path(args.input_file)
+            output_path = Path(args.output_file)
+            
+            if not input_path.exists():
+                print(f"❌ Input file not found: {input_path}")
+                sys.exit(1)
+            
+            convert(input_path, output_path)
+            return
+        
+        # Check mode
+        if args.check:
+            check_all_datasets()
+            return
+        
+        # List mode
+        if args.list:
+            datasets = config.discover_json_files()
+            print(f"📋 Discovered {len(datasets)} datasets:")
+            for dataset in datasets:
+                print(f"  • {dataset['match_id']}: {dataset['json_path'].name} (from {dataset['source']})")
+            return
+        
+        # Controller conversion mode
+        if args.from_controller:
+            success, message = convert_from_controller(args.from_controller)
+            print(message)
+            sys.exit(0 if success else 1)
+        
+        # Specific match mode
+        if args.match_id:
+            dataset = config.get_dataset_info(args.match_id)
+            if not dataset:
+                print(f"[ERROR] Dataset '{args.match_id}' not found")
+                sys.exit(1)
+            
+            success, message = convert_dataset(dataset, args.force)
+            print(message)
+            sys.exit(0 if success else 1)
+        
+        # Default: convert all datasets
+        result = convert_all_datasets(args.force)
+        
+        if result["success"]:
+            print(f"\n[SUCCESS] All conversions completed successfully!")
+        else:
+            print(f"\n[WARNING] Some conversions had errors. Check output above.")
+            sys.exit(1)
+            
+    except KeyboardInterrupt:
+        print("\n[CANCELLED] Conversion cancelled by user")
+        sys.exit(1)
+    except Exception as e:
+        print(f"\n[ERROR] Unexpected error: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

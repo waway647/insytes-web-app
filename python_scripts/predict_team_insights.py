@@ -17,8 +17,35 @@ else:
 
 # ---------- PATHS ----------
 MODELS_DIR = "python_scripts/models_team"
-INPUT_METRICS_PATH = f"output/matches/{MATCH_NAME}/sanbeda_team_derived_metrics.json"
-OUTPUT_INSIGHTS_PATH = f"output/matches/{MATCH_NAME}/sanbeda_team_insights.json"
+
+# Load team name from config file (use home team as featured team)
+TEAM_CONFIG_JSON = f"writable_data/configs/config_{MATCH_NAME}.json"
+try:
+    with open(TEAM_CONFIG_JSON, "r", encoding="utf-8") as f:
+        config_data = json.load(f)
+    TEAM_NAME = config_data["home"]["name"]
+    print(f"Using home team as featured team: {TEAM_NAME}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load team name from config: {e}")
+    TEAM_NAME = "San Beda"  # Fallback
+    print(f"Using fallback team name: {TEAM_NAME}")
+
+# Load match_id from events file
+EVENTS_JSON = f"writable_data/events/{MATCH_NAME}_events.json"
+MATCH_ID = None
+try:
+    with open(EVENTS_JSON, "r", encoding="utf-8") as f:
+        events_data = json.load(f)
+    MATCH_ID = events_data.get("match_id", MATCH_NAME)
+    print(f"Loaded match ID: {MATCH_ID}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load match ID from events: {e}")
+    MATCH_ID = MATCH_NAME  # Fallback to dataset name
+    print(f"Using fallback match ID: {MATCH_ID}")
+
+team_name_safe = TEAM_NAME.lower().replace(" ", "_")
+INPUT_METRICS_PATH = f"output/matches/{MATCH_NAME}/{team_name_safe}_team_derived_metrics.json"
+OUTPUT_INSIGHTS_PATH = f"output/matches/{MATCH_NAME}/{team_name_safe}_team_insights.json"
 
 # Ensure output directory exists
 os.makedirs(os.path.dirname(OUTPUT_INSIGHTS_PATH), exist_ok=True)
@@ -28,7 +55,7 @@ def load_models(models_dir):
     models = {}
     for fname in os.listdir(models_dir):
         if fname.endswith(".pkl"):
-            category = fname.replace("sanbeda_", "").replace(".pkl", "")
+            category = fname.replace("team_", "").replace(".pkl", "")
             path = os.path.join(models_dir, fname)
             with open(path, "rb") as f:
                 models[category] = pickle.load(f)
@@ -55,9 +82,19 @@ def predict_performance():
     with open(INPUT_METRICS_PATH, "r") as f:
         data = json.load(f)
 
-    # Expect structure like {"San Beda": {...}}
-    team_name = list(data.keys())[0]
-    team_metrics = data[team_name]
+    # Expect structure like {"match_id": "...", "match_name": "...", "San Beda": {...}}
+    # Find the team data (skip match_id and match_name keys)
+    team_name = None
+    team_metrics = None
+    for key, value in data.items():
+        if key not in ['match_id', 'match_name', 'match_duration_seconds'] and isinstance(value, dict):
+            team_name = key
+            team_metrics = value
+            break
+    
+    if team_name is None or team_metrics is None:
+        print(f"Error: Could not find team data in {INPUT_METRICS_PATH}")
+        return
 
     print(f"Loaded metrics for team: {team_name}")
 
@@ -101,6 +138,8 @@ def predict_performance():
 
     # Generate detailed qualitative insights
     insights = {
+        "match_id": MATCH_ID,
+        "match_name": MATCH_NAME,
         "team": team_name,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "predicted_scores": results,

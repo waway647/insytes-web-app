@@ -14,13 +14,39 @@ else:
     MATCH_NAME = "sbu_vs_2worlds"
 
 # ---------- CONFIG ----------
-DATA_PATH = f"output_dataset/{MATCH_NAME}.csv"
+DATA_PATH = f"output_dataset/{MATCH_NAME}_events.csv"
+
+# Load team name from config file (use home team as featured team)
+TEAM_CONFIG_JSON = f"writable_data/configs/config_{MATCH_NAME}.json"
+try:
+    with open(TEAM_CONFIG_JSON, "r", encoding="utf-8") as f:
+        config_data = json.load(f)
+    TEAM_NAME = config_data["home"]["name"]
+    print(f"Using home team as featured team: {TEAM_NAME}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load team name from config: {e}")
+    TEAM_NAME = "San Beda"  # Fallback
+    print(f"Using fallback team name: {TEAM_NAME}")
+
+# Load match_id from events file
+EVENTS_JSON = f"writable_data/events/{MATCH_NAME}_events.json"
+MATCH_ID = None
+try:
+    with open(EVENTS_JSON, "r", encoding="utf-8") as f:
+        events_data = json.load(f)
+    MATCH_ID = events_data.get("match_id", MATCH_NAME)
+    print(f"Loaded match ID: {MATCH_ID}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load match ID from events: {e}")
+    MATCH_ID = MATCH_NAME  # Fallback to dataset name
+    print(f"Using fallback match ID: {MATCH_ID}")
 
 # Create match-specific output directory
 MATCH_OUTPUT_DIR = f"output/matches/{MATCH_NAME}"
 os.makedirs(MATCH_OUTPUT_DIR, exist_ok=True)
 
-OUTPUT_PATH = f"{MATCH_OUTPUT_DIR}/sanbeda_team_derived_metrics.json"
+team_name_safe = TEAM_NAME.lower().replace(" ", "_")
+OUTPUT_PATH = f"{MATCH_OUTPUT_DIR}/{team_name_safe}_team_derived_metrics.json"
 
 # ---------- LOAD ----------
 if not os.path.exists(DATA_PATH):
@@ -335,6 +361,8 @@ team_b_metrics["outcome_score"] = 1.0 if b_goals>a_goals else 0.0 if b_goals<a_g
 match_duration_seconds = float(pd.to_numeric(df["match_time_minute"], errors="coerce").max()*60) if "match_time_minute" in df.columns else 0.0
 
 final_output = {
+    "match_id": MATCH_ID,
+    "match_name": MATCH_NAME,
     team_a_name: team_a_metrics,
     team_b_name: team_b_metrics,
     "match_duration_seconds": match_duration_seconds

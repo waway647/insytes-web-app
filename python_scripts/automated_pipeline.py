@@ -17,7 +17,8 @@ from pathlib import Path
 
 # ---------- CONFIGURATION ----------
 DATA_DIR = "data"
-TEAM_DATA_DIR = os.path.join(DATA_DIR, "team_data")
+TEAM_DATA_DIR = "writable_data/configs"
+EVENTS_DATA_DIR = "output_dataset"
 PYTHON_SCRIPTS_DIR = "python_scripts"
 PIPELINE_STATE_FILE = os.path.join(PYTHON_SCRIPTS_DIR, "pipeline_state.json")
 OUTPUT_DIR = "output"
@@ -26,9 +27,12 @@ MATCHES_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "matches")
 # Ensure output directories exist
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(MATCHES_OUTPUT_DIR, exist_ok=True)
+os.makedirs(TEAM_DATA_DIR, exist_ok=True)
+os.makedirs(EVENTS_DATA_DIR, exist_ok=True)
 
 # Pipeline scripts
 SCRIPTS = {
+    "convert_events": os.path.join(PYTHON_SCRIPTS_DIR, "convert_events_to_csv.py"),
     "derived_metrics": os.path.join(PYTHON_SCRIPTS_DIR, "derived_metrics_players.py"),
     "regression_model": os.path.join(PYTHON_SCRIPTS_DIR, "regression_model_players.py"),
     "insights": os.path.join(PYTHON_SCRIPTS_DIR, "predict_player_insights.py"),
@@ -61,95 +65,174 @@ class PipelineManager:
         """Check and suggest standardization for dataset files"""
         print("\n📋 Dataset File Standardization Check:")
         print("=" * 50)
+        print("New naming convention:")
+        print("  • Config: config_match_{number}_sbu_vs_{opponent}.json (in writable_data/configs/)")
+        print("  • CSV: match_{number}_sbu_vs_{opponent}_events.csv (in output_dataset/)")
+        print("=" * 50)
         
         suggestions = []
-        all_csvs = [f for f in os.listdir(DATA_DIR) if f.endswith('.csv')]
+        all_csvs = [f for f in os.listdir(EVENTS_DATA_DIR) if f.endswith('.csv')] if os.path.exists(EVENTS_DATA_DIR) else []
         config_files = glob.glob(os.path.join(TEAM_DATA_DIR, "config_*.json"))
         
         for config_file in config_files:
             config_name = os.path.basename(config_file)
-            if config_name.startswith("config_") and config_name.endswith(".json"):
+            dataset_name = None
+            expected_csv = None
+            
+            # New naming convention: config_match_{number}_sbu_vs_{opponent}.json
+            if config_name.startswith("config_match_") and config_name.endswith(".json"):
                 dataset_name = config_name[7:-5]  # Remove "config_" and ".json"
-                expected_csv = f"{dataset_name}.csv"
-                expected_csv_path = os.path.join(DATA_DIR, expected_csv)
+                expected_csv = f"{dataset_name}_events.csv"
+                print(f"✅ {dataset_name}: New naming convention - {expected_csv}")
+                
+            # Legacy naming convention: config_{old_name}.json
+            elif config_name.startswith("config_") and config_name.endswith(".json"):
+                old_dataset_name = config_name[7:-5]  # Remove "config_" and ".json"
+                print(f"⚠️ Legacy config found: {config_name}")
+                
+                # Suggest new naming based on content or pattern
+                if "sbu_vs_" in old_dataset_name:
+                    # Extract opponent and suggest match number
+                    opponent = old_dataset_name.replace("sbu_vs_", "")
+                    suggested_name = f"match_1_{old_dataset_name}"  # Default to match_1
+                    suggestions.append({
+                        'type': 'config_rename',
+                        'current': config_name,
+                        'suggested': f"config_{suggested_name}.json",
+                        'dataset': suggested_name
+                    })
+                    print(f"  💡 Suggest renaming to: config_{suggested_name}.json")
+                    continue
+            
+            # Check if corresponding CSV exists
+            if expected_csv and dataset_name:
+                expected_csv_path = os.path.join(EVENTS_DATA_DIR, expected_csv)
                 
                 if os.path.exists(expected_csv_path):
-                    print(f"✅ {dataset_name}: Correctly named as {expected_csv}")
+                    print(f"  ✅ CSV exists: {expected_csv}")
                 else:
                     # Find matching CSV with different name
                     matching_csv = None
-                    for csv_file in all_csvs:
-                        if dataset_name.lower() in csv_file.lower():
-                            matching_csv = csv_file
-                            break
+                    if "_sbu_vs_" in dataset_name:
+                        opponent_part = dataset_name.split("_sbu_vs_")[-1]
+                        for csv_file in all_csvs:
+                            if opponent_part.lower() in csv_file.lower() and "sbu" in csv_file.lower():
+                                matching_csv = csv_file
+                                break
                     
                     if matching_csv:
                         suggestions.append({
+                            'type': 'csv_rename',
                             'current': matching_csv,
                             'expected': expected_csv,
                             'dataset': dataset_name
                         })
-                        print(f"❌ {dataset_name}: Found {matching_csv} but should be {expected_csv}")
+                        print(f"  ❌ Found {matching_csv} but should be {expected_csv}")
                     else:
-                        print(f"❌ {dataset_name}: No matching CSV file found")
+                        print(f"  ❌ No matching CSV file found for {dataset_name}")
         
         if suggestions:
-            print(f"\n💡 Standardization Suggestions:")
-            print("To standardize your dataset files, run these commands:")
+            print(f"\n💡 Standardization Commands:")
             for suggestion in suggestions:
-                old_path = os.path.join(DATA_DIR, suggestion['current'])
-                new_path = os.path.join(DATA_DIR, suggestion['expected'])
-                print(f"  mv \"{old_path}\" \"{new_path}\"")
+                if suggestion['type'] == 'config_rename':
+                    old_path = os.path.join(TEAM_DATA_DIR, suggestion['current'])
+                    new_path = os.path.join(TEAM_DATA_DIR, suggestion['suggested'])
+                    print(f"  mv \"{old_path}\" \"{new_path}\"")
+                elif suggestion['type'] == 'csv_rename':
+                    old_path = os.path.join(EVENTS_DATA_DIR, suggestion['current'])
+                    new_path = os.path.join(EVENTS_DATA_DIR, suggestion['expected'])
+                    print(f"  mv \"{old_path}\" \"{new_path}\"")
         else:
-            print(f"\n✅ All dataset files follow the standard naming convention!")
+            print(f"\n✅ All files follow the new naming convention!")
         
         return suggestions
 
     def discover_datasets(self):
-        """Auto-discover available datasets"""
+        """Auto-discover available datasets from both JSON and CSV sources"""
         datasets = {}
         
-        # Find CSV files in data directory
-        csv_files = glob.glob(os.path.join(DATA_DIR, "*.csv"))
+        # First priority: JSON files from event tagging (newest workflow)
+        json_events_dir = "writable_data/events"
+        if os.path.exists(json_events_dir):
+            json_files = glob.glob(os.path.join(json_events_dir, "*_events.json"))
+            for json_file in json_files:
+                json_name = os.path.basename(json_file)
+                # Extract dataset name from "match_11_events.json" -> "match_11"
+                if json_name.endswith("_events.json"):
+                    dataset_name = json_name[:-12]  # Remove "_events.json"
+                    
+                    # Look for corresponding config file
+                    config_file = os.path.join(TEAM_DATA_DIR, f"config_{dataset_name}.json")
+                    
+                    if os.path.exists(config_file):
+                        # Determine expected CSV output path
+                        expected_csv = os.path.join(EVENTS_DATA_DIR, f"{dataset_name}_events.csv")
+                        
+                        datasets[dataset_name] = {
+                            "json_file": json_file,
+                            "config_file": config_file,
+                            "csv_file": expected_csv,
+                            "dataset_name": dataset_name,
+                            "source_type": "json",
+                            "file_hash": self.calculate_file_hash(json_file),
+                            "last_modified": os.path.getmtime(json_file)
+                        }
+                        print(f"  📋 {dataset_name}: {json_name} + config_{dataset_name}.json (JSON workflow)")
+                    else:
+                        print(f"  ⚠️ {dataset_name}: Found JSON but missing config file: {config_file}")
+        
+        # Second priority: Existing CSV files (legacy workflow)
+        csv_files = glob.glob(os.path.join(EVENTS_DATA_DIR, "*.csv")) if os.path.exists(EVENTS_DATA_DIR) else []
         config_files = glob.glob(os.path.join(TEAM_DATA_DIR, "config_*.json"))
         
-        print(f"🔍 Discovered {len(csv_files)} CSV files and {len(config_files)} config files")
+        print(f"🔍 Discovered {len(json_files) if 'json_files' in locals() else 0} JSON files and {len(csv_files)} CSV files with {len(config_files)} config files")
         
         for config_file in config_files:
             # Extract dataset name from config filename
             config_name = os.path.basename(config_file)
-            if config_name.startswith("config_") and config_name.endswith(".json"):
+            dataset_name = None
+            
+            # New naming convention: config_match_{number}_sbu_vs_{opponent}.json
+            if config_name.startswith("config_match_") and config_name.endswith(".json"):
+                # Extract from "config_match_1_sbu_vs_up.json" -> "match_1_sbu_vs_up"
+                dataset_name = config_name[7:-5]  # Remove "config_" prefix and ".json" suffix
+            
+            # Legacy naming convention: config_{dataset_name}.json (for backward compatibility)
+            elif config_name.startswith("config_") and config_name.endswith(".json"):
                 dataset_name = config_name[7:-5]  # Remove "config_" and ".json"
+            
+            # Skip if already found as JSON workflow
+            if dataset_name and dataset_name in datasets:
+                continue
+            
+            if dataset_name:
+                # Look for corresponding CSV file with new naming convention
+                # For "match_1_sbu_vs_up" config, look for "match_1_sbu_vs_up_events.csv"
+                expected_csv = f"{dataset_name}_events.csv"
+                csv_file_path = os.path.join(EVENTS_DATA_DIR, expected_csv)
                 
-                # Use single consistent naming convention: {dataset_name}.csv
-                # This eliminates the need for multiple naming patterns and makes it predictable
-                csv_candidates = [f"{dataset_name}.csv"]
-                
-                # Fallback: if exact match not found, look for any CSV containing the dataset name
-                if not any(os.path.exists(os.path.join(DATA_DIR, candidate)) for candidate in csv_candidates):
-                    all_csvs = [f for f in os.listdir(DATA_DIR) if f.endswith('.csv')]
+                # Fallback: if exact match not found, look for any CSV containing parts of the dataset name
+                if not os.path.exists(csv_file_path) and os.path.exists(EVENTS_DATA_DIR):
+                    all_csvs = [f for f in os.listdir(EVENTS_DATA_DIR) if f.endswith('.csv')]
                     for csv_file in all_csvs:
-                        if dataset_name.lower() in csv_file.lower():
-                            csv_candidates.append(csv_file)
-                            print(f"  ⚠️ Found non-standard naming: {csv_file} (should be {dataset_name}.csv)")
-                            break
+                        # Extract key parts for matching (e.g., "sbu_vs_up" from various formats)
+                        if "_sbu_vs_" in dataset_name and "_sbu_vs_" in csv_file.lower():
+                            opponent_part = dataset_name.split("_sbu_vs_")[-1]
+                            if opponent_part.lower() in csv_file.lower():
+                                csv_file_path = os.path.join(EVENTS_DATA_DIR, csv_file)
+                                print(f"  ⚠️ Found legacy naming: {csv_file} (should be {expected_csv})")
+                                break
                 
-                csv_file = None
-                for candidate in csv_candidates:
-                    candidate_path = os.path.join(DATA_DIR, candidate)
-                    if os.path.exists(candidate_path):
-                        csv_file = candidate_path
-                        break
-                
-                if csv_file:
+                if os.path.exists(csv_file_path):
                     datasets[dataset_name] = {
                         "config_file": config_file,
-                        "csv_file": csv_file,
+                        "csv_file": csv_file_path,
                         "dataset_name": dataset_name,
-                        "file_hash": self.calculate_file_hash(csv_file),
-                        "last_modified": os.path.getmtime(csv_file)
+                        "source_type": "csv",
+                        "file_hash": self.calculate_file_hash(csv_file_path),
+                        "last_modified": os.path.getmtime(csv_file_path)
                     }
-                    print(f"  ✅ {dataset_name}: {os.path.basename(csv_file)} + {config_name}")
+                    print(f"  ✅ {dataset_name}: {os.path.basename(csv_file_path)} + {config_name} (CSV workflow)")
                 else:
                     print(f"  ❌ {dataset_name}: Config found but no matching CSV file")
         
@@ -181,8 +264,8 @@ class PipelineManager:
             return False
         
         # Check if all pipeline steps completed successfully
-        required_steps = ["derived_metrics", "regression_model", "insights", "heatmaps", "team_summary", 
-                         "team_metrics", "team_model", "team_insights"]
+        required_steps = ["convert_events", "derived_metrics", "regression_model", "insights", 
+                         "team_metrics", "team_model", "team_insights", "heatmaps", "team_summary"]
         completed_steps = stored_info.get("completed_steps", [])
         
         if not all(step in completed_steps for step in required_steps):
@@ -205,14 +288,19 @@ class PipelineManager:
             content = f.read()
         
         # Update paths based on script type
-        if script_name == "derived_metrics":
+        if script_name == "convert_events":
+            # For JSON-to-CSV conversion, no script modification needed
+            # Will pass JSON and CSV paths as command line arguments
+            pass
+            
+        elif script_name == "derived_metrics":
             # Update event CSV path
             csv_filename = os.path.basename(dataset_info["csv_file"])
             content = self.update_script_variable(content, 'EVENTS_CSV', f'"output_dataset/{csv_filename}"')
             
             # Update team config path  
             config_filename = os.path.basename(dataset_info["config_file"])
-            content = self.update_script_variable(content, 'TEAM_CONFIG_JSON', f'"data/team_data/{config_filename}"')
+            content = self.update_script_variable(content, 'TEAM_CONFIG_JSON', f'"writable_data/configs/{config_filename}"')
             
         elif script_name == "regression_model":
             # Regression model script uses match-specific output from derived_metrics
@@ -260,7 +348,18 @@ class PipelineManager:
         
         try:
             # Build command based on script type
-            if script_name in ["derived_metrics"]:
+            if script_name == "convert_events":
+                # Special handling for JSON-to-CSV conversion using enhanced dynamic script
+                # Use the --from-controller flag for controller outputs or --match-id for specific datasets
+                dataset_info = self.datasets[dataset_name]
+                if "json_file" in dataset_info:
+                    # For JSON workflow, use --from-controller to ensure fresh conversion
+                    cmd = [sys.executable, temp_script_path, "--from-controller", dataset_name]
+                else:
+                    print(f"    ⏭️ Skipping convert_events: No JSON file for {dataset_name} (CSV workflow)")
+                    return True, "Skipped - CSV workflow"
+                    
+            elif script_name in ["derived_metrics"]:
                 # These scripts accept dataset name as positional argument
                 cmd = [sys.executable, temp_script_path, dataset_name]
             elif script_name in ["insights", "regression_model", "heatmaps", "team_summary", 
@@ -319,14 +418,15 @@ class PipelineManager:
         
         # Pipeline steps in order
         pipeline_steps = [
+            ("convert_events", "Convert JSON events to CSV"),
             ("derived_metrics", "Generate enhanced player metrics"),
             ("regression_model", "Train prediction models"),
             ("insights", "Generate player insights"),
-            ("heatmaps", "Create player heatmaps"),
-            ("team_summary", "Generate team analysis"),
             ("team_metrics", "Generate team performance metrics"),
             ("team_model", "Train team prediction models"),
-            ("team_insights", "Generate team insights")
+            ("team_insights", "Generate team insights"),
+            ("heatmaps", "Create player heatmaps"),
+            ("team_summary", "Generate team analysis")
         ]
         
         completed_steps = []

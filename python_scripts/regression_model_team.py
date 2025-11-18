@@ -36,12 +36,23 @@ else:
     MATCH_NAME = "sbu_vs_2worlds"
 
 # ---------------- CONFIG ----------------
-DATA_PATH = f"output/matches/{MATCH_NAME}/sanbeda_team_derived_metrics.json"
-OUTPUT_MODEL_DIR = "python_scripts/models_team"
-OUTPUT_TRAIN_DATA = "data/training_data/sanbeda_team_training_data.csv"
-OUTPUT_RESULTS = f"output/matches/{MATCH_NAME}/team_model_results.json"
+# Load team name from config file (use home team as featured team)
+TEAM_CONFIG_JSON = f"writable_data/configs/config_{MATCH_NAME}.json"
+try:
+    with open(TEAM_CONFIG_JSON, "r", encoding="utf-8") as f:
+        config_data = json.load(f)
+    TEAM_NAME = config_data["home"]["name"]
+    print(f"Using home team as featured team: {TEAM_NAME}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load team name from config: {e}")
+    TEAM_NAME = "San Beda"  # Fallback
+    print(f"Using fallback team name: {TEAM_NAME}")
 
-TEAM_NAME = "San Beda"
+team_name_safe = TEAM_NAME.lower().replace(" ", "_")
+DATA_PATH = f"output/matches/{MATCH_NAME}/{team_name_safe}_team_derived_metrics.json"
+OUTPUT_MODEL_DIR = "python_scripts/models_team"
+OUTPUT_TRAIN_DATA = "data/training_data/team_training_data.csv"  # Unified training data
+OUTPUT_RESULTS = f"output/matches/{MATCH_NAME}/team_model_results.json"
 
 # Simulation controls
 MIN_REAL_MATCHES = 5
@@ -293,7 +304,7 @@ def main():
             model = LinearRegression()
 
         # Use persistent model filename (not match-specific)
-        model_path = os.path.join(OUTPUT_MODEL_DIR, f"sanbeda_team_{cat}.pkl")
+        model_path = os.path.join(OUTPUT_MODEL_DIR, f"team_{cat}.pkl")
         r2_test = None
         cv_mean = None
 

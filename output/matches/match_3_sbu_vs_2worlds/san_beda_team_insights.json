@@ -1,0 +1,104 @@
+{
+    "match_id": "match_3_sbu_vs_2worlds",
+    "match_name": "match_3_sbu_vs_2worlds",
+    "team": "San Beda",
+    "timestamp": "2025-11-18 23:33:28",
+    "predicted_scores": {
+        "attack": 6.539706230163574,
+        "defense": 6.372642993927002,
+        "discipline": 6.502162933349609,
+        "distribution": 7.744908332824707,
+        "general": 7.143951416015625,
+        "overall": 0.0
+    },
+    "detailed_analysis": {
+        "attack": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "defense": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "distribution": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "discipline": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "general": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "overall": {
+            "overall_assessment": "No prediction available",
+            "key_strengths": [],
+            "priority_improvements": [],
+            "match_summary": ""
+        }
+    },
+    "coaching_assessment": {
+        "attack": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "defense": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "distribution": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "discipline": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "general": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "overall": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        }
+    },
+    "interpretation": {
+        "attack": "Performance data unavailable for comprehensive analysis",
+        "defense": "Performance data unavailable for comprehensive analysis",
+        "distribution": "Performance data unavailable for comprehensive analysis",
+        "discipline": "Performance data unavailable for comprehensive analysis",
+        "general": "Performance data unavailable for comprehensive analysis",
+        "overall": "Performance data unavailable for comprehensive analysis"
+    }
+}

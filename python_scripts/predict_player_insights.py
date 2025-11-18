@@ -9,6 +9,23 @@ import os
 import sys
 import argparse
 import pandas as pd
+
+def get_stat_value(player, stat_name):
+    """Get stat value, checking both per-90 and raw versions"""
+    key_stats = player.get("key_stats_p90", {})
+    
+    # Try per-90 version first
+    per90_key = f"{stat_name}_p90"
+    if per90_key in key_stats:
+        return key_stats[per90_key]
+    
+    # Fallback to raw version for players with limited minutes
+    raw_key = f"{stat_name}_raw"
+    if raw_key in key_stats:
+        return key_stats[raw_key]
+    
+    # Default to 0 if neither found
+    return 0
 from datetime import datetime, timezone
 
 # Command line argument parsing
@@ -17,14 +34,41 @@ parser.add_argument('--dataset', default='sbu_vs_2worlds', help='Dataset name (e
 args = parser.parse_args()
 
 MATCH_NAME = args.dataset
-TEAM_NAME = "San Beda"
+
+# Load team name from config file (use home team as featured team)
+TEAM_CONFIG_JSON = f"writable_data/configs/config_{MATCH_NAME}.json"
+try:
+    with open(TEAM_CONFIG_JSON, "r", encoding="utf-8") as f:
+        config_data = json.load(f)
+    TEAM_NAME = config_data["home"]["name"]
+    print(f"Using home team as featured team: {TEAM_NAME}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load team name from config: {e}")
+    TEAM_NAME = "San Beda"  # Fallback
+    print(f"Using fallback team name: {TEAM_NAME}")
+
+# Load match_id from events file
+EVENTS_JSON = f"writable_data/events/{MATCH_NAME}_events.json"
+MATCH_ID = None
+try:
+    with open(EVENTS_JSON, "r", encoding="utf-8") as f:
+        events_data = json.load(f)
+    MATCH_ID = events_data.get("match_id", MATCH_NAME)
+    print(f"Loaded match ID: {MATCH_ID}")
+except (FileNotFoundError, KeyError) as e:
+    print(f"Could not load match ID from events: {e}")
+    MATCH_ID = MATCH_NAME  # Fallback to dataset name
+    print(f"Using fallback match ID: {MATCH_ID}")
+
 # Create match-specific output directory
 MATCH_OUTPUT_DIR = f"output/matches/{MATCH_NAME}"
 os.makedirs(MATCH_OUTPUT_DIR, exist_ok=True)
 
-DERIVED_METRICS_PATH = f"{MATCH_OUTPUT_DIR}/sanbeda_players_derived_metrics.json"
-PREDICTIONS_CSV = "python_scripts/player_dpr_predictions.csv"
-OUTPUT_PATH = f"{MATCH_OUTPUT_DIR}/sanbeda_player_insights.json"
+# Use dynamic team name for file paths
+team_name_safe = TEAM_NAME.lower().replace(" ", "_")
+DERIVED_METRICS_PATH = f"{MATCH_OUTPUT_DIR}/{team_name_safe}_players_derived_metrics.json"
+PREDICTIONS_CSV = f"{MATCH_OUTPUT_DIR}/player_dpr_predictions.csv"
+OUTPUT_PATH = f"{MATCH_OUTPUT_DIR}/{team_name_safe}_player_insights.json"
 
 # Also save to main directory for compatibility
 # MAIN_OUTPUT_PATH = "python_scripts/sanbeda_player_insights.json"
@@ -41,7 +85,21 @@ pred_dict = pred_df.set_index("name").to_dict("index")
 
 # ---------- BUILD PLAYER LIST ----------
 players = []
-for name, stats in metrics.items():
+
+# Handle team structure in derived metrics
+player_data = {}
+if len(metrics) == 1 and not any(key.startswith("_") for key in metrics.keys()):
+    # New team structure format - extract players from team container
+    team_name = list(metrics.keys())[0]
+    player_data = metrics[team_name]
+    print(f"Found team structure: {team_name} with {len(player_data)} entries")
+else:
+    # Direct player structure
+    player_data = metrics
+
+for name, stats in player_data.items():
+    if name in ["match_id", "match_name"]:  # Skip metadata keys
+        continue
     if name.startswith("_"): continue
     
     # Check if this is the new format (already has dpr, minutes_played, etc.)
@@ -429,42 +487,74 @@ def categorize_players():
 categorized_players = categorize_players()
 
 # ---------- UI TABLE FORMAT ----------
+def get_stat_value(stats, stat_name, minutes_played=90):
+    """Get stat value from either per-90 or raw format and convert to total"""
+    # Try per-90 first
+    per90_key = f"{stat_name}_p90"
+    if per90_key in stats:
+        return stats[per90_key] * (minutes_played / 90.0)
+    
+    # Fallback to raw stats (for players with <20 minutes)
+    raw_key = f"{stat_name}_raw"
+    if raw_key in stats:
+        return stats[raw_key]
+    
+    # No data available
+    return 0.0
+
 def create_ui_table():
     """Create UI-ready table format for player statistics"""
     ui_table = []
     
     for p in players:
         stats = p.get("key_stats_p90", {})
+        # Convert per-90 stats to total stats based on minutes played
+        minutes_played = p["minutes"]
         
-        # Calculate passing accuracy
-        successful_passes = stats.get("successful_passes_p90", 0)
-        total_passes = stats.get("passes_p90", 1)  # Avoid division by zero
+        # Calculate passing accuracy (handle both per-90 and raw stats)
+        successful_passes = get_stat_value(stats, "successful_passes", 90)  # Use full 90 for percentage calculation
+        total_passes = max(1, get_stat_value(stats, "passes", 90))  # Avoid division by zero
         passing_accuracy = round((successful_passes / total_passes) * 100, 1) if total_passes > 0 else 0.0
         
         # Calculate duels won percentage
-        duels_won = stats.get("duels_won_p90", 0)
-        total_duels = stats.get("duels_p90", 1)  # Avoid division by zero
+        duels_won = get_stat_value(stats, "duels_won", 90)
+        total_duels = max(1, get_stat_value(stats, "duels", 90))  # Avoid division by zero
         duels_won_pct = round((duels_won / total_duels) * 100, 1) if total_duels > 0 else 0.0
         
         # Generate contextual notes based on performance and role
         notes = generate_player_notes(p)
         
-        # Convert per-90 stats to total stats based on minutes played
-        minutes_played = p["minutes"]
-        minutes_factor = minutes_played / 90.0
+        # Calculate player rating (0-10 scale) based on DPR
+        # DPR typically ranges 0-100, we convert to 0-10 with more progressive scaling
+        raw_rating = p["dpr"] / 10.0  # Convert 0-100 to 0-10
+        
+        # More fair and progressive rating distribution
+        if raw_rating >= 8.0:
+            player_rating = min(10.0, raw_rating)  # Elite players (80+ DPR = 8.0+ rating)
+        elif raw_rating >= 6.0:
+            player_rating = raw_rating  # Good players (60-79 DPR = 6.0-7.9 rating)
+        elif raw_rating >= 4.0:
+            # Progressive scaling for average players (40-59 DPR = 4.0-5.9 rating)
+            player_rating = 4.0 + (raw_rating - 4.0) * 1.0  # Linear scaling
+        else:
+            # Poor performers (0-39 DPR = 1.0-3.9 rating)
+            player_rating = max(1.0, raw_rating * 1.0)  # Keep it proportional
+        
+        player_rating = round(player_rating, 1)
         
         ui_row = {
             "player_name": p["name"],
             "position": p["position"],
             "minutes_played": round(minutes_played, 0),
-            "goals": round(stats.get("goals_p90", 0) * minutes_factor, 0),
-            "assists": round(stats.get("assists_p90", 0) * minutes_factor, 0),
-            "shots_on_target": round(stats.get("shots_on_target_p90", 0) * minutes_factor, 0),
-            "key_passes": round(stats.get("key_passes_p90", 0) * minutes_factor, 0),
-            "progressive_passes": round(stats.get("progressive_passes_p90", 0) * minutes_factor, 0),
+            "rating": player_rating,
+            "goals": round(get_stat_value(stats, "goals", minutes_played), 0),
+            "assists": round(get_stat_value(stats, "assists", minutes_played), 0),
+            "shots_on_target": round(get_stat_value(stats, "shots_on_target", minutes_played), 0),
+            "key_passes": round(get_stat_value(stats, "key_passes", minutes_played), 0),
+            "progressive_passes": round(get_stat_value(stats, "progressive_passes", minutes_played), 0),
             "passing_accuracy_pct": passing_accuracy,
             "duels_won_pct": duels_won_pct,
-            "recoveries": round(stats.get("recoveries_p90", 0) * minutes_factor, 0),
+            "recoveries": round(get_stat_value(stats, "recoveries", minutes_played), 0),
             "dpr": p["dpr"],
             "notes": notes
         }
@@ -685,6 +775,8 @@ ui_table_data = create_ui_table()
 
 # ---------- ENHANCED FINAL OUTPUT ----------
 output = {
+    "match_id": MATCH_ID,
+    "match_name": MATCH_NAME,
     "team": TEAM_NAME,
     "generated_at": datetime.now(timezone.utc).isoformat(),
     
@@ -711,14 +803,15 @@ output = {
     
     # Specialized performance categories with insights
     "top_scorers": {
-        "players": [{"name": p["name"], "goals_p90": p.get("key_stats_p90", {}).get("goals_p90", 0),
-                     "shots_p90": p.get("key_stats_p90", {}).get("shots_p90", 0),
-                     "shot_accuracy_pct": p.get("key_stats_p90", {}).get("shot_accuracy_pct_p90", 0)} 
-                    for p in sorted(players, key=lambda x: x.get("key_stats_p90", {}).get("goals_p90", 0), reverse=True)[:3]
-                    if p.get("key_stats_p90", {}).get("goals_p90", 0) > 0],
+        "players": [{"name": p["name"], 
+                     "goals_p90": get_stat_value(p.get("key_stats_p90", {}), "goals", 90),
+                     "shots_p90": get_stat_value(p.get("key_stats_p90", {}), "shots", 90),
+                     "shot_accuracy_pct": get_stat_value(p.get("key_stats_p90", {}), "shot_accuracy_pct", 90)} 
+                    for p in sorted(players, key=lambda x: get_stat_value(x.get("key_stats_p90", {}), "goals", 90), reverse=True)[:3]
+                    if get_stat_value(p.get("key_stats_p90", {}), "goals", 90) > 0],
         "insights": generate_specialized_insights("attackers", 
-                   [{"name": p["name"]} for p in sorted(players, key=lambda x: x.get("key_stats_p90", {}).get("goals_p90", 0) + x.get("key_stats_p90", {}).get("shots_p90", 0), reverse=True)[:3]
-                    if (p.get("key_stats_p90", {}).get("goals_p90", 0) + p.get("key_stats_p90", {}).get("shots_p90", 0)) > 0])
+                   [{"name": p["name"]} for p in sorted(players, key=lambda x: get_stat_value(x.get("key_stats_p90", {}), "goals", 90) + get_stat_value(x.get("key_stats_p90", {}), "shots", 90), reverse=True)[:3]
+                    if (get_stat_value(p.get("key_stats_p90", {}), "goals", 90) + get_stat_value(p.get("key_stats_p90", {}), "shots", 90)) > 0])
     },
     
     "top_defenders": {
