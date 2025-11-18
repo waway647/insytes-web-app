@@ -11,4 +11,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h1>Insytes Admin | Invitation</h1>
 	</div>
 </body>
-</html>
+</html>~

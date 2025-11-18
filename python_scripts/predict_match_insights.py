@@ -7,10 +7,10 @@ from datetime import datetime
 
 # ---------- PATHS ----------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "..", "data")
+DATA_DIR = os.path.join(BASE_DIR, "..", "python_scripts")
 MODELS_DIR = os.path.join(BASE_DIR, "models")
 
-INPUT_METRICS_PATH = os.path.join(DATA_DIR, "sanbeda_derived_metrics.json")
+INPUT_METRICS_PATH = os.path.join(DATA_DIR, "sanbeda_team_derived_metrics.json")
 OUTPUT_INSIGHTS_PATH = os.path.join(BASE_DIR, "sanbeda_match_insights.json")
 
 # ---------- LOAD MODELS ----------

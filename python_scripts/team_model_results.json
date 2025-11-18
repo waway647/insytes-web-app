@@ -1,0 +1,44 @@
+{
+  "team": "San Beda",
+  "timestamp": "2025-11-15T08:40:08.659439+00:00",
+  "total_samples": 106,
+  "simulate_used": true,
+  "models": {
+    "general": {
+      "model_path": "python_scripts/models\\san_beda_general.pkl",
+      "R2_test": 0.9822,
+      "R2_CV_mean": 0.4343,
+      "trained_on_samples": 106
+    },
+    "attack": {
+      "model_path": "python_scripts/models\\san_beda_attack.pkl",
+      "R2_test": 0.8858,
+      "R2_CV_mean": 0.4222,
+      "trained_on_samples": 106
+    },
+    "defense": {
+      "model_path": "python_scripts/models\\san_beda_defense.pkl",
+      "R2_test": 0.9659,
+      "R2_CV_mean": 0.6692,
+      "trained_on_samples": 106
+    },
+    "distribution": {
+      "model_path": "python_scripts/models\\san_beda_distribution.pkl",
+      "R2_test": 0.9743,
+      "R2_CV_mean": 0.0754,
+      "trained_on_samples": 106
+    },
+    "discipline": {
+      "model_path": "python_scripts/models\\san_beda_discipline.pkl",
+      "R2_test": 0.8961,
+      "R2_CV_mean": 0.4082,
+      "trained_on_samples": 106
+    },
+    "overall": {
+      "model_path": "python_scripts/models\\san_beda_overall.pkl",
+      "R2_test": 0.9679,
+      "R2_CV_mean": 0.061,
+      "trained_on_samples": 106
+    }
+  }
+}

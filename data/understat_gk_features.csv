@@ -1,0 +1,99 @@
+player_name,team_title,games,time,shots_on_target_against,goals_against,xG_against,post_shot_xG,saves,penalty_saved,saves_per90,shots_on_target_against_per90,goals_against_per90,save_pct,season
+Bernd Leno,Fulham,36,3240.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Danny Ward,Leicester,26,2340.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+David de Gea,Manchester United,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Joel Robles,Leeds,4,360.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Alex McCarthy,Southampton,6,540.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Hugo Lloris,Tottenham,25,2208.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Asmir Begovic,Everton,1,90.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Lukasz Fabianski,West Ham,36,3115.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Jordan Pickford,Everton,37,3330.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Sam Johnstone,Crystal Palace,9,810.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Alisson,Liverpool,37,3330.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Neto,Bournemouth,27,2390.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Vicente Guaita,Crystal Palace,27,2430.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Keylor Navas,Nottingham Forest,17,1530.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Emiliano Martinez,Aston Villa,36,3143.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Kepa,Chelsea,29,2567.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Nick Pope,Newcastle United,37,3261.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Aaron Ramsdale,Arsenal,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Ederson,Manchester City,35,3150.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Jason Steele,Brighton,15,1350.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Dean Henderson,Nottingham Forest,18,1620.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Caoimhin Kelleher,Liverpool,1,90.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Marek Rodák,Fulham,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Illan Meslier,Leeds,34,3060.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Stefan Ortega Moreno,Manchester City,3,270.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Robert Sánchez,Brighton,23,2070.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+David Raya,Brentford,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+José Sá,Wolverhampton Wanderers,36,3240.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Gavin Bazunu,Southampton,32,2880.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Daniel Iversen,Leicester,12,1080.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Joseph Whitworth,Crystal Palace,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Daniel Bentley,Wolverhampton Wanderers,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
+Loris Karius,Newcastle United,1,90.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Bernd Leno,Fulham,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Odisseas Vlachodimos,Nottingham Forest,5,450.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Jordan Pickford,Everton,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Sam Johnstone,Crystal Palace,20,1800.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Alisson,Liverpool,28,2520.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Neto,Bournemouth,32,2880.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Ionut Radu,Bournemouth,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Alphonse Areola,West Ham,31,2715.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Emiliano Martinez,Aston Villa,34,3022.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Nick Pope,Newcastle United,15,1347.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Aaron Ramsdale,Arsenal,6,540.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Ederson,Manchester City,33,2794.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Matz Sels,Nottingham Forest,16,1440.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Arijanet Muric,Burnley,10,900.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Mark Flekken,Brentford,37,3293.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Jason Steele,Brighton,17,1530.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Mark Travers,Bournemouth,4,360.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Dean Henderson,Crystal Palace,18,1620.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Caoimhin Kelleher,Liverpool,10,900.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Guglielmo Vicario,Tottenham,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Ivo Grbic,Sheffield United,9,776.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+James Trafford,Burnley,28,2520.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Robert Sánchez,Chelsea,16,1438.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+David Raya,Arsenal,32,2880.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+José Sá,Wolverhampton Wanderers,35,3041.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Matt Turner,Nottingham Forest,17,1530.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+André Onana,Manchester United,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Bart Verbruggen,Brighton,21,1890.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Thomas Kaminski,Luton,38,3410.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
+Bernd Leno,Fulham,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Alex McCarthy,Southampton,5,450.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Jordan Pickford,Everton,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Fraser Forster,Tottenham,7,630.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Sam Johnstone,Wolverhampton Wanderers,7,630.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Alex Palmer,Ipswich,13,1170.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Alisson,Liverpool,28,2511.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Neto,Bournemouth,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Emiliano Martinez,Aston Villa,37,3206.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Kepa,Bournemouth,31,2790.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Nick Pope,Newcastle United,28,2520.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Aaron Ramsdale,Southampton,30,2700.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Ederson,Manchester City,26,2324.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Martin Dubravka,Newcastle United,10,900.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Matz Sels,Nottingham Forest,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Arijanet Muric,Ipswich,18,1620.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Mark Flekken,Brentford,37,3275.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Jason Steele,Brighton,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Mark Travers,Bournemouth,5,450.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Dean Henderson,Crystal Palace,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Caoimhin Kelleher,Liverpool,10,900.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Brandon Austin,Tottenham,1,90.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Guglielmo Vicario,Tottenham,24,2160.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Robert Sánchez,Chelsea,32,2880.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Christian Walton,Ipswich,7,630.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Filip Jorgensen,Chelsea,6,540.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+David Raya,Arsenal,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+José Sá,Wolverhampton Wanderers,29,2610.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+André Onana,Manchester United,34,3060.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Daniel Bentley,Wolverhampton Wanderers,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Bart Verbruggen,Brighton,36,3240.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Altay Bayindir,Manchester United,4,360.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Joe Lumley,Southampton,3,270.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Mads Hermansen,Leicester,27,2388.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Jakub Stolarczyk,Leicester,10,900.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
+Antonín Kinsky,Tottenham,6,540.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2024
