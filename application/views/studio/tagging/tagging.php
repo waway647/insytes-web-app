@@ -94,66 +94,66 @@
     </div>
 
     <div class="bg-[#131313]">
-        <div class="mt-3 flex gap-2 items-center">
+        <div class="mt-3 px-6 flex gap-2 items-center">
           <div id="info-text" class="px-3 py-1 bg-gray-700 text-white rounded">Mode: Setup</div>
           <button id="cancel-tag-btn" class="px-3 py-1 bg-red-600 text-white rounded hidden">Cancel Tag</button>
           <button id="save-tag-btn" class="px-3 py-1 bg-green-600 text-white rounded hidden">Save Tag</button>
         </div>
 
-        <div class="flex w-100 m-10">
+        <div class="flex w-100 m-6">
             <img id="pitchmap" class="w-100" src="<?php echo base_url('assets/images/pitchmap/Football_field.svg'); ?>" alt="">
         </div>
 
         <div class="flex flex-col gap-2 px-6 font-medium text-white">
-            <h3>Type</h3>
+            <h3 class="text-sm">Type</h3>
             <div id="pass-type-buttons" class="flex flex-row w-full">
-              <button id="short-pass-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Short</button>
-              <button id="long-pass-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Long</button>
-              <button id="through-ball-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Through Ball</button>
-              <button id="cross-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Cross</button>
+              <button id="short-pass-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Short</button>
+              <button id="long-pass-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Long</button>
+              <button id="through-ball-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Through Ball</button>
+              <button id="cross-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Cross</button>
             </div>
 
             <div id="shot-type-buttons" class="flex flex-row w-full">
-              <button id="header-shot-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Header</button>
-              <button id="right-foot-shot-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Right Foot</button>
-              <button id="left-foot-shot-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Left Foot</button>
+              <button id="header-shot-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Header</button>
+              <button id="right-foot-shot-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Right Foot</button>
+              <button id="left-foot-shot-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Left Foot</button>
             </div>
 
             <div id="duel-type-buttons" class="flex flex-row w-full">
-              <button id="aerial-duel-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Aerial</button>
-              <button id="ground-duel-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Ground</button>
+              <button id="aerial-duel-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Aerial</button>
+              <button id="ground-duel-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Ground</button>
             </div>
 
-            <h3>Outcome</h3>
+            <h3 class="text-sm">Outcome</h3>
             <div id="pass-outcome-buttons" class="flex flex-row w-full">
-              <button id="pass-successful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Successful</button>
-              <button id="pass-unsuccessful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Unsuccessful</button>
-              <button id="pass-intercepted-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Intercepted</button>
+              <button id="pass-successful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Successful</button>
+              <button id="pass-unsuccessful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Unsuccessful</button>
+              <button id="pass-intercepted-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Intercepted</button>
             </div>
             <div id="shot-outcome-buttons" class="flex flex-row w-full">
-              <button id="shot-goal-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Goal</button>
-              <button id="shot-on-target-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">On Target</button>
-              <button id="shot-off-target-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Off Target</button>
-              <button id="shot-blocked-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Blocked</button>
+              <button id="shot-goal-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Goal</button>
+              <button id="shot-on-target-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">On Target</button>
+              <button id="shot-off-target-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Off Target</button>
+              <button id="shot-blocked-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Blocked</button>
             </div>
             <div id="duel-outcome-buttons" class="flex flex-row w-full">
-              <button id="duel-successful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Successful</button>
-              <button id="duel-unsuccessful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Unsuccessful</button>
+              <button id="duel-successful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Successful</button>
+              <button id="duel-unsuccessful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Unsuccessful</button>
             </div>
             <div id="penalty-outcome-buttons" class="flex flex-row w-full">
-              <button id="penalty-goal-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Goal</button>
-              <button id="penalty-saved-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Saved</button>
-              <button id="penalty-off-target-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Off Target</button>
+              <button id="penalty-goal-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Goal</button>
+              <button id="penalty-saved-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Saved</button>
+              <button id="penalty-off-target-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Off Target</button>
             </div>
             <div id="reusable-outcome-buttons" class="flex flex-row w-full">
-              <button id="successful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Successful</button>
-              <button id="unsuccessful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Unsuccessful</button>
+              <button id="successful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Successful</button>
+              <button id="unsuccessful-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Unsuccessful</button>
             </div>
 
-            <h3>Key Pass</h3>
+            <h3 class="text-sm">Key Pass</h3>
             <div id="key-pass-buttons" class="flex flex-row w-full">
-              <button id="key-pass-yes-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">Yes</button>
-              <button id="key-pass-no-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-sm hover:bg-gray-950">No</button>
+              <button id="key-pass-yes-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">Yes</button>
+              <button id="key-pass-no-btn" class="w-full py-2 bg-gray-800 cursor-pointer text-xs hover:bg-gray-950">No</button>
             </div>
         </div>
     </div>
