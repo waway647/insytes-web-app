@@ -26,7 +26,7 @@ def safe_float(v: Any) -> Union[float, None]:
 # Corrected and updated DEFAULT_COLUMNS
 DEFAULT_COLUMNS = [
     "id", "match_id", "team", "team_side", "event",
-    "player_id", "player_name", "player_position",
+    "player_id", "player_name", "position",
     "match_time_minute", "half_period", "video_timestamp", "duration",
     "in_possession",
     "origin_x", "origin_y", "is_opponent_half", "origin_third", # 'is_opponent_half' used instead of 'origin_half'
@@ -328,7 +328,7 @@ def flatten_event(ev: Dict[str, Any], event_list: List[Dict[str, Any]]) -> Dict[
         "event": ev.get("event",""),
         "player_id": ev.get("player_id",""),
         "player_name": ev.get("player_name",""),
-        "player_position": ev.get("player_position",""),
+        "position": ev.get("player_position",""),
         "match_time_minute": ev.get("match_time_minute",""),
         "half_period": ev.get("half_period",""),
         "video_timestamp": ev.get("video_timestamp",""),
@@ -394,8 +394,8 @@ def convert(json_path: Path, out_csv: Path):
 if __name__ == "__main__":
     # default input is events.json in same folder as script
     script_dir = Path(__file__).resolve().parent
-    default_input = script_dir / "writable_data/events_vs_siniloan.json"
-    default_output = script_dir / "output_dataset/events_vs_siniloan.csv"
+    default_input = script_dir / "../writable_data/events_vs_siniloan.json"
+    default_output = script_dir / "../output_dataset/events_vs_siniloan.csv"
 
     argv = sys.argv
     input_path = Path(argv[1]) if len(argv) > 1 else default_input
