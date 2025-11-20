@@ -1,0 +1,139 @@
+{
+  "match_id": "16",
+  "match_name": "match_16_sbu_vs_up",
+  "San Beda University": {
+    "team_name": "San Beda University",
+    "possession": {
+      "your_possession_time_seconds": 1416.0,
+      "attacking_third_possession_seconds": 126.0,
+      "attacking_third_possession_pct_of_team": 8.9,
+      "possession_pct": 54.693
+    },
+    "distribution": {
+      "passes": 244,
+      "successful_passes": 202,
+      "intercepted_passes": 14,
+      "unsuccessful_passes": 28,
+      "short_passes": 183,
+      "long_passes": 35,
+      "crosses": 5,
+      "through_passes": 18,
+      "header_passes": 0,
+      "forward_passes": 144,
+      "lateral_passes": 15,
+      "back_passes": 85,
+      "passing_accuracy_pct": 82.79,
+      "assists": 0,
+      "key_passes": 3
+    },
+    "attack": {
+      "goals": 0,
+      "shots": 5,
+      "shots_on_target": 1,
+      "shots_off_target": 4,
+      "blocked_shots": 0,
+      "shot_creating_actions": 4
+    },
+    "defense": {
+      "tackles": 4,
+      "successful_tackles": 4,
+      "tackles_success_rate_pct": 100.0,
+      "clearances": 18,
+      "interceptions": 61,
+      "recoveries": 1,
+      "recoveries_attacking_third": 0,
+      "recoveries_attacking_third_pct": 0.0,
+      "blocks": 6,
+      "saves": 0
+    },
+    "general": {
+      "duels": 44,
+      "duels_won": 38,
+      "duels_success_rate_pct": 86.36,
+      "aerial_duels": 26,
+      "ground_duels": 13,
+      "offsides": 2,
+      "corner_awarded": 3
+    },
+    "discipline": {
+      "fouls_conceded": 8,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    "match_rating_attack": 5.55,
+    "match_rating_defense": 6.51,
+    "match_rating_distribution": 7.08,
+    "match_rating_general": 6.85,
+    "match_rating_discipline": 7.04,
+    "overall_rating": 6.61,
+    "outcome_score": 0.0
+  },
+  "UP": {
+    "team_name": "UP",
+    "possession": {
+      "your_possession_time_seconds": 1173.0,
+      "attacking_third_possession_seconds": 196.0,
+      "attacking_third_possession_pct_of_team": 16.71,
+      "possession_pct": 45.307
+    },
+    "distribution": {
+      "passes": 242,
+      "successful_passes": 198,
+      "intercepted_passes": 19,
+      "unsuccessful_passes": 25,
+      "short_passes": 181,
+      "long_passes": 23,
+      "crosses": 12,
+      "through_passes": 23,
+      "header_passes": 0,
+      "forward_passes": 140,
+      "lateral_passes": 28,
+      "back_passes": 74,
+      "passing_accuracy_pct": 81.82,
+      "assists": 2,
+      "key_passes": 2
+    },
+    "attack": {
+      "goals": 2,
+      "shots": 12,
+      "shots_on_target": 3,
+      "shots_off_target": 3,
+      "blocked_shots": 6,
+      "shot_creating_actions": 15
+    },
+    "defense": {
+      "tackles": 4,
+      "successful_tackles": 4,
+      "tackles_success_rate_pct": 100.0,
+      "clearances": 19,
+      "interceptions": 83,
+      "recoveries": 0,
+      "recoveries_attacking_third": 0,
+      "recoveries_attacking_third_pct": 0.0,
+      "blocks": 0,
+      "saves": 1
+    },
+    "general": {
+      "duels": 22,
+      "duels_won": 20,
+      "duels_success_rate_pct": 90.91,
+      "aerial_duels": 15,
+      "ground_duels": 3,
+      "offsides": 1,
+      "corner_awarded": 4
+    },
+    "discipline": {
+      "fouls_conceded": 18,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    "match_rating_attack": 8.0,
+    "match_rating_defense": 6.49,
+    "match_rating_distribution": 6.92,
+    "match_rating_general": 7.17,
+    "match_rating_discipline": 5.84,
+    "overall_rating": 6.88,
+    "outcome_score": 1.0
+  },
+  "match_duration_seconds": 351600.0
+}

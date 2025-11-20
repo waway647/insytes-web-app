@@ -13,10 +13,10 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-18T23:20:47.712600",
+      "last_processed": "2025-11-19T13:42:56.096477",
       "processing_history": [
         {
-          "timestamp": "2025-11-18T23:21:37.918588",
+          "timestamp": "2025-11-19T13:44:00.676369",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -45,42 +45,10 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-18T23:21:37.919532",
+      "last_processed": "2025-11-19T13:44:00.679104",
       "processing_history": [
         {
-          "timestamp": "2025-11-18T23:22:32.348213",
-          "status": "completed",
-          "steps": [
-            "convert_events",
-            "derived_metrics",
-            "regression_model",
-            "insights",
-            "team_metrics",
-            "team_model",
-            "team_insights",
-            "heatmaps",
-            "team_summary"
-          ]
-        }
-      ]
-    },
-    "match_4_sbu_vs_kaya": {
-      "file_hash": "5418e1a374f658ba8673ac92f0857cfd",
-      "completed_steps": [
-        "convert_events",
-        "derived_metrics",
-        "regression_model",
-        "insights",
-        "team_metrics",
-        "team_model",
-        "team_insights",
-        "heatmaps",
-        "team_summary"
-      ],
-      "last_processed": "2025-11-18T23:22:32.348599",
-      "processing_history": [
-        {
-          "timestamp": "2025-11-18T23:23:39.356687",
+          "timestamp": "2025-11-19T13:45:20.860749",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -109,10 +77,74 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-18T23:33:11.974359",
+      "last_processed": "2025-11-19T13:45:20.862714",
       "processing_history": [
         {
-          "timestamp": "2025-11-18T23:33:49.570993",
+          "timestamp": "2025-11-19T13:46:26.785439",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    },
+    "match_16_sbu_vs_up": {
+      "file_hash": "f82e1cd20dfa6f5b8b46726df321807a",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-11-19T16:00:51.037973",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-19T16:02:16.862604",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    },
+    "match_4_sbu_vs_kaya": {
+      "file_hash": "5418e1a374f658ba8673ac92f0857cfd",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-11-20T13:43:04.598919",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-20T13:43:53.839411",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -129,5 +161,5 @@
       ]
     }
   },
-  "last_updated": "2025-11-18T23:39:32.608887"
+  "last_updated": "2025-11-20T13:43:53.842433"
 }

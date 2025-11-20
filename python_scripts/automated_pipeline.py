@@ -29,7 +29,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(MATCHES_OUTPUT_DIR, exist_ok=True)
 os.makedirs(TEAM_DATA_DIR, exist_ok=True)
 os.makedirs(EVENTS_DATA_DIR, exist_ok=True)
-
+       
 # Pipeline scripts
 SCRIPTS = {
     "convert_events": os.path.join(PYTHON_SCRIPTS_DIR, "convert_events_to_csv.py"),

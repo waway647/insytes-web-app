@@ -222,14 +222,14 @@ def generate_comprehensive_analysis():
     # Load player metrics
     with open(PLAYER_METRICS_JSON, 'r') as f:
         metrics_data = json.load(f)
-        player_metrics = metrics_data.get("San Beda", {})
+        player_metrics = metrics_data.get(TEAM_NAME, {})
     
     # Load insights
     insights_data = {}
     if os.path.exists(INSIGHTS_JSON):
         with open(INSIGHTS_JSON, 'r') as f:
             insights_raw = json.load(f)
-            insights_data = insights_raw.get("San Beda", {})
+            insights_data = insights_raw.get(TEAM_NAME, {})
     
     # Generate comprehensive analysis
     comprehensive_analysis = {

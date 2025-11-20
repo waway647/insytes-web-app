@@ -89,6 +89,13 @@ for pn, t in zip(player_name, team_col):
         player_to_team[pn] = t
 
 teams = df["team"].dropna().unique().tolist()
+
+# Ensure home team (TEAM_NAME) is first in the list
+if TEAM_NAME in teams:
+    # Remove TEAM_NAME and put it first
+    teams.remove(TEAM_NAME)
+    teams.insert(0, TEAM_NAME)
+
 team_a_name, team_b_name = teams[0], teams[1] if len(teams) > 1 else ("Unknown", "Unknown")
 
 # ---------- SHOT-CREATING ACTIONS ----------
@@ -363,8 +370,8 @@ match_duration_seconds = float(pd.to_numeric(df["match_time_minute"], errors="co
 final_output = {
     "match_id": MATCH_ID,
     "match_name": MATCH_NAME,
-    team_a_name: team_a_metrics,
-    team_b_name: team_b_metrics,
+    team_a_name: team_a_metrics,  # Home team first
+    team_b_name: team_b_metrics,  # Away team second
     "match_duration_seconds": match_duration_seconds
 }
 

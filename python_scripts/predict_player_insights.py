@@ -524,9 +524,10 @@ def create_ui_table():
         # Generate contextual notes based on performance and role
         notes = generate_player_notes(p)
         
-        # Calculate player rating (0-10 scale) based on DPR
-        # DPR typically ranges 0-100, we convert to 0-10 with more progressive scaling
-        raw_rating = p["dpr"] / 10.0  # Convert 0-100 to 0-10
+        # Calculate player rating (0-10 scale) based on PREDICTED DPR
+        # Use predicted DPR for forward-looking insights, fallback to current DPR
+        rating_dpr = p.get("predicted_dpr", p["dpr"])
+        raw_rating = rating_dpr / 10.0  # Convert 0-100 to 0-10
         
         # More fair and progressive rating distribution
         if raw_rating >= 8.0:
@@ -555,12 +556,12 @@ def create_ui_table():
             "passing_accuracy_pct": passing_accuracy,
             "duels_won_pct": duels_won_pct,
             "recoveries": round(get_stat_value(stats, "recoveries", minutes_played), 0),
-            "dpr": p["dpr"],
+            "dpr": p.get("predicted_dpr", p["dpr"]),
             "notes": notes
         }
         ui_table.append(ui_row)
     
-    # Sort by DPR descending for better presentation
+    # Sort by predicted DPR descending for better presentation
     ui_table.sort(key=lambda x: x["dpr"], reverse=True)
     return ui_table
 

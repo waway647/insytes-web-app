@@ -82,15 +82,22 @@ def predict_performance():
     with open(INPUT_METRICS_PATH, "r") as f:
         data = json.load(f)
 
-    # Expect structure like {"match_id": "...", "match_name": "...", "San Beda": {...}}
-    # Find the team data (skip match_id and match_name keys)
+    # Expect structure like {"match_id": "...", "match_name": "...", "Mendiola": {...}}
+    # Find the specific team data based on TEAM_NAME from config
     team_name = None
     team_metrics = None
-    for key, value in data.items():
-        if key not in ['match_id', 'match_name', 'match_duration_seconds'] and isinstance(value, dict):
-            team_name = key
-            team_metrics = value
-            break
+    
+    # First try to find exact match for TEAM_NAME
+    if TEAM_NAME in data and isinstance(data[TEAM_NAME], dict):
+        team_name = TEAM_NAME
+        team_metrics = data[TEAM_NAME]
+    else:
+        # If exact match not found, look for the home team among available teams
+        for key, value in data.items():
+            if key not in ['match_id', 'match_name', 'match_duration_seconds'] and isinstance(value, dict):
+                team_name = key
+                team_metrics = value
+                break
     
     if team_name is None or team_metrics is None:
         print(f"Error: Could not find team data in {INPUT_METRICS_PATH}")
@@ -144,28 +151,28 @@ def predict_performance():
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "predicted_scores": results,
         "detailed_analysis": {
-            "attack": analyze_attack(team_metrics, results.get("team_attack")),
-            "defense": analyze_defense(team_metrics, results.get("team_defense")),
-            "distribution": analyze_distribution(team_metrics, results.get("team_distribution")),
-            "discipline": analyze_discipline(team_metrics, results.get("team_discipline")),
-            "general": analyze_general(team_metrics, results.get("team_general")),
-            "overall": analyze_overall(team_metrics, results.get("team_overall"))
+            "attack": analyze_attack(team_metrics, results.get("attack")),
+            "defense": analyze_defense(team_metrics, results.get("defense")),
+            "distribution": analyze_distribution(team_metrics, results.get("distribution")),
+            "discipline": analyze_discipline(team_metrics, results.get("discipline")),
+            "general": analyze_general(team_metrics, results.get("general")),
+            "overall": analyze_overall(team_metrics, results.get("overall"))
         },
         "coaching_assessment": {
-            "attack": generate_coach_analysis("attack", team_metrics, results.get("team_attack")),
-            "defense": generate_coach_analysis("defense", team_metrics, results.get("team_defense")),
-            "distribution": generate_coach_analysis("distribution", team_metrics, results.get("team_distribution")),
-            "discipline": generate_coach_analysis("discipline", team_metrics, results.get("team_discipline")),
-            "general": generate_coach_analysis("general", team_metrics, results.get("team_general")),
-            "overall": generate_coach_analysis("overall", team_metrics, results.get("team_overall"))
+            "attack": generate_coach_analysis("attack", team_metrics, results.get("attack")),
+            "defense": generate_coach_analysis("defense", team_metrics, results.get("defense")),
+            "distribution": generate_coach_analysis("distribution", team_metrics, results.get("distribution")),
+            "discipline": generate_coach_analysis("discipline", team_metrics, results.get("discipline")),
+            "general": generate_coach_analysis("general", team_metrics, results.get("general")),
+            "overall": generate_coach_analysis("overall", team_metrics, results.get("overall"))
         },
         "interpretation": {
-            "attack": generate_rich_interpretation("attack", team_metrics, results.get("team_attack")),
-            "defense": generate_rich_interpretation("defense", team_metrics, results.get("team_defense")),
-            "distribution": generate_rich_interpretation("distribution", team_metrics, results.get("team_distribution")),
-            "discipline": generate_rich_interpretation("discipline", team_metrics, results.get("team_discipline")),
-            "general": generate_rich_interpretation("general", team_metrics, results.get("team_general")),
-            "overall": generate_rich_interpretation("overall", team_metrics, results.get("team_overall")),
+            "attack": generate_rich_interpretation("attack", team_metrics, results.get("attack")),
+            "defense": generate_rich_interpretation("defense", team_metrics, results.get("defense")),
+            "distribution": generate_rich_interpretation("distribution", team_metrics, results.get("distribution")),
+            "discipline": generate_rich_interpretation("discipline", team_metrics, results.get("discipline")),
+            "general": generate_rich_interpretation("general", team_metrics, results.get("general")),
+            "overall": generate_rich_interpretation("overall", team_metrics, results.get("overall")),
         }
     }
 
