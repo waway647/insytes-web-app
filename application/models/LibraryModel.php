@@ -16,6 +16,8 @@ class LibraryModel extends CI_Model {
             match_date,
             status,
             opponent_team_name,
+            opponent_team_abbreviation,
+            my_team_result,
             video_thumbnail
         ');
         $this->db->from('matches_vw');
