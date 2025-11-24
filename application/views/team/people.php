@@ -56,7 +56,7 @@
 
       <!-- Search -->
       <div class="my-5">
-        <input type="text" placeholder="Search"
+        <input type="text" id="searchInput" placeholder="Search people by name or role..."
           class="w-full bg-[#1D1D1D] text-white text-sm px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
       </div>
 

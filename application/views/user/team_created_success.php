@@ -23,7 +23,10 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 
     <!-- Show image of the team logo here -->
 
-    <div class="bg-[#1D1D1D] rounded-2xl shadow-xl p-8 w-full max-w-lg h-[300px] flex-col flex justify-center">
+    <div class="bg-[#1D1D1D] rounded-2xl shadow-xl p-8 w-full max-w-lg h-[350px] flex-col flex justify-center">
+        <div>
+            <img src="<?php echo base_url($user['team_logo']); ?>" alt="Team Logo" class="h-24 w-24 mb-6 rounded-full object-cover mx-auto border-4 border-white shadow-lg">
+        </div>
         <div>
             <!-- Title -->
             <h1 class="text-center text-2xl font-semibold text-white mb-2">

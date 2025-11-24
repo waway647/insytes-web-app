@@ -84,8 +84,12 @@ def clamp_pct(val, min_val=0, max_val=100):
 
 # ---------- CONFIG ----------
 # MATCH_NAME is set by command line argument handling above
-EVENTS_CSV = f"output_dataset/{MATCH_NAME}_events.csv"
-TEAM_CONFIG_JSON = f"writable_data/configs/config_{MATCH_NAME}.json"
+# Handle different naming conventions
+if MATCH_NAME.endswith("_events"):
+    MATCH_NAME = MATCH_NAME[:-7]  # Remove _events suffix
+
+EVENTS_CSV = f"../output_dataset/{MATCH_NAME}_events.csv"
+TEAM_CONFIG_JSON = f"../writable_data/configs/config_{MATCH_NAME}.json"
 
 # Load team name from config file (use home team as featured team)
 try:
@@ -99,7 +103,7 @@ except (FileNotFoundError, KeyError) as e:
     print(f"Using fallback team name: {TEAM_NAME}")
 
 # Load match_id from events file
-EVENTS_JSON = f"writable_data/events/{MATCH_NAME}_events.json"
+EVENTS_JSON = f"../writable_data/events/{MATCH_NAME}_events.json"
 MATCH_ID = None
 try:
     with open(EVENTS_JSON, "r", encoding="utf-8") as f:
@@ -112,7 +116,7 @@ except (FileNotFoundError, KeyError) as e:
     print(f"Using fallback match ID: {MATCH_ID}")
 
 # Create match-specific output directory
-MATCH_OUTPUT_DIR = f"output/matches/{MATCH_NAME}"
+MATCH_OUTPUT_DIR = f"../output/matches/{MATCH_NAME}"
 os.makedirs(MATCH_OUTPUT_DIR, exist_ok=True)
 
 # Use dynamic team name for output files
@@ -895,12 +899,29 @@ for player, s in player_metrics.items():
         "status": status,
         "team": s.get("team", TEAM_NAME),
         "number": number,
-        "key_stats_p90": key_p90
+        "key_stats_p90": key_p90,
+        "raw_stats": {
+            "possession": s.get("possession", {}),
+            "distribution": s.get("distribution", {}),
+            "attack": s.get("attack", {}),
+            "dribbles": s.get("dribbles", {}),
+            "defense": s.get("defense", {}),
+            "goalkeeper": s.get("goalkeeper", {}),
+            "discipline": s.get("discipline", {})
+        }
     }
 
     flat = {"player_name": player, "minutes_played": final_players[player]["minutes_played"]}
     flat.update(final_players[player])
     flat.update(key_p90)
+    
+    # Add raw stats with prefixes to avoid conflicts
+    raw_stats = final_players[player].get("raw_stats", {})
+    for category, stats in raw_stats.items():
+        if isinstance(stats, dict):
+            for stat_name, stat_value in stats.items():
+                flat[f"raw_{category}_{stat_name}"] = stat_value
+    
     rows_for_csv.append(flat)
 
 # ---------- SAVE ----------

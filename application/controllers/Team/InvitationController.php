@@ -50,26 +50,43 @@ class InvitationController extends CI_Controller {
 
     public function get_invite_link()
     {
-
-		$user_id = $this->input->get('user_id');
-		$role = $this->input->get('role');
+        // Add debugging
+        error_log("get_invite_link called");
+        
+        $user_id = $this->input->get('user_id');
+        $role = $this->input->get('role');
+        
+        error_log("User ID: " . $user_id);
+        error_log("Role: " . $role);
 
         // Ensure user is logged in and is a coach
-        if (!$user_id || $role !== 'Coach') {
-            echo json_encode(['success' => false, 'error' => 'Unauthorized access']);
+        if (!$user_id) {
+            error_log("Missing user ID");
+            echo json_encode(['success' => false, 'error' => 'Missing user ID']);
+            return;
+        }
+        
+        if (strtolower($role) !== 'coach') {
+            error_log("Authorization failed - Role: " . $role . " (expected: coach)");
+            echo json_encode(['success' => false, 'error' => 'Unauthorized access - user is not a coach']);
             return;
         }
 
-        // Fetch the team owned by the logged-in coach
-        $team = $this->Invitation_Model->get_team_by_owner($user_id);
+        // Fetch the team owned by the logged-in coach or where they are a member
+        $team = $this->Invitation_Model->get_team_by_member($user_id);
+        
+        error_log("Team query result: " . print_r($team, true));
 
         if (!$team) {
+            error_log("No team found for user_id: " . $user_id);
             echo json_encode(['success' => false, 'error' => 'No team found for this coach']);
             return;
         }
 
         // Construct the invite link
         $invite_link = base_url('team/join/' . $team['invite_code']);
+        
+        error_log("Generated invite link: " . $invite_link);
 
         // Return JSON response
         echo json_encode([

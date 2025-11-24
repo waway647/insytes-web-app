@@ -43,6 +43,53 @@
                 "passing_accuracy_pct_p90": 84.09,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 177.0,
+                    "possession_pct": 6.07
+                },
+                "distribution": {
+                    "passes": 44.0,
+                    "successful_passes": 37.0,
+                    "unsuccessful_passes": 7.0,
+                    "passing_accuracy_pct": 84.09,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 3.66,
+                    "progressive_passes": 20.0
+                },
+                "attack": {
+                    "shots": 1.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 9.0,
+                    "successful_dribbles": 8.0,
+                    "dribble_success_rate_pct": 88.89
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 1.0,
+                    "successful_tackles": 1.0,
+                    "tackle_success_rate_pct": 100,
+                    "interceptions": 9.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Caleb Tassi": {
@@ -87,6 +134,53 @@
                 "passing_accuracy_pct_p90": 80.0,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 88.0,
+                    "possession_pct": 3.02
+                },
+                "distribution": {
+                    "passes": 5.0,
+                    "successful_passes": 4.0,
+                    "unsuccessful_passes": 1.0,
+                    "passing_accuracy_pct": 80.0,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 1.1,
+                    "progressive_passes": 0.0
+                },
+                "attack": {
+                    "shots": 3.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 7.0,
+                    "successful_dribbles": 7.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Carl Detoya": {
@@ -131,6 +225,53 @@
                 "passing_accuracy_pct_p90": 95.24,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 52.0,
+                    "possession_pct": 1.78
+                },
+                "distribution": {
+                    "passes": 21.0,
+                    "successful_passes": 20.0,
+                    "unsuccessful_passes": 1.0,
+                    "passing_accuracy_pct": 95.24,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -0.29,
+                    "progressive_passes": 4.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 3.0,
+                    "successful_dribbles": 3.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 2.0,
+                    "duels_won": 2.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 1.0,
+                    "successful_tackles": 1.0,
+                    "tackle_success_rate_pct": 100,
+                    "interceptions": 4.0,
+                    "clearances": 1.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Jacob Tanamor": {
@@ -174,6 +315,53 @@
                 "passing_accuracy_pct_p90": 90.91,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 149.0,
+                    "possession_pct": 5.11
+                },
+                "distribution": {
+                    "passes": 33.0,
+                    "successful_passes": 30.0,
+                    "unsuccessful_passes": 3.0,
+                    "passing_accuracy_pct": 90.91,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 1.39,
+                    "progressive_passes": 7.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 5.0,
+                    "successful_dribbles": 5.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 6.0,
+                    "duels_won": 6.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 1.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 4.0,
+                    "clearances": 4.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Jayson Jardiniano": {
@@ -217,6 +405,53 @@
                 "passing_accuracy_pct_p90": 93.33,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 217.0,
+                    "possession_pct": 7.44
+                },
+                "distribution": {
+                    "passes": 60.0,
+                    "successful_passes": 56.0,
+                    "unsuccessful_passes": 4.0,
+                    "passing_accuracy_pct": 93.33,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -3.2,
+                    "progressive_passes": 5.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 5.0,
+                    "successful_dribbles": 5.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 9.0,
+                    "clearances": 3.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "John Ariel Marquez": {
@@ -261,6 +496,53 @@
                 "passing_accuracy_pct_p90": 91.67,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 92.0,
+                    "possession_pct": 3.16
+                },
+                "distribution": {
+                    "passes": 12.0,
+                    "successful_passes": 11.0,
+                    "unsuccessful_passes": 1.0,
+                    "passing_accuracy_pct": 91.67,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 7.85,
+                    "progressive_passes": 5.0
+                },
+                "attack": {
+                    "shots": 2.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 4.0,
+                    "successful_dribbles": 2.0,
+                    "dribble_success_rate_pct": 50.0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 2.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 3.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Kenji Pusing": {
@@ -304,6 +586,53 @@
                 "passing_accuracy_pct_p90": 80.0,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 78.0,
+                    "possession_pct": 2.68
+                },
+                "distribution": {
+                    "passes": 5.0,
+                    "successful_passes": 4.0,
+                    "unsuccessful_passes": 1.0,
+                    "passing_accuracy_pct": 80.0,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 13.35,
+                    "progressive_passes": 2.0
+                },
+                "attack": {
+                    "shots": 1.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 1.0,
+                    "successful_dribbles": 1.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 1.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Kirk Emman See": {
@@ -348,6 +677,53 @@
                 "passing_accuracy_pct_p90": 76.47,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 61.0,
+                    "possession_pct": 2.09
+                },
+                "distribution": {
+                    "passes": 17.0,
+                    "successful_passes": 13.0,
+                    "unsuccessful_passes": 4.0,
+                    "passing_accuracy_pct": 76.47,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 0.5,
+                    "progressive_passes": 3.0
+                },
+                "attack": {
+                    "shots": 4.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 6.0,
+                    "successful_dribbles": 6.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 1.0,
+                    "successful_tackles": 1.0,
+                    "tackle_success_rate_pct": 100,
+                    "interceptions": 2.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Marc Pellejo": {
@@ -402,6 +778,62 @@
                 "goals_against_per90": 2.03,
                 "shots_on_target_against_per90": 2.03,
                 "save_pct": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 207.0,
+                    "possession_pct": 7.1
+                },
+                "distribution": {
+                    "passes": 25.0,
+                    "successful_passes": 23.0,
+                    "unsuccessful_passes": 2.0,
+                    "passing_accuracy_pct": 92.0,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -2.29,
+                    "progressive_passes": 5.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 1.0,
+                    "successful_dribbles": 1.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 6.0,
+                    "clearances": 1.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 1.0,
+                    "saves": 0.0,
+                    "goals_conceded": 2.0
+                },
+                "goalkeeper": {
+                    "shots_faced": 2.0,
+                    "saves": 0.0,
+                    "goals_conceded": 2.0,
+                    "save_pct": 0,
+                    "shots_on_target_against": 2.0,
+                    "goals_against": 2.0
+                },
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Nicolai Abalos": {
@@ -446,6 +878,53 @@
                 "passing_accuracy_pct_p90": 81.48,
                 "key_pass_rate_pct_p90": 1.85,
                 "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 312.0,
+                    "possession_pct": 10.7
+                },
+                "distribution": {
+                    "passes": 54.0,
+                    "successful_passes": 44.0,
+                    "unsuccessful_passes": 10.0,
+                    "passing_accuracy_pct": 81.48,
+                    "key_passes": 1.0,
+                    "key_pass_rate_pct": 1.85,
+                    "assists": 0,
+                    "avg_pass_distance": -4.12,
+                    "progressive_passes": 8.0
+                },
+                "attack": {
+                    "shots": 2.0,
+                    "shots_on_target": 1.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 50.0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 15.0,
+                    "successful_dribbles": 13.0,
+                    "dribble_success_rate_pct": 86.67
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 4.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 1.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Paul Joshua Mapula": {
@@ -490,6 +969,53 @@
                 "passing_accuracy_pct_p90": 53.85,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 59.0,
+                    "possession_pct": 2.02
+                },
+                "distribution": {
+                    "passes": 13.0,
+                    "successful_passes": 7.0,
+                    "unsuccessful_passes": 6.0,
+                    "passing_accuracy_pct": 53.85,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -4.23,
+                    "progressive_passes": 1.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 5.0,
+                    "successful_dribbles": 3.0,
+                    "dribble_success_rate_pct": 60.0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 3.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Paul Vincent Mapula": {
@@ -533,6 +1059,53 @@
                 "passing_accuracy_pct_p90": 84.44,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 50.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 206.0,
+                    "possession_pct": 7.07
+                },
+                "distribution": {
+                    "passes": 45.0,
+                    "successful_passes": 38.0,
+                    "unsuccessful_passes": 7.0,
+                    "passing_accuracy_pct": 84.44,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -2.46,
+                    "progressive_passes": 12.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 4.0,
+                    "successful_dribbles": 2.0,
+                    "dribble_success_rate_pct": 50.0
+                },
+                "defense": {
+                    "duels": 2.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 50.0,
+                    "tackles": 1.0,
+                    "successful_tackles": 1.0,
+                    "tackle_success_rate_pct": 100,
+                    "interceptions": 2.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 1.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Shaun Soberano": {
@@ -577,6 +1150,53 @@
                 "passing_accuracy_pct_p90": 100.0,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 31.0,
+                    "possession_pct": 1.06
+                },
+                "distribution": {
+                    "passes": 6.0,
+                    "successful_passes": 6.0,
+                    "unsuccessful_passes": 0.0,
+                    "passing_accuracy_pct": 100,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 5.88,
+                    "progressive_passes": 2.0
+                },
+                "attack": {
+                    "shots": 1.0,
+                    "shots_on_target": 1.0,
+                    "goals": 1.0,
+                    "shot_accuracy_pct": 100,
+                    "goal_conversion_pct": 100
+                },
+                "dribbles": {
+                    "dribbles": 3.0,
+                    "successful_dribbles": 3.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 2.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Victor Felicia": {
@@ -621,6 +1241,53 @@
                 "passing_accuracy_pct_p90": 87.5,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 24.0,
+                    "possession_pct": 0.82
+                },
+                "distribution": {
+                    "passes": 8.0,
+                    "successful_passes": 7.0,
+                    "unsuccessful_passes": 1.0,
+                    "passing_accuracy_pct": 87.5,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 4.22,
+                    "progressive_passes": 4.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 1.0,
+                    "successful_dribbles": 1.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 2.0,
+                    "clearances": 1.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Viron Pedimonte": {
@@ -664,6 +1331,53 @@
                 "passing_accuracy_pct_p90": 80.0,
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 95.0,
+                    "possession_pct": 3.26
+                },
+                "distribution": {
+                    "passes": 15.0,
+                    "successful_passes": 12.0,
+                    "unsuccessful_passes": 3.0,
+                    "passing_accuracy_pct": 80.0,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 2.27,
+                    "progressive_passes": 6.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 12.0,
+                    "successful_dribbles": 10.0,
+                    "dribble_success_rate_pct": 83.33
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 1.0,
+                    "clearances": 1.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
             }
         },
         "Kenneth Payosalan": {
@@ -679,7 +1393,16 @@
             "status": "DNP",
             "team": "Mendiola",
             "number": 31,
-            "key_stats_p90": {}
+            "key_stats_p90": {},
+            "raw_stats": {
+                "possession": {},
+                "distribution": {},
+                "attack": {},
+                "dribbles": {},
+                "defense": {},
+                "goalkeeper": {},
+                "discipline": {}
+            }
         },
         "Mehdi Qobadi.": {
             "position": "FW",
@@ -694,7 +1417,16 @@
             "status": "DNP",
             "team": "Mendiola",
             "number": 35,
-            "key_stats_p90": {}
+            "key_stats_p90": {},
+            "raw_stats": {
+                "possession": {},
+                "distribution": {},
+                "attack": {},
+                "dribbles": {},
+                "defense": {},
+                "goalkeeper": {},
+                "discipline": {}
+            }
         },
         "Salar Nezamikhah": {
             "position": "CF",
@@ -709,7 +1441,16 @@
             "status": "DNP",
             "team": "Mendiola",
             "number": 34,
-            "key_stats_p90": {}
+            "key_stats_p90": {},
+            "raw_stats": {
+                "possession": {},
+                "distribution": {},
+                "attack": {},
+                "dribbles": {},
+                "defense": {},
+                "goalkeeper": {},
+                "discipline": {}
+            }
         },
         "Artin Khalifeh Soultany": {
             "position": "RW",
@@ -724,7 +1465,16 @@
             "status": "DNP",
             "team": "Mendiola",
             "number": 38,
-            "key_stats_p90": {}
+            "key_stats_p90": {},
+            "raw_stats": {
+                "possession": {},
+                "distribution": {},
+                "attack": {},
+                "dribbles": {},
+                "defense": {},
+                "goalkeeper": {},
+                "discipline": {}
+            }
         },
         "Samaniego M-mil": {
             "position": "CDM",
@@ -739,7 +1489,16 @@
             "status": "DNP",
             "team": "Mendiola",
             "number": 39,
-            "key_stats_p90": {}
+            "key_stats_p90": {},
+            "raw_stats": {
+                "possession": {},
+                "distribution": {},
+                "attack": {},
+                "dribbles": {},
+                "defense": {},
+                "goalkeeper": {},
+                "discipline": {}
+            }
         }
     }
 }

@@ -18,10 +18,76 @@ document.addEventListener('DOMContentLoaded', () => {
     const matchError = document.getElementById('match-error');
     const continueButton = document.getElementById('continue-button');
     const form = document.getElementById('password-form');
+    const loginTogglePassword = document.getElementById('toggle-password');
+    const retypeTogglePassword = document.getElementById('toggle-retype-password');
 
-    // Ensure all required elements exist before attaching listeners
+    // Initialize login toggle functionality regardless of other elements
+    if (loginTogglePassword) {
+        console.log('Found login toggle button');
+        const loginPasswordInput = document.getElementById('password');
+        const eyeClosed = document.getElementById('eye-closed');
+        const eyeOpen = document.getElementById('eye-open');
+        
+        console.log('Elements found:', {
+            loginPasswordInput: !!loginPasswordInput,
+            eyeClosed: !!eyeClosed,
+            eyeOpen: !!eyeOpen
+        });
+        
+        if (loginPasswordInput && eyeClosed && eyeOpen) {
+            console.log('Adding click listener to main password toggle');
+            loginTogglePassword.addEventListener('click', function() {
+                console.log('Main password toggle clicked');
+                // Toggle password input type
+                if (loginPasswordInput.type === 'password') {
+                    loginPasswordInput.type = 'text';
+                    eyeClosed.classList.add('hidden');
+                    eyeOpen.classList.remove('hidden');
+                    console.log('Password shown');
+                } else {
+                    loginPasswordInput.type = 'password';
+                    eyeClosed.classList.remove('hidden');
+                    eyeOpen.classList.add('hidden');
+                    console.log('Password hidden');
+                }
+            });
+        }
+    }
+
+    // Initialize retype password toggle functionality
+    if (retypeTogglePassword) {
+        const retypePasswordInput = document.getElementById('retype_password');
+        const eyeClosedRetype = document.getElementById('eye-closed-retype');
+        const eyeOpenRetype = document.getElementById('eye-open-retype');
+
+         console.log('Elements found:', {
+            retypePasswordInput: !!retypePasswordInput,
+            eyeClosed: !!eyeClosedRetype,
+            eyeOpen: !!eyeOpenRetype
+        });
+        
+        if (retypePasswordInput && eyeClosedRetype && eyeOpenRetype) {
+            retypeTogglePassword.addEventListener('click', function() {
+                // Toggle password input type
+                if (retypePasswordInput.type === 'password') {
+                    retypePasswordInput.type = 'text';
+                    eyeClosedRetype.classList.add('hidden');
+                    eyeOpenRetype.classList.remove('hidden');
+                } else {
+                    retypePasswordInput.type = 'password';
+                    eyeClosedRetype.classList.remove('hidden');
+                    eyeOpenRetype.classList.add('hidden');
+                }
+            });
+        }
+    }
+
+    // Only continue with password requirements if all required elements exist
     if (!passwordInput || !confirmInput || !requirementsBox || !continueButton) {
-        console.error('Password Handler failed to initialize: Missing required HTML elements.');
+        // If this is just the login page, that's fine - the toggle still works
+        if (!loginTogglePassword) {
+            console.error('Password Handler failed to initialize: Missing required HTML elements.');
+        }
         return;
     }
 
@@ -76,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateButtonState(isReadyForSubmission, isMatch);
     }
 
-    // --- Show/Hide Toggle ---
+    // --- Show/Hide Toggle (Generic) ---
     const toggleButtons = document.querySelectorAll('.toggle-password');
     toggleButtons.forEach(btn => {
         btn.addEventListener('click', () => {

@@ -47,15 +47,28 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 				<div class="flex items-center justify-between">
 					<label for="password" class="block text-sm/6 font-medium text-gray-100">Password</label>
 				</div>
-				<div class="mt-2">
+				<div class="mt-2 relative">
 					<input 
 						id="password" 
 						type="password" 
 						name="password" 
 						required 
 						autocomplete="new-password" 
-						class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" 
+						class="block w-full rounded-md bg-white/5 px-3 py-1.5 pr-10 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" 
 					/>
+					<button type="button" id="toggle-password" class="absolute inset-y-0 right-0 pr-3 px-1 flex items-center text-gray-400 hover:text-gray-300">
+						<!-- Eye Slash Icon (Password Hidden - Default State) -->
+						<svg id="eye-closed" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />
+						</svg>
+						<!-- Eye Icon (Password Visible) -->
+						<svg id="eye-open" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+						</svg>
+					</button>
 				</div>
 
 				<!-- Password Requirements Checklist -->
@@ -91,17 +104,30 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 				<div class="flex items-center justify-between">
 					<label for="retype_password" class="block text-sm/6 font-medium text-gray-100">Confirm Password</label>
 				</div>
-				<div class="mt-2">
+				<div class="mt-2 relative">
 					<input 
 						id="retype_password" 
 						type="password" 
 						name="retype_password" 
 						required 
 						autocomplete="new-password" 
-						class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" 
+						class="block w-full rounded-md bg-white/5 px-3 py-1.5 pr-10 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" 
 					/>
-					<p id="match-error" class="text-red-400 text-xs mt-1 hidden">Passwords do not match.</p>
+					<button type="button" id="toggle-retype-password" class="absolute inset-y-0 right-0 pr-3 px-1 flex items-center text-gray-400 hover:text-gray-300">
+						<!-- Eye Slash Icon (Password Hidden - Default State) -->
+						<svg id="eye-closed-retype" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />
+						</svg>
+						<!-- Eye Icon (Password Visible) -->
+						<svg id="eye-open-retype" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+						</svg>
+					</button>
 				</div>
+					<p id="match-error" class="text-red-400 text-xs mt-1 hidden">Passwords do not match.</p>
 			</div>
 
 			<div>
