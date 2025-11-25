@@ -1,0 +1,3028 @@
+<<<<<<< Updated upstream:output/matches/match_2_sbu_vs_siniloan/san_beda_players_derived_metrics.json
+{
+    "San Beda": {
+        "match_id": "match_20252026_003",
+        "match_name": "match_2_sbu_vs_siniloan",
+        "Austin Dilodilo": {
+            "position": "GK",
+            "minutes_played": 91.93,
+            "dpr": 34.6,
+            "dpr_breakdown": {
+                "shot_stopping": 0.0,
+                "distribution_quality": 78.3,
+                "command_area": 0.0,
+                "ball_playing": 100,
+                "consistency": 100
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 1,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 22.52,
+                "successful_passes_p90": 14.68,
+                "unsuccessful_passes_p90": 7.83,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 12.57,
+                "progressive_passes_p90": 9.79,
+                "duels_p90": 0.98,
+                "duels_won_p90": 0.98,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "saves_p90": 0.0,
+                "goals_conceded_p90": 0.98,
+                "shots_faced_p90": 0.98,
+                "shots_on_target_against_p90": 0.98,
+                "goals_against_p90": 0.98,
+                "dribbles_p90": 0.0,
+                "successful_dribbles_p90": 0.0,
+                "dribble_success_rate_pct_p90": 0.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 65.22,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0,
+                "save_pct_p90": 0.0,
+                "saves_per90": 0.0,
+                "goals_against_per90": 0.98,
+                "shots_on_target_against_per90": 0.98,
+                "save_pct": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 355.0,
+                    "possession_pct": 10.84
+                },
+                "distribution": {
+                    "passes": 23.0,
+                    "successful_passes": 15.0,
+                    "unsuccessful_passes": 8.0,
+                    "passing_accuracy_pct": 65.22,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 12.84,
+                    "progressive_passes": 10.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 0.0,
+                    "successful_dribbles": 0.0,
+                    "dribble_success_rate_pct": 0
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0,
+                    "saves": 0.0,
+                    "goals_conceded": 1.0
+                },
+                "goalkeeper": {
+                    "shots_faced": 1.0,
+                    "saves": 0.0,
+                    "goals_conceded": 1.0,
+                    "save_pct": 0,
+                    "shots_on_target_against": 1.0,
+                    "goals_against": 1.0
+                },
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Bel": {
+            "position": "MID",
+            "minutes_played": 30.73,
+            "dpr": 54.8,
+            "dpr_breakdown": {
+                "game_control": 80.0,
+                "transition_play": 84.7,
+                "defensive_contribution": 22.0,
+                "creativity": 0.0,
+                "work_rate": 52.7
+            },
+            "status": "substitute",
+            "team": "San Beda",
+            "number": 13,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 23.43,
+                "successful_passes_p90": 17.57,
+                "unsuccessful_passes_p90": 5.86,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 11.16,
+                "progressive_passes_p90": 8.79,
+                "duels_p90": 2.93,
+                "duels_won_p90": 2.93,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 2.93,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 11.71,
+                "successful_dribbles_p90": 8.79,
+                "dribble_success_rate_pct_p90": 75.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 75.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 40.0,
+                    "possession_pct": 1.22
+                },
+                "distribution": {
+                    "passes": 8.0,
+                    "successful_passes": 6.0,
+                    "unsuccessful_passes": 2.0,
+                    "passing_accuracy_pct": 75.0,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 3.81,
+                    "progressive_passes": 3.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 4.0,
+                    "successful_dribbles": 3.0,
+                    "dribble_success_rate_pct": 75.0
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 1.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Cesar Bayubay": {
+            "position": "LW",
+            "minutes_played": 12.97,
+            "dpr": 15,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 0.0,
+                "link_up_play": 0.0,
+                "movement_threat": 7.0
+            },
+            "status": "substitute",
+            "team": "San Beda",
+            "number": 14,
+            "key_stats_p90": {
+                "shots_raw": 0.0,
+                "shots_on_target_raw": 0.0,
+                "goals_raw": 0.0,
+                "shot_accuracy_pct_raw": 0.0,
+                "goal_conversion_pct_raw": 0.0,
+                "passes_raw": 5.0,
+                "successful_passes_raw": 2.0,
+                "unsuccessful_passes_raw": 3.0,
+                "passing_accuracy_pct_raw": 40.0,
+                "key_passes_raw": 0.0,
+                "key_pass_rate_pct_raw": 0.0,
+                "assists_raw": 0.0,
+                "avg_pass_distance_raw": 14.95,
+                "progressive_passes_raw": 3.0,
+                "duels_raw": 1.0,
+                "duels_won_raw": 1.0,
+                "duel_success_rate_pct_raw": 100.0,
+                "tackles_raw": 0.0,
+                "successful_tackles_raw": 0.0,
+                "tackle_success_rate_pct_raw": 0.0,
+                "interceptions_raw": 0.0,
+                "clearances_raw": 0.0,
+                "recoveries_raw": 0.0,
+                "blocked_shots_raw": 0.0,
+                "dribbles_raw": 0.0,
+                "successful_dribbles_raw": 0.0,
+                "dribble_success_rate_pct_raw": 0.0,
+                "note": "Raw stats shown - only 12.966666666666667 minutes played (minimum 20 minutes required for per-90 calculations)"
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 33.0,
+                    "possession_pct": 1.01
+                },
+                "distribution": {
+                    "passes": 5.0,
+                    "successful_passes": 2.0,
+                    "unsuccessful_passes": 3.0,
+                    "passing_accuracy_pct": 40.0,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 14.95,
+                    "progressive_passes": 3.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 0.0,
+                    "successful_dribbles": 0.0,
+                    "dribble_success_rate_pct": 0
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Diego": {
+            "position": "CB",
+            "minutes_played": 93.25,
+            "dpr": 53.4,
+            "dpr_breakdown": {
+                "defensive_impact": 38.6,
+                "build_up_quality": 80.4,
+                "positioning_score": 23.4,
+                "physical_play": 73.6
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 9,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 27.02,
+                "successful_passes_p90": 23.16,
+                "unsuccessful_passes_p90": 3.86,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -5.75,
+                "progressive_passes_p90": 5.79,
+                "duels_p90": 0.97,
+                "duels_won_p90": 0.97,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 1.93,
+                "clearances_p90": 2.9,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 0.97,
+                "successful_dribbles_p90": 0.97,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 85.71,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 104.0,
+                    "possession_pct": 3.18
+                },
+                "distribution": {
+                    "passes": 28.0,
+                    "successful_passes": 24.0,
+                    "unsuccessful_passes": 4.0,
+                    "passing_accuracy_pct": 85.71,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -5.96,
+                    "progressive_passes": 6.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 1.0,
+                    "successful_dribbles": 1.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 2.0,
+                    "clearances": 3.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Edvard Omitade": {
+            "position": "RW",
+            "minutes_played": 91.0,
+            "dpr": 26.4,
+            "dpr_breakdown": {
+                "finishing_quality": 40.6,
+                "offensive_contribution": 4.7,
+                "link_up_play": 50.0,
+                "movement_threat": 10.2
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 11,
+            "key_stats_p90": {
+                "shots_p90": 1.98,
+                "shots_on_target_p90": 0.99,
+                "goals_p90": 0.0,
+                "passes_p90": 20.77,
+                "successful_passes_p90": 14.84,
+                "unsuccessful_passes_p90": 5.93,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 5.24,
+                "progressive_passes_p90": 5.93,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.99,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 11.87,
+                "successful_dribbles_p90": 8.9,
+                "dribble_success_rate_pct_p90": 75.0,
+                "shot_accuracy_pct_p90": 50.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 71.43,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 140.0,
+                    "possession_pct": 4.28
+                },
+                "distribution": {
+                    "passes": 21.0,
+                    "successful_passes": 15.0,
+                    "unsuccessful_passes": 6.0,
+                    "passing_accuracy_pct": 71.43,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 5.3,
+                    "progressive_passes": 6.0
+                },
+                "attack": {
+                    "shots": 2.0,
+                    "shots_on_target": 1.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 50.0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 12.0,
+                    "successful_dribbles": 9.0,
+                    "dribble_success_rate_pct": 75.0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 1.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Harvy Barro": {
+            "position": "CDM",
+            "minutes_played": 86.67,
+            "dpr": 49.9,
+            "dpr_breakdown": {
+                "game_control": 84.2,
+                "transition_play": 53.6,
+                "defensive_contribution": 30.0,
+                "creativity": 0.0,
+                "work_rate": 51.9
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 8,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 24.92,
+                "successful_passes_p90": 19.73,
+                "unsuccessful_passes_p90": 5.19,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -3.71,
+                "progressive_passes_p90": 4.15,
+                "duels_p90": 1.04,
+                "duels_won_p90": 1.04,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 4.15,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 2.08,
+                "successful_dribbles_p90": 1.04,
+                "dribble_success_rate_pct_p90": 50.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 79.17,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 105.0,
+                    "possession_pct": 3.21
+                },
+                "distribution": {
+                    "passes": 24.0,
+                    "successful_passes": 19.0,
+                    "unsuccessful_passes": 5.0,
+                    "passing_accuracy_pct": 79.17,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -3.57,
+                    "progressive_passes": 4.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 2.0,
+                    "successful_dribbles": 1.0,
+                    "dribble_success_rate_pct": 50.0
+                },
+                "defense": {
+                    "duels": 1.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 4.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 4.0,
+                    "yellow_cards": 1.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Hugo Bacnis": {
+            "position": "LW",
+            "minutes_played": 8.9,
+            "dpr": 19.2,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 0.0,
+                "link_up_play": 0.0,
+                "movement_threat": 92.5
+            },
+            "status": "substitute",
+            "team": "San Beda",
+            "number": 30,
+            "key_stats_p90": {
+                "shots_raw": 1.0,
+                "shots_on_target_raw": 1.0,
+                "goals_raw": 1.0,
+                "shot_accuracy_pct_raw": 100.0,
+                "goal_conversion_pct_raw": 100.0,
+                "passes_raw": 1.0,
+                "successful_passes_raw": 1.0,
+                "unsuccessful_passes_raw": 0.0,
+                "passing_accuracy_pct_raw": 100.0,
+                "key_passes_raw": 0.0,
+                "key_pass_rate_pct_raw": 0.0,
+                "assists_raw": 0.0,
+                "avg_pass_distance_raw": -10.25,
+                "progressive_passes_raw": 0.0,
+                "duels_raw": 0.0,
+                "duels_won_raw": 0.0,
+                "duel_success_rate_pct_raw": 0.0,
+                "tackles_raw": 0.0,
+                "successful_tackles_raw": 0.0,
+                "tackle_success_rate_pct_raw": 0.0,
+                "interceptions_raw": 0.0,
+                "clearances_raw": 0.0,
+                "recoveries_raw": 0.0,
+                "blocked_shots_raw": 0.0,
+                "dribbles_raw": 2.0,
+                "successful_dribbles_raw": 2.0,
+                "dribble_success_rate_pct_raw": 100.0,
+                "note": "Raw stats shown - only 8.9 minutes played (minimum 20 minutes required for per-90 calculations)"
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 8.0,
+                    "possession_pct": 0.24
+                },
+                "distribution": {
+                    "passes": 1.0,
+                    "successful_passes": 1.0,
+                    "unsuccessful_passes": 0.0,
+                    "passing_accuracy_pct": 100,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -10.25,
+                    "progressive_passes": 0.0
+                },
+                "attack": {
+                    "shots": 1.0,
+                    "shots_on_target": 1.0,
+                    "goals": 1.0,
+                    "shot_accuracy_pct": 100,
+                    "goal_conversion_pct": 100
+                },
+                "dribbles": {
+                    "dribbles": 2.0,
+                    "successful_dribbles": 2.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "James Acebedo": {
+            "position": "CAM",
+            "minutes_played": 28.67,
+            "dpr": 63.7,
+            "dpr_breakdown": {
+                "game_control": 100.0,
+                "transition_play": 80.0,
+                "defensive_contribution": 40.0,
+                "creativity": 0.0,
+                "work_rate": 56.5
+            },
+            "status": "substitute",
+            "team": "San Beda",
+            "number": 19,
+            "key_stats_p90": {
+                "shots_p90": 3.14,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 18.84,
+                "successful_passes_p90": 18.84,
+                "unsuccessful_passes_p90": 0.0,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 19.62,
+                "progressive_passes_p90": 12.56,
+                "duels_p90": 6.28,
+                "duels_won_p90": 6.28,
+                "tackles_p90": 3.14,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 3.14,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 3.14,
+                "dribbles_p90": 0.0,
+                "successful_dribbles_p90": 0.0,
+                "dribble_success_rate_pct_p90": 0.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 100.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 33.0,
+                    "possession_pct": 1.01
+                },
+                "distribution": {
+                    "passes": 6.0,
+                    "successful_passes": 6.0,
+                    "unsuccessful_passes": 0.0,
+                    "passing_accuracy_pct": 100,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 6.25,
+                    "progressive_passes": 4.0
+                },
+                "attack": {
+                    "shots": 1.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 0.0,
+                    "successful_dribbles": 0.0,
+                    "dribble_success_rate_pct": 0
+                },
+                "defense": {
+                    "duels": 2.0,
+                    "duels_won": 2.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 1.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 1.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 1.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 2.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "James Paquite": {
+            "position": "FWD",
+            "minutes_played": 32.97,
+            "dpr": 31.6,
+            "dpr_breakdown": {
+                "attack": 3.0,
+                "defense": 0.0,
+                "distribution": 69.0,
+                "discipline": 100.0
+            },
+            "status": "DNP",
+            "team": "San Beda",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 2.73,
+                "shots_on_target_p90": 2.73,
+                "goals_p90": 0.0,
+                "passes_p90": 13.65,
+                "successful_passes_p90": 8.19,
+                "unsuccessful_passes_p90": 5.46,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -2.32,
+                "progressive_passes_p90": 2.73,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 5.46,
+                "successful_dribbles_p90": 5.46,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 100.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 60.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 31.0,
+                    "possession_pct": 0.95
+                },
+                "distribution": {
+                    "passes": 5.0,
+                    "successful_passes": 3.0,
+                    "unsuccessful_passes": 2.0,
+                    "passing_accuracy_pct": 60.0,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -0.85,
+                    "progressive_passes": 1.0
+                },
+                "attack": {
+                    "shots": 1.0,
+                    "shots_on_target": 1.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 100,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 2.0,
+                    "successful_dribbles": 2.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Jaro Libarnes": {
+            "position": "CB",
+            "minutes_played": 91.4,
+            "dpr": 53.3,
+            "dpr_breakdown": {
+                "defensive_impact": 48.0,
+                "build_up_quality": 85.8,
+                "positioning_score": 24.0,
+                "physical_play": 40.0
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 28,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 15.75,
+                "successful_passes_p90": 14.77,
+                "unsuccessful_passes_p90": 0.98,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.98,
+                "avg_pass_distance_p90": 2.76,
+                "progressive_passes_p90": 5.91,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.98,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 2.95,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 7.88,
+                "successful_dribbles_p90": 5.91,
+                "dribble_success_rate_pct_p90": 75.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 93.75,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 114.0,
+                    "possession_pct": 3.48
+                },
+                "distribution": {
+                    "passes": 16.0,
+                    "successful_passes": 15.0,
+                    "unsuccessful_passes": 1.0,
+                    "passing_accuracy_pct": 93.75,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 1,
+                    "avg_pass_distance": 2.8,
+                    "progressive_passes": 6.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 8.0,
+                    "successful_dribbles": 6.0,
+                    "dribble_success_rate_pct": 75.0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 1.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 3.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Jaryl Pineda": {
+            "position": "CAM",
+            "minutes_played": 92.9,
+            "dpr": 60.4,
+            "dpr_breakdown": {
+                "game_control": 81.5,
+                "transition_play": 74.8,
+                "defensive_contribution": 49.4,
+                "creativity": 0.0,
+                "work_rate": 73.6
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 57,
+            "key_stats_p90": {
+                "shots_p90": 1.94,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 32.94,
+                "successful_passes_p90": 25.19,
+                "unsuccessful_passes_p90": 7.75,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -1.98,
+                "progressive_passes_p90": 10.66,
+                "duels_p90": 1.94,
+                "duels_won_p90": 0.97,
+                "tackles_p90": 0.97,
+                "successful_tackles_p90": 0.97,
+                "tackle_success_rate_pct_p90": 96.88,
+                "interceptions_p90": 4.84,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 8.72,
+                "successful_dribbles_p90": 6.78,
+                "dribble_success_rate_pct_p90": 77.78,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 76.47,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 50.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 188.0,
+                    "possession_pct": 5.74
+                },
+                "distribution": {
+                    "passes": 34.0,
+                    "successful_passes": 26.0,
+                    "unsuccessful_passes": 8.0,
+                    "passing_accuracy_pct": 76.47,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -2.04,
+                    "progressive_passes": 11.0
+                },
+                "attack": {
+                    "shots": 2.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 9.0,
+                    "successful_dribbles": 7.0,
+                    "dribble_success_rate_pct": 77.78
+                },
+                "defense": {
+                    "duels": 2.0,
+                    "duels_won": 1.0,
+                    "duel_success_rate_pct": 50.0,
+                    "tackles": 1.0,
+                    "successful_tackles": 1.0,
+                    "tackle_success_rate_pct": 100,
+                    "interceptions": 5.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Jul Aningalan": {
+            "position": "CB",
+            "minutes_played": 92.63,
+            "dpr": 74.5,
+            "dpr_breakdown": {
+                "defensive_impact": 89.3,
+                "build_up_quality": 89.8,
+                "positioning_score": 20.9,
+                "physical_play": 80.9
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 2,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 39.83,
+                "successful_passes_p90": 33.03,
+                "unsuccessful_passes_p90": 6.8,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -4.29,
+                "progressive_passes_p90": 11.66,
+                "duels_p90": 2.91,
+                "duels_won_p90": 2.91,
+                "tackles_p90": 0.97,
+                "successful_tackles_p90": 0.97,
+                "tackle_success_rate_pct_p90": 97.16,
+                "interceptions_p90": 6.8,
+                "clearances_p90": 2.91,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 3.89,
+                "successful_dribbles_p90": 2.91,
+                "dribble_success_rate_pct_p90": 75.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 82.93,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 291.0,
+                    "possession_pct": 8.89
+                },
+                "distribution": {
+                    "passes": 41.0,
+                    "successful_passes": 34.0,
+                    "unsuccessful_passes": 7.0,
+                    "passing_accuracy_pct": 82.93,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -4.42,
+                    "progressive_passes": 12.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 4.0,
+                    "successful_dribbles": 3.0,
+                    "dribble_success_rate_pct": 75.0
+                },
+                "defense": {
+                    "duels": 3.0,
+                    "duels_won": 3.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 1.0,
+                    "successful_tackles": 1.0,
+                    "tackle_success_rate_pct": 100,
+                    "interceptions": 7.0,
+                    "clearances": 3.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Kirvy Tabelin": {
+            "position": "CAM",
+            "minutes_played": 92.2,
+            "dpr": 42.4,
+            "dpr_breakdown": {
+                "game_control": 73.4,
+                "transition_play": 59.0,
+                "defensive_contribution": 5.9,
+                "creativity": 0.0,
+                "work_rate": 44.9
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 11,
+            "key_stats_p90": {
+                "shots_p90": 3.9,
+                "shots_on_target_p90": 2.93,
+                "goals_p90": 0.98,
+                "passes_p90": 18.55,
+                "successful_passes_p90": 12.69,
+                "unsuccessful_passes_p90": 5.86,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -3.01,
+                "progressive_passes_p90": 3.9,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.98,
+                "recoveries_p90": 0.98,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 9.76,
+                "successful_dribbles_p90": 7.81,
+                "dribble_success_rate_pct_p90": 80.0,
+                "shot_accuracy_pct_p90": 75.0,
+                "goal_conversion_pct_p90": 25.0,
+                "passing_accuracy_pct_p90": 68.42,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 288.0,
+                    "possession_pct": 8.8
+                },
+                "distribution": {
+                    "passes": 19.0,
+                    "successful_passes": 13.0,
+                    "unsuccessful_passes": 6.0,
+                    "passing_accuracy_pct": 68.42,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -3.08,
+                    "progressive_passes": 4.0
+                },
+                "attack": {
+                    "shots": 4.0,
+                    "shots_on_target": 3.0,
+                    "goals": 1.0,
+                    "shot_accuracy_pct": 75.0,
+                    "goal_conversion_pct": 25.0
+                },
+                "dribbles": {
+                    "dribbles": 10.0,
+                    "successful_dribbles": 8.0,
+                    "dribble_success_rate_pct": 80.0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 1.0,
+                    "recoveries": 1.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Kurt Bacaycay": {
+            "position": "RW",
+            "minutes_played": 15.5,
+            "dpr": 15,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 0.0,
+                "link_up_play": 0.0,
+                "movement_threat": 17.5
+            },
+            "status": "substitute",
+            "team": "San Beda",
+            "number": 71,
+            "key_stats_p90": {
+                "shots_raw": 0.0,
+                "shots_on_target_raw": 0.0,
+                "goals_raw": 0.0,
+                "shot_accuracy_pct_raw": 0.0,
+                "goal_conversion_pct_raw": 0.0,
+                "passes_raw": 2.0,
+                "successful_passes_raw": 2.0,
+                "unsuccessful_passes_raw": 0.0,
+                "passing_accuracy_pct_raw": 100.0,
+                "key_passes_raw": 0.0,
+                "key_pass_rate_pct_raw": 0.0,
+                "assists_raw": 0.0,
+                "avg_pass_distance_raw": 4.88,
+                "progressive_passes_raw": 1.0,
+                "duels_raw": 0.0,
+                "duels_won_raw": 0.0,
+                "duel_success_rate_pct_raw": 0.0,
+                "tackles_raw": 0.0,
+                "successful_tackles_raw": 0.0,
+                "tackle_success_rate_pct_raw": 0.0,
+                "interceptions_raw": 0.0,
+                "clearances_raw": 0.0,
+                "recoveries_raw": 0.0,
+                "blocked_shots_raw": 0.0,
+                "dribbles_raw": 0.0,
+                "successful_dribbles_raw": 0.0,
+                "dribble_success_rate_pct_raw": 0.0,
+                "note": "Raw stats shown - only 15.5 minutes played (minimum 20 minutes required for per-90 calculations)"
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 6.0,
+                    "possession_pct": 0.18
+                },
+                "distribution": {
+                    "passes": 2.0,
+                    "successful_passes": 2.0,
+                    "unsuccessful_passes": 0.0,
+                    "passing_accuracy_pct": 100,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 4.88,
+                    "progressive_passes": 1.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 0.0,
+                    "successful_dribbles": 0.0,
+                    "dribble_success_rate_pct": 0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 2.0,
+                    "yellow_cards": 1.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Laurence Fernandez": {
+            "position": "LW",
+            "minutes_played": 93.5,
+            "dpr": 29.5,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 2.3,
+                "link_up_play": 94.6,
+                "movement_threat": 45.5
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 38,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 25.03,
+                "successful_passes_p90": 23.1,
+                "unsuccessful_passes_p90": 1.93,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -5.35,
+                "progressive_passes_p90": 2.89,
+                "duels_p90": 5.78,
+                "duels_won_p90": 5.78,
+                "tackles_p90": 0.96,
+                "successful_tackles_p90": 0.96,
+                "tackle_success_rate_pct_p90": 96.26,
+                "interceptions_p90": 0.96,
+                "clearances_p90": 2.89,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 0.96,
+                "successful_dribbles_p90": 0.96,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 92.31,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 119.0,
+                    "possession_pct": 3.63
+                },
+                "distribution": {
+                    "passes": 26.0,
+                    "successful_passes": 24.0,
+                    "unsuccessful_passes": 2.0,
+                    "passing_accuracy_pct": 92.31,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -5.56,
+                    "progressive_passes": 3.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 1.0,
+                    "successful_dribbles": 1.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 6.0,
+                    "duels_won": 6.0,
+                    "duel_success_rate_pct": 100,
+                    "tackles": 1.0,
+                    "successful_tackles": 1.0,
+                    "tackle_success_rate_pct": 100,
+                    "interceptions": 1.0,
+                    "clearances": 3.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Louie Bacnis": {
+            "position": "CDM",
+            "minutes_played": 27.65,
+            "dpr": 66.3,
+            "dpr_breakdown": {
+                "game_control": 100.0,
+                "transition_play": 50.0,
+                "defensive_contribution": 89.5,
+                "creativity": 0.0,
+                "work_rate": 58.6
+            },
+            "status": "substitute",
+            "team": "San Beda",
+            "number": 34,
+            "key_stats_p90": {
+                "shots_p90": 3.25,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 26.04,
+                "successful_passes_p90": 26.04,
+                "unsuccessful_passes_p90": 0.0,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 2.54,
+                "progressive_passes_p90": 6.51,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 3.25,
+                "successful_tackles_p90": 3.25,
+                "tackle_success_rate_pct_p90": 325.5,
+                "interceptions_p90": 9.76,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 3.25,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 0.0,
+                "successful_dribbles_p90": 0.0,
+                "dribble_success_rate_pct_p90": 0.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 100.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 21.0,
+                    "possession_pct": 0.64
+                },
+                "distribution": {
+                    "passes": 8.0,
+                    "successful_passes": 8.0,
+                    "unsuccessful_passes": 0.0,
+                    "passing_accuracy_pct": 100,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 0.78,
+                    "progressive_passes": 2.0
+                },
+                "attack": {
+                    "shots": 1.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 0.0,
+                    "successful_dribbles": 0.0,
+                    "dribble_success_rate_pct": 0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 1.0,
+                    "successful_tackles": 1.0,
+                    "tackle_success_rate_pct": 100,
+                    "interceptions": 3.0,
+                    "clearances": 0.0,
+                    "recoveries": 1.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 2.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Pius Encaya": {
+            "position": "FW",
+            "minutes_played": 93.22,
+            "dpr": 45.2,
+            "dpr_breakdown": {
+                "game_control": 100.0,
+                "transition_play": 50.0,
+                "defensive_contribution": 0.0,
+                "creativity": 0.0,
+                "work_rate": 27.0
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 17,
+            "key_stats_p90": {
+                "shots_p90": 0.97,
+                "shots_on_target_p90": 0.97,
+                "goals_p90": 0.97,
+                "passes_p90": 12.55,
+                "successful_passes_p90": 12.55,
+                "unsuccessful_passes_p90": 0.0,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 7.93,
+                "progressive_passes_p90": 5.79,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 0.97,
+                "successful_dribbles_p90": 0.0,
+                "dribble_success_rate_pct_p90": 0.0,
+                "shot_accuracy_pct_p90": 100.0,
+                "goal_conversion_pct_p90": 100.0,
+                "passing_accuracy_pct_p90": 100.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 38.0,
+                    "possession_pct": 1.16
+                },
+                "distribution": {
+                    "passes": 13.0,
+                    "successful_passes": 13.0,
+                    "unsuccessful_passes": 0.0,
+                    "passing_accuracy_pct": 100,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 8.21,
+                    "progressive_passes": 6.0
+                },
+                "attack": {
+                    "shots": 1.0,
+                    "shots_on_target": 1.0,
+                    "goals": 1.0,
+                    "shot_accuracy_pct": 100,
+                    "goal_conversion_pct": 100
+                },
+                "dribbles": {
+                    "dribbles": 1.0,
+                    "successful_dribbles": 0.0,
+                    "dribble_success_rate_pct": 0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Prince Mellendrez": {
+            "position": "LW",
+            "minutes_played": 3.63,
+            "dpr": 15,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 0.0,
+                "link_up_play": 0.0,
+                "movement_threat": 0.0
+            },
+            "status": "substitute",
+            "team": "San Beda",
+            "number": 30,
+            "key_stats_p90": {
+                "shots_raw": 0.0,
+                "shots_on_target_raw": 0.0,
+                "goals_raw": 0.0,
+                "shot_accuracy_pct_raw": 0.0,
+                "goal_conversion_pct_raw": 0.0,
+                "passes_raw": 1.0,
+                "successful_passes_raw": 1.0,
+                "unsuccessful_passes_raw": 0.0,
+                "passing_accuracy_pct_raw": 100.0,
+                "key_passes_raw": 0.0,
+                "key_pass_rate_pct_raw": 0.0,
+                "assists_raw": 0.0,
+                "avg_pass_distance_raw": -8.25,
+                "progressive_passes_raw": 0.0,
+                "duels_raw": 0.0,
+                "duels_won_raw": 0.0,
+                "duel_success_rate_pct_raw": 0.0,
+                "tackles_raw": 0.0,
+                "successful_tackles_raw": 0.0,
+                "tackle_success_rate_pct_raw": 0.0,
+                "interceptions_raw": 0.0,
+                "clearances_raw": 0.0,
+                "recoveries_raw": 0.0,
+                "blocked_shots_raw": 0.0,
+                "dribbles_raw": 0.0,
+                "successful_dribbles_raw": 0.0,
+                "dribble_success_rate_pct_raw": 0.0,
+                "note": "Raw stats shown - only 3.6333333333333333 minutes played (minimum 20 minutes required for per-90 calculations)"
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 4.0,
+                    "possession_pct": 0.12
+                },
+                "distribution": {
+                    "passes": 1.0,
+                    "successful_passes": 1.0,
+                    "unsuccessful_passes": 0.0,
+                    "passing_accuracy_pct": 100,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": -8.25,
+                    "progressive_passes": 0.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 0.0,
+                    "successful_dribbles": 0.0,
+                    "dribble_success_rate_pct": 0
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Sam Salingay": {
+            "position": "FW",
+            "minutes_played": 80.03,
+            "dpr": 39.7,
+            "dpr_breakdown": {
+                "game_control": 100.0,
+                "transition_play": 30.0,
+                "defensive_contribution": 6.7,
+                "creativity": 0.0,
+                "work_rate": 9.0
+            },
+            "status": "starter",
+            "team": "San Beda",
+            "number": 18,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 4.5,
+                "successful_passes_p90": 4.5,
+                "unsuccessful_passes_p90": 0.0,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 11.74,
+                "progressive_passes_p90": 2.25,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 1.12,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 1.12,
+                "successful_dribbles_p90": 1.12,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 100.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 6.0,
+                    "possession_pct": 0.18
+                },
+                "distribution": {
+                    "passes": 4.0,
+                    "successful_passes": 4.0,
+                    "unsuccessful_passes": 0.0,
+                    "passing_accuracy_pct": 100,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 10.44,
+                    "progressive_passes": 2.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 1.0,
+                    "successful_dribbles": 1.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 1.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 0.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        },
+        "Trillo": {
+            "position": "MID",
+            "minutes_played": 35.07,
+            "dpr": 30.0,
+            "dpr_breakdown": {
+                "game_control": 55.0,
+                "transition_play": 45.7,
+                "defensive_contribution": 0.0,
+                "creativity": 0.0,
+                "work_rate": 20.5
+            },
+            "status": "substitute",
+            "team": "San Beda",
+            "number": 3,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 10.27,
+                "successful_passes_p90": 5.13,
+                "unsuccessful_passes_p90": 5.13,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 4.0,
+                "progressive_passes_p90": 2.57,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 5.13,
+                "successful_dribbles_p90": 5.13,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 50.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            },
+            "raw_stats": {
+                "possession": {
+                    "your_possession_time_seconds": 17.0,
+                    "possession_pct": 0.52
+                },
+                "distribution": {
+                    "passes": 4.0,
+                    "successful_passes": 2.0,
+                    "unsuccessful_passes": 2.0,
+                    "passing_accuracy_pct": 50.0,
+                    "key_passes": 0.0,
+                    "key_pass_rate_pct": 0,
+                    "assists": 0,
+                    "avg_pass_distance": 1.56,
+                    "progressive_passes": 1.0
+                },
+                "attack": {
+                    "shots": 0.0,
+                    "shots_on_target": 0.0,
+                    "goals": 0.0,
+                    "shot_accuracy_pct": 0,
+                    "goal_conversion_pct": 0
+                },
+                "dribbles": {
+                    "dribbles": 2.0,
+                    "successful_dribbles": 2.0,
+                    "dribble_success_rate_pct": 100
+                },
+                "defense": {
+                    "duels": 0.0,
+                    "duels_won": 0.0,
+                    "duel_success_rate_pct": 0,
+                    "tackles": 0.0,
+                    "successful_tackles": 0.0,
+                    "tackle_success_rate_pct": 0,
+                    "interceptions": 0.0,
+                    "clearances": 0.0,
+                    "recoveries": 0.0,
+                    "blocked_shots": 0.0
+                },
+                "goalkeeper": {},
+                "discipline": {
+                    "fouls_conceded": 1.0,
+                    "yellow_cards": 0.0,
+                    "red_cards": 0.0
+                }
+            }
+        }
+    }
+=======
+{
+    "San Beda University": {
+        "match_id": "17",
+        "match_name": "match_17_sbu_vs_sin",
+        "Austin Dilodilo": {
+            "position": "GK",
+            "minutes_played": 91.93,
+            "dpr": 34.6,
+            "dpr_breakdown": {
+                "shot_stopping": 0.0,
+                "distribution_quality": 78.3,
+                "command_area": 0.0,
+                "ball_playing": 100,
+                "consistency": 100
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 22.52,
+                "successful_passes_p90": 14.68,
+                "unsuccessful_passes_p90": 7.83,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 12.57,
+                "progressive_passes_p90": 9.79,
+                "duels_p90": 0.98,
+                "duels_won_p90": 0.98,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "saves_p90": 0.0,
+                "goals_conceded_p90": 0.98,
+                "shots_faced_p90": 0.98,
+                "shots_on_target_against_p90": 0.98,
+                "goals_against_p90": 0.98,
+                "dribbles_p90": 0.0,
+                "successful_dribbles_p90": 0.0,
+                "dribble_success_rate_pct_p90": 0.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 65.22,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0,
+                "save_pct_p90": 0.0,
+                "saves_per90": 0.0,
+                "goals_against_per90": 0.98,
+                "shots_on_target_against_per90": 0.98,
+                "save_pct": 0.0
+            }
+        },
+        "Bel": {
+            "position": "MID",
+            "minutes_played": 30.73,
+            "dpr": 54.8,
+            "dpr_breakdown": {
+                "game_control": 80.0,
+                "transition_play": 84.7,
+                "defensive_contribution": 22.0,
+                "creativity": 0.0,
+                "work_rate": 52.7
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 23.43,
+                "successful_passes_p90": 17.57,
+                "unsuccessful_passes_p90": 5.86,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 11.16,
+                "progressive_passes_p90": 8.79,
+                "duels_p90": 2.93,
+                "duels_won_p90": 2.93,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 2.93,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 11.71,
+                "successful_dribbles_p90": 8.79,
+                "dribble_success_rate_pct_p90": 75.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 75.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            }
+        },
+        "Cesar Bayubay": {
+            "position": "LWB",
+            "minutes_played": 12.97,
+            "dpr": 20.5,
+            "dpr_breakdown": {
+                "defensive_impact": 30.0,
+                "build_up_quality": 0.0,
+                "positioning_score": 19.8,
+                "physical_play": 40.0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_raw": 0.0,
+                "shots_on_target_raw": 0.0,
+                "goals_raw": 0.0,
+                "shot_accuracy_pct_raw": 0.0,
+                "goal_conversion_pct_raw": 0.0,
+                "passes_raw": 5.0,
+                "successful_passes_raw": 2.0,
+                "unsuccessful_passes_raw": 3.0,
+                "passing_accuracy_pct_raw": 40.0,
+                "key_passes_raw": 0.0,
+                "key_pass_rate_pct_raw": 0.0,
+                "assists_raw": 0.0,
+                "avg_pass_distance_raw": 14.95,
+                "progressive_passes_raw": 3.0,
+                "duels_raw": 1.0,
+                "duels_won_raw": 1.0,
+                "duel_success_rate_pct_raw": 100.0,
+                "tackles_raw": 0.0,
+                "successful_tackles_raw": 0.0,
+                "tackle_success_rate_pct_raw": 0.0,
+                "interceptions_raw": 0.0,
+                "clearances_raw": 0.0,
+                "recoveries_raw": 0.0,
+                "blocked_shots_raw": 0.0,
+                "dribbles_raw": 0.0,
+                "successful_dribbles_raw": 0.0,
+                "dribble_success_rate_pct_raw": 0.0,
+                "note": "Raw stats shown - only 12.966666666666667 minutes played (minimum 20 minutes required for per-90 calculations)"
+            }
+        },
+        "Diegocarl Digal": {
+            "position": "CB",
+            "minutes_played": 93.25,
+            "dpr": 53.4,
+            "dpr_breakdown": {
+                "defensive_impact": 38.6,
+                "build_up_quality": 80.4,
+                "positioning_score": 23.4,
+                "physical_play": 73.6
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 27.02,
+                "successful_passes_p90": 23.16,
+                "unsuccessful_passes_p90": 3.86,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -5.75,
+                "progressive_passes_p90": 5.79,
+                "duels_p90": 0.97,
+                "duels_won_p90": 0.97,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 1.93,
+                "clearances_p90": 2.9,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 0.97,
+                "successful_dribbles_p90": 0.97,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 85.71,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            }
+        },
+        "Edvard Omitade": {
+            "position": "LW",
+            "minutes_played": 91.0,
+            "dpr": 26.4,
+            "dpr_breakdown": {
+                "finishing_quality": 40.6,
+                "offensive_contribution": 4.7,
+                "link_up_play": 50.0,
+                "movement_threat": 10.2
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 1.98,
+                "shots_on_target_p90": 0.99,
+                "goals_p90": 0.0,
+                "passes_p90": 20.77,
+                "successful_passes_p90": 14.84,
+                "unsuccessful_passes_p90": 5.93,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 5.24,
+                "progressive_passes_p90": 5.93,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.99,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 11.87,
+                "successful_dribbles_p90": 8.9,
+                "dribble_success_rate_pct_p90": 75.0,
+                "shot_accuracy_pct_p90": 50.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 71.43,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            }
+        },
+        "Harvy Barro": {
+            "position": "CDM",
+            "minutes_played": 86.67,
+            "dpr": 49.9,
+            "dpr_breakdown": {
+                "game_control": 84.2,
+                "transition_play": 53.6,
+                "defensive_contribution": 30.0,
+                "creativity": 0.0,
+                "work_rate": 51.9
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 24.92,
+                "successful_passes_p90": 19.73,
+                "unsuccessful_passes_p90": 5.19,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -3.71,
+                "progressive_passes_p90": 4.15,
+                "duels_p90": 1.04,
+                "duels_won_p90": 1.04,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 4.15,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 2.08,
+                "successful_dribbles_p90": 1.04,
+                "dribble_success_rate_pct_p90": 50.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 79.17,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            }
+        },
+        "Hugo Bacnis": {
+            "position": "ST",
+            "minutes_played": 8.9,
+            "dpr": 19.2,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 0.0,
+                "link_up_play": 0.0,
+                "movement_threat": 92.5
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_raw": 1.0,
+                "shots_on_target_raw": 1.0,
+                "goals_raw": 1.0,
+                "shot_accuracy_pct_raw": 100.0,
+                "goal_conversion_pct_raw": 100.0,
+                "passes_raw": 1.0,
+                "successful_passes_raw": 1.0,
+                "unsuccessful_passes_raw": 0.0,
+                "passing_accuracy_pct_raw": 100.0,
+                "key_passes_raw": 0.0,
+                "key_pass_rate_pct_raw": 0.0,
+                "assists_raw": 0.0,
+                "avg_pass_distance_raw": -10.25,
+                "progressive_passes_raw": 0.0,
+                "duels_raw": 0.0,
+                "duels_won_raw": 0.0,
+                "duel_success_rate_pct_raw": 0.0,
+                "tackles_raw": 0.0,
+                "successful_tackles_raw": 0.0,
+                "tackle_success_rate_pct_raw": 0.0,
+                "interceptions_raw": 0.0,
+                "clearances_raw": 0.0,
+                "recoveries_raw": 0.0,
+                "blocked_shots_raw": 0.0,
+                "dribbles_raw": 2.0,
+                "successful_dribbles_raw": 2.0,
+                "dribble_success_rate_pct_raw": 100.0,
+                "note": "Raw stats shown - only 8.9 minutes played (minimum 20 minutes required for per-90 calculations)"
+            }
+        },
+        "James Acebedo": {
+            "position": "CAM",
+            "minutes_played": 28.67,
+            "dpr": 63.7,
+            "dpr_breakdown": {
+                "game_control": 100.0,
+                "transition_play": 80.0,
+                "defensive_contribution": 40.0,
+                "creativity": 0.0,
+                "work_rate": 56.5
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 3.14,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 18.84,
+                "successful_passes_p90": 18.84,
+                "unsuccessful_passes_p90": 0.0,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 19.62,
+                "progressive_passes_p90": 12.56,
+                "duels_p90": 6.28,
+                "duels_won_p90": 6.28,
+                "tackles_p90": 3.14,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 3.14,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 3.14,
+                "dribbles_p90": 0.0,
+                "successful_dribbles_p90": 0.0,
+                "dribble_success_rate_pct_p90": 0.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 100.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            }
+        },
+        "James Paquite": {
+            "position": "RW",
+            "minutes_played": 32.97,
+            "dpr": 30.5,
+            "dpr_breakdown": {
+                "attack": 13.5,
+                "defense": 0,
+                "distribution": 75.5,
+                "discipline": 100.0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 2.73,
+                "shots_on_target_p90": 2.73,
+                "goals_p90": 0.0,
+                "passes_p90": 13.65,
+                "successful_passes_p90": 8.19,
+                "unsuccessful_passes_p90": 5.46,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -2.32,
+                "progressive_passes_p90": 2.73,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 5.46,
+                "successful_dribbles_p90": 5.46,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 100.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 60.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            }
+        },
+        "Jaro Libarnes": {
+            "position": "CB",
+            "minutes_played": 91.4,
+            "dpr": 53.3,
+            "dpr_breakdown": {
+                "defensive_impact": 48.0,
+                "build_up_quality": 85.8,
+                "positioning_score": 24.0,
+                "physical_play": 40.0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 15.75,
+                "successful_passes_p90": 14.77,
+                "unsuccessful_passes_p90": 0.98,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.98,
+                "avg_pass_distance_p90": 2.76,
+                "progressive_passes_p90": 5.91,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.98,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 2.95,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 7.88,
+                "successful_dribbles_p90": 5.91,
+                "dribble_success_rate_pct_p90": 75.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 93.75,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            }
+        },
+        "Jaryl Pineda": {
+            "position": "CAM",
+            "minutes_played": 92.9,
+            "dpr": 60.4,
+            "dpr_breakdown": {
+                "game_control": 81.5,
+                "transition_play": 74.8,
+                "defensive_contribution": 49.4,
+                "creativity": 0.0,
+                "work_rate": 73.6
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 1.94,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 32.94,
+                "successful_passes_p90": 25.19,
+                "unsuccessful_passes_p90": 7.75,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -1.98,
+                "progressive_passes_p90": 10.66,
+                "duels_p90": 1.94,
+                "duels_won_p90": 0.97,
+                "tackles_p90": 0.97,
+                "successful_tackles_p90": 0.97,
+                "tackle_success_rate_pct_p90": 96.88,
+                "interceptions_p90": 4.84,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 8.72,
+                "successful_dribbles_p90": 6.78,
+                "dribble_success_rate_pct_p90": 77.78,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 76.47,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 50.0
+            }
+        },
+        "Jul Aningalan": {
+            "position": "CB",
+            "minutes_played": 92.63,
+            "dpr": 74.5,
+            "dpr_breakdown": {
+                "defensive_impact": 89.3,
+                "build_up_quality": 89.8,
+                "positioning_score": 20.9,
+                "physical_play": 80.9
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 39.83,
+                "successful_passes_p90": 33.03,
+                "unsuccessful_passes_p90": 6.8,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -4.29,
+                "progressive_passes_p90": 11.66,
+                "duels_p90": 2.91,
+                "duels_won_p90": 2.91,
+                "tackles_p90": 0.97,
+                "successful_tackles_p90": 0.97,
+                "tackle_success_rate_pct_p90": 97.16,
+                "interceptions_p90": 6.8,
+                "clearances_p90": 2.91,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 3.89,
+                "successful_dribbles_p90": 2.91,
+                "dribble_success_rate_pct_p90": 75.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 82.93,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            }
+        },
+        "Kirvy Tabelin": {
+            "position": "CAM",
+            "minutes_played": 92.2,
+            "dpr": 42.4,
+            "dpr_breakdown": {
+                "game_control": 73.4,
+                "transition_play": 59.0,
+                "defensive_contribution": 5.9,
+                "creativity": 0.0,
+                "work_rate": 44.9
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 3.9,
+                "shots_on_target_p90": 2.93,
+                "goals_p90": 0.98,
+                "passes_p90": 18.55,
+                "successful_passes_p90": 12.69,
+                "unsuccessful_passes_p90": 5.86,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -3.01,
+                "progressive_passes_p90": 3.9,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.98,
+                "recoveries_p90": 0.98,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 9.76,
+                "successful_dribbles_p90": 7.81,
+                "dribble_success_rate_pct_p90": 80.0,
+                "shot_accuracy_pct_p90": 75.0,
+                "goal_conversion_pct_p90": 25.0,
+                "passing_accuracy_pct_p90": 68.42,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            }
+        },
+        "Kurt Bacaycay": {
+            "position": "RWB",
+            "minutes_played": 15.5,
+            "dpr": 20,
+            "dpr_breakdown": {
+                "defensive_impact": 30.0,
+                "build_up_quality": 0.0,
+                "positioning_score": 0.0,
+                "physical_play": 40.0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_raw": 0.0,
+                "shots_on_target_raw": 0.0,
+                "goals_raw": 0.0,
+                "shot_accuracy_pct_raw": 0.0,
+                "goal_conversion_pct_raw": 0.0,
+                "passes_raw": 2.0,
+                "successful_passes_raw": 2.0,
+                "unsuccessful_passes_raw": 0.0,
+                "passing_accuracy_pct_raw": 100.0,
+                "key_passes_raw": 0.0,
+                "key_pass_rate_pct_raw": 0.0,
+                "assists_raw": 0.0,
+                "avg_pass_distance_raw": 4.88,
+                "progressive_passes_raw": 1.0,
+                "duels_raw": 0.0,
+                "duels_won_raw": 0.0,
+                "duel_success_rate_pct_raw": 0.0,
+                "tackles_raw": 0.0,
+                "successful_tackles_raw": 0.0,
+                "tackle_success_rate_pct_raw": 0.0,
+                "interceptions_raw": 0.0,
+                "clearances_raw": 0.0,
+                "recoveries_raw": 0.0,
+                "blocked_shots_raw": 0.0,
+                "dribbles_raw": 0.0,
+                "successful_dribbles_raw": 0.0,
+                "dribble_success_rate_pct_raw": 0.0,
+                "note": "Raw stats shown - only 15.5 minutes played (minimum 20 minutes required for per-90 calculations)"
+            }
+        },
+        "Laurence Fernandez": {
+            "position": "RW",
+            "minutes_played": 93.5,
+            "dpr": 29.5,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 2.3,
+                "link_up_play": 94.6,
+                "movement_threat": 45.5
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 25.03,
+                "successful_passes_p90": 23.1,
+                "unsuccessful_passes_p90": 1.93,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": -5.35,
+                "progressive_passes_p90": 2.89,
+                "duels_p90": 5.78,
+                "duels_won_p90": 5.78,
+                "tackles_p90": 0.96,
+                "successful_tackles_p90": 0.96,
+                "tackle_success_rate_pct_p90": 96.26,
+                "interceptions_p90": 0.96,
+                "clearances_p90": 2.89,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 0.96,
+                "successful_dribbles_p90": 0.96,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 92.31,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 100.0
+            }
+        },
+        "Louie Bacnis": {
+            "position": "CDM",
+            "minutes_played": 27.65,
+            "dpr": 66.3,
+            "dpr_breakdown": {
+                "game_control": 100.0,
+                "transition_play": 50.0,
+                "defensive_contribution": 89.5,
+                "creativity": 0.0,
+                "work_rate": 58.6
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 3.25,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 26.04,
+                "successful_passes_p90": 26.04,
+                "unsuccessful_passes_p90": 0.0,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 2.54,
+                "progressive_passes_p90": 6.51,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 3.25,
+                "successful_tackles_p90": 3.25,
+                "tackle_success_rate_pct_p90": 325.5,
+                "interceptions_p90": 9.76,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 3.25,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 0.0,
+                "successful_dribbles_p90": 0.0,
+                "dribble_success_rate_pct_p90": 0.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 100.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            }
+        },
+        "Pius Encaya": {
+            "position": "ST",
+            "minutes_played": 93.22,
+            "dpr": 49.1,
+            "dpr_breakdown": {
+                "finishing_quality": 76.3,
+                "offensive_contribution": 22.1,
+                "link_up_play": 70.0,
+                "movement_threat": 3.7
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.97,
+                "shots_on_target_p90": 0.97,
+                "goals_p90": 0.97,
+                "passes_p90": 12.55,
+                "successful_passes_p90": 12.55,
+                "unsuccessful_passes_p90": 0.0,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 7.93,
+                "progressive_passes_p90": 5.79,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 0.97,
+                "successful_dribbles_p90": 0.0,
+                "dribble_success_rate_pct_p90": 0.0,
+                "shot_accuracy_pct_p90": 100.0,
+                "goal_conversion_pct_p90": 100.0,
+                "passing_accuracy_pct_p90": 100.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            }
+        },
+        "Prince Mellendrez": {
+            "position": "LW",
+            "minutes_played": 3.63,
+            "dpr": 15,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 0.0,
+                "link_up_play": 0.0,
+                "movement_threat": 0.0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_raw": 0.0,
+                "shots_on_target_raw": 0.0,
+                "goals_raw": 0.0,
+                "shot_accuracy_pct_raw": 0.0,
+                "goal_conversion_pct_raw": 0.0,
+                "passes_raw": 1.0,
+                "successful_passes_raw": 1.0,
+                "unsuccessful_passes_raw": 0.0,
+                "passing_accuracy_pct_raw": 100.0,
+                "key_passes_raw": 0.0,
+                "key_pass_rate_pct_raw": 0.0,
+                "assists_raw": 0.0,
+                "avg_pass_distance_raw": -8.25,
+                "progressive_passes_raw": 0.0,
+                "duels_raw": 0.0,
+                "duels_won_raw": 0.0,
+                "duel_success_rate_pct_raw": 0.0,
+                "tackles_raw": 0.0,
+                "successful_tackles_raw": 0.0,
+                "tackle_success_rate_pct_raw": 0.0,
+                "interceptions_raw": 0.0,
+                "clearances_raw": 0.0,
+                "recoveries_raw": 0.0,
+                "blocked_shots_raw": 0.0,
+                "dribbles_raw": 0.0,
+                "successful_dribbles_raw": 0.0,
+                "dribble_success_rate_pct_raw": 0.0,
+                "note": "Raw stats shown - only 3.6333333333333333 minutes played (minimum 20 minutes required for per-90 calculations)"
+            }
+        },
+        "Sam Salingay": {
+            "position": "ST",
+            "minutes_played": 80.03,
+            "dpr": 22.4,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 1.8,
+                "link_up_play": 70.0,
+                "movement_threat": 12.5
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": "",
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 4.5,
+                "successful_passes_p90": 4.5,
+                "unsuccessful_passes_p90": 0.0,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 11.74,
+                "progressive_passes_p90": 2.25,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 1.12,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 1.12,
+                "successful_dribbles_p90": 1.12,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 100.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            }
+        },
+        "Trillo": {
+            "position": "ST",
+            "minutes_played": 35.07,
+            "dpr": 24.1,
+            "dpr_breakdown": {
+                "finishing_quality": 25.0,
+                "offensive_contribution": 2.1,
+                "link_up_play": 35.0,
+                "movement_threat": 81.4
+            },
+            "status": "substitute",
+            "team": "San Beda University",
+            "number": 3,
+            "key_stats_p90": {
+                "shots_p90": 0.0,
+                "shots_on_target_p90": 0.0,
+                "goals_p90": 0.0,
+                "passes_p90": 10.27,
+                "successful_passes_p90": 5.13,
+                "unsuccessful_passes_p90": 5.13,
+                "key_passes_p90": 0.0,
+                "assists_p90": 0.0,
+                "avg_pass_distance_p90": 4.0,
+                "progressive_passes_p90": 2.57,
+                "duels_p90": 0.0,
+                "duels_won_p90": 0.0,
+                "tackles_p90": 0.0,
+                "successful_tackles_p90": 0.0,
+                "tackle_success_rate_pct_p90": 0.0,
+                "interceptions_p90": 0.0,
+                "clearances_p90": 0.0,
+                "recoveries_p90": 0.0,
+                "blocked_shots_p90": 0.0,
+                "dribbles_p90": 5.13,
+                "successful_dribbles_p90": 5.13,
+                "dribble_success_rate_pct_p90": 100.0,
+                "shot_accuracy_pct_p90": 0.0,
+                "goal_conversion_pct_p90": 0.0,
+                "passing_accuracy_pct_p90": 50.0,
+                "key_pass_rate_pct_p90": 0.0,
+                "duel_success_rate_pct_p90": 0.0
+            }
+        },
+        "Dilodilo, Austin": {
+            "position": "GK",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 1,
+            "key_stats_p90": {}
+        },
+        "Libarnes, Jaro": {
+            "position": "CB",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 28,
+            "key_stats_p90": {}
+        },
+        "Aningalan, Jul": {
+            "position": "CB",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 2,
+            "key_stats_p90": {}
+        },
+        "Digal, Diegocarl": {
+            "position": "CB",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 9,
+            "key_stats_p90": {}
+        },
+        "Barro, Harvy": {
+            "position": "CDM",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 8,
+            "key_stats_p90": {}
+        },
+        "Pineda, Jaryl": {
+            "position": "CAM",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 57,
+            "key_stats_p90": {}
+        },
+        "Tabelin, Kirvy": {
+            "position": "CAM",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 11,
+            "key_stats_p90": {}
+        },
+        "Fernandez, Laurence": {
+            "position": "RW",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 38,
+            "key_stats_p90": {}
+        },
+        "Omitade, Edvard": {
+            "position": "LW",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 11,
+            "key_stats_p90": {}
+        },
+        "Encaya, Pius": {
+            "position": "ST",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 17,
+            "key_stats_p90": {}
+        },
+        "Salingay, Sam": {
+            "position": "ST",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 18,
+            "key_stats_p90": {}
+        },
+        "Escodo, Bel": {
+            "position": "CDM",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 13,
+            "key_stats_p90": {}
+        },
+        "Paquite, James": {
+            "position": "RW",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 99,
+            "key_stats_p90": {}
+        },
+        "Bacnis, Louie": {
+            "position": "CDM",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 34,
+            "key_stats_p90": {}
+        },
+        "Acebedo, James": {
+            "position": "CAM",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 19,
+            "key_stats_p90": {}
+        },
+        "Bacaycay, Kurt": {
+            "position": "RWB",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 71,
+            "key_stats_p90": {}
+        },
+        "Bayubay, Cesar": {
+            "position": "LWB",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 14,
+            "key_stats_p90": {}
+        },
+        "Bacnis, Hugo": {
+            "position": "ST",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 37,
+            "key_stats_p90": {}
+        },
+        "Mellendrez, Prince": {
+            "position": "RWB",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "San Beda University",
+            "number": 12,
+            "key_stats_p90": {}
+        },
+        "Unnamed": {
+            "position": "CAM",
+            "minutes_played": 0.0,
+            "dpr": 0.0,
+            "dpr_breakdown": {
+                "attack": 0,
+                "defense": 0,
+                "distribution": 0,
+                "discipline": 0
+            },
+            "status": "DNP",
+            "team": "Siniloan Blues",
+            "number": 12,
+            "key_stats_p90": {}
+        }
+    }
+>>>>>>> Stashed changes:output/matches/match_17_sbu_vs_sin/san_beda_university_players_derived_metrics.json
+}

@@ -60,8 +60,20 @@
 
     // Ensure the clone has a class so outside-click check works
     matchCardClone.classList.add('match-card');
-    matchCardClone.dataset.matchId = matchId;
-    matchCardClone.dataset.matchNameConfig = matchNameConfig;
+    // Normalize and store as strings on dataset so other code can always read them
+    matchCardClone.dataset.matchId = String(matchId ?? '');
+    matchCardClone.dataset.matchNameConfig = String(matchNameConfig ?? '');
+
+    // If matchNameConfig is empty, try to read it from the DOM inside the clone
+    if (!matchNameConfig) {
+      const possibleNameEl = matchCardClone.querySelector('[data-role="match-name"], .match-name, #match-name');
+      const possibleNameText = possibleNameEl ? (possibleNameEl.textContent || '').trim() : '';
+      if (possibleNameText) {
+        matchNameConfig = possibleNameText;
+        matchCardClone.dataset.matchNameConfig = String(possibleNameText);
+        logDebug('Recovered matchNameConfig from DOM for', matchId, possibleNameText);
+      }
+    }
 
     // Find elements inside this clone with robust selector fallbacks
     const cardOptionsBtn = matchCardClone.querySelector('#card-options-btn, .card-options-btn, [data-role="card-options-btn"]');
@@ -132,10 +144,15 @@
         if (matchOptionsEl) { matchOptionsEl.classList.remove('open'); matchOptionsEl.classList.add('hidden'); }
 
         try {
+          // Build payload: always include match_id and include match_name when available
+          const payloadBody = { match_id: matchId };
+          const effectiveMatchName = matchNameConfig || matchCardClone.dataset.matchNameConfig || '';
+          if (effectiveMatchName) payloadBody.match_name = effectiveMatchName;
+
           const res = await fetch(API_START_TAGGING, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ match_id: matchId })
+            body: JSON.stringify(payloadBody)
           });
 
           let payload;
@@ -147,16 +164,30 @@
             alert(msg);
           } else {
             logInfo('start-tagging success', matchId, payload);
-            // redirect if provided
+
+            // If server returned a redirect_url, prefer it but ensure params exist
             if (payload.redirect_url) {
-              window.location.href = payload.redirect_url;
+              let redirect = String(payload.redirect_url);
+              // Append match_id if missing
+              if (!/[\?&]match_id=/.test(redirect)) {
+                redirect += (redirect.includes('?') ? '&' : '?') + 'match_id=' + encodeURIComponent(matchId);
+              }
+              // Append match_name if missing and we have one
+              if (effectiveMatchName && !/[\?&]match_name=/.test(redirect)) {
+                redirect += '&match_name=' + encodeURIComponent(effectiveMatchName);
+              }
+              window.location.href = redirect;
               return;
             }
-            // default redirect
+
+            // Default redirect to tagging page - include both params if available
             if (TAGGING_PAGE_BASE) {
-              window.location.href = TAGGING_PAGE_BASE + '?match_id=' + encodeURIComponent(matchId);
+              const redirectUrl = TAGGING_PAGE_BASE + '?match_id=' + encodeURIComponent(matchId) +
+                                  (effectiveMatchName ? '&match_name=' + encodeURIComponent(effectiveMatchName) : '');
+              window.location.href = redirectUrl;
               return;
             }
+
             alert('Tagging started.');
           }
         } catch (err) {
@@ -233,15 +264,21 @@
         return;
       }
 
+      // Determine effective match name using multiple fallbacks
+      const effectiveMatchName = matchNameConfig ||
+                                 matchCardClone.dataset.matchNameConfig ||
+                                 (matchCardClone.querySelector('[data-role="match-name"], .match-name, #match-name')?.textContent || '').trim() ||
+                                 '';
+
       // 🔍 Explicit debug confirmation:
       console.group('%c[Match Card Clicked]', 'color: green; font-weight: bold;');
       console.log('Match ID   :', matchId);
-      console.log('Match Name :', matchNameConfig);
-      console.log('Navigating to:', REPORT_PAGE_BASE + '?match_id=' + encodeURIComponent(matchId) + '&match_name=' + encodeURIComponent(matchNameConfig || ''));
+      console.log('Match Name :', effectiveMatchName);
+      console.log('Navigating to:', REPORT_PAGE_BASE + '?match_id=' + encodeURIComponent(matchId) + (effectiveMatchName ? '&match_name=' + encodeURIComponent(effectiveMatchName) : ''));
       console.groupEnd();
 
-      logDebug('match card clicked for report nav', matchId, matchNameConfig);
-      const url = REPORT_PAGE_BASE + '?match_id=' + encodeURIComponent(matchId) + '&match_name=' + encodeURIComponent(matchNameConfig || '');
+      logDebug('match card clicked for report nav', matchId, effectiveMatchName);
+      const url = REPORT_PAGE_BASE + '?match_id=' + encodeURIComponent(matchId) + (effectiveMatchName ? '&match_name=' + encodeURIComponent(effectiveMatchName) : '');
       window.location.href = url;
     });
   }

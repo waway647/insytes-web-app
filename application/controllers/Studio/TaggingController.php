@@ -561,4 +561,292 @@ class TaggingController extends CI_Controller {
         }
         $this->output->set_content_type('application/json')->set_output(file_get_contents($eventsFile));
     }
+
+
+    public function run_pipeline()
+    {
+        // Accept JSON body
+        $input = json_decode(trim(file_get_contents('php://input')), true);
+
+        // Accept either JSON body or query/URI param
+        $match_id = $input['match_id'] ?? $this->input->get('match_id') ?? null;
+        $background = isset($input['background']) ? (bool)$input['background'] : false;
+
+        if (!$match_id) {
+            $this->output
+                ->set_status_header(400)
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => false, 'message' => 'Missing match_id']));
+            return;
+        }
+
+        // Optional DB fetch (LibraryModel may implement get_match_details)
+        $dbMatch = null;
+        try {
+            if (method_exists($this->LibraryModel, 'get_match_details')) {
+                $dbMatch = $this->LibraryModel->get_match_details($match_id);
+            }
+        } catch (Exception $ex) {
+            log_message('debug', "Error fetching DB match details for {$match_id}: " . $ex->getMessage());
+        }
+
+        // Resolve opponent from DB or session (same heuristic you use elsewhere)
+        $opponent = $dbMatch['opponent_team_abbreviation'] 
+                    ?? $dbMatch['opponent_team_name'] 
+                    ?? $this->session->userdata('opponent_team_abbreviation') 
+                    ?? $this->session->userdata('opponent_team_name')
+                    ?? 'opponent';
+
+        // normalize opponent -> safe slug (lowercase, alnum and underscores)
+        $opponent_slug = strtolower($opponent);
+        // replace non-alnum with underscore, collapse multiple underscores
+        $opponent_slug = preg_replace('/[^a-z0-9]+/', '_', $opponent_slug);
+        $opponent_slug = preg_replace('/_+/', '_', $opponent_slug);
+        $opponent_slug = trim($opponent_slug, '_');
+        if ($opponent_slug === '') $opponent_slug = 'opponent';
+
+        // Build dataset name
+        $dataset_name = 'match_' . preg_replace('/[^0-9a-zA-Z\-_.]/', '', $match_id) . '_sbu_vs_' . $opponent_slug;
+
+        // Path to Python script
+        $script_path = FCPATH . 'python_scripts' . DIRECTORY_SEPARATOR . 'automated_pipeline.py';
+        if (!file_exists($script_path)) {
+            $this->output
+                ->set_status_header(500)
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success'=>false,'message'=>'Pipeline script not found','path'=>$script_path]));
+            return;
+        }
+
+        // -----------------------------------------
+        // Prefer project venv Python, allow overrides
+        // -----------------------------------------
+        $is_windows = (stripos(PHP_OS, 'WIN') === 0);
+
+        // expected venv python path inside project
+        if ($is_windows) {
+            $default_venv_python = FCPATH . 'venv' . DIRECTORY_SEPARATOR . 'Scripts' . DIRECTORY_SEPARATOR . 'python.exe';
+        } else {
+            $default_venv_python = FCPATH . 'venv' . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'python';
+        }
+
+        // Allow environment var or CI config override
+        $env_python = getenv('PYTHON_BIN') ?: null;
+        $config_python = (method_exists($this, 'config') && $this->config->item('python_path')) ? $this->config->item('python_path') : null;
+
+        // Choose python binary in this order:
+        // 1) env var PYTHON_BIN
+        // 2) config item python_path (if set)
+        // 3) project venv python (if it exists)
+        // 4) fallback: 'python' on Windows or '/usr/bin/env python3' on *nix
+        $python_bin = null;
+        if ($env_python) {
+            $python_bin = $env_python;
+        } elseif ($config_python) {
+            $python_bin = $config_python;
+        } elseif (file_exists($default_venv_python)) {
+            $python_bin = $default_venv_python;
+        } else {
+            $python_bin = $is_windows ? 'python' : '/usr/bin/env python3';
+        }
+
+        // Validate python binary: if it's an absolute path, check it exists
+        if (preg_match('/[\/\\\\]/', $python_bin) && !file_exists($python_bin)) {
+            $this->output
+                ->set_status_header(500)
+                ->set_content_type('application/json')
+                ->set_output(json_encode([
+                    'success' => false,
+                    'message' => 'Selected python executable not found',
+                    'python_bin' => $python_bin,
+                    'hint' => 'Set env PYTHON_BIN or CI config python_path, or create venv at project root'
+                ]));
+            return;
+        }
+
+        // Build command as an array (safer than a single shell string)
+        $cmdArray = [$python_bin, $script_path, '--dataset', $dataset_name];
+
+        // Background mode handling: platform-specific
+        if ($background) {
+            $logfile = FCPATH . 'writable_data' . DIRECTORY_SEPARATOR . 'pipeline_' . $dataset_name . '.log';
+
+            if ($is_windows) {
+                // Windows: use start /B to detach. Build a command-line string.
+                // Note: we use cmd /c start to detach; start requires a "title" arg (empty "")
+                $cmdLine = sprintf(
+                    'start /B "" %s %s --dataset %s > "%s" 2>&1',
+                    escapeshellarg($python_bin),
+                    escapeshellarg($script_path),
+                    escapeshellarg($dataset_name),
+                    $logfile
+                );
+
+                // Launch detached
+                pclose(popen($cmdLine, 'r'));
+
+                $this->output->set_content_type('application/json')->set_output(json_encode([
+                    'success' => true,
+                    'background' => true,
+                    'cmd' => $cmdLine,
+                    'logfile' => $logfile,
+                    'dataset' => $dataset_name
+                ]));
+                return;
+            } else {
+                // Unix: nohup & echo $!
+                $cmdLine = sprintf(
+                    'nohup %s %s --dataset %s > %s 2>&1 & echo $!',
+                    escapeshellarg($python_bin),
+                    escapeshellarg($script_path),
+                    escapeshellarg($dataset_name),
+                    escapeshellarg($logfile)
+                );
+                $pid = trim(shell_exec($cmdLine));
+                $this->output->set_content_type('application/json')->set_output(json_encode([
+                    'success' => true,
+                    'background' => true,
+                    'pid' => $pid,
+                    'logfile' => $logfile,
+                    'cmd' => $cmdLine,
+                    'dataset' => $dataset_name
+                ]));
+                return;
+            }
+        }
+
+        // --- Synchronous run using proc_open with array command ---
+        // --- Synchronous run using proc_open with array command (UTF-8 enforced) ---
+        $descriptorspec = [
+            1 => ['pipe', 'w'],
+            2 => ['pipe', 'w']
+        ];
+
+        $start = microtime(true);
+        
+        // Merge common env sources if present (you already have this)
+        $childEnv = [];
+        if (!empty($_ENV) && is_array($_ENV)) {
+            $childEnv = array_merge($childEnv, $_ENV);
+        }
+        if (!empty($_SERVER) && is_array($_SERVER)) {
+            $childEnv = array_merge($childEnv, $_SERVER);
+        }
+
+        // Force UTF-8 for Python stdio; also enable Python UTF-8 mode
+        $childEnv['PYTHONIOENCODING'] = 'utf-8';
+        $childEnv['PYTHONUTF8'] = '1';
+
+        // On some systems, LANG/LC_ALL help; set reasonable defaults
+        if (!isset($childEnv['LANG'])) $childEnv['LANG'] = 'en_US.UTF-8';
+        if (!isset($childEnv['LC_ALL'])) $childEnv['LC_ALL'] = 'en_US.UTF-8';
+
+        // --- NEW: ensure Python can determine a "home" dir and matplotlib config dir ---
+        $tmp = sys_get_temp_dir();
+
+        // If running on Windows, ensure USERPROFILE / HOMEDRIVE+HOMEPATH exist
+        if ($is_windows) {
+            if (!isset($childEnv['USERPROFILE'])) {
+                // try to inherit from the webserver user profile if available, otherwise fallback to temp
+                $childEnv['USERPROFILE'] = getenv('USERPROFILE') ?: $tmp;
+            }
+            if (!isset($childEnv['HOMEDRIVE']) && !isset($childEnv['HOMEPATH'])) {
+                // set minimal HOMEDRIVE/HOMEPATH so Path.home() can form a path if needed
+                $childEnv['HOMEDRIVE'] = substr($childEnv['USERPROFILE'], 0, 2); // e.g. "C:"
+                $childEnv['HOMEPATH'] = substr($childEnv['USERPROFILE'], 2) ?: '\\';
+            }
+
+            // Windows TMP/TEMP
+            if (!isset($childEnv['TMP'])) $childEnv['TMP'] = $tmp;
+            if (!isset($childEnv['TEMP'])) $childEnv['TEMP'] = $tmp;
+        } else {
+            // Unix-like: ensure HOME exists
+            if (!isset($childEnv['HOME'])) {
+                $childEnv['HOME'] = getenv('HOME') ?: $tmp;
+            }
+        }
+
+        // Force matplotlib to use a project-local config/cache directory to avoid touching HOME
+        $mplDir = FCPATH . 'writable_data' . DIRECTORY_SEPARATOR . 'matplotlib';
+        if (!is_dir($mplDir)) {
+            // create and make writable; webserver user must be able to write here
+            @mkdir($mplDir, 0777, true);
+            @chmod($mplDir, 0777);
+        }
+        $childEnv['MPLCONFIGDIR'] = $mplDir;
+
+        // Optionally make PYTHONUSERBASE point to a writable site-packages-ish dir (rarely needed)
+        // $childEnv['PYTHONUSERBASE'] = FCPATH . 'writable_data' . DIRECTORY_SEPARATOR . 'pyuserbase';
+
+        // --- Launch process with the child environment and explicit cwd ---
+        $cwd = FCPATH; // or your project root where the script expects to run
+        $process = @proc_open($cmdArray, $descriptorspec, $pipes, $cwd, $childEnv);
+
+        if (!is_resource($process)) {
+            $this->output
+                ->set_status_header(500)
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success'=>false,'message'=>'Failed to start process','cmdArray'=>$cmdArray]));
+            return;
+        }
+
+        // non-blocking read
+        stream_set_blocking($pipes[1], false);
+        stream_set_blocking($pipes[2], false);
+
+        $stdout = '';
+        $stderr = '';
+        $status = proc_get_status($process);
+        $pid = $status['pid'] ?? null;
+        $timeout = 300; // seconds
+
+        while ($status['running']) {
+            $stdout .= stream_get_contents($pipes[1]);
+            $stderr .= stream_get_contents($pipes[2]);
+            usleep(100000);
+
+            if ((microtime(true) - $start) > $timeout) {
+                proc_terminate($process, 9);
+                $stdout .= stream_get_contents($pipes[1]);
+                $stderr .= stream_get_contents($pipes[2]);
+                foreach ($pipes as $p) { @fclose($p); }
+                proc_close($process);
+
+                $this->output
+                    ->set_status_header(500)
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode([
+                        'success' => false,
+                        'message' => 'Pipeline timed out',
+                        'dataset' => $dataset_name,
+                        'timeout_seconds' => $timeout,
+                        'stdout' => $stdout,
+                        'stderr' => $stderr
+                    ]));
+                return;
+            }
+
+            $status = proc_get_status($process);
+        }
+
+        // finish
+        $stdout .= stream_get_contents($pipes[1]);
+        $stderr .= stream_get_contents($pipes[2]);
+        foreach ($pipes as $p) { @fclose($p); }
+        $exit_code = proc_close($process);
+        $runtime = microtime(true) - $start;
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode([
+                'success' => $exit_code === 0,
+                'exit_code' => $exit_code,
+                'dataset' => $dataset_name,
+                'cmdArray' => $cmdArray,
+                'stdout' => $stdout,
+                'stderr' => $stderr,
+                'runtime_seconds' => round($runtime, 3),
+                'pid' => $pid
+            ]));
+    }
 }

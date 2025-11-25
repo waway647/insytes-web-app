@@ -1,3 +1,6 @@
+<input type="hidden" id="REPORT_MATCH_ID" value="<?= htmlspecialchars($match_id ?? '') ?>">
+<input type="hidden" id="REPORT_MATCH_NAME" value="<?= htmlspecialchars($match_name ?? '') ?>">
+
 <?php
 // reports/match_overview/match_overview.php
 $team_metrics = $team_metrics ?? null;
@@ -5,21 +8,11 @@ $metrics_file_path = $metrics_file_path ?? '';
 $metrics_file_url  = $metrics_file_url  ?? null;
 $mc = $match_config ?? [];
 
-// helper to find a team's metrics (case-insensitive / partial)
-function find_team_metrics($metrics, $team_name) {
-    if (empty($metrics) || empty($team_name)) return null;
-    foreach ($metrics as $k => $v) {
-        if (strcasecmp(trim($k), trim($team_name)) === 0) return $v;
-    }
-    foreach ($metrics as $k => $v) {
-        if (stripos($k, $team_name) !== false || stripos($team_name, $k) !== false) return $v;
-    }
-    return null;
-}
+// Use helper function (make sure metrics_helper is loaded/autoloaded)
 $home_name = $mc['home']['name'] ?? null;
 $away_name = $mc['away']['name'] ?? null;
-$home_metrics = find_team_metrics($team_metrics, $home_name);
-$away_metrics = find_team_metrics($team_metrics, $away_name);
+$home_metrics = function_exists('find_team_metrics') ? find_team_metrics($team_metrics, $home_name) : null;
+$away_metrics = function_exists('find_team_metrics') ? find_team_metrics($team_metrics, $away_name) : null;
 
 // Partial data passed into each stats partial
 $partialData = [
@@ -29,6 +22,11 @@ $partialData = [
   'metrics_file_path' => $metrics_file_path,
   'metrics_file_url' => $metrics_file_url,
 ];
+
+$home_goals = $home_metrics['attack']['goals'] ?? null;
+$away_goals = $away_metrics['attack']['goals'] ?? null;
+$this->session->set_userdata('home_goals', $home_goals);
+$this->session->set_userdata('away_goals', $away_goals);
 ?>
 
 <!-- Debug info (optional) -->

@@ -310,8 +310,8 @@
         
             <div class="flex w-full justify-end p-6 border-t border-[#2a2a2a]">
               <button 
-                id="submit-form" 
-                type="submit" 
+                id="save-tagging-data-btn" 
+                type="button" 
                 class="px-6 py-2 bg-[#6366F1] rounded-md font-semibold text-sm text-white hover:bg-[#5052ec] cursor-pointer"
               >
                 Finish and Save Tagging Data
@@ -384,7 +384,8 @@ let config = null;
     savePositions: base + 'taggingcontroller/save_positions',
     saveEvent: base + 'taggingcontroller/save_event',
     undoEvent: base + 'taggingcontroller/undo_event',
-    getEvents: (id) => base + 'taggingcontroller/get_events/' + encodeURIComponent(id)
+    getEvents: (id) => base + 'taggingcontroller/get_events/' + encodeURIComponent(id),
+    runPipeline: base + 'taggingcontroller/run_pipeline'
   };
 
   // DOM refs
@@ -2578,9 +2579,55 @@ let config = null;
   selectKeyPass(false); // Reset key pass visuals
   setKeyPassButtonsEnabled(false); // disabled until a Pass tagging or keys enabled by activateTypeOutcomeButtonsFor
 
+  document.getElementById('save-tagging-data-btn')?.addEventListener('click', async function (e) {
+    e.preventDefault();
+
+    const matchId = window.TAGGING_MATCH_ID;
+    if (!matchId) {
+      alert('No match_id available to run pipeline.');
+      return;
+    }
+
+    // Optional: confirm
+    if (!confirm('Finish tagging and run pipeline for this match?')) return;
+
+    try {
+      // show spinner / disable button
+      const btn = this;
+      btn.disabled = true;
+      btn.innerText = 'Running pipeline...';
+
+      const resp = await fetch(endpoints.runPipeline, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ match_id: matchId /*, background: true */ })
+      });
+
+      const payload = await resp.json();
+      console.log('Pipeline response:', payload);
+
+      if (resp.ok && payload.success) {
+        alert('Pipeline finished: exit_code=' + (payload.exit_code ?? 'unknown'));
+      } else if (resp.ok && payload.background) {
+        alert('Pipeline started in background. PID: ' + (payload.pid ?? 'unknown') + '\nLog: ' + (payload.logfile ?? ''));
+      } else {
+        alert('Pipeline error: ' + (payload.message || 'See console for details'));
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert('Network or server error while starting pipeline. Check console.');
+    } finally {
+      const btn = document.getElementById('save-tagging-data-btn');
+      if (btn) {
+        btn.disabled = false;
+        btn.innerText = 'Finish and Save Tagging Data';
+      }
+    }
+  });
+
   // expose for debugging
   window.TAGGING = { config, endpoints, savePositionsToBackend, loadEvents, computeMatchSeconds, handleMatchEvent };
 
 })();
 </script>
-

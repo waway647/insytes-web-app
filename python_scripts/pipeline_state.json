@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {
   "processed_datasets": {
     "match_1_sbu_vs_up": {
@@ -162,4 +163,138 @@
     }
   },
   "last_updated": "2025-11-20T13:43:53.842433"
+=======
+{
+  "processed_datasets": {
+    "match_16_sbu_vs_up": {
+      "file_hash": "7eab013d7af339675c98d90b6f509edc",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-11-23T19:21:59.474086",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-23T19:22:41.905897",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    },
+    "match_17_sbu_vs_sin": {
+      "file_hash": "0af9af918b2d93a89dc2b1065e15ebcc",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-11-23T21:22:26.127160",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-23T21:23:07.039626",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    },
+    "match_18_sbu_vs_kaya": {
+      "file_hash": "37e862c0680552e8f9da2450148dcef7",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-11-24T13:26:59.347539",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-24T13:27:43.055550",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    },
+    "match_19_sbu_vs_2wfc": {
+      "file_hash": "3a2cc8282fe8b81da4e8ee1aaa8f494a",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-11-24T14:01:43.777924",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-24T14:02:14.700765",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    }
+  },
+  "last_updated": "2025-11-24T14:02:14.700765"
+>>>>>>> Stashed changes
 }

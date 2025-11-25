@@ -1,0 +1,41 @@
+player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
+Austin Dilodilo,34.6,50.5,15.9,91.9,"['GK', 'GK', 'GK', 'GK']",0
+Bel,54.8,34.8,-20.0,30.7,"['MID', 'CAM', 'CAM', 'MID', 'CAM', 'MID', 'MID']",1
+Cesar Bayubay,20.5,51.5,31.0,13.0,"['LW', 'LW', 'LWB', 'LWB']",1
+Diegocarl Digal,53.4,64.9,11.5,93.2,"['CB', 'CB']",0
+Edvard Omitade,26.4,79.3,52.9,91.0,"['RW', 'RW', 'RW', 'RW', 'RW', 'LW', 'LW']",1
+Harvy Barro,49.9,59.6,9.7,86.7,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+Hugo Bacnis,19.2,52.7,33.5,8.9,"['LW', 'ST', 'ST', 'LW', 'ST', 'ST']",1
+James Acebedo,63.7,77.8,14.1,28.7,"['CAM', 'CAM', 'CAM', 'CAM']",0
+James Paquite,30.5,75.3,44.8,33.0,"['FWD', 'FWD', 'RW', 'RW']",1
+Jaro Libarnes,53.3,66.3,13.0,91.4,"['CB', 'CB', 'CB', 'CB', 'LB', 'CB', 'CB', 'LB', 'LB', 'LB', 'LB', 'CB', 'CB']",1
+Jaryl Pineda,60.4,71.1,10.7,92.9,"['CAM', 'LW', 'LW', 'CAM', 'LW', 'LW', 'LW', 'LW', 'CAM', 'CAM']",1
+Jul Aningalan,74.5,89.8,15.3,92.6,"['CB', 'CB', 'CB', 'CB', 'RB', 'CB', 'CB', 'RB', 'RB', 'RB', 'RB', 'CB', 'CB']",1
+Kirvy Tabelin,42.4,86.4,44.0,92.2,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
+Kurt Bacaycay,20.0,85.4,65.4,15.5,"['RW', 'RWB', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RWB', 'RWB']",1
+Laurence Fernandez,29.5,74.7,45.2,93.5,"['LW', 'LW', 'LW', 'RW', 'RW', 'LW', 'LW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW']",1
+Louie Bacnis,66.3,95.1,28.8,27.6,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+Pius Encaya,49.1,99.5,50.4,93.2,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'CF', 'CF', 'CF', 'ST', 'ST']",1
+Prince Mellendrez,15.0,52.5,37.5,3.6,"['LW', 'LW', 'LW', 'LW']",0
+Sam Salingay,22.4,60.2,37.8,80.0,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'CF', 'CF', 'CF', 'ST', 'ST']",1
+Trillo,24.1,59.4,35.3,35.1,"['MID', 'MID', 'ST', 'ST']",1
+"Dilodilo, Austin",0.0,50.5,50.5,0.0,"['GK', 'GK']",0
+"Libarnes, Jaro",0.0,26.3,26.3,0.0,"['CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB']",0
+"Aningalan, Jul",0.0,26.3,26.3,0.0,"['CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB']",0
+"Digal, Diegocarl",0.0,26.3,26.3,0.0,"['CB', 'CB']",0
+"Barro, Harvy",0.0,31.8,31.8,0.0,"['CDM', 'CDM']",0
+"Pineda, Jaryl",0.0,29.5,29.5,0.0,"['LW', 'LW', 'LW', 'LW', 'LW', 'LW', 'CAM', 'CAM']",1
+"Tabelin, Kirvy",0.0,27.8,27.8,0.0,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
+"Fernandez, Laurence",0.0,25.0,25.0,0.0,"['RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW']",0
+"Omitade, Edvard",0.0,18.2,18.2,0.0,"['LW', 'LW']",0
+"Encaya, Pius",0.0,26.0,26.0,0.0,"['ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST']",0
+"Salingay, Sam",0.0,26.0,26.0,0.0,"['ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST']",0
+"Escodo, Bel",0.0,31.8,31.8,0.0,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+"Paquite, James",0.0,25.0,25.0,0.0,"['RW', 'RW']",0
+"Bacnis, Louie",0.0,31.8,31.8,0.0,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+"Acebedo, James",0.0,27.8,27.8,0.0,"['CAM', 'CAM']",0
+"Bacaycay, Kurt",0.0,32.3,32.3,0.0,"['RWB', 'RWB']",0
+"Bayubay, Cesar",0.0,30.0,30.0,0.0,"['LWB', 'LWB']",0
+"Bacnis, Hugo",0.0,26.0,26.0,0.0,"['ST', 'ST']",0
+"Mellendrez, Prince",0.0,32.3,32.3,0.0,"['RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB']",0
+Unnamed,0.0,29.5,29.5,0.0,"[nan, nan, nan, nan, nan, nan, 'CAM', 'CAM']",1
