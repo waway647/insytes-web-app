@@ -1,13 +1,12 @@
-<<<<<<< Updated upstream:output/matches/match_4_sbu_vs_kaya/heatmap_analysis_report.json
 {
-  "report_generated": "2025-11-26T12:43:28.155788",
+  "report_generated": "2025-11-26T13:18:00.905480",
   "match_info": {
     "total_events": 1066,
-    "players_analyzed": 22,
+    "players_analyzed": 38,
     "events_with_coordinates": 944
   },
   "players": {
-    "AJ Lampines": {
+    "Alexis Jeremy Lampines": {
       "basic_info": {
         "position": "LWB",
         "enhanced_rating": 74.3,
@@ -53,28 +52,24 @@
     },
     "Caleb Tassi": {
       "basic_info": {
-        "position": "CF",
-        "enhanced_rating": 36.8,
+        "position": "ST",
+        "enhanced_rating": 27.0,
         "enhanced_breakdown": {
-          "game_control": 85.0,
-          "transition_play": 20.0,
-          "defensive_contribution": 0.0,
-          "creativity": 0.0,
-          "work_rate": 63.1
+          "finishing_quality": 35.0,
+          "offensive_contribution": 0.0,
+          "link_up_play": 56.0,
+          "movement_threat": 45.9
         }
       },
       "positioning_analysis": {
-        "compliance_score": 0,
+        "compliance_score": 47.5,
         "zone_distribution": {
-          "primary": 6.25,
-          "secondary": 0.0,
-          "danger": 93.75
+          "primary": 56.25,
+          "secondary": 37.5,
+          "danger": 6.25
         },
         "total_events": 16,
-        "insights": [
-          "POSITIONING ISSUE: Only 6.2% of actions in primary zone - needs to maintain positional discipline",
-          "HIGH RISK: 93.8% of actions in danger zone - avoid leaving position unattended"
-        ]
+        "insights": []
       },
       "heat_patterns": {
         "concentration_score": 69.2,
@@ -92,7 +87,7 @@
       },
       "enhanced_insights": "",
       "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 36.8/100 overall rating",
+        "[WARNING] NEEDS IMPROVEMENT: 27.0/100 overall rating",
         "[POOR] positional discipline - key focus area",
         "[GOOD] mobility but needs better positioning discipline"
       ]
@@ -142,9 +137,53 @@
         "[PERFECT] balance of discipline and mobility"
       ]
     },
+    "Djohn Kenji Pusing": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 29.0,
+        "enhanced_breakdown": {
+          "finishing_quality": 35.0,
+          "offensive_contribution": 6.3,
+          "link_up_play": 56.0,
+          "movement_threat": 44.4
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 38.9,
+        "zone_distribution": {
+          "primary": 44.44444444444444,
+          "secondary": 44.44444444444444,
+          "danger": 11.11111111111111
+        },
+        "total_events": 9,
+        "insights": [
+          "GOOD mobility: 44.4% in secondary zone shows good tactical flexibility"
+        ]
+      },
+      "heat_patterns": {
+        "concentration_score": 64.4,
+        "coverage_score": 100,
+        "x_range": 82.8,
+        "y_range": 37.8,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 29.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[GOOD] mobility but needs better positioning discipline"
+      ]
+    },
     "Jacob Tanamor": {
       "basic_info": {
-        "position": "RB",
+        "position": "CB",
         "enhanced_rating": 69.2,
         "enhanced_breakdown": {
           "defensive_impact": 67.9,
@@ -234,26 +273,26 @@
     },
     "John Ariel Marquez": {
       "basic_info": {
-        "position": "CF",
-        "enhanced_rating": 50.7,
+        "position": "ST",
+        "enhanced_rating": 20.7,
         "enhanced_breakdown": {
-          "game_control": 95.8,
-          "transition_play": 63.8,
-          "defensive_contribution": 15.5,
-          "creativity": 0.0,
-          "work_rate": 28.9
+          "finishing_quality": 24.1,
+          "offensive_contribution": 4.1,
+          "link_up_play": 64.1,
+          "movement_threat": 0.0
         }
       },
       "positioning_analysis": {
-        "compliance_score": 40.0,
+        "compliance_score": 0,
         "zone_distribution": {
-          "primary": 41.66666666666667,
-          "secondary": 50.0,
-          "danger": 8.333333333333332
+          "primary": 0.0,
+          "secondary": 29.166666666666668,
+          "danger": 70.83333333333334
         },
         "total_events": 24,
         "insights": [
-          "GOOD mobility: 50.0% in secondary zone shows good tactical flexibility"
+          "POSITIONING ISSUE: Only 0.0% of actions in primary zone - needs to maintain positional discipline",
+          "HIGH RISK: 70.8% of actions in danger zone - avoid leaving position unattended"
         ]
       },
       "heat_patterns": {
@@ -272,78 +311,33 @@
       },
       "enhanced_insights": "",
       "tactical_summary": [
-        "[SOLID] CONTRIBUTOR: 50.7/100 overall rating",
+        "[WARNING] NEEDS IMPROVEMENT: 20.7/100 overall rating",
         "[POOR] positional discipline - key focus area",
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Kenji Pusing": {
+    "Kirk Eman See": {
       "basic_info": {
-        "position": "RW",
-        "enhanced_rating": 29.0,
+        "position": "ST",
+        "enhanced_rating": 27.1,
         "enhanced_breakdown": {
           "finishing_quality": 35.0,
-          "offensive_contribution": 6.3,
-          "link_up_play": 56.0,
-          "movement_threat": 44.4
+          "offensive_contribution": 2.4,
+          "link_up_play": 63.7,
+          "movement_threat": 26.8
         }
       },
       "positioning_analysis": {
-        "compliance_score": 52.2,
+        "compliance_score": 2.5,
         "zone_distribution": {
-          "primary": 77.77777777777779,
-          "secondary": 11.11111111111111,
-          "danger": 11.11111111111111
-        },
-        "total_events": 9,
-        "insights": [
-          "EXCELLENT positioning: 77.8% of actions in correct zone - maintains tactical discipline"
-        ]
-      },
-      "heat_patterns": {
-        "concentration_score": 64.4,
-        "coverage_score": 100,
-        "x_range": 82.8,
-        "y_range": 37.8,
-        "patterns": [
-          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
-          "TOO ROAMING: Focus on maintaining core position"
-        ]
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 29.0/100 overall rating",
-        "[GOOD] positional awareness",
-        "[GOOD] mobility but needs better positioning discipline"
-      ]
-    },
-    "Kirk Emman See": {
-      "basic_info": {
-        "position": "CF",
-        "enhanced_rating": 50.0,
-        "enhanced_breakdown": {
-          "game_control": 81.5,
-          "transition_play": 55.7,
-          "defensive_contribution": 35.7,
-          "creativity": 0.0,
-          "work_rate": 44.9
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 10.0,
-        "zone_distribution": {
-          "primary": 25.0,
-          "secondary": 37.5,
-          "danger": 37.5
+          "primary": 31.25,
+          "secondary": 18.75,
+          "danger": 50.0
         },
         "total_events": 32,
         "insights": [
-          "POSITIONING ISSUE: Only 25.0% of actions in primary zone - needs to maintain positional discipline",
-          "HIGH RISK: 37.5% of actions in danger zone - avoid leaving position unattended"
+          "POSITIONING ISSUE: Only 31.2% of actions in primary zone - needs to maintain positional discipline",
+          "HIGH RISK: 50.0% of actions in danger zone - avoid leaving position unattended"
         ]
       },
       "heat_patterns": {
@@ -362,7 +356,7 @@
       },
       "enhanced_insights": "",
       "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 50.0/100 overall rating",
+        "[WARNING] NEEDS IMPROVEMENT: 27.1/100 overall rating",
         "[POOR] positional discipline - key focus area",
         "[GOOD] mobility but needs better positioning discipline"
       ]
@@ -460,27 +454,26 @@
     },
     "Paul Joshua Mapula": {
       "basic_info": {
-        "position": "CF",
-        "enhanced_rating": 32.1,
+        "position": "ST",
+        "enhanced_rating": 18.8,
         "enhanced_breakdown": {
-          "game_control": 58.8,
-          "transition_play": 29.8,
-          "defensive_contribution": 22.4,
-          "creativity": 0.0,
-          "work_rate": 25.8
+          "finishing_quality": 25.0,
+          "offensive_contribution": 0.8,
+          "link_up_play": 37.7,
+          "movement_threat": 28.5
         }
       },
       "positioning_analysis": {
-        "compliance_score": 12.4,
+        "compliance_score": 0,
         "zone_distribution": {
-          "primary": 36.0,
-          "secondary": 24.0,
-          "danger": 40.0
+          "primary": 32.0,
+          "secondary": 12.0,
+          "danger": 56.00000000000001
         },
         "total_events": 25,
         "insights": [
-          "POSITIONING ISSUE: Only 36.0% of actions in primary zone - needs to maintain positional discipline",
-          "HIGH RISK: 40.0% of actions in danger zone - avoid leaving position unattended"
+          "POSITIONING ISSUE: Only 32.0% of actions in primary zone - needs to maintain positional discipline",
+          "HIGH RISK: 56.0% of actions in danger zone - avoid leaving position unattended"
         ]
       },
       "heat_patterns": {
@@ -499,14 +492,14 @@
       },
       "enhanced_insights": "",
       "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 32.1/100 overall rating",
+        "[WARNING] NEEDS IMPROVEMENT: 18.8/100 overall rating",
         "[POOR] positional discipline - key focus area",
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
     "Paul Vincent Mapula": {
       "basic_info": {
-        "position": "RB",
+        "position": "CB",
         "enhanced_rating": 48.0,
         "enhanced_breakdown": {
           "defensive_impact": 32.1,
@@ -551,7 +544,7 @@
     },
     "Shaun Soberano": {
       "basic_info": {
-        "position": "FWB",
+        "position": "CAM",
         "enhanced_rating": 59.8,
         "enhanced_breakdown": {
           "game_control": 100.0,
@@ -562,14 +555,18 @@
         }
       },
       "positioning_analysis": {
-        "compliance_score": 26.7,
+        "compliance_score": 8.2,
         "zone_distribution": {
-          "primary": 41.66666666666667,
-          "secondary": 33.33333333333333,
-          "danger": 25.0
+          "primary": 0.0,
+          "secondary": 72.72727272727273,
+          "danger": 27.27272727272727
         },
-        "total_events": 12,
-        "insights": []
+        "total_events": 11,
+        "insights": [
+          "POSITIONING ISSUE: Only 0.0% of actions in primary zone - needs to maintain positional discipline",
+          "HIGH RISK: 27.3% of actions in danger zone - avoid leaving position unattended",
+          "GOOD mobility: 72.7% in secondary zone shows good tactical flexibility"
+        ]
       },
       "heat_patterns": {
         "concentration_score": 60.2,
@@ -594,27 +591,26 @@
     },
     "Victor Felicia": {
       "basic_info": {
-        "position": "CF",
-        "enhanced_rating": 56.9,
+        "position": "ST",
+        "enhanced_rating": 24.7,
         "enhanced_breakdown": {
-          "game_control": 92.5,
-          "transition_play": 70.0,
-          "defensive_contribution": 30.0,
-          "creativity": 0.0,
-          "work_rate": 56.7
+          "finishing_quality": 25.0,
+          "offensive_contribution": 11.3,
+          "link_up_play": 61.2,
+          "movement_threat": 15.4
         }
       },
       "positioning_analysis": {
-        "compliance_score": 5.4,
+        "compliance_score": 0,
         "zone_distribution": {
-          "primary": 30.76923076923077,
-          "secondary": 23.076923076923077,
-          "danger": 46.15384615384615
+          "primary": 15.384615384615385,
+          "secondary": 30.76923076923077,
+          "danger": 53.84615384615385
         },
         "total_events": 13,
         "insights": [
-          "POSITIONING ISSUE: Only 30.8% of actions in primary zone - needs to maintain positional discipline",
-          "HIGH RISK: 46.2% of actions in danger zone - avoid leaving position unattended"
+          "POSITIONING ISSUE: Only 15.4% of actions in primary zone - needs to maintain positional discipline",
+          "HIGH RISK: 53.8% of actions in danger zone - avoid leaving position unattended"
         ]
       },
       "heat_patterns": {
@@ -633,7 +629,7 @@
       },
       "enhanced_insights": "",
       "tactical_summary": [
-        "[SOLID] CONTRIBUTOR: 56.9/100 overall rating",
+        "[WARNING] NEEDS IMPROVEMENT: 24.7/100 overall rating",
         "[POOR] positional discipline - key focus area",
         "[PERFECT] balance of discipline and mobility"
       ]
@@ -682,9 +678,9 @@
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Kenneth Payosalan": {
+    "Pellejo, Marc": {
       "basic_info": {
-        "position": "FW",
+        "position": "GK",
         "enhanced_rating": 0.0,
         "enhanced_breakdown": {
           "attack": 0,
@@ -714,9 +710,9 @@
         "[NEEDS] tactical positioning improvement"
       ]
     },
-    "Mehdi Qobadi.": {
+    "Mapula, Paul Vincent G.": {
       "basic_info": {
-        "position": "FW",
+        "position": "CB",
         "enhanced_rating": 0.0,
         "enhanced_breakdown": {
           "attack": 0,
@@ -746,9 +742,9 @@
         "[NEEDS] tactical positioning improvement"
       ]
     },
-    "Salar Nezamikhah": {
+    "Tanamor, Jacob": {
       "basic_info": {
-        "position": "CF",
+        "position": "CB",
         "enhanced_rating": 0.0,
         "enhanced_breakdown": {
           "attack": 0,
@@ -778,7 +774,455 @@
         "[NEEDS] tactical positioning improvement"
       ]
     },
-    "Artin Khalifeh Soultany": {
+    "Jardiniano, Jayson": {
+      "basic_info": {
+        "position": "CB",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Lampines, Alexis Jeremy": {
+      "basic_info": {
+        "position": "LWB",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Detoya, Carl": {
+      "basic_info": {
+        "position": "CDM",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Abalos, Nicolai": {
+      "basic_info": {
+        "position": "CDM",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "See, Kirk Eman": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Pedimonte, Viron": {
+      "basic_info": {
+        "position": "RWB",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Marquez, John Ariel": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Mapula, Paul Joshua G.": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Pusing, Djohn Kenji": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Soberano, Shaun": {
+      "basic_info": {
+        "position": "CAM",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Payosalan, Kenneth": {
+      "basic_info": {
+        "position": "CDM",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Qobadi, Mehdi": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Nezamikhah, Salar": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Felicia, Victor": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Soultany, Artin Khalifeh": {
       "basic_info": {
         "position": "RW",
         "enhanced_rating": 0.0,
@@ -810,7 +1254,7 @@
         "[NEEDS] tactical positioning improvement"
       ]
     },
-    "Samaniego M-mil": {
+    "M-mil, Samaniego": {
       "basic_info": {
         "position": "CDM",
         "enhanced_rating": 0.0,
@@ -841,16 +1285,70 @@
         "[POOR] positional discipline - key focus area",
         "[NEEDS] tactical positioning improvement"
       ]
+    },
+    "Tassi, Caleb": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
+    },
+    "Unnamed": {
+      "basic_info": {
+        "position": "",
+        "enhanced_rating": 0.0,
+        "enhanced_breakdown": {
+          "attack": 0,
+          "defense": 0,
+          "distribution": 0,
+          "discipline": 0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {},
+        "insights": []
+      },
+      "heat_patterns": {
+        "concentration_score": 0,
+        "coverage_score": 0,
+        "patterns": []
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[NEEDS] tactical positioning improvement"
+      ]
     }
   }
-=======
-{
-  "report_generated": "2025-11-24T13:27:42.994470",
-  "match_info": {
-    "total_events": 1066,
-    "players_analyzed": 0,
-    "events_with_coordinates": 944
-  },
-  "players": {}
->>>>>>> Stashed changes:output/matches/match_18_sbu_vs_kaya/heatmap_analysis_report.json
 }

@@ -1,65 +1,31 @@
-<<<<<<< Updated upstream
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-Bel Escodo,38.2,76.9,38.7,95.0,"['CDM', 'CDM', 'CDM']",0
-Cesar Ien Bayubay,53.4,30.0,-23.4,78.4,"['LWB', 'FWB', 'FWB']",1
-Jaro Libarnes,80.4,30.0,-50.4,97.4,"['CB', 'CB', 'CB', 'CB', 'LB', 'CB', 'CB', 'LB', 'CB', 'CB']",1
-Jaryl Pineda,22.9,30.0,7.1,94.7,"['CAM', 'LW', 'LW', 'CAM', 'LW', 'CAM']",1
-Jeljel Sison,51.2,93.3,42.1,97.0,"['CB', 'CB', 'CB']",0
-Joselito Soberano Jr.,1.5,30.1,28.6,30.3,"['LWB', 'FW', 'FW']",1
-Jul Aningalan,75.4,30.0,-45.4,97.1,"['CB', 'CB', 'CB', 'CB', 'RB', 'CB', 'CB', 'RB', 'CB', 'CB']",1
-Kirvy Tabelin,52.4,44.6,-7.8,95.2,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
-Kurt Bacaycay,15.0,65.7,50.7,10.9,"['RW', 'RWB', 'RW', 'RW', 'RW', 'RW']",1
-Laurence Fernandez,15.0,69.5,54.5,95.0,"['LW', 'LW', 'LW', 'RW', 'RW', 'LW', 'LW', 'RW', 'LW', 'LW']",1
-Louie Bacnis,66.2,73.1,6.9,94.6,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
-Pedro Tagara,36.7,50.5,13.8,96.7,"['GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK']",0
-Pius Encaya,40.9,34.9,-6.0,96.6,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'FW', 'ST']",1
-Sam Salingay,53.7,57.1,3.4,95.3,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'FW', 'ST']",1
-Stock Rujiro,35.6,35.7,0.1,30.3,"['RWB', 'FW', 'FW']",1
-"Tagara, Pedro",0.0,50.5,50.5,0.0,"['GK', 'GK']",0
-"Libarnes, Jaro",0.0,35.6,35.6,0.0,"['CB', 'CB']",0
-"Aningalan, Jul",0.0,35.6,35.6,0.0,"['CB', 'CB']",0
-"Sison, JelJel",0.0,35.6,35.6,0.0,"['CB', 'CB']",0
-"Bacnis, Louie",0.0,25.0,25.0,0.0,"['CDM', 'CDM']",0
-"Pineda, Jaryl",0.0,30.0,30.0,0.0,"['LW', 'LW']",0
-"Tabelin, Kirvy",0.0,30.0,30.0,0.0,"['CAM', 'CAM']",0
-"Fernandez, Laurence",0.0,14.7,14.7,0.0,"['RW', 'RW']",0
-"Escodo, Bel",0.0,25.0,25.0,0.0,"['CDM', 'CDM']",0
-"Encaya, Pius",0.0,30.0,30.0,0.0,"['ST', 'ST']",0
-"Salingay, Sam",0.0,30.0,30.0,0.0,"['ST', 'ST']",0
-"Mellendrez, Prince",0.0,48.5,48.5,0.0,"['RWB', 'RWB']",0
-"Soberano, Joselito",0.0,48.5,48.5,0.0,"['LWB', 'LWB']",0
-"Rogero, Stock",0.0,48.5,48.5,0.0,"['RWB', 'RWB']",0
-Unnamed,0.0,30.0,30.0,0.0,"[nan, nan]",0
-=======
-player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-Bel Escodo,38.2,49.7,11.5,95.0,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
-Cesar Ien Bayubay,53.4,38.1,-15.3,78.4,"['LWB', 'FWB', 'FWB', 'FWB', 'FWB']",1
-Jaro Libarnes,80.4,38.1,-42.3,97.4,"['CB', 'CB', 'CB', 'CB', 'LB', 'CB', 'CB', 'LB', 'LB', 'LB']",1
-Jaryl Pineda,22.9,22.9,0.0,94.7,"['CAM', 'LW', 'LW', 'CAM', 'LW', 'LW', 'LW']",1
-Jeljel Sison,51.2,93.3,42.1,97.0,"['CB', 'CB', 'CB', 'CB', 'CB']",0
-Joselito Soberano Jr.,1.5,100.0,98.5,30.3,"['LWB', 'FW', 'FW', 'FW', 'FW']",1
-Jul Aningalan,75.4,38.1,-37.3,97.1,"['CB', 'CB', 'CB', 'CB', 'RB', 'CB', 'CB', 'RB', 'RB', 'RB']",1
-Kirvy Tabelin,52.4,62.5,10.1,95.2,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
-Kurt Bacaycay,15.0,15.0,0.0,10.9,"['RW', 'RWB', 'RW', 'RW', 'RW', 'RW', 'RW']",1
-Laurence Fernandez,15.0,15.0,0.0,95.0,"['LW', 'LW', 'LW', 'RW', 'RW', 'LW', 'LW', 'RW', 'RW', 'RW']",1
-Louie Bacnis,66.2,90.9,24.7,94.6,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
-Pedro Tagara,36.7,50.5,13.8,96.7,"['GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK']",0
-Pius Encaya,40.9,77.3,36.4,96.6,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'CF', 'CF']",1
-Sam Salingay,53.7,30.0,-23.7,95.3,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'CF', 'CF']",1
-Stock Rujiro,35.6,30.0,-5.6,30.3,"['RWB', 'FW', 'FW', 'FW', 'FW']",1
-"Tagara, Pedro",0.0,50.5,50.5,0.0,"['GK', 'GK', 'GK', 'GK', 'GK']",0
-"Libarnes, Jaro",0.0,35.6,35.6,0.0,"['CB', 'CB', 'CB', 'CB', 'CB']",0
-"Aningalan, Jul",0.0,35.6,35.6,0.0,"['CB', 'CB', 'CB', 'CB', 'CB']",0
-"Sison, JelJel",0.0,35.6,35.6,0.0,"['CB', 'CB', 'CB', 'CB', 'CB']",0
-"Bacnis, Louie",0.0,29.7,29.7,0.0,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
-"Pineda, Jaryl",0.0,0.0,0.0,0.0,"['LW', 'LW', 'LW', 'LW', 'LW']",0
-"Tabelin, Kirvy",0.0,30.0,30.0,0.0,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
-"Fernandez, Laurence",0.0,0.0,0.0,0.0,"['RW', 'RW', 'RW', 'RW', 'RW']",0
-"Escodo, Bel",0.0,29.7,29.7,0.0,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
-"Encaya, Pius",0.0,0.0,0.0,0.0,"['ST', 'ST', 'ST', 'ST', 'ST']",0
-"Salingay, Sam",0.0,0.0,0.0,0.0,"['ST', 'ST', 'ST', 'ST', 'ST']",0
-"Mellendrez, Prince",0.0,30.0,30.0,0.0,"['RWB', 'RWB', 'RWB', 'RWB', 'RWB']",0
-"Soberano, Joselito",0.0,30.0,30.0,0.0,"['LWB', 'LWB', 'LWB', 'LWB', 'LWB']",0
-"Rogero, Stock",0.0,30.0,30.0,0.0,"['RWB', 'RWB', 'RWB', 'RWB', 'RWB']",0
-Unnamed,0.0,38.1,38.1,0.0,"[nan, nan, nan, nan, nan]",0
->>>>>>> Stashed changes
+Bel Escodo,38.2,63.4,25.2,95.0,['CAM'],0.0
+Cesar Ien Bayubay,53.4,49.9,-3.5,78.4,[],0.0
+Jaro Libarnes,80.4,49.9,-30.5,97.4,"['CB', 'CB']",0.0
+Jaryl Pineda,22.9,30.0,7.1,94.7,['CAM'],0.0
+Jeljel Sison,51.2,93.3,42.1,97.0,[],0.0
+Joselito Soberano Jr.,1.5,30.0,28.5,30.3,[],0.0
+Jul Aningalan,75.4,49.9,-25.5,97.1,"['CB', 'CB']",0.0
+Kirvy Tabelin,52.4,52.2,-0.2,95.2,"['CAM', 'CAM']",0.0
+Kurt Bacaycay,15.0,63.7,48.7,10.9,['RWB'],0.0
+Laurence Fernandez,15.0,71.3,56.3,95.0,"['RW', 'LWB']",1.0
+Louie Bacnis,66.2,84.4,18.2,94.6,['CDM'],0.0
+Pedro Tagara,36.7,50.5,13.8,96.7,['GK'],0.0
+Pius Encaya,40.9,30.0,-10.9,96.6,"['ST', 'ST']",0.0
+Sam Salingay,53.7,42.6,-11.1,95.3,"['ST', 'ST']",0.0
+Stock Rujiro,35.6,52.8,17.2,30.3,[],0.0
+"Tagara, Pedro",0.0,50.5,50.5,0.0,['GK'],0.0
+"Libarnes, Jaro",0.0,35.6,35.6,0.0,"['CB', 'CB']",0.0
+"Aningalan, Jul",0.0,35.6,35.6,0.0,"['CB', 'CB']",0.0
+"Sison, JelJel",0.0,35.6,35.6,0.0,[],0.0
+"Bacnis, Louie",0.0,26.0,26.0,0.0,['CDM'],0.0
+"Pineda, Jaryl",0.0,30.0,30.0,0.0,['CAM'],0.0
+"Tabelin, Kirvy",0.0,30.0,30.0,0.0,"['CAM', 'CAM']",0.0
+"Fernandez, Laurence",0.0,14.9,14.9,0.0,"['RW', 'LWB']",1.0
+"Escodo, Bel",0.0,26.2,26.2,0.0,"['CDM', 'CAM']",1.0
+"Encaya, Pius",0.0,30.0,30.0,0.0,"['ST', 'ST']",0.0
+"Salingay, Sam",0.0,30.0,30.0,0.0,"['ST', 'ST']",0.0
+"Mellendrez, Prince",0.0,30.0,30.0,0.0,['RWB'],0.0
+"Soberano, Joselito",0.0,30.0,30.0,0.0,[],0.0
+"Rogero, Stock",0.0,30.0,30.0,0.0,[],0.0
+Unnamed,0.0,49.9,49.9,0.0,"['CAM', nan, nan]",1.0

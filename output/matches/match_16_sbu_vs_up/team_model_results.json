@@ -1,90 +1,44 @@
-<<<<<<< Updated upstream
 {
   "team": "San Beda University",
-  "timestamp": "2025-11-26T04:39:22.863809+00:00",
-  "total_samples": 918,
+  "timestamp": "2025-11-26T05:15:28.562586+00:00",
+  "total_samples": 1891,
   "simulate_used": true,
   "models": {
     "general": {
       "model_path": "python_scripts/models_team\\team_general.pkl",
-      "R2_test": 0.9347,
-      "R2_CV_mean": 0.8481,
-      "trained_on_samples": 918
+      "R2_test": 0.9978,
+      "R2_CV_mean": 0.9929,
+      "trained_on_samples": 1891
     },
     "attack": {
       "model_path": "python_scripts/models_team\\team_attack.pkl",
-      "R2_test": 0.5945,
-      "R2_CV_mean": 0.5377,
-      "trained_on_samples": 918
+      "R2_test": 0.9887,
+      "R2_CV_mean": 0.9846,
+      "trained_on_samples": 1891
     },
     "defense": {
       "model_path": "python_scripts/models_team\\team_defense.pkl",
-      "R2_test": 0.5893,
-      "R2_CV_mean": 0.5977,
-      "trained_on_samples": 918
+      "R2_test": 0.9885,
+      "R2_CV_mean": 0.9851,
+      "trained_on_samples": 1891
     },
     "distribution": {
       "model_path": "python_scripts/models_team\\team_distribution.pkl",
-      "R2_test": 0.946,
-      "R2_CV_mean": 0.9237,
-      "trained_on_samples": 918
+      "R2_test": 0.9981,
+      "R2_CV_mean": 0.9949,
+      "trained_on_samples": 1891
     },
     "discipline": {
       "model_path": "python_scripts/models_team\\team_discipline.pkl",
-      "R2_test": 0.8759,
-      "R2_CV_mean": 0.763,
-      "trained_on_samples": 918
+      "R2_test": 0.9963,
+      "R2_CV_mean": 0.9937,
+      "trained_on_samples": 1891
     },
     "overall": {
       "model_path": "python_scripts/models_team\\team_overall.pkl",
-      "R2_test": -0.0522,
-      "R2_CV_mean": -0.0976,
-      "trained_on_samples": 918
+      "R2_test": 0.964,
+      "R2_CV_mean": 0.9471,
+      "trained_on_samples": 1891
     }
   }
-=======
-{
-  "team": "San Beda University",
-  "timestamp": "2025-11-23T11:22:11.830685+00:00",
-  "total_samples": 561,
-  "simulate_used": true,
-  "models": {
-    "general": {
-      "model_path": "python_scripts/models_team\\team_general.pkl",
-      "R2_test": -0.0935,
-      "R2_CV_mean": 0.8331,
-      "trained_on_samples": 561
-    },
-    "attack": {
-      "model_path": "python_scripts/models_team\\team_attack.pkl",
-      "R2_test": 0.1305,
-      "R2_CV_mean": 0.633,
-      "trained_on_samples": 561
-    },
-    "defense": {
-      "model_path": "python_scripts/models_team\\team_defense.pkl",
-      "R2_test": -0.0603,
-      "R2_CV_mean": 0.6497,
-      "trained_on_samples": 561
-    },
-    "distribution": {
-      "model_path": "python_scripts/models_team\\team_distribution.pkl",
-      "R2_test": 0.8203,
-      "R2_CV_mean": 0.8862,
-      "trained_on_samples": 561
-    },
-    "discipline": {
-      "model_path": "python_scripts/models_team\\team_discipline.pkl",
-      "R2_test": -0.3706,
-      "R2_CV_mean": 0.8182,
-      "trained_on_samples": 561
-    },
-    "overall": {
-      "model_path": "python_scripts/models_team\\team_overall.pkl",
-      "R2_test": -0.0365,
-      "R2_CV_mean": -0.2329,
-      "trained_on_samples": 561
-    }
-  }
->>>>>>> Stashed changes
 }

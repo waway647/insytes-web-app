@@ -2,11 +2,11 @@
     "match_id": "19",
     "match_name": "match_19_sbu_vs_2wfc",
     "team": "San Beda University",
-    "generated_at": "2025-11-24T06:01:51.029810+00:00",
+    "generated_at": "2025-11-26T05:08:25.024101+00:00",
     "player_summary": {
         "total_players": 23,
         "players_improving": 21,
-        "players_declining": 0,
+        "players_declining": 1,
         "key_performers_count": 0
     },
     "players": [
@@ -53,9 +53,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 33.33
             },
-            "predicted_dpr": 70.8,
-            "dpr_change": 25.0,
-            "enhanced_insight": "**Bel Escodo** (CAM) - Support player | Current: Developing DPR 45.8   Predicted: 70.8 (+25.0) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 72.1,
+            "dpr_change": 26.3,
+            "enhanced_insight": "**Bel Escodo** (CAM) - Support player | Current: Developing DPR 45.8   Predicted: 72.1 (+26.3) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Support player",
@@ -107,9 +107,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 72.7,
-            "dpr_change": 28.4,
-            "enhanced_insight": "**Diegocarl Digal** (CB) - Developing defender | Current: Developing DPR 44.3   Predicted: 72.7 (+28.4) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 77.1,
+            "dpr_change": 32.8,
+            "enhanced_insight": "**Diegocarl Digal** (CB) - Developing defender | Current: Developing DPR 44.3   Predicted: 77.1 (+32.8) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Developing defender",
@@ -161,9 +161,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 37.5
             },
-            "predicted_dpr": 52.4,
-            "dpr_change": 12.2,
-            "enhanced_insight": "**Edvard Omitade** (RWB) - Versatile player | Current: Developing DPR 40.2   Predicted: 52.4 (+12.2) | Trend: Major improvement expected | Strengths: Efficient shooting | Focus: Passing accuracy and decision-making, Tactical discipline",
+            "predicted_dpr": 53.1,
+            "dpr_change": 12.9,
+            "enhanced_insight": "**Edvard Omitade** (RWB) - Versatile player | Current: Developing DPR 40.2   Predicted: 53.1 (+12.9) | Trend: Major improvement expected | Strengths: Efficient shooting | Focus: Passing accuracy and decision-making, Tactical discipline",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Versatile player",
@@ -218,9 +218,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
             },
-            "predicted_dpr": 58.7,
-            "dpr_change": -0.9,
-            "enhanced_insight": "**Harvy Barro** (CDM) - Deep-lying playmaker | Current: Solid DPR 59.6   Predicted: 58.7 (-0.9) | Trend: Maintaining level | Strengths: Duel dominance | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 51.9,
+            "dpr_change": -7.7,
+            "enhanced_insight": "**Harvy Barro** (CDM) - Deep-lying playmaker | Current: Solid DPR 59.6   Predicted: 51.9 (-7.7) | Trend: Slight decline expected | Strengths: Duel dominance | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Reliable performer - good for consistent minutes and team balance",
             "badge": "Solid Contributor",
             "tactical_role": "Deep-lying playmaker",
@@ -274,9 +274,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
             },
-            "predicted_dpr": 75.8,
-            "dpr_change": 29.9,
-            "enhanced_insight": "**Jaro Libarnes** (CB) - Developing defender | Current: Developing DPR 45.9   Predicted: 75.8 (+29.9) | Trend: Major improvement expected | Strengths: Duel dominance | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 77.2,
+            "dpr_change": 31.3,
+            "enhanced_insight": "**Jaro Libarnes** (CB) - Developing defender | Current: Developing DPR 45.9   Predicted: 77.2 (+31.3) | Trend: Major improvement expected | Strengths: Duel dominance | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Developing defender",
@@ -330,9 +330,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 76.4,
-            "dpr_change": 35.4,
-            "enhanced_insight": "**Jul Aningalan** (CB) - Developing defender | Current: Developing DPR 41.0   Predicted: 76.4 (+35.4) | Trend: Major improvement expected | Strengths: Tackling ability | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 70.4,
+            "dpr_change": 29.4,
+            "enhanced_insight": "**Jul Aningalan** (CB) - Developing defender | Current: Developing DPR 41.0   Predicted: 70.4 (+29.4) | Trend: Major improvement expected | Strengths: Tackling ability | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Developing defender",
@@ -387,9 +387,9 @@
                 "key_pass_rate_pct_p90": 8.33,
                 "duel_success_rate_pct_p90": 50.0
             },
-            "predicted_dpr": 78.9,
-            "dpr_change": 11.5,
-            "enhanced_insight": "**Kirvy Tabelin** (CAM) - Creative playmaker | Current: Solid DPR 67.4   Predicted: 78.9 (+11.5) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 77.7,
+            "dpr_change": 10.3,
+            "enhanced_insight": "**Kirvy Tabelin** (CAM) - Creative playmaker | Current: Solid DPR 67.4   Predicted: 77.7 (+10.3) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Solid Contributor",
             "tactical_role": "Creative playmaker",
@@ -441,9 +441,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 75.0
             },
-            "predicted_dpr": 52.4,
-            "dpr_change": -2.1,
-            "enhanced_insight": "**Laurence Fernandez** (LWB) - Versatile player | Current: Solid DPR 54.5   Predicted: 52.4 (-2.1) | Trend: Maintaining level | Strengths: Efficient shooting, Duel dominance | Focus: Passing accuracy and decision-making, Tactical discipline",
+            "predicted_dpr": 53.1,
+            "dpr_change": -1.4,
+            "enhanced_insight": "**Laurence Fernandez** (LWB) - Versatile player | Current: Solid DPR 54.5   Predicted: 53.1 (-1.4) | Trend: Maintaining level | Strengths: Efficient shooting, Duel dominance | Focus: Passing accuracy and decision-making, Tactical discipline",
             "match_recommendation": "Reliable performer - good for consistent minutes and team balance",
             "badge": "Solid Contributor",
             "tactical_role": "Versatile player",
@@ -563,9 +563,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 83.8,
-            "dpr_change": 64.8,
-            "enhanced_insight": "**Pius Encaya** (ST) - Target man | Current: Needs Focus DPR 19.0   Predicted: 83.8 (+64.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 68.9,
+            "dpr_change": 49.9,
+            "enhanced_insight": "**Pius Encaya** (ST) - Target man | Current: Needs Focus DPR 19.0   Predicted: 68.9 (+49.9) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -617,9 +617,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 33.33
             },
-            "predicted_dpr": 64.2,
-            "dpr_change": 44.2,
-            "enhanced_insight": "**Sam Salingay** (ST) - Target man | Current: Needs Focus DPR 20.0   Predicted: 64.2 (+44.2) | Trend: Major improvement expected | Strengths: Tackling ability | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 80.4,
+            "dpr_change": 60.4,
+            "enhanced_insight": "**Sam Salingay** (ST) - Target man | Current: Needs Focus DPR 20.0   Predicted: 80.4 (+60.4) | Trend: Major improvement expected | Strengths: Tackling ability | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -671,9 +671,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 25.0,
-            "dpr_change": 25.0,
-            "enhanced_insight": "**Libarnes, Jaro** (CB) - Developing defender | Current: Needs Focus DPR 0.0   Predicted: 25.0 (+25.0) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 25.1,
+            "dpr_change": 25.1,
+            "enhanced_insight": "**Libarnes, Jaro** (CB) - Developing defender | Current: Needs Focus DPR 0.0   Predicted: 25.1 (+25.1) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Developing defender",
@@ -697,9 +697,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 25.0,
-            "dpr_change": 25.0,
-            "enhanced_insight": "**Aningalan, Jul** (CB) - Developing defender | Current: Needs Focus DPR 0.0   Predicted: 25.0 (+25.0) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 25.1,
+            "dpr_change": 25.1,
+            "enhanced_insight": "**Aningalan, Jul** (CB) - Developing defender | Current: Needs Focus DPR 0.0   Predicted: 25.1 (+25.1) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Developing defender",
@@ -723,9 +723,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 25.0,
-            "dpr_change": 25.0,
-            "enhanced_insight": "**Digal, Diegocarl** (CB) - Developing defender | Current: Needs Focus DPR 0.0   Predicted: 25.0 (+25.0) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 25.1,
+            "dpr_change": 25.1,
+            "enhanced_insight": "**Digal, Diegocarl** (CB) - Developing defender | Current: Needs Focus DPR 0.0   Predicted: 25.1 (+25.1) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Developing defender",
@@ -775,9 +775,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 25.2,
-            "dpr_change": 25.2,
-            "enhanced_insight": "**Escodo, Bel** (CAM) - Support player | Current: Needs Focus DPR 0.0   Predicted: 25.2 (+25.2) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 25.1,
+            "dpr_change": 25.1,
+            "enhanced_insight": "**Escodo, Bel** (CAM) - Support player | Current: Needs Focus DPR 0.0   Predicted: 25.1 (+25.1) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Support player",
@@ -801,9 +801,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 25.2,
-            "dpr_change": 25.2,
-            "enhanced_insight": "**Tabelin, Kirvy** (CAM) - Support player | Current: Needs Focus DPR 0.0   Predicted: 25.2 (+25.2) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 25.1,
+            "dpr_change": 25.1,
+            "enhanced_insight": "**Tabelin, Kirvy** (CAM) - Support player | Current: Needs Focus DPR 0.0   Predicted: 25.1 (+25.1) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Support player",
@@ -879,9 +879,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 26.0,
-            "dpr_change": 26.0,
-            "enhanced_insight": "**Encaya, Pius** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 26.0 (+26.0) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 25.3,
+            "dpr_change": 25.3,
+            "enhanced_insight": "**Encaya, Pius** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 25.3 (+25.3) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -905,9 +905,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 26.0,
-            "dpr_change": 26.0,
-            "enhanced_insight": "**Salingay, Sam** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 26.0 (+26.0) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 25.3,
+            "dpr_change": 25.3,
+            "enhanced_insight": "**Salingay, Sam** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 25.3 (+25.3) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -931,9 +931,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 34.1,
-            "dpr_change": 34.1,
-            "enhanced_insight": "**Unnamed** () - Versatile player | Current: Needs Focus DPR 0.0   Predicted: 34.1 (+34.1) | Trend: Major improvement expected | Focus: Passing accuracy and decision-making, Tactical discipline",
+            "predicted_dpr": 49.9,
+            "dpr_change": 49.9,
+            "enhanced_insight": "**Unnamed** () - Versatile player | Current: Needs Focus DPR 0.0   Predicted: 49.9 (+49.9) | Trend: Major improvement expected | Focus: Passing accuracy and decision-making, Tactical discipline",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Versatile player",
@@ -948,49 +948,49 @@
         "elite": [
             {
                 "name": "Bel Escodo",
-                "predicted_dpr": 70.8
+                "predicted_dpr": 72.1
             },
             {
                 "name": "Diegocarl Digal",
-                "predicted_dpr": 72.7
+                "predicted_dpr": 77.1
             },
             {
                 "name": "Jaro Libarnes",
-                "predicted_dpr": 75.8
+                "predicted_dpr": 77.2
             },
             {
                 "name": "Jul Aningalan",
-                "predicted_dpr": 76.4
+                "predicted_dpr": 70.4
             },
             {
                 "name": "Kirvy Tabelin",
-                "predicted_dpr": 78.9
+                "predicted_dpr": 77.7
             },
             {
-                "name": "Pius Encaya",
-                "predicted_dpr": 83.8
+                "name": "Sam Salingay",
+                "predicted_dpr": 80.4
             }
         ],
         "solid": [
             {
                 "name": "Edvard Omitade",
-                "predicted_dpr": 52.4
+                "predicted_dpr": 53.1
             },
             {
                 "name": "Harvy Barro",
-                "predicted_dpr": 58.7
+                "predicted_dpr": 51.9
             },
             {
                 "name": "Laurence Fernandez",
-                "predicted_dpr": 52.4
+                "predicted_dpr": 53.1
             },
             {
                 "name": "Pedro Tagara",
                 "predicted_dpr": 50.5
             },
             {
-                "name": "Sam Salingay",
-                "predicted_dpr": 64.2
+                "name": "Pius Encaya",
+                "predicted_dpr": 68.9
             },
             {
                 "name": "Tagara, Pedro",
@@ -1000,15 +1000,15 @@
         "developing": [
             {
                 "name": "Libarnes, Jaro",
-                "predicted_dpr": 25.0
+                "predicted_dpr": 25.1
             },
             {
                 "name": "Aningalan, Jul",
-                "predicted_dpr": 25.0
+                "predicted_dpr": 25.1
             },
             {
                 "name": "Digal, Diegocarl",
-                "predicted_dpr": 25.0
+                "predicted_dpr": 25.1
             },
             {
                 "name": "Barro, Harvy",
@@ -1016,11 +1016,11 @@
             },
             {
                 "name": "Escodo, Bel",
-                "predicted_dpr": 25.2
+                "predicted_dpr": 25.1
             },
             {
                 "name": "Tabelin, Kirvy",
-                "predicted_dpr": 25.2
+                "predicted_dpr": 25.1
             },
             {
                 "name": "Fernandez, Laurence",
@@ -1032,39 +1032,43 @@
             },
             {
                 "name": "Encaya, Pius",
-                "predicted_dpr": 26.0
+                "predicted_dpr": 25.3
             },
             {
                 "name": "Salingay, Sam",
-                "predicted_dpr": 26.0
+                "predicted_dpr": 25.3
             },
             {
                 "name": "Unnamed",
-                "predicted_dpr": 34.1
+                "predicted_dpr": 49.9
             }
         ]
     },
     "form_analysis": {
         "rising_stars": [
             {
-                "name": "Pius Encaya",
-                "change": 64.8
+                "name": "Sam Salingay",
+                "change": 60.4
             },
             {
                 "name": "Tagara, Pedro",
                 "change": 50.5
             },
             {
-                "name": "Sam Salingay",
-                "change": 44.2
-            },
-            {
-                "name": "Jul Aningalan",
-                "change": 35.4
+                "name": "Pius Encaya",
+                "change": 49.9
             },
             {
                 "name": "Unnamed",
-                "change": 34.1
+                "change": 49.9
+            },
+            {
+                "name": "Diegocarl Digal",
+                "change": 32.8
+            },
+            {
+                "name": "Jaro Libarnes",
+                "change": 31.3
             },
             {
                 "name": "Barro, Harvy",
@@ -1079,59 +1083,60 @@
                 "change": 30.0
             },
             {
-                "name": "Jaro Libarnes",
-                "change": 29.9
-            },
-            {
-                "name": "Diegocarl Digal",
-                "change": 28.4
-            },
-            {
-                "name": "Encaya, Pius",
-                "change": 26.0
-            },
-            {
-                "name": "Salingay, Sam",
-                "change": 26.0
-            },
-            {
-                "name": "Escodo, Bel",
-                "change": 25.2
-            },
-            {
-                "name": "Tabelin, Kirvy",
-                "change": 25.2
+                "name": "Jul Aningalan",
+                "change": 29.4
             },
             {
                 "name": "Bel Escodo",
-                "change": 25.0
+                "change": 26.3
+            },
+            {
+                "name": "Encaya, Pius",
+                "change": 25.3
+            },
+            {
+                "name": "Salingay, Sam",
+                "change": 25.3
             },
             {
                 "name": "Libarnes, Jaro",
-                "change": 25.0
+                "change": 25.1
             },
             {
                 "name": "Aningalan, Jul",
-                "change": 25.0
+                "change": 25.1
             },
             {
                 "name": "Digal, Diegocarl",
-                "change": 25.0
+                "change": 25.1
+            },
+            {
+                "name": "Escodo, Bel",
+                "change": 25.1
+            },
+            {
+                "name": "Tabelin, Kirvy",
+                "change": 25.1
             },
             {
                 "name": "Edvard Omitade",
-                "change": 12.2
+                "change": 12.9
             },
             {
                 "name": "Kirvy Tabelin",
-                "change": 11.5
+                "change": 10.3
             },
             {
                 "name": "Pedro Tagara",
                 "change": 9.0
             }
         ],
-        "declining_form": []
+        "declining_form": [
+            {
+                "name": "Harvy Barro",
+                "change": -7.7
+            }
+        ]
     },
     "positional_strength": {
         "attack": {
@@ -1158,16 +1163,16 @@
     ],
     "biggest_gainers": [
         {
-            "name": "Pius Encaya",
-            "change": 64.8
+            "name": "Sam Salingay",
+            "change": 60.4
         },
         {
             "name": "Tagara, Pedro",
             "change": 50.5
         },
         {
-            "name": "Sam Salingay",
-            "change": 44.2
+            "name": "Pius Encaya",
+            "change": 49.9
         }
     ],
     "key_players": [
@@ -1212,22 +1217,22 @@
                 "rank": 1,
                 "name": "Laurence Fernandez",
                 "position": "LWB",
-                "insight": "**Laurence Fernandez** (LWB) - Finishing quality needs significant improvement. Needs to improve chance creation (0.0/100). Positioning in final third needs work (0.0/100). Needs to improve link-up play with teammates.  (Predicted DPR: 52.4)",
-                "predicted_dpr": 52.4
+                "insight": "**Laurence Fernandez** (LWB) - Finishing quality needs significant improvement. Needs to improve chance creation (0.0/100). Positioning in final third needs work (0.0/100). Needs to improve link-up play with teammates.  (Predicted DPR: 53.1)",
+                "predicted_dpr": 53.1
             },
             {
                 "rank": 2,
                 "name": "Edvard Omitade",
                 "position": "RWB",
-                "insight": "**Edvard Omitade** (RWB) - Finishing quality needs significant improvement. Needs to improve chance creation (0.0/100). Positioning in final third needs work (0.0/100). Needs to improve link-up play with teammates.  (Predicted DPR: 52.4)",
-                "predicted_dpr": 52.4
+                "insight": "**Edvard Omitade** (RWB) - Finishing quality needs significant improvement. Needs to improve chance creation (0.0/100). Positioning in final third needs work (0.0/100). Needs to improve link-up play with teammates.  (Predicted DPR: 53.1)",
+                "predicted_dpr": 53.1
             },
             {
                 "rank": 3,
                 "name": "Kirvy Tabelin",
                 "position": "CAM",
-                "insight": "**Kirvy Tabelin** (CAM) - Finishing quality needs significant improvement. Needs to improve chance creation (0.0/100). Positioning in final third needs work (0.0/100). Needs to improve link-up play with teammates.  (Predicted DPR: 78.9)",
-                "predicted_dpr": 78.9
+                "insight": "**Kirvy Tabelin** (CAM) - Finishing quality needs significant improvement. Needs to improve chance creation (0.0/100). Positioning in final third needs work (0.0/100). Needs to improve link-up play with teammates.  (Predicted DPR: 77.7)",
+                "predicted_dpr": 77.7
             }
         ]
     },
@@ -1260,22 +1265,22 @@
                 "rank": 1,
                 "name": "Harvy Barro",
                 "position": "CDM",
-                "insight": "**Harvy Barro** (CDM) - Defensive impact needs improvement (0.0/100) - focus on tackle timing and pressure. Needs work on build-up quality (0.0/100). Must improve positioning discipline (0.0/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 58.7)",
-                "predicted_dpr": 58.7
+                "insight": "**Harvy Barro** (CDM) - Defensive impact needs improvement (0.0/100) - focus on tackle timing and pressure. Needs work on build-up quality (0.0/100). Must improve positioning discipline (0.0/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 51.9)",
+                "predicted_dpr": 51.9
             },
             {
                 "rank": 2,
                 "name": "Sam Salingay",
                 "position": "ST",
-                "insight": "**Sam Salingay** (ST) - Defensive impact needs improvement (0.0/100) - focus on tackle timing and pressure. Needs work on build-up quality (0.0/100). Must improve positioning discipline (0.0/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 64.2)",
-                "predicted_dpr": 64.2
+                "insight": "**Sam Salingay** (ST) - Defensive impact needs improvement (0.0/100) - focus on tackle timing and pressure. Needs work on build-up quality (0.0/100). Must improve positioning discipline (0.0/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 80.4)",
+                "predicted_dpr": 80.4
             },
             {
                 "rank": 3,
                 "name": "Diegocarl Digal",
                 "position": "CB",
-                "insight": "**Diegocarl Digal** (CB) - Defensive impact needs improvement (30.0/100) - focus on tackle timing and pressure. Good passing contribution (76.8/100). Must improve positioning discipline (24.0/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 72.7)",
-                "predicted_dpr": 72.7
+                "insight": "**Diegocarl Digal** (CB) - Defensive impact needs improvement (30.0/100) - focus on tackle timing and pressure. Good passing contribution (76.8/100). Must improve positioning discipline (24.0/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 77.1)",
+                "predicted_dpr": 77.1
             }
         ]
     },
@@ -1308,175 +1313,31 @@
                 "rank": 1,
                 "name": "Harvy Barro",
                 "position": "CDM",
-                "insight": "**Harvy Barro** (CDM) - Exceptional game control (89.2/100) - dictates tempo excellently. Good progressive passing (61.0/100). Lacks creativity (0.0/100) - needs more key passes and assists.  (Predicted DPR: 58.7)",
-                "predicted_dpr": 58.7
+                "insight": "**Harvy Barro** (CDM) - Exceptional game control (89.2/100) - dictates tempo excellently. Good progressive passing (61.0/100). Lacks creativity (0.0/100) - needs more key passes and assists.  (Predicted DPR: 51.9)",
+                "predicted_dpr": 51.9
             },
             {
                 "rank": 2,
                 "name": "Kirvy Tabelin",
                 "position": "CAM",
-                "insight": "**Kirvy Tabelin** (CAM) - Strong possession control (80.0/100). Excellent transition play (74.6/100). Shows creative passing (95.3/100).  (Predicted DPR: 78.9)",
-                "predicted_dpr": 78.9
+                "insight": "**Kirvy Tabelin** (CAM) - Strong possession control (80.0/100). Excellent transition play (74.6/100). Shows creative passing (95.3/100).  (Predicted DPR: 77.7)",
+                "predicted_dpr": 77.7
             },
             {
                 "rank": 3,
                 "name": "Jul Aningalan",
                 "position": "CB",
-                "insight": "**Jul Aningalan** (CB) - Outstanding passing contribution (86.1/100).  (Predicted DPR: 76.4)",
-                "predicted_dpr": 76.4
+                "insight": "**Jul Aningalan** (CB) - Outstanding passing contribution (86.1/100).  (Predicted DPR: 70.4)",
+                "predicted_dpr": 70.4
             }
         ]
     },
     "ui_table": [
         {
-            "player_name": "Kirvy Tabelin",
-            "position": "CAM",
-            "minutes_played": 96.0,
-            "rating": 6.7,
-            "goals": 0.0,
-            "assists": 3.0,
-            "shots_on_target": 1.0,
-            "key_passes": 3.0,
-            "progressive_passes": 12.0,
-            "passing_accuracy_pct": 75.0,
-            "duels_won_pct": 49.7,
-            "recoveries": 2.0,
-            "dpr": 67.4,
-            "notes": "Solid contributor; Creative threat; Distribution focus; Trending up."
-        },
-        {
-            "player_name": "Harvy Barro",
-            "position": "CDM",
-            "minutes_played": 95.0,
-            "rating": 6.0,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 11.0,
-            "passing_accuracy_pct": 84.2,
-            "duels_won_pct": 94.0,
-            "recoveries": 2.0,
-            "dpr": 59.6,
-            "notes": "Solid contributor; Distribution focus."
-        },
-        {
-            "player_name": "Laurence Fernandez",
-            "position": "LWB",
-            "minutes_played": 95.0,
-            "rating": 5.5,
-            "goals": 2.0,
-            "assists": 0.0,
-            "shots_on_target": 4.0,
-            "key_passes": 0.0,
-            "progressive_passes": 5.0,
-            "passing_accuracy_pct": 90.0,
-            "duels_won_pct": 75.1,
-            "recoveries": 4.0,
-            "dpr": 54.5,
-            "notes": "Solid contributor."
-        },
-        {
-            "player_name": "Jaro Libarnes",
-            "position": "CB",
-            "minutes_played": 97.0,
-            "rating": 4.6,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 6.0,
-            "passing_accuracy_pct": 65.2,
-            "duels_won_pct": 93.0,
-            "recoveries": 3.0,
-            "dpr": 45.9,
-            "notes": "Rising star potential; Defensive actions; Trending up."
-        },
-        {
-            "player_name": "Bel Escodo",
-            "position": "CAM",
-            "minutes_played": 95.0,
-            "rating": 4.6,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 5.0,
-            "passing_accuracy_pct": 73.7,
-            "duels_won_pct": 33.3,
-            "recoveries": 0.0,
-            "dpr": 45.8,
-            "notes": "Rising star potential; Trending up."
-        },
-        {
-            "player_name": "Diegocarl Digal",
-            "position": "CB",
-            "minutes_played": 95.0,
-            "rating": 4.4,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 4.0,
-            "passing_accuracy_pct": 96.4,
-            "duels_won_pct": 0.0,
-            "recoveries": 0.0,
-            "dpr": 44.3,
-            "notes": "Rising star potential; Defensive actions; Accurate passing; Trending up."
-        },
-        {
-            "player_name": "Pedro Tagara",
-            "position": "GK",
-            "minutes_played": 95.0,
-            "rating": 4.2,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 1.0,
-            "passing_accuracy_pct": 100.0,
-            "duels_won_pct": 0.0,
-            "recoveries": 1.0,
-            "dpr": 41.5,
-            "notes": "Trending up."
-        },
-        {
-            "player_name": "Jul Aningalan",
-            "position": "CB",
-            "minutes_played": 97.0,
-            "rating": 4.1,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 6.0,
-            "passing_accuracy_pct": 97.1,
-            "duels_won_pct": 0.0,
-            "recoveries": 1.0,
-            "dpr": 41.0,
-            "notes": "Rising star potential; Accurate passing; Trending up."
-        },
-        {
-            "player_name": "Edvard Omitade",
-            "position": "RWB",
-            "minutes_played": 91.0,
-            "rating": 4.0,
-            "goals": 2.0,
-            "assists": 0.0,
-            "shots_on_target": 2.0,
-            "key_passes": 0.0,
-            "progressive_passes": 3.0,
-            "passing_accuracy_pct": 88.2,
-            "duels_won_pct": 37.4,
-            "recoveries": 2.0,
-            "dpr": 40.2,
-            "notes": "Rising star potential; Trending up."
-        },
-        {
             "player_name": "Sam Salingay",
             "position": "ST",
             "minutes_played": 95.0,
-            "rating": 2.0,
+            "rating": 8.0,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1485,14 +1346,94 @@
             "passing_accuracy_pct": 69.2,
             "duels_won_pct": 33.3,
             "recoveries": 2.0,
-            "dpr": 20.0,
+            "dpr": 80.4,
             "notes": "Rising star potential; Link-up play; Trending up."
+        },
+        {
+            "player_name": "Kirvy Tabelin",
+            "position": "CAM",
+            "minutes_played": 96.0,
+            "rating": 7.8,
+            "goals": 0.0,
+            "assists": 3.0,
+            "shots_on_target": 1.0,
+            "key_passes": 3.0,
+            "progressive_passes": 12.0,
+            "passing_accuracy_pct": 75.0,
+            "duels_won_pct": 49.7,
+            "recoveries": 2.0,
+            "dpr": 77.7,
+            "notes": "Solid contributor; Creative threat; Distribution focus; Trending up."
+        },
+        {
+            "player_name": "Jaro Libarnes",
+            "position": "CB",
+            "minutes_played": 97.0,
+            "rating": 7.7,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 6.0,
+            "passing_accuracy_pct": 65.2,
+            "duels_won_pct": 93.0,
+            "recoveries": 3.0,
+            "dpr": 77.2,
+            "notes": "Rising star potential; Defensive actions; Trending up."
+        },
+        {
+            "player_name": "Diegocarl Digal",
+            "position": "CB",
+            "minutes_played": 95.0,
+            "rating": 7.7,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 4.0,
+            "passing_accuracy_pct": 96.4,
+            "duels_won_pct": 0.0,
+            "recoveries": 0.0,
+            "dpr": 77.1,
+            "notes": "Rising star potential; Defensive actions; Accurate passing; Trending up."
+        },
+        {
+            "player_name": "Bel Escodo",
+            "position": "CAM",
+            "minutes_played": 95.0,
+            "rating": 7.2,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 5.0,
+            "passing_accuracy_pct": 73.7,
+            "duels_won_pct": 33.3,
+            "recoveries": 0.0,
+            "dpr": 72.1,
+            "notes": "Rising star potential; Trending up."
+        },
+        {
+            "player_name": "Jul Aningalan",
+            "position": "CB",
+            "minutes_played": 97.0,
+            "rating": 7.0,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 6.0,
+            "passing_accuracy_pct": 97.1,
+            "duels_won_pct": 0.0,
+            "recoveries": 1.0,
+            "dpr": 70.4,
+            "notes": "Rising star potential; Accurate passing; Trending up."
         },
         {
             "player_name": "Pius Encaya",
             "position": "ST",
             "minutes_played": 95.0,
-            "rating": 1.9,
+            "rating": 6.9,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1501,14 +1442,78 @@
             "passing_accuracy_pct": 75.0,
             "duels_won_pct": 0.0,
             "recoveries": 2.0,
-            "dpr": 19.0,
+            "dpr": 68.9,
             "notes": "Rising star potential; Link-up play; Trending up."
+        },
+        {
+            "player_name": "Edvard Omitade",
+            "position": "RWB",
+            "minutes_played": 91.0,
+            "rating": 5.3,
+            "goals": 2.0,
+            "assists": 0.0,
+            "shots_on_target": 2.0,
+            "key_passes": 0.0,
+            "progressive_passes": 3.0,
+            "passing_accuracy_pct": 88.2,
+            "duels_won_pct": 37.4,
+            "recoveries": 2.0,
+            "dpr": 53.1,
+            "notes": "Rising star potential; Trending up."
+        },
+        {
+            "player_name": "Laurence Fernandez",
+            "position": "LWB",
+            "minutes_played": 95.0,
+            "rating": 5.3,
+            "goals": 2.0,
+            "assists": 0.0,
+            "shots_on_target": 4.0,
+            "key_passes": 0.0,
+            "progressive_passes": 5.0,
+            "passing_accuracy_pct": 90.0,
+            "duels_won_pct": 75.1,
+            "recoveries": 4.0,
+            "dpr": 53.1,
+            "notes": "Solid contributor."
+        },
+        {
+            "player_name": "Harvy Barro",
+            "position": "CDM",
+            "minutes_played": 95.0,
+            "rating": 5.2,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 11.0,
+            "passing_accuracy_pct": 84.2,
+            "duels_won_pct": 94.0,
+            "recoveries": 2.0,
+            "dpr": 51.9,
+            "notes": "Solid contributor; Distribution focus; Needs support."
+        },
+        {
+            "player_name": "Pedro Tagara",
+            "position": "GK",
+            "minutes_played": 95.0,
+            "rating": 5.0,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 1.0,
+            "passing_accuracy_pct": 100.0,
+            "duels_won_pct": 0.0,
+            "recoveries": 1.0,
+            "dpr": 50.5,
+            "notes": "Trending up."
         },
         {
             "player_name": "Tagara, Pedro",
             "position": "GK",
             "minutes_played": 0.0,
-            "rating": 1.0,
+            "rating": 5.0,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1517,14 +1522,14 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 0.0,
+            "dpr": 50.5,
             "notes": "Rising star potential; Trending up."
         },
         {
-            "player_name": "Libarnes, Jaro",
-            "position": "CB",
+            "player_name": "Unnamed",
+            "position": "",
             "minutes_played": 0.0,
-            "rating": 1.0,
+            "rating": 5.0,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1533,46 +1538,14 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 0.0,
-            "notes": "Rising star potential; Trending up."
-        },
-        {
-            "player_name": "Aningalan, Jul",
-            "position": "CB",
-            "minutes_played": 0.0,
-            "rating": 1.0,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 0.0,
-            "passing_accuracy_pct": 0.0,
-            "duels_won_pct": 0.0,
-            "recoveries": 0.0,
-            "dpr": 0.0,
-            "notes": "Rising star potential; Trending up."
-        },
-        {
-            "player_name": "Digal, Diegocarl",
-            "position": "CB",
-            "minutes_played": 0.0,
-            "rating": 1.0,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 0.0,
-            "passing_accuracy_pct": 0.0,
-            "duels_won_pct": 0.0,
-            "recoveries": 0.0,
-            "dpr": 0.0,
+            "dpr": 49.9,
             "notes": "Rising star potential; Trending up."
         },
         {
             "player_name": "Barro, Harvy",
             "position": "CDM",
             "minutes_played": 0.0,
-            "rating": 1.0,
+            "rating": 3.0,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1581,46 +1554,14 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 0.0,
-            "notes": "Rising star potential; Trending up."
-        },
-        {
-            "player_name": "Escodo, Bel",
-            "position": "CAM",
-            "minutes_played": 0.0,
-            "rating": 1.0,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 0.0,
-            "passing_accuracy_pct": 0.0,
-            "duels_won_pct": 0.0,
-            "recoveries": 0.0,
-            "dpr": 0.0,
-            "notes": "Rising star potential; Trending up."
-        },
-        {
-            "player_name": "Tabelin, Kirvy",
-            "position": "CAM",
-            "minutes_played": 0.0,
-            "rating": 1.0,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 0.0,
-            "passing_accuracy_pct": 0.0,
-            "duels_won_pct": 0.0,
-            "recoveries": 0.0,
-            "dpr": 0.0,
+            "dpr": 30.0,
             "notes": "Rising star potential; Trending up."
         },
         {
             "player_name": "Fernandez, Laurence",
             "position": "LWB",
             "minutes_played": 0.0,
-            "rating": 1.0,
+            "rating": 3.0,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1629,14 +1570,14 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 0.0,
+            "dpr": 30.0,
             "notes": "Rising star potential; Trending up."
         },
         {
             "player_name": "Omitade, Edvard",
             "position": "RWB",
             "minutes_played": 0.0,
-            "rating": 1.0,
+            "rating": 3.0,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1645,14 +1586,14 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 0.0,
+            "dpr": 30.0,
             "notes": "Rising star potential; Trending up."
         },
         {
             "player_name": "Encaya, Pius",
             "position": "ST",
             "minutes_played": 0.0,
-            "rating": 1.0,
+            "rating": 2.5,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1661,14 +1602,14 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 0.0,
+            "dpr": 25.3,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
             "player_name": "Salingay, Sam",
             "position": "ST",
             "minutes_played": 0.0,
-            "rating": 1.0,
+            "rating": 2.5,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1677,14 +1618,14 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 0.0,
+            "dpr": 25.3,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
-            "player_name": "Unnamed",
-            "position": "",
+            "player_name": "Libarnes, Jaro",
+            "position": "CB",
             "minutes_played": 0.0,
-            "rating": 1.0,
+            "rating": 2.5,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1693,7 +1634,71 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 0.0,
+            "dpr": 25.1,
+            "notes": "Rising star potential; Trending up."
+        },
+        {
+            "player_name": "Aningalan, Jul",
+            "position": "CB",
+            "minutes_played": 0.0,
+            "rating": 2.5,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 0.0,
+            "passing_accuracy_pct": 0.0,
+            "duels_won_pct": 0.0,
+            "recoveries": 0.0,
+            "dpr": 25.1,
+            "notes": "Rising star potential; Trending up."
+        },
+        {
+            "player_name": "Digal, Diegocarl",
+            "position": "CB",
+            "minutes_played": 0.0,
+            "rating": 2.5,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 0.0,
+            "passing_accuracy_pct": 0.0,
+            "duels_won_pct": 0.0,
+            "recoveries": 0.0,
+            "dpr": 25.1,
+            "notes": "Rising star potential; Trending up."
+        },
+        {
+            "player_name": "Escodo, Bel",
+            "position": "CAM",
+            "minutes_played": 0.0,
+            "rating": 2.5,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 0.0,
+            "passing_accuracy_pct": 0.0,
+            "duels_won_pct": 0.0,
+            "recoveries": 0.0,
+            "dpr": 25.1,
+            "notes": "Rising star potential; Trending up."
+        },
+        {
+            "player_name": "Tabelin, Kirvy",
+            "position": "CAM",
+            "minutes_played": 0.0,
+            "rating": 2.5,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 0.0,
+            "passing_accuracy_pct": 0.0,
+            "duels_won_pct": 0.0,
+            "recoveries": 0.0,
+            "dpr": 25.1,
             "notes": "Rising star potential; Trending up."
         }
     ],

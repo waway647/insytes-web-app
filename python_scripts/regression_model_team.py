@@ -173,7 +173,7 @@ def generate_synthetic_matches(df_existing, flattened_real):
         next_match_number = 1
     else:
         real_matches_csv = df_existing[df_existing["is_synthetic"]==0]
-        if not real_matches_csv.empty:
+        if not real_matches_csv.empty and "match_number" in real_matches_csv.columns:
             next_match_number = real_matches_csv["match_number"].max() + 1
         else:
             next_match_number = 1
@@ -242,7 +242,11 @@ def main():
     appended_rows = []
 
     # Append new real matches
-    next_match_number = int(df_existing["match_number"].max())+1 if not df_existing.empty else 1
+    if not df_existing.empty and "match_number" in df_existing.columns:
+        next_match_number = int(df_existing["match_number"].max()) + 1
+    else:
+        next_match_number = 1
+        
     for real in flattened_real:
         row = real.copy()
         row["added_at"] = datetime.now(timezone.utc).isoformat()
@@ -284,11 +288,26 @@ def main():
 
     exclude_cols = set(list(targets_map.values()) + ["match_id","match_number","added_at","team_name","is_synthetic","overall_rating"])
     features = [c for c in df_all.columns if c not in exclude_cols]
+    
+    # Clean feature names for XGBoost (remove special characters)
+    def clean_feature_name(name):
+        import re
+        return re.sub(r'[<>\[\]]', '_', str(name))
+    
+    # Create mapping of original to cleaned names
+    feature_mapping = {feat: clean_feature_name(feat) for feat in features}
+    cleaned_features = list(feature_mapping.values())
+    
+    # Prepare X with cleaned column names
     X = df_all[features].apply(pd.to_numeric,errors="coerce").fillna(0.0)
+    X.columns = cleaned_features  # Apply cleaned names
+    
     y_dict = {cat: pd.to_numeric(df_all[col],errors="coerce").fillna(0.0) for cat,col in targets_map.items()}
 
     n_samples = len(X)
-    print(f"Features prepared ({len(features)} features). Samples: {n_samples}")
+    print(f"Features prepared ({len(cleaned_features)} features). Samples: {n_samples}")
+    print(f"Original features: {features[:5]}..." if len(features) > 5 else f"Original features: {features}")
+    print(f"Cleaned features: {cleaned_features[:5]}..." if len(cleaned_features) > 5 else f"Cleaned features: {cleaned_features}")
 
     # -------------- Training --------------
     results = {"team":TEAM_NAME,"timestamp":datetime.now(timezone.utc).isoformat(),"total_samples":n_samples,"simulate_used":True,"models":{}}

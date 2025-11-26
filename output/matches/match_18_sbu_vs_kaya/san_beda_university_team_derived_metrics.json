@@ -1,213 +1,6 @@
-<<<<<<< Updated upstream:output/matches/match_4_sbu_vs_kaya/mendiola_team_derived_metrics.json
-{
-  "match_id": "match_4_sbu_vs_kaya",
-  "match_name": "match_4_sbu_vs_kaya",
-  "Mendiola": {
-    "team_name": "Mendiola",
-    "possession": {
-      "your_possession_time_seconds": 1848.0,
-      "attacking_third_possession_seconds": 234.0,
-      "attacking_third_possession_pct_of_team": 12.66,
-      "possession_pct": 54.804
-    },
-    "distribution": {
-      "passes": 363,
-      "successful_passes": 312,
-      "intercepted_passes": 12,
-      "unsuccessful_passes": 39,
-      "short_passes": 293,
-      "long_passes": 34,
-      "crosses": 19,
-      "through_passes": 17,
-      "header_passes": 0,
-      "forward_passes": 206,
-      "lateral_passes": 55,
-      "back_passes": 102,
-      "passing_accuracy_pct": 85.95,
-      "assists": 0,
-      "key_passes": 1
-    },
-    "attack": {
-      "goals": 1,
-      "shots": 14,
-      "shots_on_target": 2,
-      "shots_off_target": 9,
-      "blocked_shots": 3,
-      "shot_creating_actions": 21
-    },
-    "defense": {
-      "tackles": 5,
-      "successful_tackles": 4,
-      "tackles_success_rate_pct": 80.0,
-      "clearances": 11,
-      "interceptions": 51,
-      "recoveries": 0,
-      "recoveries_attacking_third": 0,
-      "recoveries_attacking_third_pct": 0.0,
-      "blocks": 3,
-      "saves": 0
-    },
-    "general": {
-      "duels": 19,
-      "duels_won": 17,
-      "duels_success_rate_pct": 89.47,
-      "aerial_duels": 12,
-      "ground_duels": 2,
-      "offsides": 0,
-      "corner_awarded": 4
-    },
-    "discipline": {
-      "fouls_conceded": 8,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    "match_rating_attack": 6.34,
-    "match_rating_defense": 6.28,
-    "match_rating_distribution": 7.25,
-    "match_rating_general": 7.28,
-    "match_rating_discipline": 7.04,
-    "overall_rating": 6.84,
-    "outcome_score": 0.0
-  },
-  "Kaya": {
-    "team_name": "Kaya",
-    "possession": {
-      "your_possession_time_seconds": 1524.0,
-      "attacking_third_possession_seconds": 178.0,
-      "attacking_third_possession_pct_of_team": 11.68,
-      "possession_pct": 45.196
-    },
-    "distribution": {
-      "passes": 204,
-      "successful_passes": 150,
-      "intercepted_passes": 12,
-      "unsuccessful_passes": 42,
-      "short_passes": 129,
-      "long_passes": 46,
-      "crosses": 16,
-      "through_passes": 9,
-      "header_passes": 0,
-      "forward_passes": 134,
-      "lateral_passes": 19,
-      "back_passes": 51,
-      "passing_accuracy_pct": 73.53,
-      "assists": 1,
-      "key_passes": 2
-    },
-    "attack": {
-      "goals": 2,
-      "shots": 12,
-      "shots_on_target": 2,
-      "shots_off_target": 7,
-      "blocked_shots": 3,
-      "shot_creating_actions": 22
-    },
-    "defense": {
-      "tackles": 1,
-      "successful_tackles": 1,
-      "tackles_success_rate_pct": 100.0,
-      "clearances": 18,
-      "interceptions": 57,
-      "recoveries": 0,
-      "recoveries_attacking_third": 0,
-      "recoveries_attacking_third_pct": 0.0,
-      "blocks": 3,
-      "saves": 1
-    },
-    "general": {
-      "duels": 5,
-      "duels_won": 4,
-      "duels_success_rate_pct": 80.0,
-      "aerial_duels": 4,
-      "ground_duels": 0,
-      "offsides": 3,
-      "corner_awarded": 3
-    },
-    "discipline": {
-      "fouls_conceded": 12,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    "match_rating_attack": 6.68,
-    "match_rating_defense": 6.76,
-    "match_rating_distribution": 6.78,
-    "match_rating_general": 6.75,
-    "match_rating_discipline": 6.56,
-    "overall_rating": 6.71,
-    "outcome_score": 1.0
-  },
-  "match_duration_seconds": 336600.0
-=======
 {
   "match_id": "match_18_sbu_vs_kaya",
   "match_name": "match_18_sbu_vs_kaya",
-  "Kaya FC - Iloilo": {
-    "team_name": "Kaya FC - Iloilo",
-    "possession": {
-      "your_possession_time_seconds": 1524.0,
-      "attacking_third_possession_seconds": 178.0,
-      "attacking_third_possession_pct_of_team": 11.68,
-      "possession_pct": 45.196
-    },
-    "distribution": {
-      "passes": 204,
-      "successful_passes": 150,
-      "intercepted_passes": 12,
-      "unsuccessful_passes": 42,
-      "short_passes": 129,
-      "long_passes": 46,
-      "crosses": 16,
-      "through_passes": 9,
-      "header_passes": 0,
-      "forward_passes": 134,
-      "lateral_passes": 19,
-      "back_passes": 51,
-      "passing_accuracy_pct": 73.53,
-      "assists": 1,
-      "key_passes": 2
-    },
-    "attack": {
-      "goals": 2,
-      "shots": 12,
-      "shots_on_target": 2,
-      "shots_off_target": 7,
-      "blocked_shots": 3,
-      "shot_creating_actions": 22
-    },
-    "defense": {
-      "tackles": 1,
-      "successful_tackles": 1,
-      "tackles_success_rate_pct": 100.0,
-      "clearances": 18,
-      "interceptions": 57,
-      "recoveries": 0,
-      "recoveries_attacking_third": 0,
-      "recoveries_attacking_third_pct": 0.0,
-      "blocks": 3,
-      "saves": 1
-    },
-    "general": {
-      "duels": 5,
-      "duels_won": 4,
-      "duels_success_rate_pct": 80.0,
-      "aerial_duels": 4,
-      "ground_duels": 0,
-      "offsides": 3,
-      "corner_awarded": 3
-    },
-    "discipline": {
-      "fouls_conceded": 12,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    "match_rating_attack": 6.68,
-    "match_rating_defense": 6.76,
-    "match_rating_distribution": 6.78,
-    "match_rating_general": 6.75,
-    "match_rating_discipline": 6.56,
-    "overall_rating": 6.71,
-    "outcome_score": 1.0
-  },
   "San Beda University": {
     "team_name": "San Beda University",
     "possession": {
@@ -275,6 +68,72 @@
     "overall_rating": 6.84,
     "outcome_score": 0.0
   },
+  "Kaya FC - Iloilo": {
+    "team_name": "Kaya FC - Iloilo",
+    "possession": {
+      "your_possession_time_seconds": 1524.0,
+      "attacking_third_possession_seconds": 178.0,
+      "attacking_third_possession_pct_of_team": 11.68,
+      "possession_pct": 45.196
+    },
+    "distribution": {
+      "passes": 204,
+      "successful_passes": 150,
+      "intercepted_passes": 12,
+      "unsuccessful_passes": 42,
+      "short_passes": 129,
+      "long_passes": 46,
+      "crosses": 16,
+      "through_passes": 9,
+      "header_passes": 0,
+      "forward_passes": 134,
+      "lateral_passes": 19,
+      "back_passes": 51,
+      "passing_accuracy_pct": 73.53,
+      "assists": 1,
+      "key_passes": 2
+    },
+    "attack": {
+      "goals": 2,
+      "shots": 12,
+      "shots_on_target": 2,
+      "shots_off_target": 7,
+      "blocked_shots": 3,
+      "shot_creating_actions": 22
+    },
+    "defense": {
+      "tackles": 1,
+      "successful_tackles": 1,
+      "tackles_success_rate_pct": 100.0,
+      "clearances": 18,
+      "interceptions": 57,
+      "recoveries": 0,
+      "recoveries_attacking_third": 0,
+      "recoveries_attacking_third_pct": 0.0,
+      "blocks": 3,
+      "saves": 1
+    },
+    "general": {
+      "duels": 5,
+      "duels_won": 4,
+      "duels_success_rate_pct": 80.0,
+      "aerial_duels": 4,
+      "ground_duels": 0,
+      "offsides": 3,
+      "corner_awarded": 3
+    },
+    "discipline": {
+      "fouls_conceded": 12,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    "match_rating_attack": 6.68,
+    "match_rating_defense": 6.76,
+    "match_rating_distribution": 6.78,
+    "match_rating_general": 6.75,
+    "match_rating_discipline": 6.56,
+    "overall_rating": 6.71,
+    "outcome_score": 1.0
+  },
   "match_duration_seconds": 336600.0
->>>>>>> Stashed changes:output/matches/match_18_sbu_vs_kaya/san_beda_university_team_derived_metrics.json
 }
