@@ -1,14 +1,29 @@
+<<<<<<< Updated upstream
 {
     "match_id": "16",
     "match_name": "match_16_sbu_vs_up",
     "team": "San Beda University",
-    "timestamp": "2025-11-26 12:39:30",
+    "timestamp": "2025-11-20 13:09:26",
     "predicted_scores": {
-        "attack": 5.964967727661133,
-        "defense": 7.106816291809082,
-        "discipline": 7.051159858703613,
-        "distribution": 6.921446323394775,
-        "general": 7.250855922698975,
+        "attack": 5.968170642852783,
+        "defense": 6.802209854125977,
+        "discipline": 7.068350315093994,
+        "distribution": 7.002692699432373,
+        "general": 7.2584381103515625,
+=======
+<<<<<<<< Updated upstream:output/matches/match_1_sbu_vs_up/san_beda_team_insights.json
+{
+    "match_id": "match_1_sbu_vs_up",
+    "match_name": "match_1_sbu_vs_up",
+    "team": "San Beda",
+    "timestamp": "2025-11-20 13:02:59",
+    "predicted_scores": {
+        "attack": 6.3447465896606445,
+        "defense": 6.630177974700928,
+        "discipline": 7.1359758377075195,
+        "distribution": 7.271531105041504,
+        "general": 7.316194534301758,
+>>>>>>> Stashed changes
         "overall": 0.0
     },
     "detailed_analysis": {
@@ -33,7 +48,7 @@
             }
         },
         "defense": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Average, with room for improvement",
             "strengths": [
                 "Excellent tackling efficiency at 100.0%",
                 "Strong anticipation with 61 interceptions",
@@ -54,7 +69,7 @@
             }
         },
         "distribution": {
-            "overall_assessment": "Average, with room for improvement",
+            "overall_assessment": "Strong performance",
             "strengths": [
                 "Good passing accuracy at 82.8%",
                 "Excellent penetrating passes with 18 through balls"
@@ -92,6 +107,7 @@
             "overall_assessment": "Strong performance",
             "strengths": [
                 "Strong physical presence with 86.4% duels won",
+<<<<<<< Updated upstream
                 "Good positioning discipline with only 2 offsides"
             ],
             "areas_for_improvement": [
@@ -101,6 +117,18 @@
                 "duels_won_percentage": "86.4%",
                 "possession_percentage": "54.7%",
                 "attacking_third_possession": "8.9%",
+=======
+                "Good ball control with 68.5% possession",
+                "Good positioning discipline with only 2 offsides"
+            ],
+            "areas_for_improvement": [
+                "Limited attacking territory control - need more forward play"
+            ],
+            "key_metrics": {
+                "duels_won_percentage": "86.4%",
+                "possession_percentage": "68.5%",
+                "attacking_third_possession": "5.0%",
+>>>>>>> Stashed changes
                 "corners_awarded": 3,
                 "offsides": 2
             }
@@ -109,7 +137,11 @@
             "overall_assessment": "Needs significant improvement",
             "key_strengths": [
                 "Distribution: Excellent performance (rating: 7.1)",
+<<<<<<< Updated upstream
                 "Discipline: Excellent performance (rating: 7.0)"
+=======
+                "General: Excellent performance (rating: 7.1)"
+>>>>>>> Stashed changes
             ],
             "priority_improvements": [
                 "Attack: Room for improvement (rating: 5.5)"
@@ -119,7 +151,11 @@
     },
     "coaching_assessment": {
         "attack": {
+<<<<<<< Updated upstream
             "performance_rating": "Struggling in the final third",
+=======
+            "performance_rating": "Adequate attacking output",
+>>>>>>> Stashed changes
             "tactical_summary": "Limited attacking threat with minimal shot creation (5 attempts). The team needs to establish more consistent offensive patterns.",
             "key_observations": [
                 "Generated 4 shot-creating actions indicating attacking involvement"
@@ -132,7 +168,7 @@
             "next_training_focus": "Primary focus: improve shot selection and technique through targeted finishing drills"
         },
         "defense": {
-            "performance_rating": "Solid defensive foundation",
+            "performance_rating": "Competent defensive display",
             "tactical_summary": "Excellent defensive discipline with 100.0% tackle success rate and 61 interceptions. The defensive unit showed great anticipation and timing.",
             "key_observations": [
                 "Exceptional tackling efficiency at 100.0% shows excellent defensive timing",
@@ -144,7 +180,7 @@
             "next_training_focus": "Primary focus: coordinate pressing triggers and defensive transitions"
         },
         "distribution": {
-            "performance_rating": "Effective distribution",
+            "performance_rating": "Strong passing display",
             "tactical_summary": "Solid passing foundation with 82.8% accuracy from 244 attempts. Good ball retention allowed for sustained pressure.",
             "key_observations": [
                 "Completed 244 passes with 82.8% accuracy maintaining team possession",
@@ -171,9 +207,16 @@
         },
         "general": {
             "performance_rating": "Strong all-round performance",
+<<<<<<< Updated upstream
             "tactical_summary": "Maintained good territorial control with 54.7% possession. Solid foundation for building attacks and controlling tempo.",
             "key_observations": [
                 "Excellent physical dominance with 86.4% duels won shows superior fitness and commitment"
+=======
+            "tactical_summary": "Controlled the match with 68.5% possession and 86.4% duels won. The team imposed their game plan effectively.",
+            "key_observations": [
+                "Excellent physical dominance with 86.4% duels won shows superior fitness and commitment",
+                "Outstanding ball control with 68.5% possession demonstrates excellent technical ability"
+>>>>>>> Stashed changes
             ],
             "coaching_priorities": [
                 "Create more attacking presence and forward movement patterns"
@@ -185,7 +228,11 @@
             "tactical_summary": "Inconsistent team display with significant room for improvement. The squad needs to address fundamental tactical and technical deficiencies.",
             "key_observations": [
                 "Excellent ball distribution (rating: 7.1) provided strong foundation for team performance",
+<<<<<<< Updated upstream
                 "Excellent team discipline (rating: 7.0) provided strong foundation for team performance",
+=======
+                "Excellent general team play (rating: 7.1) provided strong foundation for team performance",
+>>>>>>> Stashed changes
                 "Weak attacking play (rating: 5.5) undermined overall team effectiveness"
             ],
             "coaching_priorities": [
@@ -197,10 +244,121 @@
     },
     "interpretation": {
         "attack": "Average, with room for improvement - Limited attacking threat with only 5 attempts. Team needs to create more goal-scoring opportunities through better build-up play.",
-        "defense": "Strong performance - Dominant defensive display with 100.0% tackle success and 61 interceptions. Exceptional reading of the game.",
-        "distribution": "Average, with room for improvement - Strong ball retention (82.8% accuracy) but limited final ball delivery. Need more incisive creativity.",
+        "defense": "Average, with room for improvement - Dominant defensive display with 100.0% tackle success and 61 interceptions. Exceptional reading of the game.",
+        "distribution": "Strong performance - Strong ball retention (82.8% accuracy) but limited final ball delivery. Need more incisive creativity.",
         "discipline": "Strong performance - Exemplary discipline with no cards and only 8 fouls. Perfect emotional control throughout the match.",
+<<<<<<< Updated upstream
         "general": "Strong performance - Excellent physical dominance with 86.4% duels won. Superior fitness and commitment levels.",
         "overall": "Needs significant improvement - Unbalanced performance with excellent distribution (7.1) masking weaknesses in attack (5.5). Need more consistency."
     }
+=======
+        "general": "Strong performance - Dominant overall display controlling 68.5% possession and 86.4% duels. Imposed game plan effectively.",
+        "overall": "Needs significant improvement - Unbalanced performance with excellent distribution (7.1) masking weaknesses in attack (5.5). Need more consistency."
+    }
+========
+{
+    "match_id": "16",
+    "match_name": "match_16_sbu_vs_up",
+    "team": "San Beda University",
+    "timestamp": "2025-11-23 19:22:14",
+    "predicted_scores": {
+        "attack": 7.243772229543202,
+        "defense": 9.606554756911837,
+        "discipline": 13.129825943378474,
+        "distribution": 9.72785427575279,
+        "general": 13.948158472088913,
+        "overall": 0.0
+    },
+    "detailed_analysis": {
+        "attack": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "defense": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "distribution": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "discipline": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "general": {
+            "overall_assessment": "No prediction available",
+            "strengths": [],
+            "areas_for_improvement": [],
+            "key_metrics": {}
+        },
+        "overall": {
+            "overall_assessment": "No prediction available",
+            "key_strengths": [],
+            "priority_improvements": [],
+            "match_summary": ""
+        }
+    },
+    "coaching_assessment": {
+        "attack": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "defense": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "distribution": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "discipline": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "general": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        },
+        "overall": {
+            "performance_rating": "Unable to assess",
+            "tactical_summary": "Insufficient data for analysis",
+            "key_observations": [],
+            "coaching_priorities": [],
+            "next_training_focus": "Gather more performance data"
+        }
+    },
+    "interpretation": {
+        "attack": "Performance data unavailable for comprehensive analysis",
+        "defense": "Performance data unavailable for comprehensive analysis",
+        "distribution": "Performance data unavailable for comprehensive analysis",
+        "discipline": "Performance data unavailable for comprehensive analysis",
+        "general": "Performance data unavailable for comprehensive analysis",
+        "overall": "Performance data unavailable for comprehensive analysis"
+    }
+>>>>>>>> Stashed changes:output/matches/match_16_sbu_vs_up/san_beda_university_team_insights.json
+>>>>>>> Stashed changes
 }

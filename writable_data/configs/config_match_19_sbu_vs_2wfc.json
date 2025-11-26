@@ -1,0 +1,204 @@
+{
+    "match": {
+        "id": "match_19_sbu_vs_2wfc",
+        "season": "2025/2026",
+        "competition": "Ang Liga",
+        "venue": "Ayala Vermosa Sports Hub",
+        "date": "2025-10-11",
+        "attacking_direction": "left-to-right",
+        "positions_locked": true
+    },
+    "home": {
+        "name": "San Beda University",
+        "jersey_color": "#ffffff",
+        "jersey_text_color": "rgb(0, 0, 0)",
+        "starting11": [
+            {
+                "id": "13",
+                "name": "Tagara, Pedro",
+                "number": 15,
+                "position": "GK",
+                "x": 7,
+                "y": 23
+            },
+            {
+                "id": "14",
+                "name": "Libarnes, Jaro",
+                "number": 28,
+                "position": "CB",
+                "x": 7,
+                "y": 34
+            },
+            {
+                "id": "15",
+                "name": "Aningalan, Jul",
+                "number": 2,
+                "position": "CB",
+                "x": 7,
+                "y": 45
+            },
+            {
+                "id": "41",
+                "name": "Digal, Diegocarl",
+                "number": 9,
+                "position": "CB",
+                "x": 7,
+                "y": 56
+            },
+            {
+                "id": "42",
+                "name": "Barro, Harvy",
+                "number": 8,
+                "position": "CDM",
+                "x": 7,
+                "y": 67
+            },
+            {
+                "id": "21",
+                "name": "Escodo, Bel",
+                "number": 13,
+                "position": "CAM",
+                "x": 7,
+                "y": 78
+            },
+            {
+                "id": "19",
+                "name": "Tabelin, Kirvy",
+                "number": 11,
+                "position": "CAM",
+                "x": 16,
+                "y": 23
+            },
+            {
+                "id": "20",
+                "name": "Fernandez, Laurence",
+                "number": 38,
+                "position": "LWB",
+                "x": 16,
+                "y": 34
+            },
+            {
+                "id": "43",
+                "name": "Omitade, Edvard",
+                "number": 1,
+                "position": "RWB",
+                "x": 16,
+                "y": 45
+            },
+            {
+                "id": "22",
+                "name": "Encaya, Pius",
+                "number": 17,
+                "position": "ST",
+                "x": 16,
+                "y": 56
+            },
+            {
+                "id": "23",
+                "name": "Salingay, Sam",
+                "number": 18,
+                "position": "ST",
+                "x": 16,
+                "y": 67
+            }
+        ],
+        "bench": []
+    },
+    "away": {
+        "name": "2 Worlds FC",
+        "jersey_color": "#850000",
+        "jersey_text_color": "rgb(255, 255, 255)",
+        "starting11": [
+            {
+                "id": "96",
+                "name": "Unnamed",
+                "number": 1,
+                "position": "",
+                "x": 93,
+                "y": 23
+            },
+            {
+                "id": "97",
+                "name": "Unnamed",
+                "number": 19,
+                "position": "",
+                "x": 93,
+                "y": 34
+            },
+            {
+                "id": "98",
+                "name": "Unnamed",
+                "number": 9,
+                "position": "",
+                "x": 93,
+                "y": 45
+            },
+            {
+                "id": "99",
+                "name": "Unnamed",
+                "number": 11,
+                "position": "",
+                "x": 93,
+                "y": 56
+            },
+            {
+                "id": "100",
+                "name": "Unnamed",
+                "number": 22,
+                "position": "",
+                "x": 93,
+                "y": 67
+            },
+            {
+                "id": "101",
+                "name": "Unnamed",
+                "number": 3,
+                "position": "",
+                "x": 93,
+                "y": 78
+            },
+            {
+                "id": "102",
+                "name": "Unnamed",
+                "number": 14,
+                "position": "",
+                "x": 84,
+                "y": 23
+            },
+            {
+                "id": "103",
+                "name": "Unnamed",
+                "number": 20,
+                "position": "",
+                "x": 84,
+                "y": 34
+            },
+            {
+                "id": "105",
+                "name": "Unnamed",
+                "number": 6,
+                "position": "",
+                "x": 84,
+                "y": 45
+            },
+            {
+                "id": "106",
+                "name": "Unnamed",
+                "number": 16,
+                "position": "",
+                "x": 84,
+                "y": 56
+            },
+            {
+                "id": "107",
+                "name": "Unnamed",
+                "number": 4,
+                "position": "",
+                "x": 84,
+                "y": 67
+            }
+        ],
+        "bench": []
+    },
+    "mode": "tagging"
+}

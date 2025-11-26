@@ -1,0 +1,24 @@
+player_name,minutes_played,position,dpr,dpr_breakdown,status,team,number,key_stats_p90,shots_p90,shots_on_target_p90,goals_p90,passes_p90,successful_passes_p90,unsuccessful_passes_p90,key_passes_p90,assists_p90,avg_pass_distance_p90,progressive_passes_p90,duels_p90,duels_won_p90,tackles_p90,successful_tackles_p90,tackle_success_rate_pct_p90,interceptions_p90,clearances_p90,recoveries_p90,blocked_shots_p90,dribbles_p90,successful_dribbles_p90,dribble_success_rate_pct_p90,shot_accuracy_pct_p90,goal_conversion_pct_p90,passing_accuracy_pct_p90,key_pass_rate_pct_p90,duel_success_rate_pct_p90,saves_p90,goals_conceded_p90,shots_faced_p90,shots_on_target_against_p90,goals_against_p90,save_pct_p90,saves_per90,goals_against_per90,shots_on_target_against_per90,save_pct,match_id,match_name
+Bel Escodo,94.72,CAM,45.8,0.0,DNP,San Beda University,0.0,0.0,0.95,0.0,0.0,18.05,13.3,4.75,0.0,0.0,-4.47,4.75,2.85,0.95,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.85,2.85,100.0,0.0,0.0,73.68,0.0,33.33,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Diegocarl Digal,95.3,CB,44.3,0.0,DNP,San Beda University,0.0,0.0,0.0,0.0,0.0,26.44,25.5,0.94,0.0,0.0,-4.62,3.78,0.0,0.0,0.0,0.0,0.0,0.0,1.89,0.0,0.0,0.94,0.94,100.0,0.0,0.0,96.43,0.0,0.0,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Edvard Omitade,91.42,RWB,40.2,0.0,DNP,San Beda University,0.0,0.0,3.94,1.97,1.97,16.74,14.77,1.97,0.0,0.0,7.66,2.95,7.88,2.95,0.0,0.0,0.0,0.0,0.0,1.97,0.0,3.94,2.95,75.0,50.0,50.0,88.24,0.0,37.5,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Harvy Barro,95.43,CDM,59.6,0.0,DNP,San Beda University,0.0,0.0,0.0,0.0,0.0,35.84,30.18,5.66,0.0,0.0,1.39,10.37,0.94,0.94,3.77,1.89,47.15,0.0,0.0,1.89,0.0,1.89,0.94,50.0,0.0,0.0,84.21,0.0,100.0,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Jaro Libarnes,96.93,CB,45.9,0.0,DNP,San Beda University,0.0,0.0,0.0,0.0,0.0,21.35,13.93,7.43,0.0,0.0,-1.7,5.57,0.93,0.93,0.0,0.0,0.0,0.0,1.86,2.79,0.0,0.93,0.93,100.0,0.0,0.0,65.22,0.0,100.0,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Jul Aningalan,96.72,CB,41.0,0.0,DNP,San Beda University,0.0,0.0,0.0,0.0,0.0,31.64,30.71,0.93,0.0,0.0,-0.6,5.58,0.0,0.0,0.93,0.93,93.06,0.0,0.93,0.93,0.0,1.86,1.86,100.0,0.0,0.0,97.06,0.0,0.0,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Kirvy Tabelin,96.33,CAM,67.4,0.0,DNP,San Beda University,0.0,0.0,5.61,0.93,0.0,33.63,25.22,8.41,2.8,2.8,2.74,11.21,1.87,0.93,0.0,0.0,0.0,0.0,0.0,1.87,0.0,3.74,3.74,100.0,16.67,0.0,75.0,8.33,50.0,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Laurence Fernandez,95.15,LWB,54.5,0.0,DNP,San Beda University,0.0,0.0,4.73,3.78,1.89,18.92,17.03,1.89,0.0,0.0,0.58,4.73,3.78,2.84,0.0,0.0,0.0,0.0,0.0,3.78,0.0,1.89,0.0,0.0,80.0,40.0,90.0,0.0,75.0,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Pedro Tagara,95.35,GK,41.5,0.0,DNP,San Beda University,0.0,0.0,0.0,0.0,0.0,17.93,17.93,0.0,0.0,0.0,-6.42,0.94,0.0,0.0,0.0,0.0,0.0,1.89,0.0,0.94,0.0,0.0,0.0,0.0,0.0,0.0,100.0,0.0,0.0,5.66,3.78,9.44,9.44,3.78,60.0,5.66,3.78,9.44,0.6,19,match_19_sbu_vs_2wfc
+Pius Encaya,95.2,ST,19.0,0.0,DNP,San Beda University,0.0,0.0,1.89,0.0,0.0,11.34,8.51,2.84,0.0,0.0,-1.53,1.89,1.89,0.0,0.0,0.0,0.0,0.95,0.0,1.89,0.0,1.89,0.0,0.0,0.0,0.0,75.0,0.0,0.0,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Sam Salingay,94.72,ST,20.0,0.0,DNP,San Beda University,0.0,0.0,0.0,0.0,0.0,24.71,17.1,7.6,0.0,0.0,-1.42,4.75,2.85,0.95,1.9,1.9,95.02,0.0,0.0,1.9,0.0,0.95,0.95,100.0,0.0,0.0,69.23,0.0,33.33,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Tagara, Pedro",0.0,GK,0.0,0.0,DNP,San Beda University,15.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Libarnes, Jaro",0.0,CB,0.0,0.0,DNP,San Beda University,28.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Aningalan, Jul",0.0,CB,0.0,0.0,DNP,San Beda University,2.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Digal, Diegocarl",0.0,CB,0.0,0.0,DNP,San Beda University,9.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Barro, Harvy",0.0,CDM,0.0,0.0,DNP,San Beda University,8.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Escodo, Bel",0.0,CAM,0.0,0.0,DNP,San Beda University,13.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Tabelin, Kirvy",0.0,CAM,0.0,0.0,DNP,San Beda University,11.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Fernandez, Laurence",0.0,LWB,0.0,0.0,DNP,San Beda University,38.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Omitade, Edvard",0.0,RWB,0.0,0.0,DNP,San Beda University,1.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Encaya, Pius",0.0,ST,0.0,0.0,DNP,San Beda University,17.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+"Salingay, Sam",0.0,ST,0.0,0.0,DNP,San Beda University,18.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc
+Unnamed,0.0,,0.0,0.0,DNP,2 Worlds FC,4.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,match_19_sbu_vs_2wfc

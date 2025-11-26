@@ -1,0 +1,68 @@
+{
+    "matches": [
+        {
+            "id": "match_16_sbu_vs_up",
+            "season": "2025/2026",
+            "competition": "Ang Liga",
+            "date": "2025-10-12",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "San Beda University",
+            "away_team": "University of the Philippines",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_16_sbu_vs_up.json",
+                "events": "../events/match_16_sbu_vs_up_events.json"
+            },
+            "created_at": "2025-11-19T07:05:43+01:00",
+            "updated_at": "2025-11-19T07:06:49+01:00"
+        },
+        {
+            "id": "match_17_sbu_vs_sin",
+            "season": "2025/2026",
+            "competition": "Ang Liga",
+            "date": "2025-10-26",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "San Beda University",
+            "away_team": "Siniloan Blues",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_17_sbu_vs_sin.json",
+                "events": "../events/match_17_sbu_vs_sin_events.json"
+            },
+            "created_at": "2025-11-23T13:21:19+01:00",
+            "updated_at": "2025-11-23T13:23:35+01:00"
+        },
+        {
+            "id": "match_18_sbu_vs_kaya",
+            "season": "2025/2026",
+            "competition": "Ang Liga",
+            "date": "2025-10-12",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "San Beda University",
+            "away_team": "Kaya FC - Iloilo",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_18_sbu_vs_kaya.json",
+                "events": "../events/match_18_sbu_vs_kaya_events.json"
+            },
+            "created_at": "2025-11-24T06:05:09+01:00",
+            "updated_at": "2025-11-24T06:05:49+01:00"
+        },
+        {
+            "id": "match_19_sbu_vs_2wfc",
+            "season": "2025/2026",
+            "competition": "Ang Liga",
+            "date": "2025-10-11",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "San Beda University",
+            "away_team": "2 Worlds FC",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_19_sbu_vs_2wfc.json",
+                "events": "../events/match_19_sbu_vs_2wfc_events.json"
+            },
+            "created_at": "2025-11-24T06:39:37+01:00",
+            "updated_at": "2025-11-24T06:40:05+01:00"
+        }
+    ]
+}

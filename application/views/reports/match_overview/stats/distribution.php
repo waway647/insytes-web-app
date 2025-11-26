@@ -75,14 +75,13 @@ $away_key_passes = $away_metrics['distribution']['key_passes'] ?? null;
 $total_key_passes = ($home_key_passes ?? 0) + ($away_key_passes ?? 0);
 $home_key_passes_pct = $total_key_passes > 0 ? ($home_key_passes / $total_key_passes * 100) : null;
 ?>
-?>
 
 <div class="w-full flex flex-col items-center px-20 py-8 gap-4">
     <div class="w-full flex flex-col items-center">
         <p class="text-sm text-[#B6BABD]">Passes</p>
         <div class="w-full flex justify-center items-center gap-5">
             <span class="text-xl text-white font-semibold">
-                <?= $home_passes !== null ? number_format($home_passes, 1) . '%' : '—' ?>
+                <?= $home_passes !== null ? number_format($home_passes, 0) : '—' ?>
             </span>
             <div id="percentage-bar" class="w-150 h-2.5 bg-[#2a2a2a] rounded-2xl">
                 <?php if ($home_passes_pct !== null): ?>
@@ -90,7 +89,7 @@ $home_key_passes_pct = $total_key_passes > 0 ? ($home_key_passes / $total_key_pa
                 <?php endif; ?>
             </div>
             <span class="text-xl text-white font-semibold">
-                <?= $away_passes !== null ? number_format($away_passes, 1) . '%' : '—' ?>
+                <?= $away_passes !== null ? number_format($away_passes, 0) : '—' ?>
             </span>
         </div>
     </div>

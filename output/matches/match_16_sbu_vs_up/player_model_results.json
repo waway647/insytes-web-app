@@ -1,36 +1,70 @@
+<<<<<<< Updated upstream
 {
     "team": "San Beda University",
-    "trained_at": "2025-11-26T04:39:11.738141+00:00",
-    "total_matches": 22,
-    "total_samples": 405,
+    "trained_at": "2025-11-19T08:00:58.522099+00:00",
+    "total_matches": 18,
+    "total_samples": 315,
+=======
+<<<<<<<< Updated upstream:output/matches/match_1_sbu_vs_up/player_model_results.json
+{
+    "team": "San Beda",
+    "trained_at": "2025-11-19T05:43:07.876515+00:00",
+    "total_matches": 12,
+    "total_samples": 204,
+>>>>>>> Stashed changes
     "models": {
         "attacker": {
             "status": "trained_validated",
             "model_path": "python_scripts/models_players\\role_attacker.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 85,
-                "samples_train": 68,
-                "samples_test": 17,
+<<<<<<< Updated upstream
+                "samples_total": 72,
+                "samples_train": 57,
+                "samples_test": 15,
                 "train_metrics": {
-                    "r2": 0.9999958214308479,
-                    "mae": 0.011384733878516998,
-                    "mse": 0.0012284429417333824
+                    "r2": 0.9999877801826585,
+                    "mae": 0.02073455066011657,
+                    "mse": 0.00349042785508066
                 },
                 "test_metrics": {
-                    "r2": 0.988091040816613,
-                    "mae": 0.3324439169148236,
-                    "mse": 1.7644050198290275
+                    "r2": 0.8962708158407149,
+                    "mae": 2.5679206839203834,
+                    "mse": 26.39803546651052
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.9933571316295542,
-                    "cv_std_r2": 0.007960753282714037,
+                    "cv_mean_r2": 0.9786789893090848,
+                    "cv_std_r2": 0.021443603104836673,
                     "cv_scores": [
-                        0.9999739470251306,
-                        0.9999887405315137,
-                        0.9995797910773406,
-                        0.9842636332996988,
-                        0.982979546214087
+                        0.9652424362678441,
+                        0.9997291881905286,
+                        0.9843299292168058,
+                        0.999935592080502,
+                        0.9441578007897435
+=======
+                "samples_total": 45,
+                "samples_train": 36,
+                "samples_test": 9,
+                "train_metrics": {
+                    "r2": 0.9999901731607074,
+                    "mae": 0.024770820170589007,
+                    "mse": 0.0025431007065150335
+                },
+                "test_metrics": {
+                    "r2": 0.9998732524083169,
+                    "mae": 0.09870613945855035,
+                    "mse": 0.027157721386562517
+                },
+                "cross_validation": {
+                    "cv_mean_r2": 0.8898851952111047,
+                    "cv_std_r2": 0.15030628417932979,
+                    "cv_scores": [
+                        0.9847862214351761,
+                        0.9999927176578303,
+                        0.9423415163829783,
+                        0.5939189736185188,
+                        0.92838654696102
+>>>>>>> Stashed changes
                     ]
                 },
                 "overfitting_detected": false,
@@ -77,28 +111,53 @@
             "model_path": "python_scripts/models_players\\role_midfielder.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 213,
-                "samples_train": 170,
-                "samples_test": 43,
+<<<<<<< Updated upstream
+                "samples_total": 157,
+                "samples_train": 125,
+                "samples_test": 32,
                 "train_metrics": {
-                    "r2": 0.9994556066000606,
-                    "mae": 0.11754281265085842,
-                    "mse": 0.33582155419861887
+                    "r2": 0.9999776502629605,
+                    "mae": 0.048549346662685136,
+                    "mse": 0.013356710640852847
                 },
                 "test_metrics": {
-                    "r2": 0.999889153446697,
-                    "mae": 0.1165279232972667,
-                    "mse": 0.06932876154478915
+                    "r2": 0.9999030279228536,
+                    "mae": 0.10776107388082945,
+                    "mse": 0.05538667669915427
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.9142994144839008,
-                    "cv_std_r2": 0.14472889956719548,
+                    "cv_mean_r2": 0.9889709897097155,
+                    "cv_std_r2": 0.006144818247979798,
                     "cv_scores": [
-                        0.9769371494714701,
-                        0.9885643174929086,
-                        0.9814756637385758,
-                        0.6252348848249225,
-                        0.9992850568916272
+                        0.991043698100521,
+                        0.98818370716878,
+                        0.9792320510790804,
+                        0.9983601175421969,
+                        0.9880353746579997
+=======
+                "samples_total": 108,
+                "samples_train": 86,
+                "samples_test": 22,
+                "train_metrics": {
+                    "r2": 0.9986053863925297,
+                    "mae": 0.2826060440954426,
+                    "mse": 0.7561079089578353
+                },
+                "test_metrics": {
+                    "r2": 0.9655383841991331,
+                    "mae": 1.567868095213039,
+                    "mse": 12.475179681683642
+                },
+                "cross_validation": {
+                    "cv_mean_r2": 0.7429061916544321,
+                    "cv_std_r2": 0.1926385432172963,
+                    "cv_scores": [
+                        0.4873605451560633,
+                        0.611168873095066,
+                        0.9657764457824827,
+                        0.6842175096158125,
+                        0.9660075846227357
+>>>>>>> Stashed changes
                     ]
                 },
                 "overfitting_detected": false,
@@ -144,28 +203,257 @@
             "model_path": "python_scripts/models_players\\role_defender.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 83,
-                "samples_train": 66,
-                "samples_test": 17,
+<<<<<<< Updated upstream
+                "samples_total": 67,
+                "samples_train": 53,
+                "samples_test": 14,
                 "train_metrics": {
-                    "r2": 0.9999591253664359,
-                    "mae": 0.06596160183861717,
-                    "mse": 0.03571058603334793
+                    "r2": 0.9999815449815185,
+                    "mae": 0.04755624034837337,
+                    "mse": 0.014961842071428479
                 },
                 "test_metrics": {
-                    "r2": 0.9671079916639713,
-                    "mae": 1.1594607545658675,
-                    "mse": 17.31841176599988
+                    "r2": 0.9999991855864568,
+                    "mae": 0.02257790575365196,
+                    "mse": 0.0006765516545765268
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.984482046836195,
-                    "cv_std_r2": 0.014773433969349872,
+                    "cv_mean_r2": 0.9673309972415701,
+                    "cv_std_r2": 0.05792610383339515,
                     "cv_scores": [
-                        0.9932763117605716,
-                        0.9608410757110136,
-                        0.9738009897100942,
-                        0.9999953660206362,
-                        0.9944964909786596
+                        0.9999966106417467,
+                        0.9999504250995177,
+                        0.8520444292880691,
+                        0.999578451819236,
+                        0.9850850693592819
+=======
+                "samples_total": 39,
+                "samples_train": 31,
+                "samples_test": 8,
+                "train_metrics": {
+                    "r2": 0.9999476901545042,
+                    "mae": 0.08017759823030014,
+                    "mse": 0.021064990798532895
+                },
+                "test_metrics": {
+                    "r2": 0.9997959379063829,
+                    "mae": 0.19872051849961103,
+                    "mse": 0.11092455111894074
+                },
+                "cross_validation": {
+                    "cv_mean_r2": 0.8148363803413368,
+                    "cv_std_r2": 0.1626518509339206,
+                    "cv_scores": [
+                        0.735296621212659,
+                        0.5353110488085232,
+                        0.8910414881760191,
+                        0.9246038117833217,
+                        0.9879289317261604
+>>>>>>> Stashed changes
+                    ]
+                },
+                "overfitting_detected": false,
+                "model_quality": "good"
+            },
+            "features": [
+                "minutes_played",
+                "dpr",
+                "position_changed",
+                "key_stats_p90__progressive_passes_p90",
+                "key_stats_p90__duels_p90",
+                "key_stats_p90__duels_won_p90",
+                "key_stats_p90__tackles_p90",
+                "key_stats_p90__successful_tackles_p90",
+                "key_stats_p90__interceptions_p90",
+                "key_stats_p90__clearances_p90",
+                "progressive_passes_p90",
+                "duels_p90",
+                "duels_won_p90",
+                "tackles_p90",
+                "successful_tackles_p90",
+                "interceptions_p90",
+                "clearances_p90",
+                "enhanced_defensive_impact",
+                "enhanced_build_up_quality",
+                "enhanced_positioning_score"
+            ]
+        },
+        "goalkeeper": {
+            "status": "trained_validated",
+            "model_path": "python_scripts/models_players\\role_goalkeeper_understat.pkl",
+            "validation": {
+                "status": "validated",
+                "samples_total": 98,
+                "samples_train": 78,
+                "samples_test": 20,
+                "train_metrics": {
+                    "r2": -224.0,
+                    "mae": 1.0658141036401503e-13,
+                    "mse": 1.135959703518257e-26
+                },
+                "test_metrics": {
+                    "r2": null,
+<<<<<<< Updated upstream
+                    "mae": 9.947598300641403e-14,
+                    "mse": 9.895471195092372e-27
+=======
+                    "mae": 1.0658141036401503e-13,
+                    "mse": 1.135959703518257e-26
+>>>>>>> Stashed changes
+                },
+                "cross_validation": {
+                    "cv_mean_r2": 0.0,
+                    "cv_std_r2": 0.0,
+                    "cv_scores": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0
+                    ]
+                },
+                "overfitting_detected": false,
+                "model_quality": "poor"
+            },
+            "note": "Understat percentile rank -> DPR scale"
+        }
+    }
+<<<<<<< Updated upstream
+=======
+========
+{
+    "team": "San Beda University",
+    "trained_at": "2025-11-23T11:22:04.423933+00:00",
+    "total_matches": 17,
+    "total_samples": 337,
+    "models": {
+        "attacker": {
+            "status": "fallback",
+            "reason": "low_test_r2",
+            "validation": {
+                "status": "validated",
+                "samples_total": 77,
+                "samples_train": 61,
+                "samples_test": 16,
+                "train_metrics": {
+                    "r2": 0.933386576165631,
+                    "mae": 3.343793384316452,
+                    "mse": 16.970548996822828
+                },
+                "test_metrics": {
+                    "r2": -2.9135894940528386,
+                    "mae": 14.59874196608073,
+                    "mse": 980.980189704695
+                },
+                "cross_validation": {
+                    "cv_mean_r2": -1.9326726657431756,
+                    "cv_std_r2": 2.5035079132611604,
+                    "cv_scores": [
+                        -2.3913619071119316,
+                        -5.3292187894208825,
+                        0.9175859384906637,
+                        0.9109558976181203,
+                        -3.7713244682918496
+                    ]
+                },
+                "overfitting_detected": true,
+                "model_quality": "poor"
+            }
+        },
+        "midfielder": {
+            "status": "trained_validated",
+            "model_path": "python_scripts/models_players\\role_midfielder.pkl",
+            "validation": {
+                "status": "validated",
+                "samples_total": 162,
+                "samples_train": 129,
+                "samples_test": 33,
+                "train_metrics": {
+                    "r2": 0.6927189714497918,
+                    "mae": 9.87640464345441,
+                    "mse": 200.82458701163543
+                },
+                "test_metrics": {
+                    "r2": 0.5794119256022698,
+                    "mae": 13.351197704163136,
+                    "mse": 323.5473985082598
+                },
+                "cross_validation": {
+                    "cv_mean_r2": 0.07358333418344173,
+                    "cv_std_r2": 0.993988246024348,
+                    "cv_scores": [
+                        0.6551921576123123,
+                        -1.9099392304144756,
+                        0.6068811748734977,
+                        0.4541362835102576,
+                        0.5616462853356167
+                    ]
+                },
+                "overfitting_detected": false,
+                "model_quality": "good"
+            },
+            "features": [
+                "minutes_played",
+                "dpr",
+                "position_changed",
+                "key_stats_p90__passes_p90",
+                "key_stats_p90__successful_passes_p90",
+                "key_stats_p90__unsuccessful_passes_p90",
+                "key_stats_p90__key_passes_p90",
+                "key_stats_p90__progressive_passes_p90",
+                "key_stats_p90__duels_p90",
+                "key_stats_p90__duels_won_p90",
+                "key_stats_p90__tackles_p90",
+                "key_stats_p90__successful_tackles_p90",
+                "key_stats_p90__interceptions_p90",
+                "key_stats_p90__dribbles_p90",
+                "key_stats_p90__successful_dribbles_p90",
+                "passes_p90",
+                "successful_passes_p90",
+                "unsuccessful_passes_p90",
+                "key_passes_p90",
+                "progressive_passes_p90",
+                "duels_p90",
+                "duels_won_p90",
+                "tackles_p90",
+                "successful_tackles_p90",
+                "interceptions_p90",
+                "dribbles_p90",
+                "successful_dribbles_p90",
+                "enhanced_game_control",
+                "enhanced_transition_play",
+                "enhanced_defensive_contribution",
+                "enhanced_creativity",
+                "enhanced_work_rate"
+            ]
+        },
+        "defender": {
+            "status": "trained_validated",
+            "model_path": "python_scripts/models_players\\role_defender.pkl",
+            "validation": {
+                "status": "validated",
+                "samples_total": 77,
+                "samples_train": 61,
+                "samples_test": 16,
+                "train_metrics": {
+                    "r2": 0.9067562107563908,
+                    "mae": 7.743146943645323,
+                    "mse": 82.24659118024348
+                },
+                "test_metrics": {
+                    "r2": 0.7839568442028406,
+                    "mae": 10.105536670511297,
+                    "mse": 186.31513652588114
+                },
+                "cross_validation": {
+                    "cv_mean_r2": -19.602782985354104,
+                    "cv_std_r2": 32.65227864084756,
+                    "cv_scores": [
+                        0.846542857977612,
+                        -83.62590602967413,
+                        0.5288752753970296,
+                        0.2935750738141788,
+                        -16.057002104285207
                     ]
                 },
                 "overfitting_detected": false,
@@ -229,4 +517,6 @@
             "note": "Understat percentile rank -> DPR scale"
         }
     }
+>>>>>>>> Stashed changes:output/matches/match_16_sbu_vs_up/player_model_results.json
+>>>>>>> Stashed changes
 }
