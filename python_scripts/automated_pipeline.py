@@ -283,6 +283,10 @@ class PipelineManager:
         if not os.path.exists(script_path):
             raise FileNotFoundError(f"Script not found: {script_path}")
         
+        # For derived_metrics, we use command line arguments, so no temp file needed
+        if script_name == "derived_metrics":
+            return script_path  # Return original script path
+        
         # Read current script
         with open(script_path, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -292,15 +296,6 @@ class PipelineManager:
             # For JSON-to-CSV conversion, no script modification needed
             # Will pass JSON and CSV paths as command line arguments
             pass
-            
-        elif script_name == "derived_metrics":
-            # Update event CSV path
-            csv_filename = os.path.basename(dataset_info["csv_file"])
-            content = self.update_script_variable(content, 'EVENTS_CSV', f'"output_dataset/{csv_filename}"')
-            
-            # Update team config path  
-            config_filename = os.path.basename(dataset_info["config_file"])
-            content = self.update_script_variable(content, 'TEAM_CONFIG_JSON', f'"writable_data/configs/{config_filename}"')
             
         elif script_name == "regression_model":
             # Regression model script uses match-specific output from derived_metrics
@@ -359,9 +354,17 @@ class PipelineManager:
                     print(f"    ⏭️ Skipping convert_events: No JSON file for {dataset_name} (CSV workflow)")
                     return True, "Skipped - CSV workflow"
                     
-            elif script_name in ["derived_metrics"]:
-                # These scripts accept dataset name as positional argument
-                cmd = [sys.executable, temp_script_path, dataset_name]
+            elif script_name == "derived_metrics":
+                # Use new command line argument format: script.py events.csv config.json output_dir
+                dataset_info = self.datasets[dataset_name]
+                events_csv = dataset_info["csv_file"]
+                config_json = dataset_info["config_file"]
+                output_dir = os.path.join(MATCHES_OUTPUT_DIR, dataset_name)
+                
+                # Use the original script, not temp (since we're using command line args)
+                original_script = SCRIPTS[script_name]
+                cmd = [sys.executable, original_script, events_csv, config_json, output_dir]
+                
             elif script_name in ["insights", "regression_model", "heatmaps", "team_summary", 
                                  "team_metrics", "team_model", "team_insights"]:
                 # These scripts use --dataset flag
@@ -393,8 +396,8 @@ class PipelineManager:
             print(f"    💥 {script_name} failed with exception: {e}")
             return False, str(e)
         finally:
-            # Clean up temp file
-            if os.path.exists(temp_script_path):
+            # Clean up temp file (only if it was created)
+            if script_name != "derived_metrics" and os.path.exists(temp_script_path):
                 os.remove(temp_script_path)
     
     def process_dataset(self, dataset_name, dataset_info):

@@ -2,13 +2,13 @@
     "match_id": "match_4_sbu_vs_kaya",
     "match_name": "match_4_sbu_vs_kaya",
     "team": "Mendiola",
-    "timestamp": "2025-11-20 13:43:24",
+    "timestamp": "2025-11-26 12:42:58",
     "predicted_scores": {
-        "attack": 6.677507400512695,
-        "defense": 6.708020210266113,
-        "discipline": 7.104315280914307,
-        "distribution": 7.321645736694336,
-        "general": 7.502987384796143,
+        "attack": 6.753152370452881,
+        "defense": 6.691725254058838,
+        "discipline": 6.936731815338135,
+        "distribution": 7.4463396072387695,
+        "general": 7.474132537841797,
         "overall": 0.0
     },
     "detailed_analysis": {
@@ -71,7 +71,7 @@
             }
         },
         "discipline": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Average, with room for improvement",
             "strengths": [
                 "Good discipline with no red cards",
                 "Controlled aggression with only 0 yellow cards",
@@ -156,7 +156,7 @@
             "next_training_focus": "Primary focus: focus on final ball delivery and creating clear scoring chances"
         },
         "discipline": {
-            "performance_rating": "Well-controlled performance",
+            "performance_rating": "Acceptable discipline level",
             "tactical_summary": "Excellent discipline with no red cards and 0 bookings. The team maintained composure and controlled aggression throughout the match.",
             "key_observations": [
                 "Outstanding emotional control and clean play throughout the match",
@@ -201,7 +201,7 @@
         "attack": "Average, with room for improvement - Struggled with shot accuracy (14.3%) despite 21 creative actions. Need better decision-making in final third.",
         "defense": "Average, with room for improvement - Outstanding anticipation with 51 interceptions. Defensive unit showed excellent positional awareness and game reading.",
         "distribution": "Strong performance - High-volume passing display (363 attempts) with 86.0% accuracy. Strong foundation for territorial control.",
-        "discipline": "Strong performance - Exemplary discipline with no cards and only 8 fouls. Perfect emotional control throughout the match.",
+        "discipline": "Average, with room for improvement - Exemplary discipline with no cards and only 8 fouls. Perfect emotional control throughout the match.",
         "general": "Strong performance - Excellent physical dominance with 89.5% duels won. Superior fitness and commitment levels.",
         "overall": "Needs significant improvement - Mixed performance showing potential in general but needing improvement in defense for better consistency."
     }

@@ -2,13 +2,13 @@
     "match_id": "match_20252026_003",
     "match_name": "match_2_sbu_vs_siniloan",
     "team": "San Beda",
-    "timestamp": "2025-11-20 13:08:22",
+    "timestamp": "2025-11-26 12:41:14",
     "predicted_scores": {
-        "attack": 7.958818435668945,
-        "defense": 6.644353866577148,
-        "discipline": 6.702325820922852,
-        "distribution": 8.18281364440918,
-        "general": 7.967963218688965,
+        "attack": 7.982964992523193,
+        "defense": 6.683198928833008,
+        "discipline": 6.873519420623779,
+        "distribution": 7.949071407318115,
+        "general": 7.96686315536499,
         "overall": 0.0
     },
     "detailed_analysis": {
@@ -148,7 +148,7 @@
             "next_training_focus": "Primary focus: coordinate pressing triggers and defensive transitions"
         },
         "distribution": {
-            "performance_rating": "Exceptional ball circulation",
+            "performance_rating": "Strong passing display",
             "tactical_summary": "Solid passing foundation with 80.6% accuracy from 289 attempts. Good ball retention allowed for sustained pressure.",
             "key_observations": [
                 "Outstanding penetrative passing with 27 through balls shows excellent vision and execution",

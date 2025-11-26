@@ -15,13 +15,42 @@ from scipy import stats
 import math
 
 # Command line argument handling
-if len(sys.argv) > 1:
+if len(sys.argv) >= 4:
+    # New format: script.py events.csv config.json output_dir
+    EVENTS_CSV = sys.argv[1]
+    TEAM_CONFIG_JSON = sys.argv[2]
+    OUTPUT_DIR = sys.argv[3]
+    
+    # Extract match name from events CSV file
+    import os
+    events_filename = os.path.basename(EVENTS_CSV)
+    if events_filename.endswith("_events.csv"):
+        MATCH_NAME = events_filename[:-11]  # Remove "_events.csv"
+    else:
+        MATCH_NAME = events_filename.replace(".csv", "")
+        
+elif len(sys.argv) > 1:
+    # Old format: script.py match_name
     if sys.argv[1] == "--dataset" and len(sys.argv) > 2:
         MATCH_NAME = sys.argv[2]
     else:
         MATCH_NAME = sys.argv[1]
+    
+    # Old hardcoded paths
+    EVENTS_CSV = f"../output_dataset/{MATCH_NAME}_events.csv"
+    TEAM_CONFIG_JSON = f"../writable_data/configs/config_{MATCH_NAME}.json"
+    OUTPUT_DIR = f"../output/matches/{MATCH_NAME}/"
 else:
+    # Default fallback
     MATCH_NAME = "sbu_vs_2worlds"
+    EVENTS_CSV = f"../output_dataset/{MATCH_NAME}_events.csv"
+    TEAM_CONFIG_JSON = f"../writable_data/configs/config_{MATCH_NAME}.json"
+    OUTPUT_DIR = f"../output/matches/{MATCH_NAME}/"
+
+print(f"Processing: {MATCH_NAME}")
+print(f"Events CSV: {EVENTS_CSV}")
+print(f"Config: {TEAM_CONFIG_JSON}")
+print(f"Output: {OUTPUT_DIR}")
 
 # ========== ENHANCED RATING FUNCTIONS ==========
 
@@ -88,8 +117,9 @@ def clamp_pct(val, min_val=0, max_val=100):
 if MATCH_NAME.endswith("_events"):
     MATCH_NAME = MATCH_NAME[:-7]  # Remove _events suffix
 
-EVENTS_CSV = f"../output_dataset/{MATCH_NAME}_events.csv"
-TEAM_CONFIG_JSON = f"../writable_data/configs/config_{MATCH_NAME}.json"
+# Paths are now set by command line arguments or defaults above
+# Ensure output directory exists
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Load team name from config file (use home team as featured team)
 try:
@@ -102,21 +132,23 @@ except (FileNotFoundError, KeyError) as e:
     TEAM_NAME = "San Beda"  # Fallback
     print(f"Using fallback team name: {TEAM_NAME}")
 
-# Load match_id from events file
-EVENTS_JSON = f"../writable_data/events/{MATCH_NAME}_events.json"
+# Load match_id from config file
 MATCH_ID = None
 try:
-    with open(EVENTS_JSON, "r", encoding="utf-8") as f:
-        events_data = json.load(f)
-    MATCH_ID = events_data.get("match_id", MATCH_NAME)
+    # config_data is already loaded above for team name
+    if "match" in config_data and "id" in config_data["match"]:
+        MATCH_ID = config_data["match"]["id"]
+    else:
+        MATCH_ID = MATCH_NAME
     print(f"Loaded match ID: {MATCH_ID}")
-except (FileNotFoundError, KeyError) as e:
-    print(f"Could not load match ID from events: {e}")
+except Exception as e:
+    print(f"Could not load match ID from config: {e}")
     MATCH_ID = MATCH_NAME  # Fallback to dataset name
     print(f"Using fallback match ID: {MATCH_ID}")
 
 # Create match-specific output directory
-MATCH_OUTPUT_DIR = f"../output/matches/{MATCH_NAME}"
+# Use the OUTPUT_DIR passed as command line argument
+MATCH_OUTPUT_DIR = OUTPUT_DIR
 os.makedirs(MATCH_OUTPUT_DIR, exist_ok=True)
 
 # Use dynamic team name for output files

@@ -2,13 +2,13 @@
     "match_id": "16",
     "match_name": "match_16_sbu_vs_up",
     "team": "San Beda University",
-    "timestamp": "2025-11-20 13:09:26",
+    "timestamp": "2025-11-26 12:39:30",
     "predicted_scores": {
-        "attack": 5.968170642852783,
-        "defense": 6.802209854125977,
-        "discipline": 7.068350315093994,
-        "distribution": 7.002692699432373,
-        "general": 7.2584381103515625,
+        "attack": 5.964967727661133,
+        "defense": 7.106816291809082,
+        "discipline": 7.051159858703613,
+        "distribution": 6.921446323394775,
+        "general": 7.250855922698975,
         "overall": 0.0
     },
     "detailed_analysis": {
@@ -33,7 +33,7 @@
             }
         },
         "defense": {
-            "overall_assessment": "Average, with room for improvement",
+            "overall_assessment": "Strong performance",
             "strengths": [
                 "Excellent tackling efficiency at 100.0%",
                 "Strong anticipation with 61 interceptions",
@@ -54,7 +54,7 @@
             }
         },
         "distribution": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Average, with room for improvement",
             "strengths": [
                 "Good passing accuracy at 82.8%",
                 "Excellent penetrating passes with 18 through balls"
@@ -132,7 +132,7 @@
             "next_training_focus": "Primary focus: improve shot selection and technique through targeted finishing drills"
         },
         "defense": {
-            "performance_rating": "Competent defensive display",
+            "performance_rating": "Solid defensive foundation",
             "tactical_summary": "Excellent defensive discipline with 100.0% tackle success rate and 61 interceptions. The defensive unit showed great anticipation and timing.",
             "key_observations": [
                 "Exceptional tackling efficiency at 100.0% shows excellent defensive timing",
@@ -144,7 +144,7 @@
             "next_training_focus": "Primary focus: coordinate pressing triggers and defensive transitions"
         },
         "distribution": {
-            "performance_rating": "Strong passing display",
+            "performance_rating": "Effective distribution",
             "tactical_summary": "Solid passing foundation with 82.8% accuracy from 244 attempts. Good ball retention allowed for sustained pressure.",
             "key_observations": [
                 "Completed 244 passes with 82.8% accuracy maintaining team possession",
@@ -197,8 +197,8 @@
     },
     "interpretation": {
         "attack": "Average, with room for improvement - Limited attacking threat with only 5 attempts. Team needs to create more goal-scoring opportunities through better build-up play.",
-        "defense": "Average, with room for improvement - Dominant defensive display with 100.0% tackle success and 61 interceptions. Exceptional reading of the game.",
-        "distribution": "Strong performance - Strong ball retention (82.8% accuracy) but limited final ball delivery. Need more incisive creativity.",
+        "defense": "Strong performance - Dominant defensive display with 100.0% tackle success and 61 interceptions. Exceptional reading of the game.",
+        "distribution": "Average, with room for improvement - Strong ball retention (82.8% accuracy) but limited final ball delivery. Need more incisive creativity.",
         "discipline": "Strong performance - Exemplary discipline with no cards and only 8 fouls. Perfect emotional control throughout the match.",
         "general": "Strong performance - Excellent physical dominance with 86.4% duels won. Superior fitness and commitment levels.",
         "overall": "Needs significant improvement - Unbalanced performance with excellent distribution (7.1) masking weaknesses in attack (5.5). Need more consistency."

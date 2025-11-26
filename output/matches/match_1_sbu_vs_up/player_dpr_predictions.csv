@@ -1,18 +1,18 @@
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-Bel Escodo,38.2,30.8,-7.4,95.0,"['CDM', 'CDM']",0
-Cesar Ien Bayubay,53.4,34.9,-18.5,78.4,"['LWB', 'FWB']",1
-Jaro Libarnes,80.4,34.9,-45.5,97.4,"['CB', 'CB', 'CB', 'CB', 'LB', 'CB', 'CB']",1
-Jaryl Pineda,22.9,30.0,7.1,94.7,"['CAM', 'LW', 'LW', 'CAM']",1
-Jeljel Sison,51.2,41.3,-9.9,97.0,"['CB', 'CB']",0
-Joselito Soberano Jr.,1.5,30.0,28.5,30.3,"['LWB', 'FW']",1
-Jul Aningalan,75.4,34.9,-40.5,97.1,"['CB', 'CB', 'CB', 'CB', 'RB', 'CB', 'CB']",1
-Kirvy Tabelin,52.4,34.9,-17.5,95.2,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
-Kurt Bacaycay,15.0,30.0,15.0,10.9,"['RW', 'RWB', 'RW', 'RW']",1
-Laurence Fernandez,15.0,30.0,15.0,95.0,"['LW', 'LW', 'LW', 'RW', 'RW', 'LW', 'LW']",1
-Louie Bacnis,66.2,52.7,-13.5,94.6,"['CDM', 'CDM', 'CDM', 'CDM']",0
-Pedro Tagara,36.7,50.5,13.8,96.7,"['GK', 'GK', 'GK', 'GK', 'GK']",0
-Pius Encaya,40.9,30.0,-10.9,96.6,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST']",1
-Sam Salingay,53.7,50.5,-3.2,95.3,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST']",1
-Stock Rujiro,35.6,53.5,17.9,30.3,"['RWB', 'FW']",1
-Prince MelleNdrez,0.0,41.3,41.3,0.0,"['RWB', 'RWB']",0
-Hugo Bacnis,0.0,30.0,30.0,0.0,"['LW', 'ST', 'ST', 'LW']",1
+Bel Escodo,38.2,30.8,-7.4,95.0,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+Cesar Ien Bayubay,53.4,30.0,-23.4,78.4,"['LWB', 'FWB', 'FWB', 'FWB', 'FWB']",1
+Jaro Libarnes,80.4,30.0,-50.4,97.4,"['CB', 'CB', 'CB', 'CB', 'LB', 'CB', 'CB', 'LB', 'CB', 'CB', 'LB', 'LB']",1
+Jaryl Pineda,22.9,30.0,7.1,94.7,"['CAM', 'LW', 'LW', 'CAM', 'LW', 'CAM', 'LW', 'LW']",1
+Jeljel Sison,51.2,47.0,-4.2,97.0,"['CB', 'CB', 'CB', 'CB', 'CB']",0
+Joselito Soberano Jr.,1.5,30.0,28.5,30.3,"['LWB', 'FW', 'FW', 'FW', 'FW']",1
+Jul Aningalan,75.4,30.0,-45.4,97.1,"['CB', 'CB', 'CB', 'CB', 'RB', 'CB', 'CB', 'RB', 'CB', 'CB', 'RB', 'RB']",1
+Kirvy Tabelin,52.4,30.0,-22.4,95.2,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
+Kurt Bacaycay,15.0,30.0,15.0,10.9,"['RW', 'RWB', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW']",1
+Laurence Fernandez,15.0,30.0,15.0,95.0,"['LW', 'LW', 'LW', 'RW', 'RW', 'LW', 'LW', 'RW', 'LW', 'LW', 'RW', 'RW']",1
+Louie Bacnis,66.2,57.2,-9.0,94.6,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+Pedro Tagara,36.7,50.5,13.8,96.7,"['GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK']",0
+Pius Encaya,40.9,36.8,-4.1,96.6,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'FW', 'ST', 'CF', 'CF']",1
+Sam Salingay,53.7,57.5,3.8,95.3,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'FW', 'ST', 'CF', 'CF']",1
+Stock Rujiro,35.6,48.2,12.6,30.3,"['RWB', 'FW', 'FW', 'FW', 'FW']",1
+Prince MelleNdrez,0.0,47.0,47.0,0.0,"['RWB', 'RWB', 'RWB']",0
+Hugo Bacnis,0.0,30.0,30.0,0.0,"['LW', 'ST', 'ST', 'LW', 'ST', 'LW']",1

@@ -1,21 +1,21 @@
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-AJ Lampines,74.3,47.7,-26.6,90.0,"['LWB', 'LWB', 'LWB', 'LWB', 'LWB', 'LWB', 'LWB']",0
-Caleb Tassi,36.8,36.9,0.1,22.8,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
-Carl Detoya,60.9,64.7,3.8,91.4,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
-Jacob Tanamor,69.2,66.8,-2.4,88.9,"['RB', 'RB', 'RB', 'RB', 'RB', 'RB', 'RB']",0
-Jayson Jardiniano,73.9,47.7,-26.2,90.8,"['CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB']",0
-John Ariel Marquez,50.7,72.8,22.1,87.1,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
-Kenji Pusing,29.0,30.0,1.0,23.0,"['RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW']",0
-Kirk Emman See,50.0,67.5,17.5,88.3,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
-Marc Pellejo,33.9,50.5,16.6,88.5,"['GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK']",0
-Nicolai Abalos,62.8,70.5,7.7,91.3,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
-Paul Joshua Mapula,32.1,37.9,5.8,90.7,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
-Paul Vincent Mapula,48.0,36.1,-11.9,88.8,"['RB', 'RB', 'RB', 'RB', 'RB', 'RB', 'RB']",0
-Shaun Soberano,59.8,30.0,-29.8,20.2,"['FWB', 'FWB', 'FWB', 'FWB', 'FWB', 'FWB', 'FWB']",0
-Victor Felicia,56.9,77.8,20.9,25.4,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
-Viron Pedimonte,49.7,47.7,-2.0,88.6,"['RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB']",0
-Kenneth Payosalan,0.0,30.0,30.0,0.0,"['FW', 'FW', 'FW', 'FW', 'FW', 'FW', 'FW']",0
-Mehdi Qobadi.,0.0,30.0,30.0,0.0,"['FW', 'FW', 'FW', 'FW', 'FW', 'FW', 'FW']",0
-Salar Nezamikhah,0.0,7.2,7.2,0.0,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
-Artin Khalifeh Soultany,0.0,30.0,30.0,0.0,"['RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW']",0
-Samaniego M-mil,0.0,14.8,14.8,0.0,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+AJ Lampines,74.3,47.6,-26.7,90.0,"['LWB', 'LWB', 'LWB', 'LWB', 'LWB', 'LWB', 'LWB', 'LWB']",0
+Caleb Tassi,36.8,31.5,-5.3,22.8,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
+Carl Detoya,60.9,71.9,11.0,91.4,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+Jacob Tanamor,69.2,67.8,-1.4,88.9,"['RB', 'RB', 'RB', 'RB', 'RB', 'RB', 'RB', 'RB']",0
+Jayson Jardiniano,73.9,47.6,-26.3,90.8,"['CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB']",0
+John Ariel Marquez,50.7,74.5,23.8,87.1,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
+Kenji Pusing,29.0,30.0,1.0,23.0,"['RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW']",0
+Kirk Emman See,50.0,69.3,19.3,88.3,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
+Marc Pellejo,33.9,50.5,16.6,88.5,"['GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK']",0
+Nicolai Abalos,62.8,63.1,0.3,91.3,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+Paul Joshua Mapula,32.1,45.0,12.9,90.7,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
+Paul Vincent Mapula,48.0,34.5,-13.5,88.8,"['RB', 'RB', 'RB', 'RB', 'RB', 'RB', 'RB', 'RB']",0
+Shaun Soberano,59.8,30.0,-29.8,20.2,"['FWB', 'FWB', 'FWB', 'FWB', 'FWB', 'FWB', 'FWB', 'FWB']",0
+Victor Felicia,56.9,73.0,16.1,25.4,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
+Viron Pedimonte,49.7,47.6,-2.1,88.6,"['RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB']",0
+Kenneth Payosalan,0.0,30.0,30.0,0.0,"['FW', 'FW', 'FW', 'FW', 'FW', 'FW', 'FW', 'FW']",0
+Mehdi Qobadi.,0.0,30.0,30.0,0.0,"['FW', 'FW', 'FW', 'FW', 'FW', 'FW', 'FW', 'FW']",0
+Salar Nezamikhah,0.0,6.7,6.7,0.0,"['CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF', 'CF']",0
+Artin Khalifeh Soultany,0.0,30.0,30.0,0.0,"['RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW', 'RW']",0
+Samaniego M-mil,0.0,15.0,15.0,0.0,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0

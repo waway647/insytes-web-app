@@ -1,5 +1,43 @@
 {
   "processed_datasets": {
+    "match_16_sbu_vs_up": {
+      "file_hash": "f82e1cd20dfa6f5b8b46726df321807a",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-11-26T12:39:06.753182",
+      "processing_history": [
+        {
+          "timestamp": "2025-11-26T12:37:24.701615",
+          "step": "derived_metrics",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\derived_metrics_players.py.temp\", line 176, in <module>\n    raise FileNotFoundError(f\"No events file found at {EVENTS_CSV}\")\nFileNotFoundError: No events file found at ../output_dataset/match_16_sbu_vs_up_events.csv\n"
+        },
+        {
+          "timestamp": "2025-11-26T12:40:01.039080",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    },
     "match_1_sbu_vs_up": {
       "file_hash": "4039cde4c652439a00123e45c0841acc",
       "completed_steps": [
@@ -13,10 +51,16 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-19T13:42:56.096477",
+      "last_processed": "2025-11-26T12:40:01.040007",
       "processing_history": [
         {
-          "timestamp": "2025-11-19T13:44:00.676369",
+          "timestamp": "2025-11-26T12:37:26.077135",
+          "step": "derived_metrics",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\derived_metrics_players.py.temp\", line 176, in <module>\n    raise FileNotFoundError(f\"No events file found at {EVENTS_CSV}\")\nFileNotFoundError: No events file found at ../output_dataset/match_1_sbu_vs_up_events.csv\n"
+        },
+        {
+          "timestamp": "2025-11-26T12:40:50.160472",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -45,10 +89,16 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-19T13:44:00.679104",
+      "last_processed": "2025-11-26T12:40:50.160933",
       "processing_history": [
         {
-          "timestamp": "2025-11-19T13:45:20.860749",
+          "timestamp": "2025-11-26T12:37:27.532470",
+          "step": "derived_metrics",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\derived_metrics_players.py.temp\", line 176, in <module>\n    raise FileNotFoundError(f\"No events file found at {EVENTS_CSV}\")\nFileNotFoundError: No events file found at ../output_dataset/match_2_sbu_vs_siniloan_events.csv\n"
+        },
+        {
+          "timestamp": "2025-11-26T12:41:48.965692",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -77,42 +127,16 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-19T13:45:20.862714",
+      "last_processed": "2025-11-26T12:41:48.966423",
       "processing_history": [
         {
-          "timestamp": "2025-11-19T13:46:26.785439",
-          "status": "completed",
-          "steps": [
-            "convert_events",
-            "derived_metrics",
-            "regression_model",
-            "insights",
-            "team_metrics",
-            "team_model",
-            "team_insights",
-            "heatmaps",
-            "team_summary"
-          ]
-        }
-      ]
-    },
-    "match_16_sbu_vs_up": {
-      "file_hash": "f82e1cd20dfa6f5b8b46726df321807a",
-      "completed_steps": [
-        "convert_events",
-        "derived_metrics",
-        "regression_model",
-        "insights",
-        "team_metrics",
-        "team_model",
-        "team_insights",
-        "heatmaps",
-        "team_summary"
-      ],
-      "last_processed": "2025-11-19T16:00:51.037973",
-      "processing_history": [
+          "timestamp": "2025-11-26T12:37:28.853445",
+          "step": "derived_metrics",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\derived_metrics_players.py.temp\", line 176, in <module>\n    raise FileNotFoundError(f\"No events file found at {EVENTS_CSV}\")\nFileNotFoundError: No events file found at ../output_dataset/match_3_sbu_vs_2worlds_events.csv\n"
+        },
         {
-          "timestamp": "2025-11-19T16:02:16.862604",
+          "timestamp": "2025-11-26T12:42:34.363804",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -141,10 +165,16 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-20T13:43:04.598919",
+      "last_processed": "2025-11-26T12:42:34.364108",
       "processing_history": [
         {
-          "timestamp": "2025-11-20T13:43:53.839411",
+          "timestamp": "2025-11-26T12:37:30.156860",
+          "step": "derived_metrics",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\derived_metrics_players.py.temp\", line 176, in <module>\n    raise FileNotFoundError(f\"No events file found at {EVENTS_CSV}\")\nFileNotFoundError: No events file found at ../output_dataset/match_4_sbu_vs_kaya_events.csv\n"
+        },
+        {
+          "timestamp": "2025-11-26T12:43:28.324825",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -161,5 +191,5 @@
       ]
     }
   },
-  "last_updated": "2025-11-20T13:43:53.842433"
+  "last_updated": "2025-11-26T12:43:28.328837"
 }

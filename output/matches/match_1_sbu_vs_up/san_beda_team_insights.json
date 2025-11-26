@@ -2,13 +2,13 @@
     "match_id": "match_1_sbu_vs_up",
     "match_name": "match_1_sbu_vs_up",
     "team": "San Beda",
-    "timestamp": "2025-11-20 13:02:59",
+    "timestamp": "2025-11-26 12:40:23",
     "predicted_scores": {
-        "attack": 6.3447465896606445,
-        "defense": 6.630177974700928,
-        "discipline": 7.1359758377075195,
-        "distribution": 7.271531105041504,
-        "general": 7.316194534301758,
+        "attack": 6.085836887359619,
+        "defense": 7.381953716278076,
+        "discipline": 7.319827079772949,
+        "distribution": 7.766275882720947,
+        "general": 7.312897682189941,
         "overall": 0.0
     },
     "detailed_analysis": {
@@ -33,7 +33,7 @@
             }
         },
         "defense": {
-            "overall_assessment": "Average, with room for improvement",
+            "overall_assessment": "Strong performance",
             "strengths": [
                 "Excellent tackling efficiency at 100.0%",
                 "Strong anticipation with 61 interceptions",
@@ -133,7 +133,7 @@
             "next_training_focus": "Primary focus: improve shot selection and technique through targeted finishing drills"
         },
         "defense": {
-            "performance_rating": "Competent defensive display",
+            "performance_rating": "Solid defensive foundation",
             "tactical_summary": "Excellent defensive discipline with 100.0% tackle success rate and 61 interceptions. The defensive unit showed great anticipation and timing.",
             "key_observations": [
                 "Exceptional tackling efficiency at 100.0% shows excellent defensive timing",
@@ -199,7 +199,7 @@
     },
     "interpretation": {
         "attack": "Average, with room for improvement - Limited attacking threat with only 5 attempts. Team needs to create more goal-scoring opportunities through better build-up play.",
-        "defense": "Average, with room for improvement - Dominant defensive display with 100.0% tackle success and 61 interceptions. Exceptional reading of the game.",
+        "defense": "Strong performance - Dominant defensive display with 100.0% tackle success and 61 interceptions. Exceptional reading of the game.",
         "distribution": "Strong performance - Strong ball retention (82.8% accuracy) but limited final ball delivery. Need more incisive creativity.",
         "discipline": "Strong performance - Exemplary discipline with no cards and only 8 fouls. Perfect emotional control throughout the match.",
         "general": "Strong performance - Dominant overall display controlling 68.5% possession and 86.4% duels. Imposed game plan effectively.",

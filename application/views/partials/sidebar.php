@@ -17,7 +17,7 @@
 
         <div class="navigation-links flex flex-col gap-2">
             <!-- COACH nav-items -->
-            <?php if ($role == 'Coach'): ?>
+            <?php if (in_array($role, ['Coach', 'Assistant Coach', 'Analyst'])): ?>
             <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">

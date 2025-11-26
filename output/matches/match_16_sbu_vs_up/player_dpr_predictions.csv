@@ -1,31 +1,31 @@
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-Bel Escodo,38.2,76.9,38.7,95.0,"['CDM', 'CDM', 'CDM']",0
-Cesar Ien Bayubay,53.4,30.0,-23.4,78.4,"['LWB', 'FWB', 'FWB']",1
-Jaro Libarnes,80.4,30.0,-50.4,97.4,"['CB', 'CB', 'CB', 'CB', 'LB', 'CB', 'CB', 'LB', 'CB', 'CB']",1
-Jaryl Pineda,22.9,30.0,7.1,94.7,"['CAM', 'LW', 'LW', 'CAM', 'LW', 'CAM']",1
-Jeljel Sison,51.2,93.3,42.1,97.0,"['CB', 'CB', 'CB']",0
-Joselito Soberano Jr.,1.5,30.1,28.6,30.3,"['LWB', 'FW', 'FW']",1
-Jul Aningalan,75.4,30.0,-45.4,97.1,"['CB', 'CB', 'CB', 'CB', 'RB', 'CB', 'CB', 'RB', 'CB', 'CB']",1
-Kirvy Tabelin,52.4,44.6,-7.8,95.2,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
-Kurt Bacaycay,15.0,65.7,50.7,10.9,"['RW', 'RWB', 'RW', 'RW', 'RW', 'RW']",1
-Laurence Fernandez,15.0,69.5,54.5,95.0,"['LW', 'LW', 'LW', 'RW', 'RW', 'LW', 'LW', 'RW', 'LW', 'LW']",1
-Louie Bacnis,66.2,73.1,6.9,94.6,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
-Pedro Tagara,36.7,50.5,13.8,96.7,"['GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK']",0
-Pius Encaya,40.9,34.9,-6.0,96.6,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'FW', 'ST']",1
-Sam Salingay,53.7,57.1,3.4,95.3,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'FW', 'ST']",1
-Stock Rujiro,35.6,35.7,0.1,30.3,"['RWB', 'FW', 'FW']",1
-"Tagara, Pedro",0.0,50.5,50.5,0.0,"['GK', 'GK']",0
-"Libarnes, Jaro",0.0,35.6,35.6,0.0,"['CB', 'CB']",0
-"Aningalan, Jul",0.0,35.6,35.6,0.0,"['CB', 'CB']",0
-"Sison, JelJel",0.0,35.6,35.6,0.0,"['CB', 'CB']",0
-"Bacnis, Louie",0.0,25.0,25.0,0.0,"['CDM', 'CDM']",0
-"Pineda, Jaryl",0.0,30.0,30.0,0.0,"['LW', 'LW']",0
-"Tabelin, Kirvy",0.0,30.0,30.0,0.0,"['CAM', 'CAM']",0
-"Fernandez, Laurence",0.0,14.7,14.7,0.0,"['RW', 'RW']",0
-"Escodo, Bel",0.0,25.0,25.0,0.0,"['CDM', 'CDM']",0
-"Encaya, Pius",0.0,30.0,30.0,0.0,"['ST', 'ST']",0
-"Salingay, Sam",0.0,30.0,30.0,0.0,"['ST', 'ST']",0
-"Mellendrez, Prince",0.0,48.5,48.5,0.0,"['RWB', 'RWB']",0
-"Soberano, Joselito",0.0,48.5,48.5,0.0,"['LWB', 'LWB']",0
-"Rogero, Stock",0.0,48.5,48.5,0.0,"['RWB', 'RWB']",0
-Unnamed,0.0,30.0,30.0,0.0,"[nan, nan]",0
+Bel Escodo,38.2,76.4,38.2,95.0,"['CDM', 'CDM', 'CDM', 'CDM']",0
+Cesar Ien Bayubay,53.4,30.0,-23.4,78.4,"['LWB', 'FWB', 'FWB', 'FWB']",1
+Jaro Libarnes,80.4,30.0,-50.4,97.4,"['CB', 'CB', 'CB', 'CB', 'LB', 'CB', 'CB', 'LB', 'CB', 'CB', 'LB']",1
+Jaryl Pineda,22.9,30.0,7.1,94.7,"['CAM', 'LW', 'LW', 'CAM', 'LW', 'CAM', 'LW']",1
+Jeljel Sison,51.2,93.3,42.1,97.0,"['CB', 'CB', 'CB', 'CB']",0
+Joselito Soberano Jr.,1.5,30.0,28.5,30.3,"['LWB', 'FW', 'FW', 'FW']",1
+Jul Aningalan,75.4,30.0,-45.4,97.1,"['CB', 'CB', 'CB', 'CB', 'RB', 'CB', 'CB', 'RB', 'CB', 'CB', 'RB']",1
+Kirvy Tabelin,52.4,50.6,-1.8,95.2,"['CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",0
+Kurt Bacaycay,15.0,68.5,53.5,10.9,"['RW', 'RWB', 'RW', 'RW', 'RW', 'RW', 'RW']",1
+Laurence Fernandez,15.0,66.9,51.9,95.0,"['LW', 'LW', 'LW', 'RW', 'RW', 'LW', 'LW', 'RW', 'LW', 'LW', 'RW']",1
+Louie Bacnis,66.2,73.6,7.4,94.6,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+Pedro Tagara,36.7,50.5,13.8,96.7,"['GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK']",0
+Pius Encaya,40.9,31.6,-9.3,96.6,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'FW', 'ST', 'CF']",1
+Sam Salingay,53.7,57.5,3.8,95.3,"['FW', 'ST', 'ST', 'ST', 'CF', 'FW', 'ST', 'CF', 'FW', 'ST', 'CF']",1
+Stock Rujiro,35.6,54.8,19.2,30.3,"['RWB', 'FW', 'FW', 'FW']",1
+"Tagara, Pedro",0.0,50.5,50.5,0.0,"['GK', 'GK', 'GK']",0
+"Libarnes, Jaro",0.0,35.6,35.6,0.0,"['CB', 'CB', 'CB']",0
+"Aningalan, Jul",0.0,35.6,35.6,0.0,"['CB', 'CB', 'CB']",0
+"Sison, JelJel",0.0,35.6,35.6,0.0,"['CB', 'CB', 'CB']",0
+"Bacnis, Louie",0.0,25.0,25.0,0.0,"['CDM', 'CDM', 'CDM']",0
+"Pineda, Jaryl",0.0,30.0,30.0,0.0,"['LW', 'LW', 'LW']",0
+"Tabelin, Kirvy",0.0,30.0,30.0,0.0,"['CAM', 'CAM', 'CAM']",0
+"Fernandez, Laurence",0.0,14.7,14.7,0.0,"['RW', 'RW', 'RW']",0
+"Escodo, Bel",0.0,25.0,25.0,0.0,"['CDM', 'CDM', 'CDM']",0
+"Encaya, Pius",0.0,30.0,30.0,0.0,"['ST', 'ST', 'ST']",0
+"Salingay, Sam",0.0,30.0,30.0,0.0,"['ST', 'ST', 'ST']",0
+"Mellendrez, Prince",0.0,45.8,45.8,0.0,"['RWB', 'RWB', 'RWB']",0
+"Soberano, Joselito",0.0,45.8,45.8,0.0,"['LWB', 'LWB', 'LWB']",0
+"Rogero, Stock",0.0,45.8,45.8,0.0,"['RWB', 'RWB', 'RWB']",0
+Unnamed,0.0,30.0,30.0,0.0,"[nan, nan, nan]",0
