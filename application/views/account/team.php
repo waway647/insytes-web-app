@@ -8,13 +8,14 @@
         // --- TEAM DATA (Initial placeholder) ---
         team: { 
             team_name: 'Loading Team...',
+            abbreviation: '...',
             country: '...',
             city: '...',
             team_logo: '<?php 
                 // Assuming $teamData is available in your view for the initial load
                 echo isset($teamData['team_logo']) ? base_url('assets/team_logos/' . $teamData['team_logo']) : 'logo.png'; 
             ?>',
-            team_link: '#',
+            invite_code: '#',
             created_by: '...',
             role: '...' 
         },
@@ -29,12 +30,13 @@
         
         // --- TEMPORARY EDITING VALUES (Bound to panel inputs) ---
         tempTeamName: '',
+        tempAbbreviation: '',
         tempCountry: '',
         tempCity: '',
         tempTeamLogo: '', // For the *original* URL, used if no new file is uploaded
         tempPrimaryColor: '',
         tempSecondaryColor: '',
-        tempTeamLink: '',
+        tempInviteCode: '',
         tempCreatedBy: '',
         
         // --- NEW FILE/PREVIEW VARIABLES ---
@@ -55,10 +57,11 @@
         openEditPanel() {
             // Load current team data into temporary variables when opening the panel
             this.tempTeamName = this.team.team_name;
+            this.tempAbbreviation = this.team.abbreviation;
             this.tempCountry = this.team.country;
             this.tempCity = this.team.city;
             this.tempTeamLogo = this.team.team_logo;
-            this.tempTeamLink = this.team.team_link;
+            this.tempInviteCode = this.team.invite_code;
             this.tempCreatedBy = this.team.created_by;
 
             let currentLogo = this.team.team_logo;
@@ -149,9 +152,10 @@
             
             // Append regular fields
             formData.append('team_name', this.tempTeamName);
+            formData.append('abbreviation', this.tempAbbreviation);
             formData.append('country', this.tempCountry);
             formData.append('city', this.tempCity);
-            formData.append('team_link', this.tempTeamLink);
+            formData.append('invite_code', this.tempInviteCode);
             
             // Check if a new file was selected
             if (this.tempTeamLogoFile) {
@@ -233,7 +237,7 @@
                 if (result.success) { 
                     this.successMessage = result.message || 'Team successfully deleted. Redirecting...'; 
                     this.isDeletingTeam = false;
-                    this.team = { team_name: 'DELETED', country: '', city: '', team_logo: '', team_link: '', created_by: '', role: '' };
+                    this.team = { team_name: 'DELETED', abbreviation: '', country: '', city: '', team_logo: '', invite_code: '', created_by: '', role: '' };
                 } else {
                     this.deleteError = result.message || 'Unknown deletion error.';
                 }
@@ -444,6 +448,11 @@
                                     <label for="team_name" class="block text-sm font-medium text-[#B6BABD]">Team Name</label>
                                     <input type="text" x-model="tempTeamName" id="team_name" class="mt-1 block w-full rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 p-2">
                                 </div>
+
+                                <div>
+                                    <label for="abbreviation" class="block text-sm font-medium text-[#B6BABD]">Abbreviation</label>
+                                    <input type="text" x-model="tempAbbreviation" id="abbreviation" class="mt-1 block w-full rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 p-2">
+                                </div>
                                 
                                 <div>
                                     <label for="country" class="block text-sm font-medium text-[#B6BABD]">Country</label>
@@ -456,8 +465,8 @@
                                 </div>
 
                                 <div>
-                                    <label for="team_link" class="block text-sm font-medium text-[#B6BABD]">Public Team Link</label>
-                                    <input type="url" x-model="tempTeamLink" id="team_link" class="mt-1 block w-full rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 p-2">
+                                    <label for="invite_code" class="block text-sm font-medium text-[#B6BABD]">Public Team Link</label>
+                                    <input type="url" x-model="tempInviteCode" id="invite_code" class="mt-1 block w-full rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 p-2">
                                 </div>
                                 
                             </form>

@@ -94,6 +94,7 @@ class NewUserController extends CI_Controller {
 		// Here you would typically process the form data and create the team
 		$role = $this->session->userdata('role'); // Assuming role is stored in session
 		$team_name = $this->input->post('team_name');
+		$abbreviation = $this->input->post('abbreviation');
 		$country = $this->input->post('country');
 		$city = $this->input->post('city');
 		$created_by = $this->session->userdata('user_id');
@@ -136,6 +137,7 @@ class NewUserController extends CI_Controller {
 		// Basic validation (you can expand this as needed)
 		$team_data = array(
 			'team_name' => $team_name,
+			'abbreviation' => $abbreviation,
 			'country' => $country,
 			'city' => $city,
 			'team_logo' => $attachment_path ?? null,
@@ -160,10 +162,12 @@ class NewUserController extends CI_Controller {
 					'role' => $user->role,
 					'team_id' => $user->team_id,
 					'team_name' => $user->team_name,
+					'abbreviation' => $user->abbreviation
 				]);
 
 				$data['user'] = [
 					'team_name' => $user->team_name,
+					'abbreviation' => $user->abbreviation,
 					'role' => $user->role,
 					'team_logo' => $user->team_logo,
 					'user_id' => $user->id,

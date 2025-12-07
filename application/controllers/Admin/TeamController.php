@@ -65,7 +65,7 @@ class TeamController extends CI_Controller {
             // Set JSON header for API responses
             $this->output->set_content_type('application/json');
             // Validate required fields
-            $required_fields = ['team_name', 'primary_color'];
+            $required_fields = ['team_name'];
             foreach ($required_fields as $field) {
                 if (empty($this->input->post($field))) {
                     $this->output
@@ -97,11 +97,10 @@ class TeamController extends CI_Controller {
             
             $teamData = [
                 'team_name'        => $this->input->post('team_name'),
+                'abbreviation'        => $this->input->post('abbreviation'),
                 'location'         => $this->input->post('location') ?? '',
                 'city'             => $this->input->post('city') ?? '',
                 'country'          => $this->input->post('country') ?? '',
-                'primary_color'    => $this->input->post('primary_color'),
-                'secondary_color'  => $this->input->post('secondary_color') ?? '#ffffff',
                 'logo_url'         => $logo_url
             ];
             
@@ -188,12 +187,11 @@ class TeamController extends CI_Controller {
             
             $teamData = [
                 'team_name'       => $this->input->post('team_name') ?: $existing_team['team_name'],
+                'abbreviation'    => $this->input->post('abbreviation'),
                 'location'        => $this->input->post('location'),
                 'city'            => $this->input->post('city'),
                 'country'         => $this->input->post('country'),
                 'manager_id'      => $this->input->post('manager_id'),
-                'primary_color'   => $this->input->post('primary_color') ?: $existing_team['primary_color'],
-                'secondary_color' => $this->input->post('secondary_color') ?: $existing_team['secondary_color'],
                 'logo_url'        => $logo_url
             ];
             

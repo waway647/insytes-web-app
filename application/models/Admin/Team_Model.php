@@ -23,7 +23,7 @@ class Team_Model extends CI_Model
         $location_filter = '', 
         $manager_filter = ''
     ) {
-        $this->db->select('t.id, t.team_name, t.country, t.city, t.team_logo, t.primary_color, t.secondary_color, t.invite_code, t.updated_at, t.created_by,
+        $this->db->select('t.id, t.team_name, t.abbreviation, t.country, t.city, t.team_logo, t.invite_code, t.updated_at, t.created_by,
                           COUNT(u.id) as total_users, 
                           CONCAT(creator.first_name, " ", creator.last_name) as manager_name,
                           creator.id as manager_id');
@@ -59,12 +59,11 @@ class Team_Model extends CI_Model
             $formatted_teams[] = [
                 'id'              => $team['id'],
                 'team_name'       => $team['team_name'],
+                'abbreviation'    => $team['abbreviation'],
                 'location'        => (!empty($team['city']) ? $team['city'] : '') . 
                                    (!empty($team['country']) ? (!empty($team['city']) ? ', ' : '') . $team['country'] : 'N/A'),
                 'manager'         => $team['manager_name'] ?? 'No Manager',
                 'manager_id'      => $team['manager_id'] ?? null,
-                'primary_color'   => $team['primary_color'] ?? '#dc2626',
-                'secondary_color' => $team['secondary_color'] ?? '#ffffff',
                 'logo_url'        => !empty($team['team_logo']) ? base_url($team['team_logo']) : null,
                 'invite_code'     => $team['invite_code'],
                 'total_users'     => $team['total_users'] ?? 0,
@@ -98,11 +97,10 @@ class Team_Model extends CI_Model
         // Map frontend fields to database fields
         $dbData = [
             'team_name'       => $teamData['team_name'],
+            'abbreviation'    => $teamData['abbreviation'],
             'country'         => $country,
             'city'            => $city,
             'team_logo'       => $teamData['logo_url'] ?? null,
-            'primary_color'   => $teamData['primary_color'],
-            'secondary_color' => $teamData['secondary_color'],
             'invite_code'     => $this->generateInviteCode(),
             'created_by'      => $teamData['manager_id'] ?? $this->session->userdata('user_id') ?? 1,
             'created_at'      => date('Y-m-d H:i:s'),
@@ -119,6 +117,9 @@ class Team_Model extends CI_Model
         
         if (isset($teamData['team_name'])) {
             $dbData['team_name'] = $teamData['team_name'];
+        }
+        if (isset($teamData['abbreviation'])) {
+            $dbData['abbreviation'] = $teamData['abbreviation'];
         }
         if (isset($teamData['location'])) {
             // Split location into city and country if possible
@@ -139,12 +140,6 @@ class Team_Model extends CI_Model
         }
         if (isset($teamData['logo_url'])) {
             $dbData['team_logo'] = $teamData['logo_url'];
-        }
-        if (isset($teamData['primary_color'])) {
-            $dbData['primary_color'] = $teamData['primary_color'];
-        }
-        if (isset($teamData['secondary_color'])) {
-            $dbData['secondary_color'] = $teamData['secondary_color'];
         }
         
         $dbData['updated_at'] = date('Y-m-d H:i:s');

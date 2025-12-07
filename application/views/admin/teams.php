@@ -113,10 +113,10 @@ $page_title = 'Teams';
                     <div class="px-8 py-4">
                         <div class="grid grid-cols-12 gap-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
                             <div class="col-span-3">Team Name</div>
+                            <div class="col-span-1 text-center">Abbreviation</div>
                             <div class="col-span-2 text-center">Location</div>
                             <div class="col-span-2 text-center">Manager</div>
                             <div class="col-span-2 text-center">Total Members</div>
-                            <div class="col-span-1 text-center">Colors</div>
                             <div class="col-span-1 text-center">Last updated</div>
                             <div class="col-span-1 text-center">Actions</div>
                         </div>
@@ -203,9 +203,14 @@ $page_title = 'Teams';
                                 <input type="text" id="teamName" required class="mt-1 block w-full px-4 py-3 border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base">
                             </div>
                             <div>
-                                <label for="teamLocation" class="block text-sm font-medium text-gray-300 mb-2">Location</label>
-                                <input type="text" id="teamLocation" required class="mt-1 block w-full px-4 py-3 border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base">
+                                <label for="teamAbbreviation" class="block text-sm font-medium text-gray-300 mb-2">Abbreviation</label>
+                                <input type="text" id="teamAbbreviation" required class="mt-1 block w-full px-4 py-3 border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base">
                             </div>
+                        </div>
+
+                        <div>
+                            <label for="teamLocation" class="block text-sm font-medium text-gray-300 mb-2">Location</label>
+                            <input type="text" id="teamLocation" required class="mt-1 block w-full px-4 py-3 border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base">
                         </div>
                         
                         <div class="dropdown-container">
@@ -214,17 +219,6 @@ $page_title = 'Teams';
                                 <option value="">Select a manager...</option>
                                 <!-- Managers will be loaded dynamically -->
                             </select>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                            <div>
-                                <label for="primaryColor" class="block text-sm font-medium text-gray-300 mb-2">Primary Color</label>
-                                <input type="color" id="primaryColor" value="#dc2626" class="mt-1 block w-full h-12 px-2 border-gray-600 bg-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="secondaryColor" class="block text-sm font-medium text-gray-300 mb-2">Secondary Color</label>
-                                <input type="color" id="secondaryColor" value="#ffffff" class="mt-1 block w-full h-12 px-2 border-gray-600 bg-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                            </div>
                         </div>
                         
                         <div>

@@ -42,9 +42,10 @@ class TeamController extends CI_Controller {
 		// 2. Prepare update data from POST
 		$team_update_data = array(
 			'team_name' => $this->input->post('team_name'),
+			'abbreviation' => $this->input->post('abbreviation'),
 			'country' => $this->input->post('country'),
 			'city' => $this->input->post('city'),
-			'team_link' => $this->input->post('team_link'),
+			'invite_code' => $this->input->post('invite_code'),
 		);
 
 		// 3. Handle file upload (key MUST be 'team_logo' to match Alpine.js FormData)

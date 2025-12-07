@@ -58,6 +58,12 @@ error_reporting(E_ALL ^ E_DEPRECATED);
         </div>
 
         <div>
+          <label for="abbreviation" class="block text-sm font-medium text-gray-300 mb-1">Abbreviation</label>
+          <input id="abbreviation" type="text" placeholder="e.g., FCB" name="abbreviation" required
+          class="w-full px-3 py-1.5 rounded-md bg-neutral-800 text-gray-200 placeholder-gray-500 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <div>
           <label for="country" class="block text-sm font-medium text-gray-300 mb-1">Country</label>
           <input id="country" type="text" placeholder="e.g., Spain" name="country" required
           class="w-full px-3 py-1.5 rounded-md bg-neutral-800 text-gray-200 placeholder-gray-500 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">

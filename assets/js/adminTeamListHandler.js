@@ -48,15 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="text-white font-medium">${team.team_name}</div>
                             </div>
                         </div>
+                        <div class="col-span-1 text-gray-400 flex justify-center">${team.abbreviation}</div>
                         <div class="col-span-2 text-gray-400 flex justify-center">${team.location}</div>
                         <div class="col-span-2 text-white flex justify-center">${team.manager}</div>
                         <div class="col-span-2 text-gray-400 flex justify-center">${team.total_users}</div>
-                        <div class="col-span-1 text-center">
-                            <div class="flex items-center justify-center space-x-1">
-                                <div class="w-3 h-3 rounded-full border border-gray-600" style="background-color: ${team.primary_color}"></div>
-                                <div class="w-3 h-3 rounded-full border border-gray-600" style="background-color: ${team.secondary_color}"></div>
-                            </div>
-                        </div>
                         <div class="col-span-1 text-gray-500 text-center">${team.last_updated}</div>
                         <div class="col-span-1 text-center">
                             <div class="flex justify-center gap-2">
@@ -195,6 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (query) {
             filtered = filtered.filter(team =>
                 team.team_name.toLowerCase().includes(query) ||
+                team.abbreviation.toLowerCase().includes(query) ||
                 team.location.toLowerCase().includes(query) ||
                 team.manager.toLowerCase().includes(query)
             );
@@ -237,10 +233,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const formData = new FormData();
         formData.append("team_name", document.getElementById("teamName").value);
+        formData.append("abbreviation", document.getElementById("teamAbbreviation").value);
         formData.append("location", document.getElementById("teamLocation").value);
         formData.append("manager_id", selectedManagerId);
-        formData.append("primary_color", document.getElementById("primaryColor").value);
-        formData.append("secondary_color", document.getElementById("secondaryColor").value);
         
         // Debug form data
         console.log('Form data being sent:');
@@ -381,6 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             // Pre-populate the add team form with existing data
             document.getElementById("teamName").value = team.team_name;
+            document.getElementById("teamAbbreviation").value = team.abbreviation;
             document.getElementById("teamLocation").value = team.location;
             
             // Set the current manager using manager_id directly
@@ -391,9 +387,6 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 console.warn('No manager ID found for team:', team);
             }
-            
-            document.getElementById("primaryColor").value = team.primary_color;
-            document.getElementById("secondaryColor").value = team.secondary_color;
 
             // Show the modal
             addTeamModal.classList.remove("hidden");
