@@ -4,102 +4,102 @@
         "season": "2025/2026",
         "competition": "Ang Liga",
         "venue": "Ayala Vermosa Sports Hub",
-        "date": "2025-10-12",
-        "attacking_direction": "left-to-right",
+        "date": "2025-10-26",
+        "attacking_direction": "right-to-left",
         "positions_locked": true
     },
     "home": {
         "name": "San Beda University",
-        "jersey_color": "#ffffff",
-        "jersey_text_color": "rgb(0, 0, 0)",
+        "jersey_color": "#ad0000",
+        "jersey_text_color": "rgb(255, 255, 255)",
         "starting11": [
             {
                 "id": "13",
                 "name": "Tagara, Pedro",
                 "number": 15,
                 "position": "GK",
-                "x": 7,
-                "y": 23
+                "x": 82.75,
+                "y": 29.751036099390532
             },
             {
                 "id": "14",
                 "name": "Libarnes, Jaro",
                 "number": 28,
                 "position": "CB",
-                "x": 7,
-                "y": 34
+                "x": 83.5,
+                "y": 70.38087201125175
             },
             {
                 "id": "15",
                 "name": "Aningalan, Jul",
                 "number": 2,
                 "position": "CB",
-                "x": 7,
-                "y": 45
+                "x": 84.5,
+                "y": 48.75049226441631
             },
             {
                 "id": "16",
                 "name": "Sison, JelJel",
                 "number": 31,
                 "position": "CB",
-                "x": 7,
-                "y": 56
+                "x": 74.75,
+                "y": 42.122831692451946
             },
             {
                 "id": "17",
                 "name": "Bacnis, Louie",
                 "number": 34,
                 "position": "CDM",
-                "x": 7,
-                "y": 67
+                "x": 73.5,
+                "y": 65.1248007501172
             },
             {
                 "id": "18",
                 "name": "Pineda, Jaryl",
                 "number": 57,
                 "position": "LW",
-                "x": 7,
-                "y": 78
+                "x": 94,
+                "y": 49.12067510548524
             },
             {
                 "id": "19",
                 "name": "Tabelin, Kirvy",
                 "number": 11,
                 "position": "CAM",
-                "x": 16,
-                "y": 23
+                "x": 66,
+                "y": 50.75443037974684
             },
             {
                 "id": "20",
                 "name": "Fernandez, Laurence",
                 "number": 38,
                 "position": "RW",
-                "x": 16,
-                "y": 34
+                "x": 65.75,
+                "y": 9.996249413970933
             },
             {
                 "id": "21",
                 "name": "Escodo, Bel",
                 "number": 13,
                 "position": "CDM",
-                "x": 16,
-                "y": 45
+                "x": 56.49999999999999,
+                "y": 63.00271917487107
             },
             {
                 "id": "22",
                 "name": "Encaya, Pius",
                 "number": 17,
                 "position": "ST",
-                "x": 16,
-                "y": 56
+                "x": 56.75,
+                "y": 45.498359118612285
             },
             {
                 "id": "23",
                 "name": "Salingay, Sam",
                 "number": 18,
                 "position": "ST",
-                "x": 16,
-                "y": 67
+                "x": 68.75,
+                "y": 89.12855133614627
             }
         ],
         "bench": [
@@ -120,12 +120,24 @@
                 "name": "Rogero, Stock",
                 "number": 14,
                 "position": "RWB"
+            },
+            {
+                "id": "47",
+                "name": "Bayubay, Cesar Ien",
+                "number": 14,
+                "position": "LWB"
+            },
+            {
+                "id": "24",
+                "name": "Bacaycay, Kurt",
+                "number": 71,
+                "position": "RWB"
             }
         ]
     },
     "away": {
         "name": "University of the Philippines",
-        "jersey_color": "#551616",
+        "jersey_color": "#050505",
         "jersey_text_color": "rgb(255, 255, 255)",
         "starting11": [
             {
@@ -133,88 +145,88 @@
                 "name": "Unnamed",
                 "number": 1,
                 "position": "",
-                "x": 93,
-                "y": 23
+                "x": 5.5,
+                "y": 47.7539615564932
             },
             {
                 "id": "30",
                 "name": "Unnamed",
                 "number": 19,
                 "position": "",
-                "x": 93,
-                "y": 34
+                "x": 26,
+                "y": 12.621659634317863
             },
             {
                 "id": "31",
                 "name": "Unnamed",
                 "number": 9,
                 "position": "",
-                "x": 93,
-                "y": 45
+                "x": 42,
+                "y": 11.244631973745898
             },
             {
                 "id": "32",
                 "name": "Unnamed",
                 "number": 11,
                 "position": "",
-                "x": 93,
-                "y": 56
+                "x": 41.75,
+                "y": 87.87998124706986
             },
             {
                 "id": "33",
                 "name": "Unnamed",
                 "number": 22,
                 "position": "",
-                "x": 93,
-                "y": 67
+                "x": 16.25,
+                "y": 35.87022972339428
             },
             {
                 "id": "34",
                 "name": "Unnamed",
                 "number": 3,
                 "position": "",
-                "x": 93,
-                "y": 78
+                "x": 15.5,
+                "y": 64.4980778246601
             },
             {
                 "id": "35",
                 "name": "Unnamed",
                 "number": 14,
                 "position": "",
-                "x": 84,
-                "y": 23
+                "x": 31.25,
+                "y": 34.626797937177685
             },
             {
                 "id": "36",
                 "name": "Unnamed",
                 "number": 20,
                 "position": "",
-                "x": 84,
-                "y": 34
+                "x": 25.75,
+                "y": 51.62794186591656
             },
             {
                 "id": "37",
                 "name": "Unnamed",
                 "number": 6,
                 "position": "",
-                "x": 84,
-                "y": 45
+                "x": 42.25,
+                "y": 48.37543366150961
             },
             {
                 "id": "38",
                 "name": "Unnamed",
                 "number": 16,
                 "position": "",
-                "x": 84,
-                "y": 56
+                "x": 33.25,
+                "y": 63.12611345522738
             },
             {
                 "id": "39",
                 "name": "Unnamed",
                 "number": 15,
                 "position": "",
-                "x": 84,
-                "y": 67
+                "x": 22.5,
+                "y": 89.12855133614627
             }
         ],
         "bench": []

@@ -195,25 +195,25 @@
         // my players
         const myPlayers = this._collectPlayers('my-players-tbody');
         myPlayers.forEach((p, i) => {
-        fd.append(`my_players[${i}][rowIndex]`, p.rowIndex);
-        fd.append(`my_players[${i}][team_id]`, p.team_id);
-        fd.append(`my_players[${i}][player_id]`, p.player_id);
-        fd.append(`my_players[${i}][name]`, p.name);
-        fd.append(`my_players[${i}][jersey]`, p.jersey);
-        fd.append(`my_players[${i}][position]`, p.position);
-        fd.append(`my_players[${i}][xi]`, p.xi);
+          fd.append(`my_players[${i}][rowIndex]`, p.rowIndex);
+          fd.append(`my_players[${i}][team_id]`, p.team_id);
+          fd.append(`my_players[${i}][player_id]`, p.player_id);
+          fd.append(`my_players[${i}][name]`, p.name);
+          fd.append(`my_players[${i}][jersey]`, p.jersey);
+          fd.append(`my_players[${i}][position]`, p.position);
+          fd.append(`my_players[${i}][xi]`, p.xi);
         });
 
         // opponent players
         const opponentPlayers = this._collectPlayers('opponent-players-tbody');
         opponentPlayers.forEach((p, i) => {
-        fd.append(`opponent_players[${i}][rowIndex]`, p.rowIndex);
-        fd.append(`opponent_players[${i}][team_id]`, p.team_id);
-        fd.append(`opponent_players[${i}][player_id]`, p.player_id);
-        fd.append(`opponent_players[${i}][name]`, p.name);
-        fd.append(`opponent_players[${i}][jersey]`, p.jersey);
-        fd.append(`opponent_players[${i}][position]`, p.position);
-        fd.append(`opponent_players[${i}][xi]`, p.xi);
+          fd.append(`opponent_players[${i}][rowIndex]`, p.rowIndex);
+          fd.append(`opponent_players[${i}][team_id]`, p.team_id);
+          fd.append(`opponent_players[${i}][player_id]`, p.player_id);
+          fd.append(`opponent_players[${i}][name]`, p.name);
+          fd.append(`opponent_players[${i}][jersey]`, p.jersey);
+          fd.append(`opponent_players[${i}][position]`, p.position);
+          fd.append(`opponent_players[${i}][xi]`, p.xi);
         });
 
         // UI feedback
@@ -242,10 +242,17 @@
           if (json && (json.success || json.id)) {
             // success - close UI and optionally refresh or show toast
             alert('Match saved successfully');
+
             // hide or reset the panel
             const panel = document.getElementById('new-match-panel');
             if (panel) panel.classList.add('hidden');
-            // TODO: trigger refresh of match list if needed
+
+            // reload the page so the match list updates (short delay to allow UI to settle)
+            setTimeout(function(){
+              // Replace current page with reload so back-button behavior remains clean
+              window.location.reload();
+            }, 220);
+
           } else {
             throw new Error(json && json.message ? json.message : 'Save failed');
           }
@@ -254,6 +261,7 @@
           alert('Failed to save match: ' + (err.message || err));
         } finally {
           if (submitBtn) {
+            // In case reload hasn't happened (or on error), restore button state
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
             submitBtn.classList.remove('opacity-70', 'cursor-default');

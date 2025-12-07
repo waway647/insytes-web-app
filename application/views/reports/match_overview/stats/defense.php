@@ -96,7 +96,7 @@ $home_saves_pct = $total_saves > 0 ? ($home_saves / $total_saves * 100) : null;
         <p class="text-sm text-[#B6BABD]">Tackles success rate</p>
         <div class="w-full flex justify-center items-center gap-5">
             <span class="text-xl text-white font-semibold">
-                <?= $home_tackles_success_rate_pct !== null ? number_format($home_tackles_success_rate_pct, 2) . '%' : '—' ?>
+                <?= $home_tackles_success_rate_pct !== null ? number_format($home_tackles_success_rate_pct, 0) . '%' : '—' ?>
             </span>
 
             <div id="percentage-bar" class="w-150 h-2.5 bg-[#2a2a2a] rounded-2xl">
@@ -110,7 +110,7 @@ $home_saves_pct = $total_saves > 0 ? ($home_saves / $total_saves * 100) : null;
             </div>
 
             <span class="text-xl text-white font-semibold">
-                <?= $away_tackles_success_rate_pct !== null ? number_format($away_tackles_success_rate_pct, 2) . '%' : '—' ?>
+                <?= $away_tackles_success_rate_pct !== null ? number_format($away_tackles_success_rate_pct, 0) . '%' : '—' ?>
             </span>
         </div>
     </div>
@@ -196,7 +196,7 @@ $home_saves_pct = $total_saves > 0 ? ($home_saves / $total_saves * 100) : null;
         <p class="text-sm text-[#B6BABD]">Recoveries attacking third (%)</p>
         <div class="w-full flex justify-center items-center gap-5">
             <span class="text-xl text-white font-semibold">
-                <?= $home_recoveries_att_third_pct_value !== null ? number_format($home_recoveries_att_third_pct_value, 2) . '%' : '—' ?>
+                <?= $home_recoveries_att_third_pct_value !== null ? number_format($home_recoveries_att_third_pct_value, 0) . '%' : '—' ?>
             </span>
 
             <div id="percentage-bar" class="w-150 h-2.5 bg-[#2a2a2a] rounded-2xl">
@@ -210,7 +210,7 @@ $home_saves_pct = $total_saves > 0 ? ($home_saves / $total_saves * 100) : null;
             </div>
 
             <span class="text-xl text-white font-semibold">
-                <?= $away_recoveries_att_third_pct_value !== null ? number_format($away_recoveries_att_third_pct_value, 2) . '%' : '—' ?>
+                <?= $away_recoveries_att_third_pct_value !== null ? number_format($away_recoveries_att_third_pct_value, 0) . '%' : '—' ?>
             </span>
         </div>
     </div>

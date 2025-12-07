@@ -21,9 +21,11 @@ class LibraryController extends CI_Controller {
     {
         $this->output->set_content_type('application/json');
 
+        $my_team_id = $this->session->userdata('team_id');
+
         try {
             // Fetch all matches
-            $matches = $this->LibraryModel->get_all_matches();
+            $matches = $this->LibraryModel->get_all_matches($my_team_id);
 
             if (empty($matches)) {
                 $this->output->set_output(json_encode([

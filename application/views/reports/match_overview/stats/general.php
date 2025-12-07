@@ -43,7 +43,7 @@ $home_corner_awarded_pct = $home_corner_awarded / $total_corner_awarded * 100;
         <p class="text-sm text-[#B6BABD]">Possesion</p>
         <div class="w-full flex justify-center items-center gap-5">
             <span class="text-xl text-white font-semibold">
-                <?= $home_pos_pct !== null ? number_format($home_pos_pct, 1) . '%' : '—' ?>
+                <?= $home_pos_pct !== null ? number_format($home_pos_pct, 0) . '%' : '—' ?>
             </span>
             <div id="percentage-bar" class="w-150 h-2.5 bg-[#2a2a2a] rounded-2xl">
                 <?php if ($home_pos_pct !== null): ?>
@@ -51,7 +51,7 @@ $home_corner_awarded_pct = $home_corner_awarded / $total_corner_awarded * 100;
                 <?php endif; ?>
             </div>
             <span class="text-xl text-white font-semibold">
-                <?= $away_pos_pct !== null ? number_format($away_pos_pct, 1) . '%' : '—' ?>
+                <?= $away_pos_pct !== null ? number_format($away_pos_pct, 0) . '%' : '—' ?>
             </span>
         </div>
     </div>
@@ -94,7 +94,7 @@ $home_corner_awarded_pct = $home_corner_awarded / $total_corner_awarded * 100;
         <p class="text-sm text-[#B6BABD]">Duels success rate</p>
         <div class="w-full flex justify-center items-center gap-5">
             <span class="text-xl text-white font-semibold">
-                <?= $home_duels_success_rate_pct !== null ? number_format($home_duels_success_rate_pct, 1) . '%' : '—' ?>
+                <?= $home_duels_success_rate_pct !== null ? number_format($home_duels_success_rate_pct, 0) . '%' : '—' ?>
             </span>
             <div id="percentage-bar" class="w-150 h-2.5 bg-[#2a2a2a] rounded-2xl">
                 <?php if ($home_duels_success_rate_pct !== null): ?>
@@ -102,7 +102,7 @@ $home_corner_awarded_pct = $home_corner_awarded / $total_corner_awarded * 100;
                 <?php endif; ?>
             </div>
             <span class="text-xl text-white font-semibold">
-                <?= $away_duels_success_rate_pct !== null ? number_format($away_duels_success_rate_pct, 1) . '%' : '—' ?>
+                <?= $away_duels_success_rate_pct !== null ? number_format($away_duels_success_rate_pct, 0) . '%' : '—' ?>
             </span>
         </div>
     </div>

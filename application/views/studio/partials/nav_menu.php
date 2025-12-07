@@ -11,10 +11,12 @@
             <img id="tagging-img" src="<?php echo base_url('assets/images/icons/tagging_gray.svg'); ?>" class="w-fit h-fit" alt="">
             <img id="tagging-img-active" src="<?php echo base_url('assets/images/icons/tagging.svg'); ?>" class="w-fit h-fit hidden" alt="">
         </button>
+        <!--
         <button id="deliver-tab-btn" class="flex h-full py-3 px-15 cursor-pointer hover:border-b-2 border-[#B6BABD]">
             <img id="deliver-img" src="<?php echo base_url('assets/images/icons/delivery_gray.svg'); ?>" class="w-fit h-fit" alt="">
             <img id="deliver-img-active" src="<?php echo base_url('assets/images/icons/delivery.svg'); ?>" class="w-fit h-fit hidden" alt="">
         </button>
+        -->
     </div>
     <div class="flex w-100 justify-end">
         <img id="home-icon-btn" src="<?php echo base_url('assets/images/icons/home.svg'); ?>" class="w-fit h-fit cursor-pointer" alt="">

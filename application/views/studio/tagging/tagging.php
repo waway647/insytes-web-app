@@ -3,8 +3,7 @@
 <div class="flex h-full w-full">
     <div class="flex flex-col w-full h-full">
         <!-- Custom Video Player with Custom Controls -->
-        <div class="flex flex-col w-full h-[70%] text-xs">
-    
+        <div class="flex flex-col w-full h-full text-xs">
           <div id="video-other-controls" class="flex w-full h-fit bg-[#1D1D1D]">
               <div class="relative">
                   <button id="zoom-percent-dropdown" class="flex gap-2 items-center px-3 py-1 text-white border-r-1 border-black cursor-pointer">
@@ -72,9 +71,7 @@
         </div>
 
         <!-- Tagging Timeline Display -->
-        
-
-        <div class="flex flex-col w-full h-[30%] justify-end text-white px-4 border-r-1 border-black">
+        <div class="flex w-full h-full justify-end text-white px-4 py-4 border-r-1 border-black overflow-y-auto custom-scroll">
             <h1 class="p-4 font-bold">Tags</h1>
 
             <div id="event-card" class="w-full p-2 bg-gray-700 rounded-2xl text-xs">
@@ -158,8 +155,8 @@
         </div>
     </div>
 
-    <div class="flex flex-col w-[70%] h-full bg-[#1C1C1C] items-center">
-        <div class="flex w-full">
+    <div class="flex flex-col w-[70%] h-full bg-[#1C1C1C] items-center overflow-y-hidden">
+        <div id="tagging-controls" class="flex w-full">
             <button id="substitution-btn" class="ctr-btn w-full py-2 bg-indigo-950 text-white cursor-pointer hover:bg-gray-700">Substitutions</button>
             <button id="half-time-btn" class="ctr-btn w-full py-2 bg-gray-600 cursor-pointer hover:bg-gray-700">End 1st Half</button>
             <button id="kick-off-2nd-half-btn" class="ctr-btn w-full py-2 bg-gray-600 cursor-pointer hover:bg-gray-700">Start 2nd Half</button>
@@ -182,22 +179,26 @@
             </div>
         </div>
 
-        <div id="substitutions-panel" class="flex flex-col mt-4 w-full">
+        <div id="substitutions-panel" class="flex flex-col mt-4 w-full h-full border-y-1 border-y-[#2a2a2a] py-4 overflow-y-auto custom-scroll">
           <!-- substitutions team buttons -->
-          <div id="substitutions-btn" class="flex w-fit mb-4">
-              <button id="home-team-substitution-btn" class="ctr-btn w-full px-4 py-1 bg-blue-600 text-white cursor-pointer hover:bg-blue-700">Home</button>
-              <button id="away-team-substitution-btn" class="ctr-btn w-full px-4 py-1 bg-green-600 text-white cursor-pointer hover:bg-green-700">Away</button>
+          <div class="flex w-full justify-center">
+            <div id="substitutions-btn" class="flex w-fit mb-4">
+                <button id="home-team-substitution-btn" class="ctr-btn w-full px-4 py-1 bg-blue-600 text-white cursor-pointer hover:bg-blue-700">Home</button>
+                <button id="away-team-substitution-btn" class="ctr-btn w-full px-4 py-1 bg-green-600 text-white cursor-pointer hover:bg-green-700">Away</button>
+            </div>
           </div>
 
           <!-- players-on-pitch-display reusable component for 11 players currently playing -->
-          <div id="players-on-pitch-container" class="w-full border-5 border-gray-700 relative">
-            <img id="vertical-pitch" class="object-fill" src="<?php echo base_url('assets/images/pitchmap/Football_field.svg'); ?>" alt="">
-            <!-- dynamic 11 players icons will be appended here -->
+          <div class="w-full flex justify-center pt-2 pb-8">
+            <div id="players-on-pitch-container" class="w-100 relative">
+              <img id="vertical-pitch" class="object-fill" src="<?php echo base_url('assets/images/pitchmap/Football_field.svg'); ?>" alt="">
+              <!-- dynamic 11 players icons will be appended here -->
+            </div>
           </div>
 
           <!-- reusable component ui display for players on the bench -->
-          <div id="players-on-bench-display" class="w-full h-50 border-5 border-gray-700 relative">
-            <h1 class="text-white">Bench Players</h1>
+          <div id="players-on-bench-display" class="w-full h-35 border-y-1 border-y-[#2a2a2a] py-3 relative">
+            <h1 class="text-white text-center pb-4">Bench Players</h1>
             
             <div id="bench-players-container" w-full h-full>
               <!-- dynamic all bench players icons in 2 rows will be appended here -->
@@ -205,7 +206,7 @@
             </div>
           </div>
 
-          <div class="w-full h-10 border-5 border-gray-700 relative">
+          <div class="w-full flex justify-end pr-4 gap-4 pt-8 pb-3 relative">
             <button id="cancel-substitution-btn" class="px-3 py-1 bg-red-600 text-white rounded cursor-pointer hover:bg-red-700">Cancel Substitutions</button>
             <button id="save-substitution-btn" class="px-3 py-1 bg-green-600 text-white rounded cursor-pointer hover:bg-green-700">Save Substitutions</button>
           </div>
@@ -217,7 +218,7 @@
         </div>
 
         <div id="tagging-events-button" class="flex flex-col w-full h-full justify-between">
-          <div class="mt-4 flex h-[60%]">
+          <div class="mt-4 flex h-full">
             <div class="flex flex-col w-full h-full border-5 border-gray-700">
                 <div class="flex w-full h-[50%] border-b border-gray-700">
                     <div class="flex flex-col w-full h-full border-r border-gray-700">
@@ -702,8 +703,8 @@ let config = null;
       b.dataset.name = p.name || '';
       b.dataset.number = p.number || '';
       b.style.cssText = `
-        width:36px;
-        height:36px;
+        width:30px;
+        height:30px;
         border-radius:6px;
         display:flex;
         align-items:center;

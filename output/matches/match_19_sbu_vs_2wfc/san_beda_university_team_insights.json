@@ -2,13 +2,13 @@
     "match_id": "19",
     "match_name": "match_19_sbu_vs_2wfc",
     "team": "San Beda University",
-    "timestamp": "2025-11-26 15:15:52",
+    "timestamp": "2025-12-07 22:41:01",
     "predicted_scores": {
-        "attack": 6.648210048675537,
-        "defense": 6.219244480133057,
-        "discipline": 6.279087066650391,
-        "distribution": 7.454403877258301,
-        "general": 7.149288654327393,
+        "attack": 6.42999999999995,
+        "defense": 6.209999999999937,
+        "discipline": 6.110000000000014,
+        "distribution": 7.379999999999896,
+        "general": 7.109999999999964,
         "overall": 0.0
     },
     "detailed_analysis": {

@@ -28,3 +28,27 @@ if ($param_id !== '' || $param_name !== '') {
         <h1 class="text-[#B6BABD] group-hover:text-white">Player Performance</h1>
     </a>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    const tabs = document.querySelectorAll('.w-full.flex > a');
+    const current = window.location.pathname + (window.location.search || '');
+    // prefer matching controller segment - get last portion of path
+    const path = window.location.pathname.toLowerCase();
+    tabs.forEach(a => {
+      const href = a.getAttribute('href') || '';
+      // compare by path segment (strip origin)
+      const relative = href.replace(window.location.origin, '').toLowerCase();
+      // simple heuristics: check if the href path is contained in current path OR the other way round
+      if (relative && (current.toLowerCase().includes(relative) || relative.includes(path))) {
+        a.classList.add('border-b-white');
+        const h = a.querySelector('h1');
+        if (h) { h.classList.remove('text-[#B6BABD]'); h.classList.add('text-white'); }
+      } else {
+        a.classList.remove('border-b-white');
+      }
+    });
+  } catch (e) { console.warn('tab active script error', e); }
+});
+</script>

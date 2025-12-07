@@ -2,18 +2,18 @@
     "match_id": "17",
     "match_name": "match_17_sbu_vs_sin",
     "team": "San Beda University",
-    "timestamp": "2025-11-26 15:12:55",
+    "timestamp": "2025-12-07 22:42:20",
     "predicted_scores": {
-        "attack": 8.183687210083008,
-        "defense": 6.262373924255371,
-        "discipline": 6.3984527587890625,
-        "distribution": 7.51558256149292,
-        "general": 7.721446514129639,
+        "attack": 9.728280290188064,
+        "defense": 7.509684672651435,
+        "discipline": 7.927281319443566,
+        "distribution": 12.064344445708997,
+        "general": 11.629932806783167,
         "overall": 0.0
     },
     "detailed_analysis": {
         "attack": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Outstanding performance",
             "strengths": [
                 "Excellent goal conversion with 3 goals scored",
                 "High shooting accuracy at 53.8%",
@@ -32,7 +32,7 @@
             }
         },
         "defense": {
-            "overall_assessment": "Average, with room for improvement",
+            "overall_assessment": "Strong performance",
             "strengths": [
                 "Good tackling success rate at 66.7%",
                 "Strong anticipation with 27 interceptions",
@@ -53,7 +53,7 @@
             }
         },
         "distribution": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Outstanding performance",
             "strengths": [
                 "Good passing accuracy at 80.6%",
                 "Excellent penetrating passes with 27 through balls",
@@ -73,7 +73,7 @@
             }
         },
         "discipline": {
-            "overall_assessment": "Average, with room for improvement",
+            "overall_assessment": "Strong performance",
             "strengths": [
                 "Good discipline with no red cards",
                 "Controlled aggression with only 2 yellow cards"
@@ -90,7 +90,7 @@
             }
         },
         "general": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Outstanding performance",
             "strengths": [
                 "Strong physical presence with 87.5% duels won",
                 "Good ball control with 58.9% possession",
@@ -137,7 +137,7 @@
             "next_training_focus": "Primary focus: maintain clinical finishing while developing set piece routines"
         },
         "defense": {
-            "performance_rating": "Competent defensive display",
+            "performance_rating": "Solid defensive foundation",
             "tactical_summary": "Solid defensive performance with 66.7% tackle success rate. Good defensive positioning helped limit opponent opportunities.",
             "key_observations": [
                 "Outstanding anticipation with 27 interceptions demonstrates strong defensive reading of the game"
@@ -148,7 +148,7 @@
             "next_training_focus": "Primary focus: coordinate pressing triggers and defensive transitions"
         },
         "distribution": {
-            "performance_rating": "Strong passing display",
+            "performance_rating": "Exceptional ball circulation",
             "tactical_summary": "Solid passing foundation with 80.6% accuracy from 289 attempts. Good ball retention allowed for sustained pressure.",
             "key_observations": [
                 "Outstanding penetrative passing with 27 through balls shows excellent vision and execution",
@@ -161,7 +161,7 @@
             "next_training_focus": "Primary focus: focus on final ball delivery and creating clear scoring chances"
         },
         "discipline": {
-            "performance_rating": "Acceptable discipline level",
+            "performance_rating": "Well-controlled performance",
             "tactical_summary": "Excellent discipline with no red cards and 2 bookings. The team maintained composure and controlled aggression throughout the match.",
             "key_observations": [
                 "Showed discipline with 2 yellow cards and 14 total fouls"
@@ -173,7 +173,7 @@
             "next_training_focus": "Primary focus: focus on channeling aggression more effectively"
         },
         "general": {
-            "performance_rating": "Strong all-round performance",
+            "performance_rating": "Commanding overall display",
             "tactical_summary": "Controlled the match with 58.9% possession and 87.5% duels won. The team imposed their game plan effectively.",
             "key_observations": [
                 "Excellent physical dominance with 87.5% duels won shows superior fitness and commitment",
@@ -203,11 +203,11 @@
         }
     },
     "interpretation": {
-        "attack": "Strong performance - Productive attacking performance with 3 goals. Created 32 attacking actions showing good creative movement.",
-        "defense": "Average, with room for improvement - Outstanding anticipation with 27 interceptions. Defensive unit showed excellent positional awareness and game reading.",
-        "distribution": "Strong performance - Exceptional penetrative passing with 27 through balls. Team showed excellent vision and execution in breaking lines.",
-        "discipline": "Average, with room for improvement - Well-controlled performance with 2 bookings and 14 fouls. Good balance of aggression and restraint.",
-        "general": "Strong performance - Excellent physical dominance with 87.5% duels won. Superior fitness and commitment levels.",
+        "attack": "Outstanding performance - Productive attacking performance with 3 goals. Created 32 attacking actions showing good creative movement.",
+        "defense": "Strong performance - Outstanding anticipation with 27 interceptions. Defensive unit showed excellent positional awareness and game reading.",
+        "distribution": "Outstanding performance - Exceptional penetrative passing with 27 through balls. Team showed excellent vision and execution in breaking lines.",
+        "discipline": "Strong performance - Well-controlled performance with 2 bookings and 14 fouls. Good balance of aggression and restraint.",
+        "general": "Outstanding performance - Excellent physical dominance with 87.5% duels won. Superior fitness and commitment levels.",
         "overall": "Needs significant improvement - Unbalanced performance with excellent attack (8.0) masking weaknesses in defense (6.1). Need more consistency."
     }
 }

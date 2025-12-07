@@ -7,8 +7,9 @@
 
 (() => {
 const API_BASE = (window.APP_BASE_URL ? window.APP_BASE_URL.replace(/\/$/, '') + '/' : '') + 'match/librarycontroller';
+const API_BASE_METADATA = (window.APP_BASE_URL ? window.APP_BASE_URL.replace(/\/$/, '') + '/' : '') + 'match/metadatacontroller';
 const API_START_TAGGING = API_BASE + '/start_tagging';
-const API_REMOVE_MATCH   = API_BASE + '/remove_match';
+const API_REMOVE_MATCH   = API_BASE_METADATA + '/remove_match';
 const TAGGING_PAGE_BASE  = (window.APP_BASE_URL ? window.APP_BASE_URL.replace(/\/$/, '') + '/' : '') + 'studio/mediacontroller/index';
 
 
@@ -43,7 +44,7 @@ const TAGGING_PAGE_BASE  = (window.APP_BASE_URL ? window.APP_BASE_URL.replace(/\
 
   // Close options when clicking outside any .match-card
   document.addEventListener('click', (ev) => {
-    if (ev.target.closest('.match-card') || ev.target.closest('.card-options-btn') || ev.target.closest('#card-options-btn')) {
+    if (ev.target.closest('.card-options-btn') || ev.target.closest('#card-options-btn')) {
       return;
     }
     closeAllMatchOptions();
@@ -89,27 +90,49 @@ const TAGGING_PAGE_BASE  = (window.APP_BASE_URL ? window.APP_BASE_URL.replace(/\
       });
 
       // toggle this panel
-const isOpen = matchOptionsEl.classList.contains('open');
-if (isOpen) {
-  matchOptionsEl.classList.remove('open');
-  matchOptionsEl.classList.add('hidden');
-  logDebug('Closed options panel for', matchId);
-} else {
-  matchOptionsEl.classList.remove('hidden');
-  matchOptionsEl.classList.add('open');
+      const isOpen = matchOptionsEl.classList.contains('open');
+      if (isOpen) {
+        matchOptionsEl.classList.remove('open');
+        matchOptionsEl.classList.add('hidden');
+        logDebug('Closed options panel for', matchId);
+      } else {
+        matchOptionsEl.classList.remove('hidden');
+        matchOptionsEl.classList.add('open');
 
-  // ✅ Position to the right of the button (2px gap)
-  const rect = cardOptionsBtn.getBoundingClientRect();
-  matchOptionsEl.style.position = 'absolute';
-  matchOptionsEl.style.left = `${rect.right + window.scrollX + 2}px`;
-  matchOptionsEl.style.top = `${rect.top + window.scrollY}px`;
-  matchOptionsEl.style.zIndex = 9999;
+        // ✅ Position to the right of the button (2px gap) unless it would overflow the viewport.
+        const rect = cardOptionsBtn.getBoundingClientRect();
+        matchOptionsEl.style.position = 'absolute';
+        matchOptionsEl.style.top = `${rect.top + window.scrollY}px`;
+        matchOptionsEl.style.zIndex = 9999;
 
-  logDebug('Opened options panel for', matchId, {
-    left: matchOptionsEl.style.left,
-    top: matchOptionsEl.style.top
-  });
-}
+        // compute menu width (fallback to 275 if not available)
+        const menuWidth = (matchOptionsEl.offsetWidth && matchOptionsEl.offsetWidth > 0)
+          ? matchOptionsEl.offsetWidth
+          : 275;
+
+        // desired left (to the right of button)
+        const desiredLeft = rect.right + window.scrollX + 2;
+
+        // If panel would overflow the viewport on the right, move it left as requested:
+        if ((rect.right + menuWidth + 2) > window.innerWidth) {
+          // user-specified behavior
+          matchOptionsEl.style.left = `${rect.right + window.scrollX - 273}px`;
+        } else {
+          matchOptionsEl.style.left = `${desiredLeft}px`;
+        }
+
+        // ensure we don't push it off the left edge — clamp to viewport + small padding
+        const numericLeft = parseFloat(matchOptionsEl.style.left) || 0;
+        const minLeft = window.scrollX + 8; // 8px padding
+        if (numericLeft < minLeft) {
+          matchOptionsEl.style.left = `${minLeft}px`;
+        }
+
+        logDebug('Opened options panel for', matchId, {
+          left: matchOptionsEl.style.left,
+          top: matchOptionsEl.style.top
+        });
+      }
 
     });
 
@@ -173,7 +196,7 @@ if (isOpen) {
         logDebug('remove-match clicked for', matchId);
 
         // confirmation
-        if (!confirm('Remove this match from the library? This action cannot be undone.')) return;
+        if (!confirm('This would also delete your tagging data and progress. Are you sure?')) return;
 
         // UI feedback
         const origText = removeBtn.textContent;
@@ -202,6 +225,12 @@ if (isOpen) {
             logInfo('remove-match success', matchId);
             // remove UI card
             matchCardClone.remove();
+
+            // reload the page so the match list updates (short delay to allow UI to settle)
+            setTimeout(function(){
+              // Replace current page with reload so back-button behavior remains clean
+              window.location.reload();
+            }, 220);
           }
         } catch (err) {
           logError('Network error while removing match', err);
@@ -312,6 +341,7 @@ if (isOpen) {
               thumbnailEl.style.backgroundImage = `url("${thumbUrl}")`;
               thumbnailEl.style.backgroundSize = 'cover';
               thumbnailEl.style.backgroundPosition = 'center';
+              thumbnailEl.style.backgroundImage = 'opacity-20';
             } else {
               // optional: clear background if none
               thumbnailEl.style.backgroundImage = '';

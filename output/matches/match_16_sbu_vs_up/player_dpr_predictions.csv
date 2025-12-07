@@ -1,31 +1,18 @@
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-Bel Escodo,38.2,74.2,36.0,95.0,[],0
-Cesar Ien Bayubay,53.4,32.3,-21.1,78.4,[],0
-Jaro Libarnes,80.4,32.3,-48.1,97.4,[],0
-Jaryl Pineda,22.9,30.0,7.1,94.7,[],0
-Jeljel Sison,51.2,93.3,42.1,97.0,[],0
-Joselito Soberano Jr.,1.5,30.0,28.5,30.3,[],0
-Jul Aningalan,75.4,32.3,-43.1,97.1,[],0
-Kirvy Tabelin,52.4,43.8,-8.6,95.2,[],0
-Kurt Bacaycay,15.0,65.2,50.2,10.9,[],0
-Laurence Fernandez,15.0,70.1,55.1,95.0,[],0
-Louie Bacnis,66.2,75.8,9.6,94.6,[],0
-Pedro Tagara,36.7,50.8,14.1,96.7,[],0
-Pius Encaya,40.9,40.3,-0.6,96.6,[],0
-Sam Salingay,53.7,30.0,-23.7,95.3,[],0
-Stock Rujiro,35.6,35.1,-0.5,30.3,[],0
-"Tagara, Pedro",0.0,50.8,50.8,0.0,[],0
-"Libarnes, Jaro",0.0,35.6,35.6,0.0,[],0
-"Aningalan, Jul",0.0,35.6,35.6,0.0,[],0
-"Sison, JelJel",0.0,35.6,35.6,0.0,[],0
-"Bacnis, Louie",0.0,25.0,25.0,0.0,[],0
-"Pineda, Jaryl",0.0,30.0,30.0,0.0,[],0
-"Tabelin, Kirvy",0.0,30.0,30.0,0.0,[],0
-"Fernandez, Laurence",0.0,14.8,14.8,0.0,[],0
-"Escodo, Bel",0.0,25.0,25.0,0.0,[],0
-"Encaya, Pius",0.0,30.0,30.0,0.0,[],0
-"Salingay, Sam",0.0,30.0,30.0,0.0,[],0
-"Mellendrez, Prince",0.0,30.0,30.0,0.0,[],0
-"Soberano, Joselito",0.0,30.0,30.0,0.0,[],0
-"Rogero, Stock",0.0,30.0,30.0,0.0,[],0
-Unnamed,0.0,32.3,32.3,0.0,[],0
+"Aningalan, Jul",75.4,75.4,0.0,97.1,"['CB', 'CB']",0
+"Bacaycay, Kurt",22.5,22.5,0.0,10.9,['RWB'],0
+"Bacnis, Louie",66.2,66.2,0.0,94.6,['CDM'],0
+"Bayubay, Cesar Ien",53.4,53.4,0.0,78.4,['LWB'],0
+"Encaya, Pius",17.1,30.0,12.9,96.6,"['ST', 'ST']",0
+"Escodo, Bel",38.2,38.2,0.0,95.0,"['CAM', 'CDM']",1
+"Fernandez, Laurence",15.0,30.0,15.0,95.0,"['LWB', 'RW']",1
+"Libarnes, Jaro",80.4,80.4,0.0,97.4,"['CB', 'CB']",0
+"Pineda, Jaryl",22.9,30.0,7.1,94.7,['CAM'],0
+"Rogero, Stock",52.7,52.7,0.0,30.3,[],0
+"Salingay, Sam",27.0,32.8,5.8,95.3,"['ST', 'ST']",0
+"Sison, JelJel",51.2,51.2,0.0,97.0,[],0
+"Soberano, Joselito",22.5,22.5,0.0,30.3,[],0
+"Tabelin, Kirvy",52.4,52.4,0.0,95.2,"['CAM', 'CAM']",0
+"Tagara, Pedro",36.7,50.8,14.1,96.7,['GK'],0
+"Mellendrez, Prince",0.0,0.0,0.0,0.0,['RWB'],0
+Unnamed,0.0,0.0,0.0,0.0,"[nan, nan]",0

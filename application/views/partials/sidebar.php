@@ -1,7 +1,6 @@
 <?php
     // Access session values
     $role = $this->session->userdata('role');
-    /* $role = 'Admin'; */
 ?>
 
 <!-- SCRIPTS -->
@@ -18,8 +17,8 @@
 
         <div class="navigation-links flex flex-col gap-2">
             <!-- COACH nav-items -->
-            <?php if (in_array(strtolower($role), ['coach', 'assistant coach', 'analyst'])): ?>
-            <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <?php if (in_array($role, ['Coach', 'Assistant Coach', 'Analyst'])): ?>
+            <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/dashboard-active.svg'); ?>" alt="">
@@ -27,7 +26,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('match/librarycontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('match/librarycontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/match-library.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/match-library-active.svg'); ?>" alt="">
@@ -35,7 +34,7 @@
                 </div>
             </a>
             
-            <a href="<?php echo site_url('team/peoplecontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('team/peoplecontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/people.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/people-active.svg'); ?>" alt="">
@@ -43,7 +42,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('reports/reportscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('reports/reportscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/reports.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/reports-active.svg'); ?>" alt="">
@@ -53,8 +52,8 @@
             <?php endif; ?>
 
             <!-- PLAYER nav-items -->
-            <?php if (in_array(strtolower($role), ['player'])): ?>
-            <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <?php if ($role == 'Player'): ?>
+            <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/dashboard-active.svg'); ?>" alt="">
@@ -62,7 +61,7 @@
                 </div>
             </a>
             
-            <a href="<?php echo site_url('team/peoplecontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('team/peoplecontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/people.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/people-active.svg'); ?>" alt="">
@@ -70,7 +69,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('reports/reportscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('reports/reportscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/reports.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/reports-active.svg'); ?>" alt="">
@@ -79,9 +78,8 @@
             </a>
             <?php endif; ?>
 
-            <!-- ADMIN nav-items -->
-            <?php if (strtolower($role) === 'admin'): ?>
-            <a href="<?php echo site_url('Admin/DashboardController/adminDashboard'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <?php if ($role == 'Admin'): ?>
+            <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/dashboard-active.svg'); ?>" alt="">
@@ -89,7 +87,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('Admin/UserController/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('clips/resultscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/people.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/people-active.svg'); ?>" alt="">
@@ -97,7 +95,7 @@
                 </div>
             </a>
             
-            <a href="<?php echo site_url('Admin/TeamController/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('team/peoplecontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/teams.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/teams-active.svg'); ?>" alt="">
@@ -105,7 +103,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('Admin/LogsController/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('clips/reviewcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/logs.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/logs-active.svg'); ?>" alt="">
@@ -118,7 +116,7 @@
 
     <div class="lower-content">
         <div class="utility-links flex flex-col gap-2">
-            <a href="<?php echo site_url('utilities/documentationcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('utilities/documentationcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center justify-between">
                     <div class="flex items-center justify-between gap-3">
                         <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/documentation.svg'); ?>" alt="">
@@ -130,19 +128,20 @@
                 </div>
             </a>
 
+            <!--
             <a href="<?php echo site_url('utilities/notificationscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/notifications.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/notifications-active.svg'); ?>" alt="">
                     <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Notifications</span>
                 </div>
-            </a>
+            </a> -->
 
             <div x-data="{ open: false, isHovering: false }" class="flex flex-col">
                 <a @click="open = !open" 
                 @mouseenter="isHovering = true" 
                 @mouseleave="isHovering = false"
-                class="group py-2.5 px-5 rounded-md hover:bg-gray-800 cursor-pointer" 
+                class="group py-2.5 px-5 rounded-md hover:bg-gray-800 cursor-pointer transition-colors" 
                 :class="{'bg-gray-800' : open}">
                     
                     <div class="nav-item flex justify-between items-center w-full">
@@ -164,14 +163,14 @@
                 </a>
 
                 <div x-show="open" x-collapse.duration.300ms class="flex flex-col gap-1 mt-2">
-                    <a href="<?php echo site_url('account/accountmaincontroller/index'); ?>" class="group py-2.5 px-11 rounded-md hover:bg-gray-800">
+                    <a href="<?php echo site_url('account/accountmaincontroller/index'); ?>" class="group py-2.5 px-11 rounded-md hover:bg-gray-800 transition-colors">
                         <div class="nav-item flex items-center gap-3">
                             <img src="" alt="">
                             <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Account</span>
                         </div>
                     </a>
 
-                    <a href="<?php echo site_url('auth/logincontroller/logout'); ?>" class="group py-2.5 px-11 rounded-md hover:bg-gray-800">
+                    <a href="<?php echo site_url('auth/logincontroller/logout'); ?>" class="group py-2.5 px-11 rounded-md hover:bg-gray-800 transition-colors">
                         <div class="nav-item flex items-center gap-3">
                             <img src="" alt="">
                             <span class="nav-item-text text-[#B6BABD] text-base font-semibold group-hover:text-white">Logout</span>
@@ -182,4 +181,3 @@
         </div>
     </div>
 </div>
-

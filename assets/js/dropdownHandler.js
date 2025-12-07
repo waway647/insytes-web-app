@@ -70,7 +70,7 @@
         dynamicDropdown.style.position = 'absolute';
         dynamicDropdown.style.display = 'none';
         dynamicDropdown.style.zIndex = 1;
-        dynamicDropdown.className = 'pb-4 bg-[#131313] border-1 border-[#2a2a2a]';
+        dynamicDropdown.className = 'pb-4 bg-[#131313] border-1 border-[#2a2a2a] max-h-40 overflow-y-auto custom-scroll';
         document.body.appendChild(dynamicDropdown);
 
         dropdownItemContainer = document.createElement('div');

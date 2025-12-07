@@ -1,24 +1,13 @@
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-Bel Escodo,45.8,59.9,14.1,94.7,['CDM'],0
-Diegocarl Digal,44.3,62.0,17.7,95.3,['CB'],0
-Edvard Omitade,40.2,30.0,-10.2,91.4,['LW'],0
-Harvy Barro,59.6,43.8,-15.8,95.4,['CDM'],0
-Jaro Libarnes,45.9,83.0,37.1,96.9,"['LB', 'CB']",1
-Jul Aningalan,41.0,77.6,36.6,96.7,"['RB', 'CB']",1
-Kirvy Tabelin,67.4,86.4,19.0,96.3,"['CAM', 'CAM']",0
-Laurence Fernandez,54.5,30.0,-24.5,95.2,"['RW', 'RW']",0
-Pedro Tagara,41.5,50.8,9.3,95.4,['GK'],0
-Pius Encaya,19.0,63.9,44.9,95.2,"['CF', 'ST']",1
-Sam Salingay,20.0,84.1,64.1,94.7,"['CF', 'ST']",1
-"Tagara, Pedro",0.0,50.8,50.8,0.0,['GK'],0
-"Libarnes, Jaro",0.0,25.8,25.8,0.0,"['CB', 'CB']",0
-"Aningalan, Jul",0.0,25.8,25.8,0.0,"['CB', 'CB']",0
-"Digal, Diegocarl",0.0,25.8,25.8,0.0,['CB'],0
-"Barro, Harvy",0.0,30.0,30.0,0.0,['CDM'],0
-"Escodo, Bel",0.0,26.8,26.8,0.0,"['CDM', 'CDM']",0
-"Tabelin, Kirvy",0.0,26.8,26.8,0.0,"['CAM', 'CAM']",0
-"Fernandez, Laurence",0.0,30.0,30.0,0.0,"['RW', 'RW']",0
-"Omitade, Edvard",0.0,30.0,30.0,0.0,['LW'],0
-"Encaya, Pius",0.0,26.0,26.0,0.0,"['ST', 'ST']",0
-"Salingay, Sam",0.0,26.0,26.0,0.0,"['ST', 'ST']",0
-Unnamed,0.0,32.3,32.3,0.0,"[nan, 'CAM', nan]",1
+"Aningalan, Jul",41.0,41.0,0.0,96.7,[],0
+"Barro, Harvy",59.6,59.6,0.0,95.4,[],0
+"Digal, Diegocarl",44.3,44.3,0.0,95.3,[],0
+"Encaya, Pius",19.0,19.0,0.0,95.2,[],0
+"Escodo, Bel",45.8,45.8,0.0,94.7,[],0
+"Fernandez, Laurence",54.5,54.5,0.0,95.2,[],0
+"Libarnes, Jaro",45.9,45.9,0.0,96.9,[],0
+"Omitade, Edvard",40.2,40.2,0.0,91.4,[],0
+"Salingay, Sam",20.0,20.0,0.0,94.7,[],0
+"Tabelin, Kirvy",67.4,67.4,0.0,96.3,[],0
+"Tagara, Pedro",41.5,50.8,9.3,95.4,[],0
+Unnamed,0.0,0.0,0.0,0.0,[],0

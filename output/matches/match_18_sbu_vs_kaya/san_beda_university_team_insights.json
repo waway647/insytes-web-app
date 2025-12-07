@@ -1,19 +1,19 @@
 {
-    "match_id": "match_18_sbu_vs_kaya",
+    "match_id": "18",
     "match_name": "match_18_sbu_vs_kaya",
     "team": "San Beda University",
-    "timestamp": "2025-11-26 15:14:18",
+    "timestamp": "2025-12-07 22:44:35",
     "predicted_scores": {
-        "attack": 6.450782775878906,
-        "defense": 7.16035795211792,
-        "discipline": 7.304752349853516,
-        "distribution": 8.651135444641113,
-        "general": 7.516895294189453,
+        "attack": 5.262474855110208,
+        "defense": 9.352918699382352,
+        "discipline": 13.28723926896932,
+        "distribution": 10.582826560487725,
+        "general": 12.378691592881218,
         "overall": 0.0
     },
     "detailed_analysis": {
         "attack": {
-            "overall_assessment": "Average, with room for improvement",
+            "overall_assessment": "Needs significant improvement",
             "strengths": [
                 "Generated attacking opportunities with 14 attempts",
                 "Created attacking moments with 21 shot-creating actions"
@@ -31,7 +31,7 @@
             }
         },
         "defense": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Outstanding performance",
             "strengths": [
                 "Excellent tackling efficiency at 80.0%",
                 "Strong anticipation with 51 interceptions",
@@ -71,7 +71,7 @@
             }
         },
         "discipline": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Outstanding performance",
             "strengths": [
                 "Good discipline with no red cards",
                 "Controlled aggression with only 0 yellow cards",
@@ -88,7 +88,7 @@
             }
         },
         "general": {
-            "overall_assessment": "Strong performance",
+            "overall_assessment": "Outstanding performance",
             "strengths": [
                 "Strong physical presence with 89.5% duels won",
                 "Good positioning discipline with only 0 offsides"
@@ -119,7 +119,7 @@
     },
     "coaching_assessment": {
         "attack": {
-            "performance_rating": "Adequate attacking output",
+            "performance_rating": "Struggling in the final third",
             "tactical_summary": "Limited attacking threat with minimal shot creation (14 attempts). The team needs to establish more consistent offensive patterns.",
             "key_observations": [
                 "Low conversion rate of 7.1% highlights need for improved finishing under pressure"
@@ -131,7 +131,7 @@
             "next_training_focus": "Primary focus: improve shot selection and technique through targeted finishing drills"
         },
         "defense": {
-            "performance_rating": "Solid defensive foundation",
+            "performance_rating": "Dominant defensive performance",
             "tactical_summary": "Excellent defensive discipline with 80.0% tackle success rate and 51 interceptions. The defensive unit showed great anticipation and timing.",
             "key_observations": [
                 "Exceptional tackling efficiency at 80.0% shows excellent defensive timing",
@@ -156,7 +156,7 @@
             "next_training_focus": "Primary focus: focus on final ball delivery and creating clear scoring chances"
         },
         "discipline": {
-            "performance_rating": "Well-controlled performance",
+            "performance_rating": "Exemplary discipline",
             "tactical_summary": "Excellent discipline with no red cards and 0 bookings. The team maintained composure and controlled aggression throughout the match.",
             "key_observations": [
                 "Outstanding emotional control and clean play throughout the match",
@@ -169,7 +169,7 @@
             "next_training_focus": "Primary focus: maintain excellent discipline while increasing defensive aggression"
         },
         "general": {
-            "performance_rating": "Strong all-round performance",
+            "performance_rating": "Commanding overall display",
             "tactical_summary": "Maintained good territorial control with 54.8% possession. Solid foundation for building attacks and controlling tempo.",
             "key_observations": [
                 "Excellent physical dominance with 89.5% duels won shows superior fitness and commitment"
@@ -198,11 +198,11 @@
         }
     },
     "interpretation": {
-        "attack": "Average, with room for improvement - Struggled with shot accuracy (14.3%) despite 21 creative actions. Need better decision-making in final third.",
-        "defense": "Strong performance - Outstanding anticipation with 51 interceptions. Defensive unit showed excellent positional awareness and game reading.",
+        "attack": "Needs significant improvement - Struggled with shot accuracy (14.3%) despite 21 creative actions. Need better decision-making in final third.",
+        "defense": "Outstanding performance - Outstanding anticipation with 51 interceptions. Defensive unit showed excellent positional awareness and game reading.",
         "distribution": "Outstanding performance - High-volume passing display (363 attempts) with 86.0% accuracy. Strong foundation for territorial control.",
-        "discipline": "Strong performance - Exemplary discipline with no cards and only 8 fouls. Perfect emotional control throughout the match.",
-        "general": "Strong performance - Excellent physical dominance with 89.5% duels won. Superior fitness and commitment levels.",
+        "discipline": "Outstanding performance - Exemplary discipline with no cards and only 8 fouls. Perfect emotional control throughout the match.",
+        "general": "Outstanding performance - Excellent physical dominance with 89.5% duels won. Superior fitness and commitment levels.",
         "overall": "Needs significant improvement - Mixed performance showing potential in general but needing improvement in defense for better consistency."
     }
 }

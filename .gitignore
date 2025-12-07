@@ -32,3 +32,9 @@ application/libraries/Google.php
 
 assets/videos/
 
+output/*
+
+output_dataset/*
+
+python_scripts/models_players/*
+python_scripts/models_team/*

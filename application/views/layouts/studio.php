@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('studio/partials/header'); ?>
 
     <!-- Main Content Area -->
-    <main class="flex-1 h-full overflow-y-auto">
+    <main class="flex-1 h-full overflow-y-hidden">
         <?php $this->load->view($main_content); ?>
     </main>
 
