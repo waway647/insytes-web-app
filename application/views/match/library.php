@@ -180,16 +180,49 @@
 
 	<div id="match-library-main-content" class="">
 		<div class="flex flex-col gap-5 py-5">
-			<!-- Search -->
+			<!-- Search and filter --> 
 			<div class="flex w-full gap-10">
-				<input type="text" placeholder="Search"
+			<input type="text" id="searchInput" placeholder="Search"
 				class="w-full border border-white/6 text-white text-sm px-4 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-white/10 bg-[#0f0f0f]" />
 
-				<button id="match-filter-btn" class="flex gap-2 w-26 justify-between items-center h-relative bg-[#1d1d1d] cursor-pointer px-4 text-white font-medium text-sm rounded-lg hover:bg-[#1a1a1a] transition border border-white/6 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/10">
-					<img src="<?php echo base_url('assets/images/icons/filter.svg'); ?>">
-					Filter
-				</button>
+			<button id="match-filter-btn" class="flex gap-2 w-26 justify-between items-center h-relative bg-[#1d1d1d] cursor-pointer px-4 text-white font-medium text-sm rounded-lg hover:bg-[#1a1a1a] transition border border-white/6 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/10">
+				<img src="<?php echo base_url('assets/images/icons/filter.svg'); ?>">
+				Filter
+			</button>
 			</div>
+
+			<!-- Filter modal (hidden by default) -->
+			<div id="match-filter-modal" class="hidden fixed inset-0 z-50 items-center justify-center">
+			<div id="match-filter-modal-backdrop" class="absolute inset-0 bg-black/60"></div>
+			<div class="relative z-10 w-full max-w-md p-6 rounded-lg bg-[#0b0b0b] border border-white/6 shadow-2xl">
+				<div class="flex items-center justify-between mb-4">
+				<h3 class="text-lg font-semibold text-white">Filter matches</h3>
+				<button id="match-filter-close" class="text-white/70 hover:text-white">✕</button>
+				</div>
+
+				<div class="flex flex-col gap-4">
+				<label class="flex flex-col text-sm text-white">
+					<span class="mb-1">Season</span>
+					<select id="filter-season" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm">
+					<option value="">All seasons</option>
+					</select>
+				</label>
+
+				<label class="flex flex-col text-sm text-white">
+					<span class="mb-1">Competition</span>
+					<select id="filter-competition" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm">
+					<option value="">All competitions</option>
+					</select>
+				</label>
+				</div>
+
+				<div class="mt-6 flex justify-end gap-3">
+				<button id="filter-clear" class="px-4 py-2 rounded bg-transparent border border-white/6 text-white text-sm hover:bg-white/5">Clear</button>
+				<button id="filter-apply" class="px-4 py-2 rounded bg-[#1d1d1d] text-white text-sm hover:bg-[#232323]">Apply</button>
+				</div>
+			</div>
+			</div>
+			
 
 			<div class="flex">
 				<h1 id="season-header" class="text-[#B6BABD] font-bold text-xl">2025/2026 Season</h1>

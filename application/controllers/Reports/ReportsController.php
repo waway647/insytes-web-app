@@ -45,49 +45,79 @@ class ReportsController extends CI_Controller {
         $my_team_id = $this->session->userdata('team_id');
 
         try {
-            // Fetch all matches
+            // Fetch all matches from Reports_Model (should include competition and season columns if available)
             $matches = $this->Reports_Model->get_all_matches($my_team_id);
 
             if (empty($matches)) {
                 $this->output->set_output(json_encode([
                     'success' => true,
                     'season' => date('Y') . '/' . (date('Y') + 1),
+                    'seasons' => [],
+                    'competitions' => [],
                     'months' => []
                 ]));
                 return;
             }
 
-            // Group matches by month-year
             $grouped = [];
+            $seasonsSet = [];
+            $compsSet = [];
+
+            // We'll also collect timestamps so we can sort months reliably
             foreach ($matches as $match) {
+                // parse timestamp; fall back to now if parse fails
                 $timestamp = strtotime($match['match_date']);
+                if ($timestamp === false) $timestamp = time();
+
                 $monthName = date('F', $timestamp);
                 $year = date('Y', $timestamp);
+
+                // Prefer DB-provided season column, otherwise compute heuristically (Jul-Jun)
+                if (!empty($match['season'])) {
+                    $season = $match['season'];
+                } else {
+                    $monthNum = (int) date('n', $timestamp);
+                    if ($monthNum >= 7) {
+                        $season = $year . '/' . ($year + 1);
+                    } else {
+                        $season = ($year - 1) . '/' . $year;
+                    }
+                }
+
+                // competition if present
+                $competition = !empty($match['competition']) ? $match['competition'] : null;
+
+                if ($season) $seasonsSet[$season] = true;
+                if ($competition) $compsSet[$competition] = true;
 
                 $groupKey = "{$monthName}_{$year}";
                 if (!isset($grouped[$groupKey])) {
                     $grouped[$groupKey] = [
                         'monthName' => $monthName,
                         'year' => (int)$year,
-                        'matches' => []
+                        'matches' => [],
+                        // we'll keep a maxTimestamp to help sorting later
+                        'maxTimestamp' => 0
                     ];
+                }
+
+                // track max timestamp for month
+                if ($timestamp > $grouped[$groupKey]['maxTimestamp']) {
+                    $grouped[$groupKey]['maxTimestamp'] = $timestamp;
                 }
 
                 // Determine status color based on status text
                 $statusColor = '#B6BABD'; // default gray
-                switch (strtolower($match['status'])) {
+                switch (strtolower($match['status'] ?? '')) {
                     case 'ready': $statusColor = '#48ADF9'; break;
                     case 'completed': $statusColor = '#209435'; break;
                     case 'tagging in progress': $statusColor = '#B14D35'; break;
                     case 'waiting for video': $statusColor = '#B6BABD'; break;
                 }
 
-                // Format match display name (e.g., vs. La Salle)
                 $matchName = 'vs. ' . ($match['opponent_team_name'] ?? 'Unknown');
-
                 $matchNameConfig = 'sbu_vs_' . strtolower(str_replace(' ', '_', $match['opponent_team_abbreviation'] ?? 'unknown'));
 
-                // Optional: provide a placeholder thumbnail
                 $thumbnailUrl = base_url('assets/images/thumbnails/default.jpg');
                 if (!empty($match['video_thumbnail'])) {
                     $thumbnailUrl = base_url($match['video_thumbnail']);
@@ -96,26 +126,55 @@ class ReportsController extends CI_Controller {
                 $grouped[$groupKey]['matches'][] = [
                     'matchId' => $match['match_id'],
                     'thumbnailUrl' => $thumbnailUrl,
-                    'status' => $match['status'],
+                    'status' => $match['status'] ?? '',
                     'statusColor' => $statusColor,
                     'matchName' => $matchName,
                     'matchNameConfig' => $matchNameConfig,
                     'matchDate' => date('M d', $timestamp),
-                    'MyTeamResult' => $match['my_team_result']
+                    'MyTeamResult' => $match['my_team_result'] ?? null,
+                    // exact columns included for filtering by frontend
+                    'competition' => $competition,
+                    'season' => $season,
+                    // keep raw ISO-style date for frontend parsing
+                    'raw_match_date' => date('Y-m-d', $timestamp),
+                    // include original match_date if present
+                    'match_date' => $match['match_date'] ?? null,
+                    // include timestamp for easier client-side sorting/debugging (optional)
+                    'matchTimestamp' => $timestamp
                 ];
             }
 
-            // Transform grouped array to indexed array
+            // Convert grouped to indexed array and sort months by maxTimestamp desc
             $months = array_values($grouped);
+            usort($months, function($a, $b) {
+                $at = isset($a['maxTimestamp']) ? (int)$a['maxTimestamp'] : 0;
+                $bt = isset($b['maxTimestamp']) ? (int)$b['maxTimestamp'] : 0;
+                return $bt - $at;
+            });
+
+            // Remove helper maxTimestamp from response (we don't need to expose it)
+            foreach ($months as &$m) {
+                unset($m['maxTimestamp']);
+            }
+            unset($m);
+
+            // Prepare distinct lists for dropdowns
+            $seasons = array_values(array_keys($seasonsSet));
+            rsort($seasons); // newest-first
+            $competitions = array_values(array_keys($compsSet));
+            sort($competitions);
+
+            $topSeason = !empty($seasons) ? $seasons[0] : (date('Y') . '/' . (date('Y') + 1));
 
             $data = [
                 'success' => true,
-                'season' => '2025/2026',
+                'season' => $topSeason,
+                'seasons' => $seasons,
+                'competitions' => $competitions,
                 'months' => $months
             ];
 
             $this->output->set_output(json_encode($data));
-
         } catch (Exception $e) {
             log_message('error', 'get_all_matches failed: ' . $e->getMessage());
             $this->output

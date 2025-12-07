@@ -24,24 +24,46 @@ class LibraryController extends CI_Controller {
         $my_team_id = $this->session->userdata('team_id');
 
         try {
-            // Fetch all matches
+            // Fetch all matches (model now returns competition and season)
             $matches = $this->LibraryModel->get_all_matches($my_team_id);
 
             if (empty($matches)) {
                 $this->output->set_output(json_encode([
                     'success' => true,
                     'season' => date('Y') . '/' . (date('Y') + 1),
+                    'seasons' => [],
+                    'competitions' => [],
                     'months' => []
                 ]));
                 return;
             }
 
-            // Group matches by month-year
             $grouped = [];
+            $seasonsSet = [];
+            $compsSet = [];
+
             foreach ($matches as $match) {
                 $timestamp = strtotime($match['match_date']);
                 $monthName = date('F', $timestamp);
                 $year = date('Y', $timestamp);
+
+                // Prefer DB-provided season column, otherwise compute heuristically
+                if (!empty($match['season'])) {
+                    $season = $match['season'];
+                } else {
+                    $monthNum = (int) date('n', $timestamp);
+                    if ($monthNum >= 7) {
+                        $season = $year . '/' . ($year + 1);
+                    } else {
+                        $season = ($year - 1) . '/' . $year;
+                    }
+                }
+
+                // Competition is provided by 'competition' column
+                $competition = !empty($match['competition']) ? $match['competition'] : null;
+
+                if ($season) $seasonsSet[$season] = true;
+                if ($competition) $compsSet[$competition] = true;
 
                 $groupKey = "{$monthName}_{$year}";
                 if (!isset($grouped[$groupKey])) {
@@ -61,12 +83,9 @@ class LibraryController extends CI_Controller {
                     case 'waiting for video': $statusColor = '#B6BABD'; break;
                 }
 
-                // Format match display name (e.g., vs. La Salle)
                 $matchName = 'vs. ' . ($match['opponent_team_name'] ?? 'Unknown');
-
                 $matchNameConfig = 'sbu_vs_' . strtolower(str_replace(' ', '_', $match['opponent_team_abbreviation'] ?? 'unknown'));
 
-                // Optional: provide a placeholder thumbnail
                 $thumbnailUrl = base_url('assets/images/thumbnails/default.jpg');
                 if (!empty($match['video_thumbnail'])) {
                     $thumbnailUrl = base_url($match['video_thumbnail']);
@@ -80,21 +99,34 @@ class LibraryController extends CI_Controller {
                     'matchName' => $matchName,
                     'matchNameConfig' => $matchNameConfig,
                     'matchDate' => date('M d', $timestamp),
-                    'MyTeamResult' => $match['my_team_result']
+                    'MyTeamResult' => $match['my_team_result'],
+                    // exact columns included for filtering
+                    'competition' => $competition,
+                    'season' => $season,
+                    'raw_match_date' => $match['match_date']
                 ];
             }
 
             // Transform grouped array to indexed array
             $months = array_values($grouped);
 
+            // Prepare distinct lists for dropdowns
+            $seasons = array_values(array_keys($seasonsSet));
+            rsort($seasons); // newest-first
+            $competitions = array_values(array_keys($compsSet));
+            sort($competitions);
+
+            $topSeason = !empty($seasons) ? $seasons[0] : (date('Y') . '/' . (date('Y') + 1));
+
             $data = [
                 'success' => true,
-                'season' => '2025/2026',
+                'season' => $topSeason,
+                'seasons' => $seasons,
+                'competitions' => $competitions,
                 'months' => $months
             ];
 
             $this->output->set_output(json_encode($data));
-
         } catch (Exception $e) {
             log_message('error', 'get_all_matches failed: ' . $e->getMessage());
             $this->output

@@ -11,6 +11,7 @@ class LibraryModel extends CI_Model {
 
     public function get_all_matches($my_team_id)
     {
+        // Select additional fields required by the frontend (competition and season)
         $this->db->select('
             match_id,
             match_date,
@@ -18,7 +19,9 @@ class LibraryModel extends CI_Model {
             opponent_team_name,
             opponent_team_abbreviation,
             my_team_result,
-            video_thumbnail
+            video_thumbnail,
+            competition,
+            season
         ');
         $this->db->from('matches_vw');
         $this->db->where('my_team_id', $my_team_id);

@@ -5,9 +5,9 @@
 
 	<div id="match-library-main-content" class="">
 		<div class="flex flex-col gap-5 py-5">
-			<!-- Search -->
+			<!-- Search and filter-->
 			<div class="flex w-full gap-4">
-				<input type="text" placeholder="Search"
+				<input type="text" id="searchInput" placeholder="Search"
 				class="w-full border border-white/6 text-white text-sm px-4 py-2 rounded-lg bg-[#0f0f0f] focus:outline-none focus:ring-1 focus:ring-white/10" />
 
 				<button id="match-filter-btn" class="flex gap-2 items-center px-4 py-2 bg-[#141414] text-white text-sm font-medium rounded-lg hover:bg-[#191919] transition-shadow border border-white/6 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-white/8">

@@ -1,0 +1,25 @@
+{
+    "match": {
+        "id": "match_30_sbu_vs_cdfm",
+        "season": "2005/2006",
+        "competition": "Tuloy Invitational Cup",
+        "venue": "Rizal",
+        "date": "2025-12-02",
+        "attacking_direction": "left-to-right",
+        "positions_locked": false
+    },
+    "home": {
+        "name": "San Beda University",
+        "jersey_color": "",
+        "jersey_text_color": "",
+        "starting11": [],
+        "bench": []
+    },
+    "away": {
+        "name": "Club De Futbol Manila",
+        "jersey_color": "",
+        "jersey_text_color": "",
+        "starting11": [],
+        "bench": []
+    }
+}

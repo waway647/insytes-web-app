@@ -1,0 +1,25 @@
+{
+    "match": {
+        "id": "match_31_sbu_vs_2wfc",
+        "season": "2000/2001",
+        "competition": "Tuloy Invitational Cup",
+        "venue": "Ayala Vermosa Sports Hub",
+        "date": "2025-12-23",
+        "attacking_direction": "left-to-right",
+        "positions_locked": false
+    },
+    "home": {
+        "name": "San Beda University",
+        "jersey_color": "",
+        "jersey_text_color": "",
+        "starting11": [],
+        "bench": []
+    },
+    "away": {
+        "name": "2 Worlds FC",
+        "jersey_color": "",
+        "jersey_text_color": "",
+        "starting11": [],
+        "bench": []
+    }
+}

@@ -79,6 +79,38 @@
             },
             "created_at": "2025-12-05T05:21:14+01:00",
             "updated_at": "2025-12-05T05:21:14+01:00"
+        },
+        {
+            "id": "match_30_sbu_vs_cdfm",
+            "season": "2005/2006",
+            "competition": "Tuloy Invitational Cup",
+            "date": "2025-12-02",
+            "venue": "Rizal",
+            "home_team": "San Beda University",
+            "away_team": "Club De Futbol Manila",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_30_sbu_vs_cdfm.json",
+                "events": "../events/match_30_sbu_vs_cdfm_events.json"
+            },
+            "created_at": "2025-12-07T23:17:27+08:00",
+            "updated_at": "2025-12-07T23:17:27+08:00"
+        },
+        {
+            "id": "match_31_sbu_vs_2wfc",
+            "season": "2000/2001",
+            "competition": "Tuloy Invitational Cup",
+            "date": "2025-12-23",
+            "venue": "Ayala Vermosa Sports Hub",
+            "home_team": "San Beda University",
+            "away_team": "2 Worlds FC",
+            "status": "Waiting for video",
+            "files": {
+                "config": "match_31_sbu_vs_2wfc.json",
+                "events": "../events/match_31_sbu_vs_2wfc_events.json"
+            },
+            "created_at": "2025-12-07T23:35:59+08:00",
+            "updated_at": "2025-12-07T23:35:59+08:00"
         }
     ]
 }
