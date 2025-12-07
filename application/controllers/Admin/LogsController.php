@@ -148,7 +148,7 @@ class LogsController extends CI_Controller
             // CSV headers
             fputcsv($output, [
                 'Timestamp', 'Category', 'Action', 'Message', 
-                'User', 'IP Address', 'Metadata'
+                'User', 'Metadata'
             ]);
             
             // CSV data
@@ -159,7 +159,6 @@ class LogsController extends CI_Controller
                     $log['action'],
                     $log['message'],
                     $log['user_name'] . ' (' . $log['user_email'] . ')',
-                    $log['ip_address'],
                     $log['metadata'] ? json_encode($log['metadata']) : ''
                 ]);
             }

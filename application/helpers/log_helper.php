@@ -286,18 +286,17 @@ class LogHelper
         );
     }
     
-    public static function logMultipleFailedLogins($email, $attempt_count, $ip_address) 
+    public static function logMultipleFailedLogins($email, $attempt_count) 
     {
         $CI = self::getCI();
         $CI->Logs_Model->createLog(
             'security_events',
             'multiple_failed_logins',
-            "Multiple failed login attempts ({$attempt_count}) for {$email} from {$ip_address}",
+            "Multiple failed login attempts ({$attempt_count}) for {$email}",
             null,
             [
                 'email' => $email,
-                'attempt_count' => $attempt_count,
-                'ip_address' => $ip_address
+                'attempt_count' => $attempt_count
             ],
             'error'
         );

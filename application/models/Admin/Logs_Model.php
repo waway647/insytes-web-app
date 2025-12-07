@@ -36,7 +36,6 @@ class Logs_Model extends CI_Model
             $this->db->group_start();
             $this->db->like('l.action', $search);
             $this->db->or_like('l.message', $search);
-            $this->db->or_like('l.ip_address', $search);
             $this->db->or_like('u.email', $search);
             $this->db->or_like('CONCAT(u.first_name, " ", u.last_name)', $search);
             $this->db->group_end();
@@ -76,7 +75,6 @@ class Logs_Model extends CI_Model
                 'message' => $log['message'],
                 'user_name' => $log['user_email'] ? $log['first_name'] . ' ' . $log['last_name'] : 'System',
                 'user_email' => $log['user_email'] ?? 'system@insytes.com',
-                'ip_address' => $log['ip_address'],
                 'user_agent' => $log['user_agent'],
                 'metadata' => $log['metadata'] ? json_decode($log['metadata'], true) : null,
                 'created_at' => $log['created_at'],
@@ -99,7 +97,6 @@ class Logs_Model extends CI_Model
             $this->db->group_start();
             $this->db->like('l.action', $search);
             $this->db->or_like('l.message', $search);
-            $this->db->or_like('l.ip_address', $search);
             $this->db->or_like('u.email', $search);
             $this->db->or_like('CONCAT(u.first_name, " ", u.last_name)', $search);
             $this->db->group_end();
@@ -133,7 +130,6 @@ class Logs_Model extends CI_Model
             'action' => $action,
             'message' => $message,
             'user_id' => $user_id,
-            'ip_address' => $this->input->ip_address(),
             'user_agent' => $this->input->user_agent(),
             'metadata' => $metadata ? json_encode($metadata) : null,
             'created_at' => date('Y-m-d H:i:s')
