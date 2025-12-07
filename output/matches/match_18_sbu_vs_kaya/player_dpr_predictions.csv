@@ -1,37 +1,37 @@
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-Alexis Jeremy Lampines,74.3,55.6,-18.7,90.0,[],0.0
-Caleb Tassi,27.0,74.3,47.3,22.8,[],0.0
-Carl Detoya,60.9,84.8,23.9,91.4,[],0.0
-Djohn Kenji Pusing,29.0,90.4,61.4,23.0,[],0.0
-Jacob Tanamor,69.2,71.2,2.0,88.9,[],0.0
-Jayson Jardiniano,73.9,85.0,11.1,90.8,[],0.0
-John Ariel Marquez,20.7,81.0,60.3,87.1,[],0.0
-Kirk Eman See,27.1,84.1,57.0,88.3,[],0.0
-Marc Pellejo,33.9,50.5,16.6,88.5,[],0.0
-Nicolai Abalos,62.8,85.9,23.1,91.3,[],0.0
-Paul Joshua Mapula,18.8,66.5,47.7,90.7,[],0.0
-Paul Vincent Mapula,48.0,67.0,19.0,88.8,[],0.0
-Shaun Soberano,59.8,52.9,-6.9,20.2,[],0.0
-Victor Felicia,24.7,73.1,48.4,25.4,[],0.0
-Viron Pedimonte,49.7,55.6,5.9,88.6,[],0.0
-"Pellejo, Marc",0.0,50.5,50.5,0.0,[],0.0
-"Mapula, Paul Vincent G.",0.0,25.6,25.6,0.0,[],0.0
-"Tanamor, Jacob",0.0,25.6,25.6,0.0,[],0.0
-"Jardiniano, Jayson",0.0,25.6,25.6,0.0,[],0.0
-"Lampines, Alexis Jeremy",0.0,30.0,30.0,0.0,[],0.0
-"Detoya, Carl",0.0,32.3,32.3,0.0,[],0.0
-"Abalos, Nicolai",0.0,32.3,32.3,0.0,[],0.0
-"See, Kirk Eman",0.0,28.8,28.8,0.0,[],0.0
-"Pedimonte, Viron",0.0,30.0,30.0,0.0,[],0.0
-"Marquez, John Ariel",0.0,28.8,28.8,0.0,[],0.0
-"Mapula, Paul Joshua G.",0.0,28.8,28.8,0.0,[],0.0
-"Pusing, Djohn Kenji",0.0,28.8,28.8,0.0,[],0.0
-"Soberano, Shaun",0.0,30.0,30.0,0.0,[],0.0
-"Payosalan, Kenneth",0.0,32.3,32.3,0.0,[],0.0
-"Qobadi, Mehdi",0.0,28.8,28.8,0.0,[],0.0
-"Nezamikhah, Salar",0.0,28.8,28.8,0.0,[],0.0
-"Felicia, Victor",0.0,28.8,28.8,0.0,[],0.0
-"Soultany, Artin Khalifeh",0.0,30.0,30.0,0.0,[],0.0
-"M-mil, Samaniego",0.0,32.3,32.3,0.0,[],0.0
-"Tassi, Caleb",0.0,28.8,28.8,0.0,[],0.0
-Unnamed,0.0,49.9,49.9,0.0,['CAM'],0.0
+Alexis Jeremy Lampines,74.3,30.0,-44.3,90.0,[],0
+Caleb Tassi,27.0,69.7,42.7,22.8,[],0
+Carl Detoya,60.9,83.5,22.6,91.4,[],0
+Djohn Kenji Pusing,29.0,87.9,58.9,23.0,[],0
+Jacob Tanamor,69.2,73.2,4.0,88.9,[],0
+Jayson Jardiniano,73.9,84.3,10.4,90.8,[],0
+John Ariel Marquez,20.7,74.7,54.0,87.1,[],0
+Kirk Eman See,27.1,80.4,53.3,88.3,[],0
+Marc Pellejo,33.9,50.8,16.9,88.5,[],0
+Nicolai Abalos,62.8,87.1,24.3,91.3,[],0
+Paul Joshua Mapula,18.8,77.4,58.6,90.7,[],0
+Paul Vincent Mapula,48.0,65.7,17.7,88.8,[],0
+Shaun Soberano,59.8,43.8,-16.0,20.2,[],0
+Victor Felicia,24.7,81.2,56.5,25.4,[],0
+Viron Pedimonte,49.7,30.0,-19.7,88.6,[],0
+"Pellejo, Marc",0.0,50.8,50.8,0.0,[],0
+"Mapula, Paul Vincent G.",0.0,25.6,25.6,0.0,[],0
+"Tanamor, Jacob",0.0,25.6,25.6,0.0,[],0
+"Jardiniano, Jayson",0.0,25.6,25.6,0.0,[],0
+"Lampines, Alexis Jeremy",0.0,30.0,30.0,0.0,[],0
+"Detoya, Carl",0.0,32.3,32.3,0.0,[],0
+"Abalos, Nicolai",0.0,32.3,32.3,0.0,[],0
+"See, Kirk Eman",0.0,28.6,28.6,0.0,[],0
+"Pedimonte, Viron",0.0,30.0,30.0,0.0,[],0
+"Marquez, John Ariel",0.0,28.6,28.6,0.0,[],0
+"Mapula, Paul Joshua G.",0.0,28.6,28.6,0.0,[],0
+"Pusing, Djohn Kenji",0.0,28.6,28.6,0.0,[],0
+"Soberano, Shaun",0.0,30.0,30.0,0.0,[],0
+"Payosalan, Kenneth",0.0,32.3,32.3,0.0,[],0
+"Qobadi, Mehdi",0.0,28.6,28.6,0.0,[],0
+"Nezamikhah, Salar",0.0,28.6,28.6,0.0,[],0
+"Felicia, Victor",0.0,28.6,28.6,0.0,[],0
+"Soultany, Artin Khalifeh",0.0,30.0,30.0,0.0,[],0
+"M-mil, Samaniego",0.0,32.3,32.3,0.0,[],0
+"Tassi, Caleb",0.0,28.6,28.6,0.0,[],0
+Unnamed,0.0,32.3,32.3,0.0,"[nan, 'CAM']",1

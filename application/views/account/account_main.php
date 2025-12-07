@@ -43,6 +43,18 @@
                 <h3>Team</h3>
             </div>
         <?php endif; ?>
+
+        <?php if ($role == 'Admin' || $role == 'admin'): ?>
+            <div 
+                @click="activeTab = 'admin'" 
+                class="text-center border-t border-[#2A2A2A] py-4 px-10 cursor-pointer transition-colors duration-150"
+                :class="{ 
+                    'bg-[#2A2A2A] text-white': activeTab === 'admin', 
+                    'text-[#B6BABD] hover:text-white': activeTab !== 'admin'
+                }">
+                <h3>Admin</h3>
+            </div>
+        <?php endif; ?>
     </div>
 
     <div class="w-full h-full p-10">
@@ -58,6 +70,12 @@
         <?php if ($role == 'Coach'): ?>
             <div x-show="activeTab === 'team'">
                 <?php $this->load->view('account/team'); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($role == 'Admin' || $role == 'admin'): ?>
+            <div x-show="activeTab === 'admin'">
+                <?php $this->load->view('account/admin_settings'); ?>
             </div>
         <?php endif; ?>
         

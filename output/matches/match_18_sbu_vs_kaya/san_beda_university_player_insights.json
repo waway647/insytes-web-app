@@ -2,11 +2,11 @@
     "match_id": "match_18_sbu_vs_kaya",
     "match_name": "match_18_sbu_vs_kaya",
     "team": "San Beda University",
-    "generated_at": "2025-11-26T05:08:13.292685+00:00",
+    "generated_at": "2025-11-26T07:14:06.255967+00:00",
     "player_summary": {
         "total_players": 36,
         "players_improving": 33,
-        "players_declining": 2,
+        "players_declining": 3,
         "key_performers_count": 2
     },
     "players": [
@@ -52,9 +52,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
             },
-            "predicted_dpr": 55.6,
-            "dpr_change": -18.7,
-            "enhanced_insight": "**Alexis Jeremy Lampines** (LWB) - Versatile player | Current: Strong DPR 74.3   Predicted: 55.6 (-18.7) | Trend: Significant adjustment needed | Strengths: Duel dominance, Tackling ability | Focus: Passing accuracy and decision-making, Tactical discipline",
+            "predicted_dpr": 30.0,
+            "dpr_change": -44.3,
+            "enhanced_insight": "**Alexis Jeremy Lampines** (LWB) - Versatile player | Current: Strong DPR 74.3   Predicted: 30.0 (-44.3) | Trend: Significant adjustment needed | Strengths: Duel dominance, Tackling ability | Focus: Passing accuracy and decision-making, Tactical discipline",
             "match_recommendation": "Monitor closely - may need tactical adjustment or rest",
             "badge": "Impact Player",
             "tactical_role": "Versatile player",
@@ -109,9 +109,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 74.3,
-            "dpr_change": 47.3,
-            "enhanced_insight": "**Caleb Tassi** (ST) - Target man | Current: Needs Focus DPR 27.0   Predicted: 74.3 (+47.3) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 69.7,
+            "dpr_change": 42.7,
+            "enhanced_insight": "**Caleb Tassi** (ST) - Target man | Current: Needs Focus DPR 27.0   Predicted: 69.7 (+42.7) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -164,9 +164,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
             },
-            "predicted_dpr": 84.8,
-            "dpr_change": 23.9,
-            "enhanced_insight": "**Carl Detoya** (CDM) - Box-to-box midfielder | Current: Solid DPR 60.9   Predicted: 84.8 (+23.9) | Trend: Major improvement expected | Strengths: Duel dominance, Tackling ability | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 83.5,
+            "dpr_change": 22.6,
+            "enhanced_insight": "**Carl Detoya** (CDM) - Box-to-box midfielder | Current: Solid DPR 60.9   Predicted: 83.5 (+22.6) | Trend: Major improvement expected | Strengths: Duel dominance, Tackling ability | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Solid Contributor",
             "tactical_role": "Box-to-box midfielder",
@@ -221,9 +221,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 90.4,
-            "dpr_change": 61.4,
-            "enhanced_insight": "**Djohn Kenji Pusing** (ST) - Target man | Current: Needs Focus DPR 29.0   Predicted: 90.4 (+61.4) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 87.9,
+            "dpr_change": 58.9,
+            "enhanced_insight": "**Djohn Kenji Pusing** (ST) - Target man | Current: Needs Focus DPR 29.0   Predicted: 87.9 (+58.9) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -275,9 +275,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
             },
-            "predicted_dpr": 71.2,
-            "dpr_change": 2.0,
-            "enhanced_insight": "**Jacob Tanamor** (CB) - Developing defender | Current: Solid DPR 69.2   Predicted: 71.2 (+2.0) | Trend: Maintaining level | Strengths: Duel dominance | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 73.2,
+            "dpr_change": 4.0,
+            "enhanced_insight": "**Jacob Tanamor** (CB) - Developing defender | Current: Solid DPR 69.2   Predicted: 73.2 (+4.0) | Trend: Positive trajectory | Strengths: Duel dominance | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Reliable performer - good for consistent minutes and team balance",
             "badge": "Solid Contributor",
             "tactical_role": "Developing defender",
@@ -331,9 +331,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
             },
-            "predicted_dpr": 85.0,
-            "dpr_change": 11.1,
-            "enhanced_insight": "**Jayson Jardiniano** (CB) - Developing defender | Current: Strong DPR 73.9   Predicted: 85.0 (+11.1) | Trend: Major improvement expected | Strengths: Duel dominance | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 84.3,
+            "dpr_change": 10.4,
+            "enhanced_insight": "**Jayson Jardiniano** (CB) - Developing defender | Current: Strong DPR 73.9   Predicted: 84.3 (+10.4) | Trend: Major improvement expected | Strengths: Duel dominance | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Impact Player",
             "tactical_role": "Developing defender",
@@ -387,9 +387,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 81.0,
-            "dpr_change": 60.3,
-            "enhanced_insight": "**John Ariel Marquez** (ST) - Target man | Current: Needs Focus DPR 20.7   Predicted: 81.0 (+60.3) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 74.7,
+            "dpr_change": 54.0,
+            "enhanced_insight": "**John Ariel Marquez** (ST) - Target man | Current: Needs Focus DPR 20.7   Predicted: 74.7 (+54.0) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -441,9 +441,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
             },
-            "predicted_dpr": 84.1,
-            "dpr_change": 57.0,
-            "enhanced_insight": "**Kirk Eman See** (ST) - Target man | Current: Needs Focus DPR 27.1   Predicted: 84.1 (+57.0) | Trend: Major improvement expected | Strengths: Duel dominance, Tackling ability | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 80.4,
+            "dpr_change": 53.3,
+            "enhanced_insight": "**Kirk Eman See** (ST) - Target man | Current: Needs Focus DPR 27.1   Predicted: 80.4 (+53.3) | Trend: Major improvement expected | Strengths: Duel dominance, Tackling ability | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -509,9 +509,9 @@
                 "shots_on_target_against_per90": 2.03,
                 "save_pct": 0.0
             },
-            "predicted_dpr": 50.5,
-            "dpr_change": 16.6,
-            "enhanced_insight": "**Marc Pellejo** (GK) - Shot-stopping specialist | Current: Needs Focus DPR 33.9   Predicted: 50.5 (+16.6) | Trend: Major improvement expected | Focus: Passing accuracy and decision-making, Tactical discipline",
+            "predicted_dpr": 50.8,
+            "dpr_change": 16.9,
+            "enhanced_insight": "**Marc Pellejo** (GK) - Shot-stopping specialist | Current: Needs Focus DPR 33.9   Predicted: 50.8 (+16.9) | Trend: Major improvement expected | Focus: Passing accuracy and decision-making, Tactical discipline",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Shot-stopping specialist",
@@ -564,9 +564,9 @@
                 "key_pass_rate_pct_p90": 1.85,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 85.9,
-            "dpr_change": 23.1,
-            "enhanced_insight": "**Nicolai Abalos** (CDM) - Box-to-box midfielder | Current: Solid DPR 62.8   Predicted: 85.9 (+23.1) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 87.1,
+            "dpr_change": 24.3,
+            "enhanced_insight": "**Nicolai Abalos** (CDM) - Box-to-box midfielder | Current: Solid DPR 62.8   Predicted: 87.1 (+24.3) | Trend: Major improvement expected | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Solid Contributor",
             "tactical_role": "Box-to-box midfielder",
@@ -618,9 +618,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 66.5,
-            "dpr_change": 47.7,
-            "enhanced_insight": "**Paul Joshua Mapula** (ST) - Target man | Current: Needs Focus DPR 18.8   Predicted: 66.5 (+47.7) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 77.4,
+            "dpr_change": 58.6,
+            "enhanced_insight": "**Paul Joshua Mapula** (ST) - Target man | Current: Needs Focus DPR 18.8   Predicted: 77.4 (+58.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -672,9 +672,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 50.0
             },
-            "predicted_dpr": 67.0,
-            "dpr_change": 19.0,
-            "enhanced_insight": "**Paul Vincent Mapula** (CB) - Developing defender | Current: Developing DPR 48.0   Predicted: 67.0 (+19.0) | Trend: Major improvement expected | Strengths: Tackling ability | Focus: Defensive positioning, Passing accuracy and decision-making",
+            "predicted_dpr": 65.7,
+            "dpr_change": 17.7,
+            "enhanced_insight": "**Paul Vincent Mapula** (CB) - Developing defender | Current: Developing DPR 48.0   Predicted: 65.7 (+17.7) | Trend: Major improvement expected | Strengths: Tackling ability | Focus: Defensive positioning, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Developing defender",
@@ -729,10 +729,10 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 52.9,
-            "dpr_change": -6.9,
-            "enhanced_insight": "**Shaun Soberano** (CAM) - Attacking midfielder | Current: Solid DPR 59.8   Predicted: 52.9 (-6.9) | Trend: Slight decline expected | Strengths: Efficient shooting | Focus: Finishing and shot selection, Passing accuracy and decision-making",
-            "match_recommendation": "Reliable performer - good for consistent minutes and team balance",
+            "predicted_dpr": 43.8,
+            "dpr_change": -16.0,
+            "enhanced_insight": "**Shaun Soberano** (CAM) - Attacking midfielder | Current: Solid DPR 59.8   Predicted: 43.8 (-16.0) | Trend: Significant adjustment needed | Strengths: Efficient shooting | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "match_recommendation": "Monitor closely - may need tactical adjustment or rest",
             "badge": "Solid Contributor",
             "tactical_role": "Attacking midfielder",
             "key_strengths": [
@@ -785,9 +785,9 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 0.0
             },
-            "predicted_dpr": 73.1,
-            "dpr_change": 48.4,
-            "enhanced_insight": "**Victor Felicia** (ST) - Target man | Current: Needs Focus DPR 24.7   Predicted: 73.1 (+48.4) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 81.2,
+            "dpr_change": 56.5,
+            "enhanced_insight": "**Victor Felicia** (ST) - Target man | Current: Needs Focus DPR 24.7   Predicted: 81.2 (+56.5) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -839,10 +839,10 @@
                 "key_pass_rate_pct_p90": 0.0,
                 "duel_success_rate_pct_p90": 100.0
             },
-            "predicted_dpr": 55.6,
-            "dpr_change": 5.9,
-            "enhanced_insight": "**Viron Pedimonte** (RWB) - Versatile player | Current: Developing DPR 49.7   Predicted: 55.6 (+5.9) | Trend: Positive trajectory | Strengths: Duel dominance | Focus: Passing accuracy and decision-making, Tactical discipline",
-            "match_recommendation": "Development focus - use in lower-pressure situations to build confidence",
+            "predicted_dpr": 30.0,
+            "dpr_change": -19.7,
+            "enhanced_insight": "**Viron Pedimonte** (RWB) - Versatile player | Current: Developing DPR 49.7   Predicted: 30.0 (-19.7) | Trend: Significant adjustment needed | Strengths: Duel dominance | Focus: Passing accuracy and decision-making, Tactical discipline",
+            "match_recommendation": "Monitor closely - may need tactical adjustment or rest",
             "badge": "Developing",
             "tactical_role": "Versatile player",
             "key_strengths": [
@@ -867,9 +867,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 50.5,
-            "dpr_change": 50.5,
-            "enhanced_insight": "**Pellejo, Marc** (GK) - Shot-stopping specialist | Current: Needs Focus DPR 0.0   Predicted: 50.5 (+50.5) | Trend: Major improvement expected | Focus: Passing accuracy and decision-making, Tactical discipline",
+            "predicted_dpr": 50.8,
+            "dpr_change": 50.8,
+            "enhanced_insight": "**Pellejo, Marc** (GK) - Shot-stopping specialist | Current: Needs Focus DPR 0.0   Predicted: 50.8 (+50.8) | Trend: Major improvement expected | Focus: Passing accuracy and decision-making, Tactical discipline",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Shot-stopping specialist",
@@ -1049,9 +1049,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 28.8,
-            "dpr_change": 28.8,
-            "enhanced_insight": "**See, Kirk Eman** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.8 (+28.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 28.6,
+            "dpr_change": 28.6,
+            "enhanced_insight": "**See, Kirk Eman** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.6 (+28.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -1101,9 +1101,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 28.8,
-            "dpr_change": 28.8,
-            "enhanced_insight": "**Marquez, John Ariel** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.8 (+28.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 28.6,
+            "dpr_change": 28.6,
+            "enhanced_insight": "**Marquez, John Ariel** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.6 (+28.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -1127,9 +1127,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 28.8,
-            "dpr_change": 28.8,
-            "enhanced_insight": "**Mapula, Paul Joshua G.** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.8 (+28.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 28.6,
+            "dpr_change": 28.6,
+            "enhanced_insight": "**Mapula, Paul Joshua G.** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.6 (+28.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -1153,9 +1153,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 28.8,
-            "dpr_change": 28.8,
-            "enhanced_insight": "**Pusing, Djohn Kenji** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.8 (+28.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 28.6,
+            "dpr_change": 28.6,
+            "enhanced_insight": "**Pusing, Djohn Kenji** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.6 (+28.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -1231,9 +1231,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 28.8,
-            "dpr_change": 28.8,
-            "enhanced_insight": "**Qobadi, Mehdi** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.8 (+28.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 28.6,
+            "dpr_change": 28.6,
+            "enhanced_insight": "**Qobadi, Mehdi** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.6 (+28.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -1257,9 +1257,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 28.8,
-            "dpr_change": 28.8,
-            "enhanced_insight": "**Nezamikhah, Salar** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.8 (+28.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 28.6,
+            "dpr_change": 28.6,
+            "enhanced_insight": "**Nezamikhah, Salar** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.6 (+28.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -1283,9 +1283,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 28.8,
-            "dpr_change": 28.8,
-            "enhanced_insight": "**Felicia, Victor** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.8 (+28.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 28.6,
+            "dpr_change": 28.6,
+            "enhanced_insight": "**Felicia, Victor** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.6 (+28.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -1361,9 +1361,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 28.8,
-            "dpr_change": 28.8,
-            "enhanced_insight": "**Tassi, Caleb** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.8 (+28.8) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
+            "predicted_dpr": 28.6,
+            "dpr_change": 28.6,
+            "enhanced_insight": "**Tassi, Caleb** (ST) - Target man | Current: Needs Focus DPR 0.0   Predicted: 28.6 (+28.6) | Trend: Major improvement expected | Focus: Finishing and shot selection, Passing accuracy and decision-making",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Target man",
@@ -1387,9 +1387,9 @@
                 "discipline": 0
             },
             "key_stats_p90": {},
-            "predicted_dpr": 49.9,
-            "dpr_change": 49.9,
-            "enhanced_insight": "**Unnamed** () - Versatile player | Current: Needs Focus DPR 0.0   Predicted: 49.9 (+49.9) | Trend: Major improvement expected | Focus: Passing accuracy and decision-making, Tactical discipline",
+            "predicted_dpr": 32.3,
+            "dpr_change": 32.3,
+            "enhanced_insight": "**Unnamed** () - Versatile player | Current: Needs Focus DPR 0.0   Predicted: 32.3 (+32.3) | Trend: Major improvement expected | Focus: Passing accuracy and decision-making, Tactical discipline",
             "match_recommendation": "Strong candidate for increased responsibility - trending upward significantly",
             "badge": "Rising Star",
             "tactical_role": "Versatile player",
@@ -1403,73 +1403,73 @@
     "performance_tiers": {
         "elite": [
             {
-                "name": "Caleb Tassi",
-                "predicted_dpr": 74.3
-            },
-            {
                 "name": "Carl Detoya",
-                "predicted_dpr": 84.8
+                "predicted_dpr": 83.5
             },
             {
                 "name": "Djohn Kenji Pusing",
-                "predicted_dpr": 90.4
+                "predicted_dpr": 87.9
             },
             {
                 "name": "Jacob Tanamor",
-                "predicted_dpr": 71.2
+                "predicted_dpr": 73.2
             },
             {
                 "name": "Jayson Jardiniano",
-                "predicted_dpr": 85.0
+                "predicted_dpr": 84.3
             },
             {
                 "name": "John Ariel Marquez",
-                "predicted_dpr": 81.0
+                "predicted_dpr": 74.7
             },
             {
                 "name": "Kirk Eman See",
-                "predicted_dpr": 84.1
+                "predicted_dpr": 80.4
             },
             {
                 "name": "Nicolai Abalos",
-                "predicted_dpr": 85.9
+                "predicted_dpr": 87.1
+            },
+            {
+                "name": "Paul Joshua Mapula",
+                "predicted_dpr": 77.4
             },
             {
                 "name": "Victor Felicia",
-                "predicted_dpr": 73.1
+                "predicted_dpr": 81.2
             }
         ],
         "solid": [
             {
-                "name": "Alexis Jeremy Lampines",
-                "predicted_dpr": 55.6
+                "name": "Caleb Tassi",
+                "predicted_dpr": 69.7
             },
             {
                 "name": "Marc Pellejo",
-                "predicted_dpr": 50.5
-            },
-            {
-                "name": "Paul Joshua Mapula",
-                "predicted_dpr": 66.5
+                "predicted_dpr": 50.8
             },
             {
                 "name": "Paul Vincent Mapula",
-                "predicted_dpr": 67.0
-            },
-            {
-                "name": "Shaun Soberano",
-                "predicted_dpr": 52.9
-            },
-            {
-                "name": "Viron Pedimonte",
-                "predicted_dpr": 55.6
+                "predicted_dpr": 65.7
             },
             {
                 "name": "Pellejo, Marc",
-                "predicted_dpr": 50.5
+                "predicted_dpr": 50.8
             }
         ],
         "developing": [
+            {
+                "name": "Alexis Jeremy Lampines",
+                "predicted_dpr": 30.0
+            },
+            {
+                "name": "Shaun Soberano",
+                "predicted_dpr": 43.8
+            },
+            {
+                "name": "Viron Pedimonte",
+                "predicted_dpr": 30.0
+            },
             {
                 "name": "Mapula, Paul Vincent G.",
                 "predicted_dpr": 25.6
@@ -1496,7 +1496,7 @@
             },
             {
                 "name": "See, Kirk Eman",
-                "predicted_dpr": 28.8
+                "predicted_dpr": 28.6
             },
             {
                 "name": "Pedimonte, Viron",
@@ -1504,15 +1504,15 @@
             },
             {
                 "name": "Marquez, John Ariel",
-                "predicted_dpr": 28.8
+                "predicted_dpr": 28.6
             },
             {
                 "name": "Mapula, Paul Joshua G.",
-                "predicted_dpr": 28.8
+                "predicted_dpr": 28.6
             },
             {
                 "name": "Pusing, Djohn Kenji",
-                "predicted_dpr": 28.8
+                "predicted_dpr": 28.6
             },
             {
                 "name": "Soberano, Shaun",
@@ -1524,15 +1524,15 @@
             },
             {
                 "name": "Qobadi, Mehdi",
-                "predicted_dpr": 28.8
+                "predicted_dpr": 28.6
             },
             {
                 "name": "Nezamikhah, Salar",
-                "predicted_dpr": 28.8
+                "predicted_dpr": 28.6
             },
             {
                 "name": "Felicia, Victor",
-                "predicted_dpr": 28.8
+                "predicted_dpr": 28.6
             },
             {
                 "name": "Soultany, Artin Khalifeh",
@@ -1544,11 +1544,11 @@
             },
             {
                 "name": "Tassi, Caleb",
-                "predicted_dpr": 28.8
+                "predicted_dpr": 28.6
             },
             {
                 "name": "Unnamed",
-                "predicted_dpr": 49.9
+                "predicted_dpr": 32.3
             }
         ]
     },
@@ -1556,35 +1556,31 @@
         "rising_stars": [
             {
                 "name": "Djohn Kenji Pusing",
-                "change": 61.4
-            },
-            {
-                "name": "John Ariel Marquez",
-                "change": 60.3
-            },
-            {
-                "name": "Kirk Eman See",
-                "change": 57.0
-            },
-            {
-                "name": "Pellejo, Marc",
-                "change": 50.5
-            },
-            {
-                "name": "Unnamed",
-                "change": 49.9
-            },
-            {
-                "name": "Victor Felicia",
-                "change": 48.4
+                "change": 58.9
             },
             {
                 "name": "Paul Joshua Mapula",
-                "change": 47.7
+                "change": 58.6
+            },
+            {
+                "name": "Victor Felicia",
+                "change": 56.5
+            },
+            {
+                "name": "John Ariel Marquez",
+                "change": 54.0
+            },
+            {
+                "name": "Kirk Eman See",
+                "change": 53.3
+            },
+            {
+                "name": "Pellejo, Marc",
+                "change": 50.8
             },
             {
                 "name": "Caleb Tassi",
-                "change": 47.3
+                "change": 42.7
             },
             {
                 "name": "Detoya, Carl",
@@ -1600,6 +1596,10 @@
             },
             {
                 "name": "M-mil, Samaniego",
+                "change": 32.3
+            },
+            {
+                "name": "Unnamed",
                 "change": 32.3
             },
             {
@@ -1620,35 +1620,35 @@
             },
             {
                 "name": "See, Kirk Eman",
-                "change": 28.8
+                "change": 28.6
             },
             {
                 "name": "Marquez, John Ariel",
-                "change": 28.8
+                "change": 28.6
             },
             {
                 "name": "Mapula, Paul Joshua G.",
-                "change": 28.8
+                "change": 28.6
             },
             {
                 "name": "Pusing, Djohn Kenji",
-                "change": 28.8
+                "change": 28.6
             },
             {
                 "name": "Qobadi, Mehdi",
-                "change": 28.8
+                "change": 28.6
             },
             {
                 "name": "Nezamikhah, Salar",
-                "change": 28.8
+                "change": 28.6
             },
             {
                 "name": "Felicia, Victor",
-                "change": 28.8
+                "change": 28.6
             },
             {
                 "name": "Tassi, Caleb",
-                "change": 28.8
+                "change": 28.6
             },
             {
                 "name": "Mapula, Paul Vincent G.",
@@ -1663,38 +1663,38 @@
                 "change": 25.6
             },
             {
-                "name": "Carl Detoya",
-                "change": 23.9
+                "name": "Nicolai Abalos",
+                "change": 24.3
             },
             {
-                "name": "Nicolai Abalos",
-                "change": 23.1
+                "name": "Carl Detoya",
+                "change": 22.6
             },
             {
                 "name": "Paul Vincent Mapula",
-                "change": 19.0
+                "change": 17.7
             },
             {
                 "name": "Marc Pellejo",
-                "change": 16.6
+                "change": 16.9
             },
             {
                 "name": "Jayson Jardiniano",
-                "change": 11.1
-            },
-            {
-                "name": "Viron Pedimonte",
-                "change": 5.9
+                "change": 10.4
             }
         ],
         "declining_form": [
             {
                 "name": "Alexis Jeremy Lampines",
-                "change": -18.7
+                "change": -44.3
+            },
+            {
+                "name": "Viron Pedimonte",
+                "change": -19.7
             },
             {
                 "name": "Shaun Soberano",
-                "change": -6.9
+                "change": -16.0
             }
         ]
     },
@@ -1724,15 +1724,15 @@
     "biggest_gainers": [
         {
             "name": "Djohn Kenji Pusing",
-            "change": 61.4
+            "change": 58.9
         },
         {
-            "name": "John Ariel Marquez",
-            "change": 60.3
+            "name": "Paul Joshua Mapula",
+            "change": 58.6
         },
         {
-            "name": "Kirk Eman See",
-            "change": 57.0
+            "name": "Victor Felicia",
+            "change": 56.5
         }
     ],
     "key_players": [
@@ -1784,22 +1784,22 @@
                 "rank": 1,
                 "name": "Caleb Tassi",
                 "position": "ST",
-                "insight": "**Caleb Tassi** (ST) - Good finishing ability showing consistency in front of goal. Needs to improve chance creation (0.0/100). Shows good movement in dangerous areas. Good team connection and build-up contribution.  (Predicted DPR: 74.3)",
-                "predicted_dpr": 74.3
+                "insight": "**Caleb Tassi** (ST) - Good finishing ability showing consistency in front of goal. Needs to improve chance creation (0.0/100). Shows good movement in dangerous areas. Good team connection and build-up contribution.  (Predicted DPR: 69.7)",
+                "predicted_dpr": 69.7
             },
             {
                 "rank": 2,
                 "name": "Shaun Soberano",
                 "position": "CAM",
-                "insight": "**Shaun Soberano** (CAM) - Finishing quality needs significant improvement. Needs to improve chance creation (0.0/100). Positioning in final third needs work (0.0/100). Needs to improve link-up play with teammates.  (Predicted DPR: 52.9)",
-                "predicted_dpr": 52.9
+                "insight": "**Shaun Soberano** (CAM) - Finishing quality needs significant improvement. Needs to improve chance creation (0.0/100). Positioning in final third needs work (0.0/100). Needs to improve link-up play with teammates.  (Predicted DPR: 43.8)",
+                "predicted_dpr": 43.8
             },
             {
                 "rank": 3,
                 "name": "Kirk Eman See",
                 "position": "ST",
-                "insight": "**Kirk Eman See** (ST) - Good finishing ability showing consistency in front of goal. Needs to improve chance creation (0.0/100). Good team connection and build-up contribution.  (Predicted DPR: 84.1)",
-                "predicted_dpr": 84.1
+                "insight": "**Kirk Eman See** (ST) - Good finishing ability showing consistency in front of goal. Needs to improve chance creation (0.0/100). Good team connection and build-up contribution.  (Predicted DPR: 80.4)",
+                "predicted_dpr": 80.4
             }
         ]
     },
@@ -1832,22 +1832,22 @@
                 "rank": 1,
                 "name": "Jayson Jardiniano",
                 "position": "CB",
-                "insight": "**Jayson Jardiniano** (CB) - Strong defensive impact (100.0/100) with excellent dueling. Excellent build-up play (80.8/100) - key in possession phases. Must improve positioning discipline (17.8/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 85.0)",
-                "predicted_dpr": 85.0
+                "insight": "**Jayson Jardiniano** (CB) - Strong defensive impact (100.0/100) with excellent dueling. Excellent build-up play (80.8/100) - key in possession phases. Must improve positioning discipline (17.8/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 84.3)",
+                "predicted_dpr": 84.3
             },
             {
                 "rank": 2,
                 "name": "Victor Felicia",
                 "position": "ST",
-                "insight": "**Victor Felicia** (ST) - Defensive impact needs improvement (0.0/100) - focus on tackle timing and pressure. Needs work on build-up quality (0.0/100). Must improve positioning discipline (0.0/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 73.1)",
-                "predicted_dpr": 73.1
+                "insight": "**Victor Felicia** (ST) - Defensive impact needs improvement (0.0/100) - focus on tackle timing and pressure. Needs work on build-up quality (0.0/100). Must improve positioning discipline (0.0/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 81.2)",
+                "predicted_dpr": 81.2
             },
             {
                 "rank": 3,
                 "name": "Alexis Jeremy Lampines",
                 "position": "LWB",
-                "insight": "**Alexis Jeremy Lampines** (LWB) - Strong defensive impact (91.5/100) with excellent dueling. Excellent build-up play (90.5/100) - key in possession phases. Must improve positioning discipline (20.3/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 55.6)",
-                "predicted_dpr": 55.6
+                "insight": "**Alexis Jeremy Lampines** (LWB) - Strong defensive impact (91.5/100) with excellent dueling. Excellent build-up play (90.5/100) - key in possession phases. Must improve positioning discipline (20.3/100) - stay in defensive zones. Recovery efficiency needs work (0.0/100).  (Predicted DPR: 30.0)",
+                "predicted_dpr": 30.0
             }
         ]
     },
@@ -1880,22 +1880,22 @@
                 "rank": 1,
                 "name": "Jayson Jardiniano",
                 "position": "CB",
-                "insight": "**Jayson Jardiniano** (CB) - Outstanding passing contribution (80.8/100).  (Predicted DPR: 85.0)",
-                "predicted_dpr": 85.0
+                "insight": "**Jayson Jardiniano** (CB) - Outstanding passing contribution (80.8/100).  (Predicted DPR: 84.3)",
+                "predicted_dpr": 84.3
             },
             {
                 "rank": 2,
                 "name": "Nicolai Abalos",
                 "position": "CDM",
-                "insight": "**Nicolai Abalos** (CDM) - Exceptional game control (86.5/100) - dictates tempo excellently. Good progressive passing (70.0/100). Lacks creativity (23.1/100) - needs more key passes and assists.  (Predicted DPR: 85.9)",
-                "predicted_dpr": 85.9
+                "insight": "**Nicolai Abalos** (CDM) - Exceptional game control (86.5/100) - dictates tempo excellently. Good progressive passing (70.0/100). Lacks creativity (23.1/100) - needs more key passes and assists.  (Predicted DPR: 87.1)",
+                "predicted_dpr": 87.1
             },
             {
                 "rank": 3,
                 "name": "Paul Vincent Mapula",
                 "position": "CB",
-                "insight": "**Paul Vincent Mapula** (CB) - Outstanding passing contribution (90.7/100).  (Predicted DPR: 67.0)",
-                "predicted_dpr": 67.0
+                "insight": "**Paul Vincent Mapula** (CB) - Outstanding passing contribution (90.7/100).  (Predicted DPR: 65.7)",
+                "predicted_dpr": 65.7
             }
         ]
     },
@@ -1904,7 +1904,7 @@
             "player_name": "Djohn Kenji Pusing",
             "position": "ST",
             "minutes_played": 23.0,
-            "rating": 9.0,
+            "rating": 8.8,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1913,14 +1913,14 @@
             "passing_accuracy_pct": 80.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 90.4,
+            "dpr": 87.9,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
             "player_name": "Nicolai Abalos",
             "position": "CDM",
             "minutes_played": 91.0,
-            "rating": 8.6,
+            "rating": 8.7,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 1.0,
@@ -1929,14 +1929,14 @@
             "passing_accuracy_pct": 81.5,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 85.9,
+            "dpr": 87.1,
             "notes": "Solid contributor; Trending up."
         },
         {
             "player_name": "Jayson Jardiniano",
             "position": "CB",
             "minutes_played": 91.0,
-            "rating": 8.5,
+            "rating": 8.4,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1945,14 +1945,14 @@
             "passing_accuracy_pct": 93.3,
             "duels_won_pct": 99.0,
             "recoveries": 0.0,
-            "dpr": 85.0,
+            "dpr": 84.3,
             "notes": "Elite performer; Defensive actions; Accurate passing; Trending up."
         },
         {
             "player_name": "Carl Detoya",
             "position": "CDM",
             "minutes_played": 91.0,
-            "rating": 8.5,
+            "rating": 8.3,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -1961,62 +1961,14 @@
             "passing_accuracy_pct": 95.2,
             "duels_won_pct": 100.0,
             "recoveries": 0.0,
-            "dpr": 84.8,
+            "dpr": 83.5,
             "notes": "Solid contributor; Trending up."
-        },
-        {
-            "player_name": "Kirk Eman See",
-            "position": "ST",
-            "minutes_played": 88.0,
-            "rating": 8.4,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 3.0,
-            "passing_accuracy_pct": 76.5,
-            "duels_won_pct": 100.0,
-            "recoveries": 0.0,
-            "dpr": 84.1,
-            "notes": "Rising star potential; Link-up play; Trending up."
-        },
-        {
-            "player_name": "John Ariel Marquez",
-            "position": "ST",
-            "minutes_played": 87.0,
-            "rating": 8.1,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 5.0,
-            "passing_accuracy_pct": 91.6,
-            "duels_won_pct": 0.0,
-            "recoveries": 0.0,
-            "dpr": 81.0,
-            "notes": "Rising star potential; Link-up play; Trending up."
-        },
-        {
-            "player_name": "Caleb Tassi",
-            "position": "ST",
-            "minutes_played": 23.0,
-            "rating": 7.4,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 0.0,
-            "passing_accuracy_pct": 80.0,
-            "duels_won_pct": 0.0,
-            "recoveries": 0.0,
-            "dpr": 74.3,
-            "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
             "player_name": "Victor Felicia",
             "position": "ST",
             "minutes_played": 25.0,
-            "rating": 7.3,
+            "rating": 8.1,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -2025,46 +1977,30 @@
             "passing_accuracy_pct": 87.5,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 73.1,
+            "dpr": 81.2,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
-            "player_name": "Jacob Tanamor",
-            "position": "CB",
-            "minutes_played": 89.0,
-            "rating": 7.1,
+            "player_name": "Kirk Eman See",
+            "position": "ST",
+            "minutes_played": 88.0,
+            "rating": 8.0,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
             "key_passes": 0.0,
-            "progressive_passes": 7.0,
-            "passing_accuracy_pct": 90.9,
+            "progressive_passes": 3.0,
+            "passing_accuracy_pct": 76.5,
             "duels_won_pct": 100.0,
             "recoveries": 0.0,
-            "dpr": 71.2,
-            "notes": "Solid contributor; Defensive actions; Accurate passing."
-        },
-        {
-            "player_name": "Paul Vincent Mapula",
-            "position": "CB",
-            "minutes_played": 89.0,
-            "rating": 6.7,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 12.0,
-            "passing_accuracy_pct": 84.5,
-            "duels_won_pct": 49.8,
-            "recoveries": 0.0,
-            "dpr": 67.0,
-            "notes": "Rising star potential; Trending up."
+            "dpr": 80.4,
+            "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
             "player_name": "Paul Joshua Mapula",
             "position": "ST",
             "minutes_played": 91.0,
-            "rating": 6.7,
+            "rating": 7.7,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -2073,62 +2009,78 @@
             "passing_accuracy_pct": 53.8,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 66.5,
+            "dpr": 77.4,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
-            "player_name": "Alexis Jeremy Lampines",
-            "position": "LWB",
-            "minutes_played": 90.0,
-            "rating": 5.6,
+            "player_name": "John Ariel Marquez",
+            "position": "ST",
+            "minutes_played": 87.0,
+            "rating": 7.5,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
             "key_passes": 0.0,
-            "progressive_passes": 20.0,
-            "passing_accuracy_pct": 84.1,
-            "duels_won_pct": 100.0,
-            "recoveries": 0.0,
-            "dpr": 55.6,
-            "notes": "Elite performer; Needs support."
-        },
-        {
-            "player_name": "Viron Pedimonte",
-            "position": "RWB",
-            "minutes_played": 89.0,
-            "rating": 5.6,
-            "goals": 0.0,
-            "assists": 0.0,
-            "shots_on_target": 0.0,
-            "key_passes": 0.0,
-            "progressive_passes": 6.0,
-            "passing_accuracy_pct": 80.0,
-            "duels_won_pct": 100.0,
-            "recoveries": 0.0,
-            "dpr": 55.6,
-            "notes": "Trending up."
-        },
-        {
-            "player_name": "Shaun Soberano",
-            "position": "CAM",
-            "minutes_played": 20.0,
-            "rating": 5.3,
-            "goals": 1.0,
-            "assists": 0.0,
-            "shots_on_target": 1.0,
-            "key_passes": 0.0,
-            "progressive_passes": 2.0,
-            "passing_accuracy_pct": 100.0,
+            "progressive_passes": 5.0,
+            "passing_accuracy_pct": 91.6,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 52.9,
-            "notes": "Solid contributor; Needs support."
+            "dpr": 74.7,
+            "notes": "Rising star potential; Link-up play; Trending up."
+        },
+        {
+            "player_name": "Jacob Tanamor",
+            "position": "CB",
+            "minutes_played": 89.0,
+            "rating": 7.3,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 7.0,
+            "passing_accuracy_pct": 90.9,
+            "duels_won_pct": 100.0,
+            "recoveries": 0.0,
+            "dpr": 73.2,
+            "notes": "Solid contributor; Defensive actions; Accurate passing."
+        },
+        {
+            "player_name": "Caleb Tassi",
+            "position": "ST",
+            "minutes_played": 23.0,
+            "rating": 7.0,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 0.0,
+            "passing_accuracy_pct": 80.0,
+            "duels_won_pct": 0.0,
+            "recoveries": 0.0,
+            "dpr": 69.7,
+            "notes": "Rising star potential; Link-up play; Trending up."
+        },
+        {
+            "player_name": "Paul Vincent Mapula",
+            "position": "CB",
+            "minutes_played": 89.0,
+            "rating": 6.6,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 12.0,
+            "passing_accuracy_pct": 84.5,
+            "duels_won_pct": 49.8,
+            "recoveries": 0.0,
+            "dpr": 65.7,
+            "notes": "Rising star potential; Trending up."
         },
         {
             "player_name": "Marc Pellejo",
             "position": "GK",
             "minutes_played": 88.0,
-            "rating": 5.0,
+            "rating": 5.1,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -2137,14 +2089,14 @@
             "passing_accuracy_pct": 92.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 50.5,
+            "dpr": 50.8,
             "notes": "Rising star potential; Trending up."
         },
         {
             "player_name": "Pellejo, Marc",
             "position": "GK",
             "minutes_played": 0.0,
-            "rating": 5.0,
+            "rating": 5.1,
             "goals": 0.0,
             "assists": 0.0,
             "shots_on_target": 0.0,
@@ -2153,24 +2105,24 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 50.5,
+            "dpr": 50.8,
             "notes": "Rising star potential; Trending up."
         },
         {
-            "player_name": "Unnamed",
-            "position": "",
-            "minutes_played": 0.0,
-            "rating": 5.0,
-            "goals": 0.0,
+            "player_name": "Shaun Soberano",
+            "position": "CAM",
+            "minutes_played": 20.0,
+            "rating": 4.4,
+            "goals": 1.0,
             "assists": 0.0,
-            "shots_on_target": 0.0,
+            "shots_on_target": 1.0,
             "key_passes": 0.0,
-            "progressive_passes": 0.0,
-            "passing_accuracy_pct": 0.0,
+            "progressive_passes": 2.0,
+            "passing_accuracy_pct": 100.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 49.9,
-            "notes": "Rising star potential; Trending up."
+            "dpr": 43.8,
+            "notes": "Solid contributor; Needs support."
         },
         {
             "player_name": "Detoya, Carl",
@@ -2235,6 +2187,54 @@
             "recoveries": 0.0,
             "dpr": 32.3,
             "notes": "Rising star potential; Trending up."
+        },
+        {
+            "player_name": "Unnamed",
+            "position": "",
+            "minutes_played": 0.0,
+            "rating": 3.2,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 0.0,
+            "passing_accuracy_pct": 0.0,
+            "duels_won_pct": 0.0,
+            "recoveries": 0.0,
+            "dpr": 32.3,
+            "notes": "Rising star potential; Trending up."
+        },
+        {
+            "player_name": "Alexis Jeremy Lampines",
+            "position": "LWB",
+            "minutes_played": 90.0,
+            "rating": 3.0,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 20.0,
+            "passing_accuracy_pct": 84.1,
+            "duels_won_pct": 100.0,
+            "recoveries": 0.0,
+            "dpr": 30.0,
+            "notes": "Elite performer; Needs support."
+        },
+        {
+            "player_name": "Viron Pedimonte",
+            "position": "RWB",
+            "minutes_played": 89.0,
+            "rating": 3.0,
+            "goals": 0.0,
+            "assists": 0.0,
+            "shots_on_target": 0.0,
+            "key_passes": 0.0,
+            "progressive_passes": 6.0,
+            "passing_accuracy_pct": 80.0,
+            "duels_won_pct": 100.0,
+            "recoveries": 0.0,
+            "dpr": 30.0,
+            "notes": "Needs support."
         },
         {
             "player_name": "Lampines, Alexis Jeremy",
@@ -2313,7 +2313,7 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 28.8,
+            "dpr": 28.6,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
@@ -2329,7 +2329,7 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 28.8,
+            "dpr": 28.6,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
@@ -2345,7 +2345,7 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 28.8,
+            "dpr": 28.6,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
@@ -2361,7 +2361,7 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 28.8,
+            "dpr": 28.6,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
@@ -2377,7 +2377,7 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 28.8,
+            "dpr": 28.6,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
@@ -2393,7 +2393,7 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 28.8,
+            "dpr": 28.6,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
@@ -2409,7 +2409,7 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 28.8,
+            "dpr": 28.6,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
@@ -2425,7 +2425,7 @@
             "passing_accuracy_pct": 0.0,
             "duels_won_pct": 0.0,
             "recoveries": 0.0,
-            "dpr": 28.8,
+            "dpr": 28.6,
             "notes": "Rising star potential; Link-up play; Trending up."
         },
         {
@@ -2509,7 +2509,9 @@
             "Unnamed"
         ],
         "rotation_candidates": [
-            "Alexis Jeremy Lampines"
+            "Alexis Jeremy Lampines",
+            "Shaun Soberano",
+            "Viron Pedimonte"
         ],
         "development_opportunities": [
             "Caleb Tassi",

@@ -1,44 +1,44 @@
 {
   "team": "San Beda University",
-  "timestamp": "2025-11-26T05:16:43.413713+00:00",
-  "total_samples": 1942,
+  "timestamp": "2025-11-26T07:12:47.603614+00:00",
+  "total_samples": 102,
   "simulate_used": true,
   "models": {
     "general": {
       "model_path": "python_scripts/models_team\\team_general.pkl",
-      "R2_test": 0.9982,
-      "R2_CV_mean": 0.994,
-      "trained_on_samples": 1942
+      "R2_test": 0.9834,
+      "R2_CV_mean": -11.0379,
+      "trained_on_samples": 102
     },
     "attack": {
       "model_path": "python_scripts/models_team\\team_attack.pkl",
-      "R2_test": 0.9878,
-      "R2_CV_mean": 0.9841,
-      "trained_on_samples": 1942
+      "R2_test": 0.8308,
+      "R2_CV_mean": -0.68,
+      "trained_on_samples": 102
     },
     "defense": {
       "model_path": "python_scripts/models_team\\team_defense.pkl",
-      "R2_test": 0.9875,
-      "R2_CV_mean": 0.9847,
-      "trained_on_samples": 1942
+      "R2_test": 0.8185,
+      "R2_CV_mean": -0.9893,
+      "trained_on_samples": 102
     },
     "distribution": {
       "model_path": "python_scripts/models_team\\team_distribution.pkl",
-      "R2_test": 0.9976,
-      "R2_CV_mean": 0.9961,
-      "trained_on_samples": 1942
+      "R2_test": 0.725,
+      "R2_CV_mean": 0.6074,
+      "trained_on_samples": 102
     },
     "discipline": {
       "model_path": "python_scripts/models_team\\team_discipline.pkl",
-      "R2_test": 0.9964,
-      "R2_CV_mean": 0.9931,
-      "trained_on_samples": 1942
+      "R2_test": 0.9449,
+      "R2_CV_mean": -2.8382,
+      "trained_on_samples": 102
     },
     "overall": {
       "model_path": "python_scripts/models_team\\team_overall.pkl",
-      "R2_test": 0.957,
-      "R2_CV_mean": 0.9498,
-      "trained_on_samples": 1942
+      "R2_test": -0.3977,
+      "R2_CV_mean": -0.2236,
+      "trained_on_samples": 102
     }
   }
 }

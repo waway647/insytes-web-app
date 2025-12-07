@@ -13,4 +13,16 @@ class AccountMainController extends CI_Controller {
 		$data['main_content'] = 'account/account_main';
 		$this->load->view('layouts/main', $data);
 	}
+
+	public function show_login()
+	{
+		$this->load->view('auth/login');
+	}
+
+	public function logout()
+	{
+		// Destroy the session and redirect to login page
+		$this->session->sess_destroy();
+		$this->load->view('auth/login');
+	}
 }

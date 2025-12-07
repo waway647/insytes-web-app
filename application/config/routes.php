@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
+$route['dashboard'] = 'MainController/dashboard';
 $route['404_override'] = '';
 /* $route['check-email-unique'] = 'Auth/SignupController/check_email_unique'; */
 $route['translate_uri_dashes'] = FALSE;
@@ -58,6 +59,25 @@ $route['translate_uri_dashes'] = FALSE;
 $route['google'] = 'auth/googlecontroller/index';  // Google login page
 $route['google/callback'] = 'auth/googlecontroller/callback';  // Google login callback
 $route['team/join/(:any)'] = 'Team/InvitationController/join/$1';
+
+/* AUTH ROUTES */
+$route['auth/login'] = 'auth/logincontroller/show_login';                    // Clean login URL  
+$route['auth/logout'] = 'auth/logincontroller/logout';                      // Clean logout URL
+$route['auth/LoginController/show_login'] = 'auth/logincontroller/show_login'; // Handle case variations
+$route['auth/logincontroller/show_login'] = 'auth/logincontroller/show_login'; // Direct access
+$route['auth/LoginController/logout'] = 'auth/logincontroller/logout';       // Handle case variations  
+$route['auth/logincontroller/logout'] = 'auth/logincontroller/logout';       // Direct access
+$route['auth/test'] = 'ProfileController/test';
+$route['auth/test-update'] = 'ProfileController/test_update';
+$route['auth/change-password'] = 'ProfileController/change_password';
+$route['auth/check-email-availability'] = 'ProfileController/check_email_availability';
+$route['auth/update-profile'] = 'ProfileController/update_profile';
+$route['auth/process-change-password'] = 'auth/logincontroller/process_change_password';
+
+/* USER ONBOARDING ROUTES */
+$route['user/coach/step1'] = 'User/NewUserController/userCoach_step1';
+$route['user/coach/step2'] = 'User/NewUserController/userCoach_step2';
+$route['user/player/step1'] = 'User/NewUserController/userPlayer_step1';
 
 $route['tagging'] = 'studio/taggingcontroller/index';
 $route['tagging/get_config'] = 'studio/taggingcontroller/get_config';

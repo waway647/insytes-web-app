@@ -66,7 +66,8 @@
 switch (ENVIRONMENT)
 {
 	case 'development':
-		error_reporting(-1);
+		// For PHP 8+ compatibility, exclude deprecation warnings for CodeIgniter 3
+		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 		ini_set('display_errors', 1);
 	break;
 
@@ -81,6 +82,16 @@ switch (ENVIRONMENT)
 		echo 'The application environment is not set correctly.';
 		exit(1); // EXIT_ERROR
 }
+
+/*
+ *---------------------------------------------------------------
+ * TIMEZONE CONFIGURATION
+ *---------------------------------------------------------------
+ *
+ * Set the default timezone for PHP date/time functions.
+ * Adjust this to match your server's timezone.
+ */
+date_default_timezone_set('Asia/Manila'); // Adjust to your timezone
 
 /*
  *---------------------------------------------------------------

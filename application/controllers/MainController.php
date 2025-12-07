@@ -14,4 +14,30 @@ class MainController extends CI_Controller {
 	{
 		$this->load->view('layouts/main');
 	}
+
+	public function dashboard() 
+	{
+		// Check if user is logged in
+		if (!$this->session->userdata('user_id')) {
+			redirect('auth/login');
+			return;
+		}
+		
+		// Redirect based on user role
+		$role = $this->session->userdata('role');
+		
+		switch(strtolower($role)) {
+			case 'admin':
+				redirect('admin/dashboard');
+				break;
+			case 'coach':
+				redirect('team/dashboard');
+				break;
+			case 'player':
+				redirect('team/dashboard');
+				break;
+			default:
+				$this->load->view('layouts/main');
+		}
+	}
 }

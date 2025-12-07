@@ -53,11 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                displayFeedback("Login successful! Redirecting...", false);
-                // Redirect after short delay
-                setTimeout(() => {
-                    window.location.href = data.redirect_url; // adjust your redirect page
-                }, 1000);
+                if (data.temp_password) {
+                    // User has temporary password, redirect to change password page
+                    displayFeedback("Redirecting to password change...", false);
+                    setTimeout(() => {
+                        window.location.href = data.redirect_url;
+                    }, 1000);
+                } else {
+                    // Normal login success
+                    displayFeedback("Login successful! Redirecting...", false);
+                    setTimeout(() => {
+                        window.location.href = data.redirect_url;
+                    }, 1000);
+                }
             } else {
                 displayFeedback(data.message || "Invalid email or password. Please try again.");
             }

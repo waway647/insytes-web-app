@@ -1,6 +1,7 @@
 <?php
     // Access session values
     $role = $this->session->userdata('role');
+    /* $role = 'Admin'; */
 ?>
 
 <!-- SCRIPTS -->
@@ -17,7 +18,7 @@
 
         <div class="navigation-links flex flex-col gap-2">
             <!-- COACH nav-items -->
-            <?php if (in_array($role, ['Coach', 'Assistant Coach', 'Analyst'])): ?>
+            <?php if (in_array(strtolower($role), ['coach', 'assistant coach', 'analyst'])): ?>
             <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
@@ -52,7 +53,7 @@
             <?php endif; ?>
 
             <!-- PLAYER nav-items -->
-            <?php if ($role == 'Player'): ?>
+            <?php if (in_array(strtolower($role), ['player'])): ?>
             <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
@@ -78,8 +79,9 @@
             </a>
             <?php endif; ?>
 
-            <?php if ($role == 'Admin'): ?>
-            <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <!-- ADMIN nav-items -->
+            <?php if (strtolower($role) === 'admin'): ?>
+            <a href="<?php echo site_url('Admin/DashboardController/adminDashboard'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/dashboard-active.svg'); ?>" alt="">
@@ -87,7 +89,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('clips/resultscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('Admin/UserController/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/people.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/people-active.svg'); ?>" alt="">
@@ -95,7 +97,7 @@
                 </div>
             </a>
             
-            <a href="<?php echo site_url('team/peoplecontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('Admin/TeamController/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/teams.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/teams-active.svg'); ?>" alt="">
@@ -103,7 +105,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('clips/reviewcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
+            <a href="<?php echo site_url('Admin/LogsController/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/logs.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/logs-active.svg'); ?>" alt="">

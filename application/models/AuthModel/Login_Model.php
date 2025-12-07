@@ -16,4 +16,29 @@ class Login_Model extends CI_Model
         $query = $this->db->get_where('users', array('email' => $email));
         return $query->row();
     }
+
+    public function get_admin_by_email($email)
+    {
+        // Specifically get admin user
+        $this->db->where('email', $email);
+        $this->db->where('role', 'admin');
+        $query = $this->db->get('users');
+        return $query->row();
+    }
+
+    public function is_admin($user_id)
+    {
+        // Check if user is admin
+        $this->db->where('id', $user_id);
+        $this->db->where('role', 'admin');
+        $query = $this->db->get('users');
+        return $query->num_rows() > 0;
+    }
+
+    public function get_user_by_id($user_id)
+    {
+        // Get user by ID
+        $query = $this->db->get_where('users', array('id' => $user_id));
+        return $query->row();
+    }
 }

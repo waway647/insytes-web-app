@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Suppress PHP 8+ deprecation warnings for CodeIgniter compatibility
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
+
 class User_Model extends CI_Model {
 	public function __construct() {
 		$this->load->database();
@@ -62,9 +65,29 @@ class User_Model extends CI_Model {
     }
 
 	public function get_user_by_id($user_id) {
+		// First try to get user from the view
 		$this->db->where('id', $user_id);
 		$query = $this->db->get('users_vw');
 		$user = $query->row_array();
+		
+		// If not found in view (e.g., admin users), get from base users table
+		if (empty($user)) {
+			$this->db->select('id, first_name, last_name, email, role, team_id');
+			$this->db->where('id', $user_id);
+			$query = $this->db->get('users');
+			$user = $query->row_array();
+			
+			// Add team_name if user has team_id
+			if (!empty($user) && !empty($user['team_id'])) {
+				$this->db->select('team_name');
+				$this->db->where('id', $user['team_id']);
+				$team_query = $this->db->get('teams');
+				$team = $team_query->row_array();
+				$user['team_name'] = $team ? $team['team_name'] : null;
+			} else {
+				$user['team_name'] = null;
+			}
+		}
 		
 		return $user;
 	}
@@ -109,5 +132,43 @@ class User_Model extends CI_Model {
             log_message('error', 'Database deletion error for user ID ' . $userId . ': ' . $e->getMessage());
             throw $e; // Re-throw or handle as appropriate
         }
+    }
+
+    public function getAllUsersWithFilters($search = null, $role_filter = null, $team_filter = null) {
+        // Select all necessary fields including temp_password, status, and updated_at
+        $this->db->select('users.id, users.first_name, users.last_name, users.email, users.role, users.status, users.temp_password, users.team_id, users.updated_at, teams.team_name');
+        $this->db->from('users');
+        $this->db->join('teams', 'teams.id = users.team_id', 'left');
+        
+        // Apply search filter if provided
+        if (!empty($search)) {
+            $this->db->group_start();
+            $this->db->like('users.first_name', $search);
+            $this->db->or_like('users.last_name', $search);
+            $this->db->or_like('users.email', $search);
+            $this->db->or_like('users.role', $search);
+            $this->db->or_like('teams.team_name', $search);
+            $this->db->group_end();
+        }
+        
+        // Apply role filter if provided
+        if (!empty($role_filter)) {
+            $this->db->where('users.role', $role_filter);
+        }
+        
+        // Apply team filter if provided
+        if (!empty($team_filter)) {
+            $this->db->where('users.team_id', $team_filter);
+        }
+        
+        $this->db->order_by('users.first_name', 'ASC');
+        
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function createUser($userData) {
+        // Insert the user data into the database
+        return $this->db->insert('users', $userData);
     }
 }

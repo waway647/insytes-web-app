@@ -6,6 +6,8 @@ class MetadataController extends CI_Controller {
 		parent::__construct();
 		$this->load->library('session');
         $this->load->model('Match_model');
+        $this->load->model('Admin/Logs_Model');
+        $this->load->helper('log_helper');
 	}
 
 	public function create_match()
@@ -118,6 +120,14 @@ class MetadataController extends CI_Controller {
                 ];
 
                 $this->create_match_config_json($metadata);
+                
+                // Log match creation
+                LogHelper::logMatchCreated(
+                    $match_id,
+                    $my_team_name . ' vs ' . $op_team_name,
+                    $this->session->userdata('user_id'),
+                    $this->session->userdata('email')
+                );
             }
 
             // success response

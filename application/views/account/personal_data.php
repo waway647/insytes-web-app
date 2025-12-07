@@ -351,8 +351,19 @@
     <div class="flex flex-col gap-6 border-t border-[#2A2A2A] pt-10 pb-6">
         <div class="flex items-center gap-2">
             <label for="user_role" class="block text-xs font-medium text-[#B6BABD]">Role:</label>
-            <!-- REMOVED hardcoded default value 'Coach' to avoid confusion -->
             <p class="text-white font-medium" x-text="user.role"></p> 
+        </div>
+        
+        <!-- Show team info only if user has team_name (not for admin) -->
+        <div x-show="user.team_name && user.team_name !== 'N/A' && user.role !== 'Admin'" class="flex items-center gap-2">
+            <label for="team_name" class="block text-xs font-medium text-[#B6BABD]">Team:</label>
+            <p class="text-white font-medium" x-text="user.team_name"></p>
+        </div>
+        
+        <!-- Admin-specific info -->
+        <div x-show="user.role === 'Admin'" class="flex items-center gap-2">
+            <label class="block text-xs font-medium text-[#B6BABD]">Access Level:</label>
+            <p class="text-white font-medium">System Administrator</p>
         </div>
     </div>
 

@@ -14,14 +14,32 @@ class PersonalDataController extends CI_Controller {
 
 		// 1. Get the identifying data (e.g., from session)
         $user_id = $this->session->userdata('user_id');
+		$user_role = $this->session->userdata('role');
+
+		// Debug: Check session data
+		if (empty($user_id)) {
+			echo json_encode(['error' => 'No user_id in session', 'session_data' => $this->session->all_userdata()]);
+			return;
+		}
 
 		$user_data_result = $this->user_model->get_user_by_id($user_id);
         
         if (empty($user_data_result)) {
             // Handle case where user is not found
-            echo json_encode([['error' => 'User not found or not logged in.']]);
+            echo json_encode(['error' => 'User not found in database', 'user_id' => $user_id]);
             return; // CRITICAL: Stop execution
         }
+
+		// Ensure admin users get their role properly displayed
+		if ($user_role === 'Admin' || $user_role === 'admin' || $user_data_result['role'] === 'Admin' || $user_data_result['role'] === 'admin') {
+			$user_data_result['role'] = 'Admin'; // Standardize to uppercase
+			if (empty($user_data_result['team_name'])) {
+				$user_data_result['team_name'] = 'N/A'; // Admins don't belong to teams
+			}
+		}
+
+		// Debug: Log what we're returning
+		error_log('PersonalDataController returning: ' . json_encode($user_data_result));
 
         // 2. Output the JSON data
         echo json_encode($user_data_result);
@@ -79,36 +97,41 @@ class PersonalDataController extends CI_Controller {
 	}
 
 	public function delete_user()
-    {
-        $userId = $this->session->userdata('user_id');
-        $input = $this->request->getJSON(true);
-        $confirmation = $input['confirmation'] ?? null;
+	{
+		header('Content-Type: application/json');
+		$userId = $this->session->userdata('user_id');
+		$input = json_decode(file_get_contents('php://input'), true);
+		$confirmation = isset($input['confirmation']) ? $input['confirmation'] : null;
 
-        if ($confirmation !== 'DELETE') {
-            return $this->fail('Confirmation text is incorrect.', 400, 'error');
-        }
+		if ($confirmation !== 'DELETE') {
+			echo json_encode(['success' => false, 'message' => 'Confirmation text is incorrect.']);
+			return;
+		}
 
-        try {
-            // Delegate the delete operation to the model
-            $result = $this->user_Model->deleteUser($userId);
+		try {
+			// Delegate the delete operation to the model
+			$result = $this->user_model->delete_user($userId);
 
-            if ($result) {
-                // Destroy the session and log the user out after successful deletion
-                $this->session->sess_destroy();
+			if ($result) {
+				// Destroy the session and log the user out after successful deletion
+				$this->session->sess_destroy();
 
-                return $this->respond([
-                    'success' => true, 
-                    'message' => 'Account deleted successfully.', 
-                    'redirect_url' => site_url('auth/logincontroller/show_login') // Redirect to homepage or login page
-                ]);
-            }
+				echo json_encode([
+					'success' => true, 
+					'message' => 'Account deleted successfully.', 
+					'redirect_url' => site_url('auth/logincontroller/show_login') // Redirect to homepage or login page
+				]);
+				return;
+			}
 
-            return $this->fail('User could not be found or deleted.', 404, 'error');
+			echo json_encode(['success' => false, 'message' => 'User could not be found or deleted.']);
+			return;
 
-        } catch (\Exception $e) {
-            log_message('error', 'User deletion failed for ID ' . $userId . ': ' . $e->getMessage());
-            return $this->fail('An unexpected error occurred during deletion.', 500, 'error');
-        }
-    }
+		} catch (\Exception $e) {
+			log_message('error', 'User deletion failed for ID ' . $userId . ': ' . $e->getMessage());
+			echo json_encode(['success' => false, 'message' => 'An unexpected error occurred during deletion.']);
+			return;
+		}
+	}
 
 }

@@ -64,7 +64,7 @@
       <p class="text-gray-400 text-sm mb-5">All people in this team (<span class="team-member-count"></span>)</p>
 
       <div class="custom-scroll flex-1 overflow-y-auto bg-transparent">
-        <div class="divide-y divide-[#2A2A2A] people-list">
+        <div class="divide-y divide-[#2a2a2a] people-list">
 		
         </div>
       </div>

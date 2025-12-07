@@ -1,39 +1,39 @@
 {
     "team": "San Beda University",
-    "trained_at": "2025-11-26T05:08:20.264629+00:00",
-    "total_matches": 3,
-    "total_samples": 994,
+    "trained_at": "2025-11-26T07:15:16.074566+00:00",
+    "total_matches": 4,
+    "total_samples": 129,
     "models": {
         "attacker": {
             "status": "trained_validated",
             "model_path": "python_scripts/models_players\\role_attacker.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 33,
-                "samples_train": 26,
-                "samples_test": 7,
+                "samples_total": 40,
+                "samples_train": 32,
+                "samples_test": 8,
                 "train_metrics": {
-                    "r2": 0.9974561291236752,
-                    "mae": 0.31130668105593406,
-                    "mse": 0.47707276498024864
+                    "r2": 0.9991604920458133,
+                    "mae": 0.15183902082499123,
+                    "mse": 0.15447345615214578
                 },
                 "test_metrics": {
-                    "r2": 0.9876410068112539,
-                    "mae": 0.8545283035042566,
-                    "mse": 2.2119722450256516
+                    "r2": 0.669738735566942,
+                    "mae": 2.6922966212499886,
+                    "mse": 32.59590954305917
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.7967899127662147,
-                    "cv_std_r2": 0.18416759704037122,
+                    "cv_mean_r2": 0.7612037989287813,
+                    "cv_std_r2": 0.2864724266134147,
                     "cv_scores": [
-                        0.8220192829567059,
-                        0.5932643862463707,
-                        0.5770190030164926,
-                        0.9949836207905154,
-                        0.9966632708209887
+                        0.849281821439416,
+                        0.7788369302147186,
+                        0.9857084539445993,
+                        0.9816733902105337,
+                        0.21051839883463863
                     ]
                 },
-                "overfitting_detected": false,
+                "overfitting_detected": true,
                 "model_quality": "good"
             },
             "features": [
@@ -77,28 +77,28 @@
             "model_path": "python_scripts/models_players\\role_midfielder.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 924,
-                "samples_train": 739,
-                "samples_test": 185,
+                "samples_total": 43,
+                "samples_train": 34,
+                "samples_test": 9,
                 "train_metrics": {
-                    "r2": 0.8355568132089805,
-                    "mae": 0.2749148821206801,
-                    "mse": 6.780541195046243
+                    "r2": 0.7800034259838725,
+                    "mae": 5.645140071059851,
+                    "mse": 188.11418332006548
                 },
                 "test_metrics": {
-                    "r2": 0.9909345904092178,
-                    "mae": 0.21889400739751355,
-                    "mse": 0.6282048235895777
+                    "r2": 0.6755761143518404,
+                    "mae": 8.444177353050975,
+                    "mse": 292.29230317626093
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.6474238603702317,
-                    "cv_std_r2": 0.34675784910147456,
+                    "cv_mean_r2": 0.6315105892377678,
+                    "cv_std_r2": 0.21439849781468281,
                     "cv_scores": [
-                        0.6702319765759908,
-                        0.9992244691693996,
-                        0.07014253952105964,
-                        0.9968824437652611,
-                        0.5006378728194476
+                        0.8174325654819684,
+                        0.8196466449355013,
+                        0.7296466427402803,
+                        0.25620666726651764,
+                        0.5346204257645712
                     ]
                 },
                 "overfitting_detected": false,
@@ -144,28 +144,28 @@
             "model_path": "python_scripts/models_players\\role_defender.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 31,
-                "samples_train": 24,
-                "samples_test": 7,
+                "samples_total": 38,
+                "samples_train": 30,
+                "samples_test": 8,
                 "train_metrics": {
-                    "r2": 0.9999365260167471,
-                    "mae": 0.14234617246159656,
-                    "mse": 0.05243075209706019
+                    "r2": 0.9999181614737487,
+                    "mae": 0.11571661390053715,
+                    "mse": 0.06491922933416248
                 },
                 "test_metrics": {
-                    "r2": 0.84245500027766,
-                    "mae": 3.308297058141657,
-                    "mse": 73.6247652233037
+                    "r2": 0.9998709514399693,
+                    "mae": 0.0713852114393374,
+                    "mse": 0.029736962145437133
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.9030218452039935,
-                    "cv_std_r2": 0.0783457587002685,
+                    "cv_mean_r2": 0.7974523252131284,
+                    "cv_std_r2": 0.2231402460262432,
                     "cv_scores": [
-                        0.9396721140571679,
-                        0.9888838808116217,
-                        0.7755732588933466,
-                        0.8520136709320228,
-                        0.9589663013258092
+                        0.3845587339564317,
+                        0.7551716603632166,
+                        0.97291234617138,
+                        0.879073590276702,
+                        0.9955452952979117
                     ]
                 },
                 "overfitting_detected": false,
@@ -199,18 +199,18 @@
             "model_path": "python_scripts/models_players\\role_goalkeeper_understat.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 98,
-                "samples_train": 78,
-                "samples_test": 20,
+                "samples_total": 66,
+                "samples_train": 52,
+                "samples_test": 14,
                 "train_metrics": {
-                    "r2": -224.0,
-                    "mae": 1.0658141036401503e-13,
-                    "mse": 1.135959703518257e-26
+                    "r2": -80.0,
+                    "mae": 1.9184653865522705e-13,
+                    "mse": 3.6805094393991527e-26
                 },
                 "test_metrics": {
                     "r2": null,
-                    "mae": 1.0658141036401503e-13,
-                    "mse": 1.135959703518257e-26
+                    "mae": 1.9184653865522705e-13,
+                    "mse": 3.6805094393991527e-26
                 },
                 "cross_validation": {
                     "cv_mean_r2": 0.0,

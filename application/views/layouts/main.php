@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en" class="h-full w-full m-0 p-0 bg-[#131313]">
+<html lang="en" class="h-full w-full m-0 p-0 overflow-hidden bg-[#131313]">
 <head>
 	<meta charset="utf-8">
 	<title>Insytes | <?php echo $title ?></title>
@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('partials/sidebar'); ?>
 
     <!-- Main Content Area -->
-    <main class="flex-1 h-full overflow-y-auto p-10">
+    <main class="flex-1 h-full min-h-0 overflow-y-auto overflow-x-hidden p-6 flex flex-col">
         <?php $this->load->view($main_content); ?>
     </main>
 </body>

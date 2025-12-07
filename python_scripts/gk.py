@@ -8,7 +8,7 @@ import re
 # -----------------------------
 SEASONS = ["2022", "2023", "2024"]
 LEAGUE = "EPL"
-OUTPUT_FILE = "data/understat_gk_features.csv"
+OUTPUT_FILE = "data/training_data/understat_gk_features.csv"
 
 # -----------------------------
 # HELPER: Fetch GK data safely

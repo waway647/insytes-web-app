@@ -23,9 +23,11 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 
     <!-- Show image of the team logo here -->
 
-    <div class="bg-[#1D1D1D] rounded-2xl shadow-xl p-8 w-full max-w-lg h-[350px] flex-col flex justify-center">
-        <div>
-            <img src="<?php echo base_url($user['team_logo']); ?>" alt="Team Logo" class="h-24 w-24 mb-6 rounded-full object-cover mx-auto border-4 border-white shadow-lg">
+    <div class="bg-[#1D1D1D] rounded-2xl shadow-xl p-8 w-full max-w-lg h-[400px] flex-col flex justify-center">
+        <div class="flex justify-center mb-6">
+            <div class="w-24 h-24 flex items-center justify-center">
+                <img src="<?php echo base_url($user['team_logo']); ?>" alt="Team Logo" class="max-w-full max-h-full object-contain rounded-lg shadow-lg border-2 border-gray-600">
+            </div>
         </div>
         <div>
             <!-- Title -->

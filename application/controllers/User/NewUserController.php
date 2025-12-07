@@ -99,6 +99,29 @@ class NewUserController extends CI_Controller {
 		$created_by = $this->session->userdata('user_id');
 		$created_at = date('Y-m-d H:i:s');
 		
+		// VALIDATION 1: Check if team name already exists
+		if ($this->NewUser_Model->isTeamNameExists($team_name)) {
+			$this->session->set_flashdata('error', 'Team name "' . $team_name . '" already exists. Please choose a different name.');
+			redirect('user/coach/step2');
+			return;
+		}
+		
+		// VALIDATION 2: Check if user already manages a team
+		$existing_managed_team = $this->NewUser_Model->getUserManagedTeam($created_by);
+		if ($existing_managed_team) {
+			$this->session->set_flashdata('error', 'You already manage the team "' . $existing_managed_team->team_name . '". You cannot create multiple teams.');
+			redirect('user/coach/step2');
+			return;
+		}
+		
+		// VALIDATION 3: Check if user is already assigned to a team
+		$existing_team_assignment = $this->NewUser_Model->getUserTeam($created_by);
+		if ($existing_team_assignment) {
+			$this->session->set_flashdata('error', 'You are already assigned to a team. You cannot create a new team.');
+			redirect('user/coach/step2');
+			return;
+		}
+		
 		$config['upload_path'] = './assets/team_logos/';
 		$config['allowed_types'] = 'png|jpg|jpeg|gif';
 		$this->load->library('upload', $config);
@@ -125,6 +148,9 @@ class NewUserController extends CI_Controller {
 
 		if ($team_id) {
 			$this->NewUser_Model->setUserRoleAndTeamById($created_by, $team_id, $role);
+			
+			// Update user status to active after completing onboarding
+			$this->NewUser_Model->updateUserStatus($created_by, 'active');
 
 			$user = $this->NewUser_Model->getUserById($created_by);
 
@@ -163,6 +189,10 @@ class NewUserController extends CI_Controller {
 		$role = $this->input->post('role');
 		if ($role) {
 			$this->session->set_userdata('role', $role);
+			
+			// If this is a self-registered user completing role selection, 
+			// we DON'T update status yet - they still need to join/create team
+			
 			echo json_encode(['status' => 'success', 'role' => $role]);
 		} else {
 			echo json_encode(['status' => 'error']);

@@ -1,36 +1,4 @@
 player_name,team_title,games,time,shots_on_target_against,goals_against,xG_against,post_shot_xG,saves,penalty_saved,saves_per90,shots_on_target_against_per90,goals_against_per90,save_pct,season
-Bernd Leno,Fulham,36,3240.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Danny Ward,Leicester,26,2340.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-David de Gea,Manchester United,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Joel Robles,Leeds,4,360.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Alex McCarthy,Southampton,6,540.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Hugo Lloris,Tottenham,25,2208.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Asmir Begovic,Everton,1,90.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Lukasz Fabianski,West Ham,36,3115.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Jordan Pickford,Everton,37,3330.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Sam Johnstone,Crystal Palace,9,810.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Alisson,Liverpool,37,3330.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Neto,Bournemouth,27,2390.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Vicente Guaita,Crystal Palace,27,2430.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Keylor Navas,Nottingham Forest,17,1530.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Emiliano Martinez,Aston Villa,36,3143.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Kepa,Chelsea,29,2567.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Nick Pope,Newcastle United,37,3261.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Aaron Ramsdale,Arsenal,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Ederson,Manchester City,35,3150.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Jason Steele,Brighton,15,1350.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Dean Henderson,Nottingham Forest,18,1620.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Caoimhin Kelleher,Liverpool,1,90.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Marek Rodák,Fulham,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Illan Meslier,Leeds,34,3060.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Stefan Ortega Moreno,Manchester City,3,270.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Robert Sánchez,Brighton,23,2070.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-David Raya,Brentford,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-José Sá,Wolverhampton Wanderers,36,3240.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Gavin Bazunu,Southampton,32,2880.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Daniel Iversen,Leicester,12,1080.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Joseph Whitworth,Crystal Palace,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
-Daniel Bentley,Wolverhampton Wanderers,2,180.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2022
 Loris Karius,Newcastle United,1,90.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
 Bernd Leno,Fulham,38,3420.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023
 Odisseas Vlachodimos,Nottingham Forest,5,450.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,2023

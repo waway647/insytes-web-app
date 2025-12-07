@@ -89,6 +89,21 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 	<script>
 		const validateLoginURL = "<?php echo site_url('Auth/LoginController/process_login'); ?>";
 		
+		/* // Check for success message from profile update
+		document.addEventListener('DOMContentLoaded', function() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const message = urlParams.get('message');
+			
+			if (message === 'credentials_updated') {
+				const feedback = document.getElementById('login-feedback');
+				if (feedback) {
+					feedback.textContent = 'Profile updated successfully! Please login with your new credentials.';
+					feedback.className = 'text-xs text-center p-2 rounded-md bg-green-900/50 text-green-400 border border-green-500';
+					feedback.classList.remove('hidden');
+				}
+			}
+		}); */
+		
 		// Password toggle functionality
 		document.addEventListener('DOMContentLoaded', function() {
 			const togglePassword = document.getElementById('toggle-password');
@@ -96,18 +111,20 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 			const eyeClosed = document.getElementById('eye-closed');
 			const eyeOpen = document.getElementById('eye-open');
 			
-			togglePassword.addEventListener('click', function() {
-				// Toggle password input type
-				if (passwordInput.type === 'password') {
-					passwordInput.type = 'text';
-					eyeClosed.classList.add('hidden');
-					eyeOpen.classList.remove('hidden');
-				} else {
-					passwordInput.type = 'password';
-					eyeClosed.classList.remove('hidden');
-					eyeOpen.classList.add('hidden');
-				}
-			});
+			if (togglePassword && passwordInput && eyeClosed && eyeOpen) {
+				togglePassword.addEventListener('click', function() {
+					// Toggle password input type
+					if (passwordInput.type === 'password') {
+						passwordInput.type = 'text';
+						eyeClosed.classList.add('hidden');
+						eyeOpen.classList.remove('hidden');
+					} else {
+						passwordInput.type = 'password';
+						eyeClosed.classList.remove('hidden');
+						eyeOpen.classList.add('hidden');
+					}
+				});
+			}
 		});
 	</script>
 
