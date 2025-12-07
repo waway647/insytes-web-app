@@ -1134,9 +1134,12 @@
   }
   .border-green-500 {
     border-color: var(--color-green-500);
+<<<<<<< Updated upstream
   }
   .border-green-500 {
     border-color: var(--color-green-500);
+=======
+>>>>>>> Stashed changes
   }
   .border-green-700 {
     border-color: var(--color-green-700);
@@ -1322,9 +1325,12 @@
     background-color: var(--color-indigo-600);
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   .bg-indigo-900 {
     background-color: var(--color-indigo-900);
   }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   .bg-indigo-900\/20 {
@@ -1611,9 +1617,12 @@
   }
   .align-middle {
     vertical-align: middle;
+<<<<<<< Updated upstream
   }
   .align-middle {
     vertical-align: middle;
+=======
+>>>>>>> Stashed changes
   }
   .font-mono {
     font-family: var(--font-mono);
@@ -1742,9 +1751,12 @@
   .text-blue-500 {
     color: var(--color-blue-500);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   }
   .text-blue-800 {
     color: var(--color-blue-800);
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   }
@@ -1781,9 +1793,12 @@
   .text-green-600 {
     color: var(--color-green-600);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   }
   .text-green-800 {
     color: var(--color-green-800);
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   }
