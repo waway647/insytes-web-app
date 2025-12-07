@@ -277,7 +277,7 @@ $home_key_passes_pct = $total_key_passes > 0 ? ($home_key_passes / $total_key_pa
         <p class="text-sm text-[#B6BABD]">Passing accuracy</p>
         <div class="w-full flex justify-center items-center gap-5">
             <span class="text-xl text-white font-semibold">
-                <?= $home_passing_accuracy_pct !== null ? number_format($home_passing_accuracy_pct, 2) . '%' : '—' ?>
+                <?= $home_passing_accuracy_pct !== null ? number_format($home_passing_accuracy_pct, 0) . '%' : '—' ?>
             </span>
             <div id="percentage-bar" class="w-150 h-2.5 bg-[#2a2a2a] rounded-2xl">
                 <?php if ($home_passing_accuracy_pct !== null && $away_passing_accuracy_pct !== null): ?>
@@ -291,7 +291,7 @@ $home_key_passes_pct = $total_key_passes > 0 ? ($home_key_passes / $total_key_pa
                 <?php endif; ?>
             </div>
             <span class="text-xl text-white font-semibold">
-                <?= $away_passing_accuracy_pct !== null ? number_format($away_passing_accuracy_pct, 2) . '%' : '—' ?>
+                <?= $away_passing_accuracy_pct !== null ? number_format($away_passing_accuracy_pct, 0) . '%' : '—' ?>
             </span>
         </div>
     </div>

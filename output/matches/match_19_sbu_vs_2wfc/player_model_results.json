@@ -1,198 +1,107 @@
 {
     "team": "San Beda University",
-    "trained_at": "2025-11-26T05:08:20.264629+00:00",
+    "trained_at": "2025-12-05T10:07:07.238534+00:00",
     "total_matches": 3,
-    "total_samples": 994,
+    "total_samples": 50,
     "models": {
         "attacker": {
-            "status": "trained_validated",
-            "model_path": "python_scripts/models_players\\role_attacker.pkl",
+            "status": "fallback",
+            "reason": "low_test_r2",
             "validation": {
                 "status": "validated",
-                "samples_total": 33,
-                "samples_train": 26,
-                "samples_test": 7,
+                "samples_total": 15,
+                "samples_train": 12,
+                "samples_test": 3,
                 "train_metrics": {
-                    "r2": 0.9974561291236752,
-                    "mae": 0.31130668105593406,
-                    "mse": 0.47707276498024864
+                    "r2": 0.9602556841120464,
+                    "mae": 1.2993060972390638,
+                    "mse": 4.461056576492359
                 },
                 "test_metrics": {
-                    "r2": 0.9876410068112539,
-                    "mae": 0.8545283035042566,
-                    "mse": 2.2119722450256516
+                    "r2": -180.70160476352072,
+                    "mae": 37.62679650568969,
+                    "mse": 1910.6933194243986
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.7967899127662147,
-                    "cv_std_r2": 0.18416759704037122,
+                    "cv_mean_r2": -272.20676314843024,
+                    "cv_std_r2": 501.00060866021164,
                     "cv_scores": [
-                        0.8220192829567059,
-                        0.5932643862463707,
-                        0.5770190030164926,
-                        0.9949836207905154,
-                        0.9966632708209887
+                        -89.81099336575802,
+                        -0.31715376221569036,
+                        0.7845397096053601,
+                        0.08961548963798216,
+                        -1271.7798238134208
                     ]
                 },
-                "overfitting_detected": false,
-                "model_quality": "good"
-            },
-            "features": [
-                "minutes_played",
-                "dpr",
-                "position_changed",
-                "key_stats_p90__shots_p90",
-                "key_stats_p90__shots_on_target_p90",
-                "key_stats_p90__goals_p90",
-                "key_stats_p90__key_passes_p90",
-                "key_stats_p90__assists_p90",
-                "key_stats_p90__progressive_passes_p90",
-                "key_stats_p90__blocked_shots_p90",
-                "key_stats_p90__dribbles_p90",
-                "key_stats_p90__successful_dribbles_p90",
-                "shots_p90",
-                "shots_on_target_p90",
-                "goals_p90",
-                "key_passes_p90",
-                "assists_p90",
-                "progressive_passes_p90",
-                "blocked_shots_p90",
-                "dribbles_p90",
-                "successful_dribbles_p90",
-                "key_stats_p90__goals_conceded_p90",
-                "key_stats_p90__shots_faced_p90",
-                "key_stats_p90__shots_on_target_against_p90",
-                "key_stats_p90__goals_against_p90",
-                "goals_conceded_p90",
-                "shots_faced_p90",
-                "shots_on_target_against_p90",
-                "goals_against_p90",
-                "enhanced_finishing_quality",
-                "enhanced_movement_threat",
-                "enhanced_link_up_play",
-                "enhanced_work_rate"
-            ]
+                "overfitting_detected": true,
+                "model_quality": "poor"
+            }
         },
         "midfielder": {
-            "status": "trained_validated",
-            "model_path": "python_scripts/models_players\\role_midfielder.pkl",
+            "status": "fallback",
+            "reason": "low_test_r2",
             "validation": {
                 "status": "validated",
-                "samples_total": 924,
-                "samples_train": 739,
-                "samples_test": 185,
+                "samples_total": 15,
+                "samples_train": 12,
+                "samples_test": 3,
                 "train_metrics": {
-                    "r2": 0.8355568132089805,
-                    "mae": 0.2749148821206801,
-                    "mse": 6.780541195046243
+                    "r2": 0.7824952143343431,
+                    "mae": 6.675000000000036,
+                    "mse": 178.2225
                 },
                 "test_metrics": {
-                    "r2": 0.9909345904092178,
-                    "mae": 0.21889400739751355,
-                    "mse": 0.6282048235895777
+                    "r2": -882.83185967722,
+                    "mae": 122.08333333333339,
+                    "mse": 16718.17064349443
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.6474238603702317,
-                    "cv_std_r2": 0.34675784910147456,
+                    "cv_mean_r2": -54.61317085950768,
+                    "cv_std_r2": 103.55511367613933,
                     "cv_scores": [
-                        0.6702319765759908,
-                        0.9992244691693996,
-                        0.07014253952105964,
-                        0.9968824437652611,
-                        0.5006378728194476
+                        -5.139046864971395,
+                        -2.2199350528939155,
+                        0.7025282024529915,
+                        -261.68132108173654,
+                        -4.728079500389507
                     ]
                 },
-                "overfitting_detected": false,
-                "model_quality": "good"
-            },
-            "features": [
-                "minutes_played",
-                "dpr",
-                "position_changed",
-                "key_stats_p90__passes_p90",
-                "key_stats_p90__successful_passes_p90",
-                "key_stats_p90__unsuccessful_passes_p90",
-                "key_stats_p90__key_passes_p90",
-                "key_stats_p90__progressive_passes_p90",
-                "key_stats_p90__duels_p90",
-                "key_stats_p90__duels_won_p90",
-                "key_stats_p90__tackles_p90",
-                "key_stats_p90__successful_tackles_p90",
-                "key_stats_p90__interceptions_p90",
-                "key_stats_p90__dribbles_p90",
-                "key_stats_p90__successful_dribbles_p90",
-                "passes_p90",
-                "successful_passes_p90",
-                "unsuccessful_passes_p90",
-                "key_passes_p90",
-                "progressive_passes_p90",
-                "duels_p90",
-                "duels_won_p90",
-                "tackles_p90",
-                "successful_tackles_p90",
-                "interceptions_p90",
-                "dribbles_p90",
-                "successful_dribbles_p90",
-                "enhanced_game_control",
-                "enhanced_transition_play",
-                "enhanced_defensive_contribution",
-                "enhanced_creativity",
-                "enhanced_work_rate"
-            ]
+                "overfitting_detected": true,
+                "model_quality": "poor"
+            }
         },
         "defender": {
-            "status": "trained_validated",
-            "model_path": "python_scripts/models_players\\role_defender.pkl",
+            "status": "fallback",
+            "reason": "low_test_r2",
             "validation": {
                 "status": "validated",
-                "samples_total": 31,
-                "samples_train": 24,
-                "samples_test": 7,
+                "samples_total": 17,
+                "samples_train": 13,
+                "samples_test": 4,
                 "train_metrics": {
-                    "r2": 0.9999365260167471,
-                    "mae": 0.14234617246159656,
-                    "mse": 0.05243075209706019
+                    "r2": 0.9204217554984343,
+                    "mae": 4.682976821394549,
+                    "mse": 31.396329708461337
                 },
                 "test_metrics": {
-                    "r2": 0.84245500027766,
-                    "mae": 3.308297058141657,
-                    "mse": 73.6247652233037
+                    "r2": -34.23763694317805,
+                    "mae": 60.40196599956268,
+                    "mse": 5427.543100742269
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.9030218452039935,
-                    "cv_std_r2": 0.0783457587002685,
+                    "cv_mean_r2": -508.2634039156811,
+                    "cv_std_r2": 988.1613399747745,
                     "cv_scores": [
-                        0.9396721140571679,
-                        0.9888838808116217,
-                        0.7755732588933466,
-                        0.8520136709320228,
-                        0.9589663013258092
+                        -3.229053359397578,
+                        -9.237981934913812,
+                        -31.403411113938112,
+                        -12.95005219731495,
+                        -2484.496520972841
                     ]
                 },
-                "overfitting_detected": false,
-                "model_quality": "good"
-            },
-            "features": [
-                "minutes_played",
-                "dpr",
-                "position_changed",
-                "key_stats_p90__progressive_passes_p90",
-                "key_stats_p90__duels_p90",
-                "key_stats_p90__duels_won_p90",
-                "key_stats_p90__tackles_p90",
-                "key_stats_p90__successful_tackles_p90",
-                "key_stats_p90__interceptions_p90",
-                "key_stats_p90__clearances_p90",
-                "progressive_passes_p90",
-                "duels_p90",
-                "duels_won_p90",
-                "tackles_p90",
-                "successful_tackles_p90",
-                "interceptions_p90",
-                "clearances_p90",
-                "enhanced_defensive_impact",
-                "enhanced_build_up_quality",
-                "enhanced_positioning_score"
-            ]
+                "overfitting_detected": true,
+                "model_quality": "poor"
+            }
         },
         "goalkeeper": {
             "status": "trained_validated",

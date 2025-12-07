@@ -9,7 +9,7 @@ class LibraryModel extends CI_Model {
         $this->load->database();
     }
 
-    public function get_all_matches()
+    public function get_all_matches($my_team_id)
     {
         $this->db->select('
             match_id,
@@ -21,6 +21,7 @@ class LibraryModel extends CI_Model {
             video_thumbnail
         ');
         $this->db->from('matches_vw');
+        $this->db->where('my_team_id', $my_team_id);
         $this->db->order_by('match_date', 'DESC');
 
         $query = $this->db->get();

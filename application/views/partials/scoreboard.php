@@ -36,43 +36,54 @@ $away_goals = $away_metrics['attack']['goals'] ?? $this->session->userdata('away
 <input type="hidden" id="REPORT_REQUESTED_MATCH_ID"   value="<?= htmlspecialchars($page_requested_match_id ?? '') ?>">
 <input type="hidden" id="REPORT_REQUESTED_MATCH_NAME" value="<?= htmlspecialchars($page_requested_match_name ?? '') ?>">
 
-<div class="w-full flex flex-col p-6 items-center gap-3 bg-[#1d1d1d] rounded-2xl"
-     id="scoreboard-summary"
+<div id="scoreboard-summary"
+     class="w-full flex flex-col p-6 items-center gap-4 bg-[#1d1d1d] rounded-2xl shadow-lg hover:shadow-xl transition-all"
      data-match-id="<?= htmlspecialchars($page_match_id ?? '') ?>"
      data-match-name="<?= htmlspecialchars($page_match_name ?? '') ?>"
 >
+    <!-- Full Time Label -->
     <div class="w-full flex justify-center">
-        <h1 class="text-md text-white font-bold">Full Time</h1>
+        <h1 class="text-md text-white font-bold tracking-wide">Full Time</h1>
     </div>
 
-    <div class="w-full flex justify-between gap-20">
+    <!-- Score Row -->
+    <div class="w-full flex justify-between gap-20 items-center">
+        <!-- Home Team -->
         <div class="w-full flex flex-col items-end gap-2">
             <div class="flex items-center gap-3">
-                <h2 class="text-lg text-white font-semibold"><?php echo $home_name ?></h2>
-                <div class="text-4xl text-indigo-500 font-bold"><?php echo $home_goals ?></div>
+                <h2 class="text-lg text-white font-semibold tracking-wide"><?= $home_name ?></h2>
+                <div class="text-4xl text-indigo-500 font-extrabold shadow-md"><?= $home_goals ?></div>
             </div>
             <div class="flex flex-col gap-1">
-                <div class="flex gap-1">
-                    <span class="text-md text-gray-400 font-normal">L. Yamal</span>
-                    <img src="<?= base_url('assets/images/icons/goal.svg') ?>" alt="goal icon" class="inline-block w-4 h-4">
+                <!-- Example home goal scorer -->
+                <!--
+                <div class="flex gap-1 items-center">
+                    <span class="text-sm text-gray-400 font-normal">L. Yamal</span>
+                    <img src="<?= base_url('assets/images/icons/goal.svg') ?>" alt="goal icon" class="w-4 h-4">
                 </div>
+                -->
             </div>
         </div>
 
-        <div class="w-full flex flex-col items-baseline gap-2">
+        <!-- Away Team -->
+        <div class="w-full flex flex-col items-start gap-2">
             <div class="flex items-center gap-3">
-                <div class="text-4xl text-indigo-500 font-bold"><?php echo $away_goals ?></div>
-                <h2 class="text-lg text-white font-semibold"><?php echo $away_name ?></h2>
+                <div class="text-4xl text-indigo-500 font-extrabold shadow-md"><?= $away_goals ?></div>
+                <h2 class="text-lg text-white font-semibold tracking-wide"><?= $away_name ?></h2>
             </div>
             <div class="flex flex-col gap-1">
-                <div class="flex gap-1">
-                    <img src="<?= base_url('assets/images/icons/goal.svg') ?>" alt="goal icon" class="inline-block w-4 h-4">
-                    <span class="text-md text-gray-400 font-normal">L. Yamal</span>
+                <!-- Example away goal scorer -->
+                <!--
+                <div class="flex gap-1 items-center">
+                    <img src="<?= base_url('assets/images/icons/goal.svg') ?>" alt="goal icon" class="w-4 h-4">
+                    <span class="text-sm text-gray-400 font-normal">L. Yamal</span>
                 </div>
+                -->
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Optional JS: augment any internal links inside the scoreboard so they keep match params -->
 <script>

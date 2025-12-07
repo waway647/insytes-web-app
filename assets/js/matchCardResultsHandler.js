@@ -6,7 +6,7 @@
  */
 
 (() => {
-  const API_BASE = (window.APP_BASE_URL ? window.APP_BASE_URL.replace(/\/$/, '') + '/' : '') + 'match/librarycontroller';
+  const API_BASE = (window.APP_BASE_URL ? window.APP_BASE_URL.replace(/\/$/, '') + '/' : '') + 'reports/reportscontroller';
   const API_START_TAGGING = API_BASE + '/start_tagging';
   const API_REMOVE_MATCH   = API_BASE + '/remove_match';
   const TAGGING_PAGE_BASE  = (window.APP_BASE_URL ? window.APP_BASE_URL.replace(/\/$/, '') + '/' : '') + 'studio/mediacontroller/index';
@@ -316,7 +316,7 @@
     monthCardTemplate.remove();
 
     // Fetch API route (adjust if needed)
-    const fetchUrl = API_BASE + '/get_all_matches';
+    const fetchUrl = API_BASE + '/get_all_match_reports';
 
     try {
       const res = await fetch(fetchUrl);

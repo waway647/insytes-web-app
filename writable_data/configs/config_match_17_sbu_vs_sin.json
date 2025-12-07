@@ -4,7 +4,7 @@
         "season": "2025/2026",
         "competition": "Ang Liga",
         "venue": "Ayala Vermosa Sports Hub",
-        "date": "2025-10-26",
+        "date": "2025-10-19",
         "attacking_direction": "right-to-left",
         "positions_locked": true
     },
@@ -141,7 +141,7 @@
             },
             {
                 "id": "47",
-                "name": "Bayubay, Cesar",
+                "name": "Bayubay, Cesar Ien",
                 "number": 14,
                 "position": "LWB"
             },
@@ -168,7 +168,7 @@
                 "id": "48",
                 "name": "Unnamed",
                 "number": 1,
-                "position": "GK",
+                "position": "",
                 "x": 7,
                 "y": 23
             },
@@ -176,7 +176,7 @@
                 "id": "49",
                 "name": "Unnamed",
                 "number": 19,
-                "position": "CB",
+                "position": "",
                 "x": 7,
                 "y": 34
             },
@@ -184,7 +184,7 @@
                 "id": "50",
                 "name": "Unnamed",
                 "number": 9,
-                "position": "CB",
+                "position": "",
                 "x": 7,
                 "y": 45
             },
@@ -192,7 +192,7 @@
                 "id": "51",
                 "name": "Unnamed",
                 "number": 11,
-                "position": "RWB",
+                "position": "",
                 "x": 7,
                 "y": 56
             },
@@ -200,7 +200,7 @@
                 "id": "52",
                 "name": "Unnamed",
                 "number": 22,
-                "position": "LWB",
+                "position": "",
                 "x": 7,
                 "y": 67
             },
@@ -208,7 +208,7 @@
                 "id": "53",
                 "name": "Unnamed",
                 "number": 3,
-                "position": "CDM",
+                "position": "",
                 "x": 7,
                 "y": 78
             },
@@ -216,7 +216,7 @@
                 "id": "54",
                 "name": "Unnamed",
                 "number": 14,
-                "position": "CAM",
+                "position": "",
                 "x": 16,
                 "y": 23
             },
@@ -224,7 +224,7 @@
                 "id": "55",
                 "name": "Unnamed",
                 "number": 20,
-                "position": "CAM",
+                "position": "",
                 "x": 16,
                 "y": 34
             },
@@ -232,7 +232,7 @@
                 "id": "56",
                 "name": "Unnamed",
                 "number": 6,
-                "position": "RW",
+                "position": "",
                 "x": 16,
                 "y": 45
             },
@@ -240,7 +240,7 @@
                 "id": "57",
                 "name": "Unnamed",
                 "number": 16,
-                "position": "LW",
+                "position": "",
                 "x": 16,
                 "y": 56
             },
@@ -248,7 +248,7 @@
                 "id": "58",
                 "name": "Unnamed",
                 "number": 4,
-                "position": "ST",
+                "position": "",
                 "x": 16,
                 "y": 67
             }
@@ -258,19 +258,19 @@
                 "id": "59",
                 "name": "Unnamed",
                 "number": 7,
-                "position": "LW"
+                "position": ""
             },
             {
                 "id": "60",
                 "name": "Unnamed",
                 "number": 10,
-                "position": "ST"
+                "position": ""
             },
             {
                 "id": "61",
                 "name": "Unnamed",
                 "number": 12,
-                "position": "CAM"
+                "position": ""
             }
         ]
     },

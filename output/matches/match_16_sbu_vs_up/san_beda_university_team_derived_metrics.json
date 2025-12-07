@@ -68,8 +68,8 @@
     "overall_rating": 6.61,
     "outcome_score": 0.0
   },
-  "UP": {
-    "team_name": "UP",
+  "University of the Philippines": {
+    "team_name": "University of the Philippines",
     "possession": {
       "your_possession_time_seconds": 1173.0,
       "attacking_third_possession_seconds": 196.0,
@@ -111,7 +111,7 @@
       "recoveries_attacking_third": 0,
       "recoveries_attacking_third_pct": 0.0,
       "blocks": 0,
-      "saves": 1
+      "saves": 0
     },
     "general": {
       "duels": 22,

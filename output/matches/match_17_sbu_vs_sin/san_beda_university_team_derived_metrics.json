@@ -61,11 +61,11 @@
       "red_cards": 0
     },
     "match_rating_attack": 8.0,
-    "match_rating_defense": 6.07,
+    "match_rating_defense": 6.09,
     "match_rating_distribution": 7.23,
     "match_rating_general": 7.38,
     "match_rating_discipline": 6.14,
-    "overall_rating": 6.96,
+    "overall_rating": 6.97,
     "outcome_score": 1.0
   },
   "Siniloan Blues": {
@@ -111,7 +111,7 @@
       "recoveries_attacking_third": 0,
       "recoveries_attacking_third_pct": 0.0,
       "blocks": 1,
-      "saves": 4
+      "saves": 0
     },
     "general": {
       "duels": 20,
@@ -128,7 +128,7 @@
       "red_cards": 0
     },
     "match_rating_attack": 5.11,
-    "match_rating_defense": 7.1,
+    "match_rating_defense": 7.06,
     "match_rating_distribution": 6.79,
     "match_rating_general": 6.65,
     "match_rating_discipline": 6.32,

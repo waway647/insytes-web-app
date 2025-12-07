@@ -13,6 +13,8 @@ class TaggingController extends CI_Controller {
         $this->load->helper('url');
         // If you want to fetch DB match info, ensure LibraryModel (or appropriate model) exists.
         $this->load->model('LibraryModel');
+        $this->load->model('Match_Stats_Model');
+        $this->load->model('Match_Model');
 
         // Base writable folder
         $this->data_folder = FCPATH . 'writable_data/';
@@ -835,18 +837,180 @@ class TaggingController extends CI_Controller {
         foreach ($pipes as $p) { @fclose($p); }
         $exit_code = proc_close($process);
         $runtime = microtime(true) - $start;
+        $match_name_id = $dataset_name;
 
+        $pipelineResult = [
+            'success' => $exit_code === 0,
+            'exit_code' => $exit_code,
+            'dataset' => $dataset_name,
+            'cmdArray' => $cmdArray,
+            'stdout' => $stdout,
+            'stderr' => $stderr,
+            'runtime_seconds' => round($runtime, 3),
+            'pid' => $pid
+        ];
+
+        // Try to detect pipeline-level success: prefer JSON output from Python if present
+        $pipeline_claims_success = false;
+        $pipeline_json = @json_decode($stdout, true);
+        if (json_last_error() === JSON_ERROR_NONE && isset($pipeline_json['success'])) {
+            $pipeline_claims_success = (bool)$pipeline_json['success'];
+        } else {
+            // fallback to exit_code
+            $pipeline_claims_success = ($exit_code === 0);
+        }
+
+        $pipelineResult['pipeline_claims_success'] = $pipeline_claims_success;
+
+        // If pipeline succeeded, call the DB ingest handler synchronously
+        if ($pipeline_claims_success) {
+            // Ensure the controller's handler is available
+            if (method_exists($this, 'process_match_stats_json_to_db_internal')) {
+                // call and attach the model summary to response
+                $ingestSummary = $this->process_match_stats_json_to_db_internal($match_name_id);
+                $pipelineResult['ingest_summary'] = $ingestSummary;
+            } else {
+                $pipelineResult['ingest_summary'] = [
+                    'success' => false,
+                    'message' => 'No ingest handler available in controller'
+                ];
+            }
+        } else {
+            $pipelineResult['ingest_summary'] = [
+                'success' => false,
+                'message' => 'Pipeline did not report success, skipping DB ingest'
+            ];
+        }
+
+        // finally output pipelineResult
         $this->output
             ->set_content_type('application/json')
-            ->set_output(json_encode([
-                'success' => $exit_code === 0,
-                'exit_code' => $exit_code,
-                'dataset' => $dataset_name,
-                'cmdArray' => $cmdArray,
-                'stdout' => $stdout,
-                'stderr' => $stderr,
-                'runtime_seconds' => round($runtime, 3),
-                'pid' => $pid
-            ]));
+            ->set_output(json_encode($pipelineResult));
+        return;
+    }
+
+    /**
+     * Internal helper to find the pipeline output JSON files for a given match_id.
+     * Returns array with paths or null if not found.
+     */
+    protected function _find_pipeline_files($match_name_id)
+    {
+        // Candidate directories where the automated_pipeline.py writes outputs.
+        $candidates = [
+            FCPATH . 'output' . DIRECTORY_SEPARATOR . 'matches' . DIRECTORY_SEPARATOR . $match_name_id . DIRECTORY_SEPARATOR
+        ];
+
+        $f_insights = 'san_beda_university_team_insights.json';
+        $f_derived  = 'san_beda_university_team_derived_metrics.json';
+        $f_players  = 'san_beda_university_players_derived_metrics.json';
+
+        foreach ($candidates as $base) {
+            $p1 = $base . $f_insights;
+            $p2 = $base . $f_derived;
+            $p3 = $base . $f_players;
+            if (file_exists($p1) && file_exists($p2) && file_exists($p3)) {
+                return [
+                    'insights_path' => $p1,
+                    'derived_path'  => $p2,
+                    'players_path'  => $p3,
+                    'base' => $base
+                ];
+            }
+        }
+
+        // last-resort: glob search under output for a folder containing the match_id
+        $globPaths = glob(FCPATH . 'output' . DIRECTORY_SEPARATOR . '*' . DIRECTORY_SEPARATOR . $f_insights, GLOB_NOSORT);
+        foreach ($globPaths as $g) {
+            if (strpos($g, $match_name_id) !== false) {
+                $basedir = dirname($g) . DIRECTORY_SEPARATOR;
+                $p1 = $basedir . $f_insights;
+                $p2 = $basedir . $f_derived;
+                $p3 = $basedir . $f_players;
+                if (file_exists($p1) && file_exists($p2) && file_exists($p3)) {
+                    return [
+                        'insights_path' => $p1,
+                        'derived_path'  => $p2,
+                        'players_path'  => $p3,
+                        'base' => $basedir
+                    ];
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+    /**
+     * Internal synchronous handler.
+     * Finds the pipeline JSON outputs, decodes them, and calls the model insert method.
+     * Returns an array summary (success, inserted/updated counts or errors).
+     */
+    protected function process_match_stats_json_to_db_internal($match_name_id)
+    {
+        $files = $this->_find_pipeline_files($match_name_id);
+        if (!$files) {
+            return [
+                'success' => false,
+                'message' => 'Pipeline output JSON files not found for match_id: ' . $match_name_id
+            ];
+        }
+
+        // decode JSON safely
+        $insights = json_decode(@file_get_contents($files['insights_path']), true);
+        $derived  = json_decode(@file_get_contents($files['derived_path']), true);
+        $players  = json_decode(@file_get_contents($files['players_path']), true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return [
+                'success' => false,
+                'message' => 'JSON decode error: ' . json_last_error_msg(),
+                'files' => $files
+            ];
+        }
+
+        // sanitize match_id to numeric only for DB use
+        // e.g. match_123_sbu_vs_opponent -> 123
+        if (preg_match('/match_(\d+)_/', $match_name_id, $matches)) {
+            $match_id = $matches[1];
+        } else {
+            // fallback if pattern not found
+            $match_id = preg_replace('/[^0-9]/', '', $match_name_id);
+        }
+
+        // call model - your model function expects decoded arrays
+        try {
+            $summary = $this->Match_Stats_Model->match_stats_json_to_db_inserts($match_name_id, $insights, $derived, $players, $files['base']);
+            $tagged = $this->Match_Model->update_match_status($match_id, 'Completed');
+        } catch (Exception $ex) {
+            log_message('error', 'process_match_stats_json_to_db_internal exception: ' . $ex->getMessage());
+            $summary = ['success' => false, 'message' => 'Model exception: ' . $ex->getMessage()];
+        }
+
+        return $summary;
+    }
+
+
+    /**
+     * Public endpoint to trigger processing (can be called separately).
+     * Accepts POST JSON or query param ?match_id=...
+     */
+    public function match_stats_json_to_db()
+    {
+        $input = json_decode(trim(file_get_contents('php://input')), true);
+        $match_id = $input['match_id'] ?? $this->input->get('match_id') ?? null;
+
+        if (!$match_id) {
+            return $this->output
+                ->set_status_header(400)
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => false, 'message' => 'Missing match_id']));
+        }
+
+        $result = $this->process_match_stats_json_to_db_internal($match_id);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($result));
     }
 }

@@ -1,31 +1,18 @@
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-Bel Escodo,38.2,63.4,25.2,95.0,['CAM'],0.0
-Cesar Ien Bayubay,53.4,49.9,-3.5,78.4,[],0.0
-Jaro Libarnes,80.4,49.9,-30.5,97.4,"['CB', 'CB']",0.0
-Jaryl Pineda,22.9,30.0,7.1,94.7,['CAM'],0.0
-Jeljel Sison,51.2,93.3,42.1,97.0,[],0.0
-Joselito Soberano Jr.,1.5,30.0,28.5,30.3,[],0.0
-Jul Aningalan,75.4,49.9,-25.5,97.1,"['CB', 'CB']",0.0
-Kirvy Tabelin,52.4,52.2,-0.2,95.2,"['CAM', 'CAM']",0.0
-Kurt Bacaycay,15.0,63.7,48.7,10.9,['RWB'],0.0
-Laurence Fernandez,15.0,71.3,56.3,95.0,"['RW', 'LWB']",1.0
-Louie Bacnis,66.2,84.4,18.2,94.6,['CDM'],0.0
-Pedro Tagara,36.7,50.5,13.8,96.7,['GK'],0.0
-Pius Encaya,40.9,30.0,-10.9,96.6,"['ST', 'ST']",0.0
-Sam Salingay,53.7,42.6,-11.1,95.3,"['ST', 'ST']",0.0
-Stock Rujiro,35.6,52.8,17.2,30.3,[],0.0
-"Tagara, Pedro",0.0,50.5,50.5,0.0,['GK'],0.0
-"Libarnes, Jaro",0.0,35.6,35.6,0.0,"['CB', 'CB']",0.0
-"Aningalan, Jul",0.0,35.6,35.6,0.0,"['CB', 'CB']",0.0
-"Sison, JelJel",0.0,35.6,35.6,0.0,[],0.0
-"Bacnis, Louie",0.0,26.0,26.0,0.0,['CDM'],0.0
-"Pineda, Jaryl",0.0,30.0,30.0,0.0,['CAM'],0.0
-"Tabelin, Kirvy",0.0,30.0,30.0,0.0,"['CAM', 'CAM']",0.0
-"Fernandez, Laurence",0.0,14.9,14.9,0.0,"['RW', 'LWB']",1.0
-"Escodo, Bel",0.0,26.2,26.2,0.0,"['CDM', 'CAM']",1.0
-"Encaya, Pius",0.0,30.0,30.0,0.0,"['ST', 'ST']",0.0
-"Salingay, Sam",0.0,30.0,30.0,0.0,"['ST', 'ST']",0.0
-"Mellendrez, Prince",0.0,30.0,30.0,0.0,['RWB'],0.0
-"Soberano, Joselito",0.0,30.0,30.0,0.0,[],0.0
-"Rogero, Stock",0.0,30.0,30.0,0.0,[],0.0
-Unnamed,0.0,49.9,49.9,0.0,"['CAM', nan, nan]",1.0
+"Aningalan, Jul",75.4,28.1,-47.3,97.1,"['CB', 'CB', 'CB']",0
+"Bacaycay, Kurt",22.5,35.6,13.1,10.9,"['RWB', 'RWB']",0
+"Bacnis, Louie",66.2,30.6,-35.6,94.6,"['CDM', 'CDM']",0
+"Bayubay, Cesar Ien",53.4,30.6,-22.8,78.4,"['FWB', 'LWB']",1
+"Encaya, Pius",17.1,30.0,12.9,96.6,"['ST', 'ST', 'ST']",0
+"Escodo, Bel",38.2,30.6,-7.6,95.0,"['CDM', 'CAM', 'CDM']",1
+"Fernandez, Laurence",15.0,30.0,15.0,95.0,"['RW', 'LWB', 'RW']",1
+"Libarnes, Jaro",80.4,85.0,4.6,97.4,"['CB', 'CB', 'CB']",0
+"Pineda, Jaryl",22.9,30.0,7.1,94.7,"['LW', 'CAM']",1
+"Rogero, Stock",52.7,85.2,32.5,30.3,['RWB'],0
+"Salingay, Sam",27.0,30.0,3.0,95.3,"['ST', 'ST', 'ST']",0
+"Sison, JelJel",51.2,36.9,-14.3,97.0,['CB'],0
+"Soberano, Joselito",22.5,63.0,40.5,30.3,['LWB'],0
+"Tabelin, Kirvy",52.4,30.6,-21.8,95.2,"['CAM', 'CAM', 'CAM']",0
+"Tagara, Pedro",36.7,50.5,13.8,96.7,"['GK', 'GK']",0
+"Mellendrez, Prince",0.0,29.3,29.3,0.0,"['RWB', 'RWB']",0
+Unnamed,0.0,30.6,30.6,0.0,"[nan, nan, nan, nan]",0

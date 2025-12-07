@@ -16,3 +16,9 @@
 .custom-scroll::-webkit-scrollbar-thumb:hover {
   background-color: #5A5A5A;
 }
+
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+.no-scrollbar::-webkit-scrollbar { display: none; } /* Chrome, Safari */

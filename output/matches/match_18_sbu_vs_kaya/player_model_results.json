@@ -1,36 +1,36 @@
 {
     "team": "San Beda University",
-    "trained_at": "2025-11-26T05:08:07.928348+00:00",
-    "total_matches": 2,
-    "total_samples": 971,
+    "trained_at": "2025-12-05T09:56:12.942055+00:00",
+    "total_matches": 1,
+    "total_samples": 21,
     "models": {
         "attacker": {
             "status": "trained_validated",
             "model_path": "python_scripts/models_players\\role_attacker.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 29,
-                "samples_train": 23,
-                "samples_test": 6,
+                "samples_total": 9,
+                "samples_train": 9,
+                "samples_test": 9,
                 "train_metrics": {
-                    "r2": 0.9983238731086918,
-                    "mae": 0.29273967096663056,
-                    "mse": 0.34566178710310974
+                    "r2": 0.7655985050014779,
+                    "mae": 3.6370370370370373,
+                    "mse": 33.483472222222225
                 },
                 "test_metrics": {
-                    "r2": 0.9923347976734975,
-                    "mae": 0.2824485178105534,
-                    "mse": 0.45617535345597754
+                    "r2": 0.7655985050014779,
+                    "mae": 3.6370370370370373,
+                    "mse": 33.483472222222225
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.8320608428942494,
-                    "cv_std_r2": 0.15589102458382112,
+                    "cv_mean_r2": NaN,
+                    "cv_std_r2": NaN,
                     "cv_scores": [
-                        0.5818321502661417,
-                        0.7215327537402184,
-                        0.915681736773716,
-                        0.945285182646972,
-                        0.9959723910441989
+                        -121.77778406518777,
+                        -6904.4015597478665,
+                        -0.5610338903130565,
+                        -6038.536747548349,
+                        NaN
                     ]
                 },
                 "overfitting_detected": false,
@@ -77,28 +77,28 @@
             "model_path": "python_scripts/models_players\\role_midfielder.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 917,
-                "samples_train": 733,
-                "samples_test": 184,
+                "samples_total": 6,
+                "samples_train": 6,
+                "samples_test": 6,
                 "train_metrics": {
-                    "r2": 0.8801435266025128,
-                    "mae": 0.14199382073721528,
-                    "mse": 3.4086316390281164
+                    "r2": 0.6814077137937246,
+                    "mae": 10.194444444444445,
+                    "mse": 298.2368055555555
                 },
                 "test_metrics": {
-                    "r2": 0.9979775936507527,
-                    "mae": 0.09633183703272546,
-                    "mse": 0.13405349403407485
+                    "r2": 0.6814077137937246,
+                    "mae": 10.194444444444445,
+                    "mse": 298.2368055555555
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.7402014599522375,
-                    "cv_std_r2": 0.3631601958459562,
+                    "cv_mean_r2": NaN,
+                    "cv_std_r2": NaN,
                     "cv_scores": [
-                        0.6693653948127287,
-                        0.9847858394879389,
-                        0.058055215236523905,
-                        0.9905503964941132,
-                        0.9982504537298831
+                        -3.936089064471016,
+                        NaN,
+                        NaN,
+                        NaN,
+                        NaN
                     ]
                 },
                 "overfitting_detected": false,
@@ -144,31 +144,31 @@
             "model_path": "python_scripts/models_players\\role_defender.pkl",
             "validation": {
                 "status": "validated",
-                "samples_total": 21,
-                "samples_train": 16,
+                "samples_total": 5,
+                "samples_train": 5,
                 "samples_test": 5,
                 "train_metrics": {
-                    "r2": 0.9999731785000636,
-                    "mae": 0.13660799763165432,
-                    "mse": 0.027147699665942257
+                    "r2": 0.5544037226205107,
+                    "mae": 5.328000000000001,
+                    "mse": 61.209599999999966
                 },
                 "test_metrics": {
-                    "r2": 0.6246248576463189,
-                    "mae": 9.177063245624304,
-                    "mse": 201.6896645868606
+                    "r2": 0.5544037226205107,
+                    "mae": 5.328000000000001,
+                    "mse": 61.209599999999966
                 },
                 "cross_validation": {
-                    "cv_mean_r2": 0.8028563533512463,
-                    "cv_std_r2": 0.18468992644238805,
+                    "cv_mean_r2": NaN,
+                    "cv_std_r2": NaN,
                     "cv_scores": [
-                        0.9924003723608834,
-                        0.4496903441294614,
-                        0.8717168684471213,
-                        0.8684996251274312,
-                        0.8319745566913338
+                        NaN,
+                        NaN,
+                        NaN,
+                        NaN,
+                        NaN
                     ]
                 },
-                "overfitting_detected": true,
+                "overfitting_detected": false,
                 "model_quality": "good"
             },
             "features": [
@@ -203,9 +203,9 @@
                 "samples_train": 78,
                 "samples_test": 20,
                 "train_metrics": {
-                    "r2": -195.0,
-                    "mae": 9.947598300641403e-14,
-                    "mse": 9.895471195092372e-27
+                    "r2": -224.0,
+                    "mae": 1.0658141036401503e-13,
+                    "mse": 1.135959703518257e-26
                 },
                 "test_metrics": {
                     "r2": null,

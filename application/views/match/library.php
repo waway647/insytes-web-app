@@ -1,14 +1,14 @@
 <div class="flex flex-col w-full h-full">
 	<div class="flex gap-10 mb-5">
 		<h1 class="text-white font-bold text-2xl">Match Library</h1>
-		<button id="new-match-btn" class="h-fit bg-indigo-500 cursor-pointer hover:bg-indigo-400 transition px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium">
+		<button id="new-match-btn" class="h-fit bg-indigo-500 cursor-pointer hover:bg-indigo-400 transition-shadow transition-colors px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400/30">
 			<img src="<?php echo base_url('assets/images/icons/plus.svg'); ?>">
 			<span class="text-white">New</span>
 		</button>
 	</div>
 
 	<!-- new match panel -->
-	<div id="new-match-panel" class="flex flex-col w-full h-fit p-5 rounded-t-lg bg-[#1D1D1D] hidden">
+	<div id="new-match-panel" class="flex flex-col w-full h-fit p-5 rounded-t-lg bg-gradient-to-b from-[#151515] to-[#0f0f0f] backdrop-blur-sm border border-white/6 hidden">
 		<form
 			id="new-match-panel-form"
 			x-data="matchMetadataForm()"
@@ -36,18 +36,18 @@
 			<input type="hidden" name="opponent_team_name" value="" />
 
 			<img id="close-new-match-panel" src="<?php echo base_url('assets/images/icons/close.svg'); ?>" class="w-3 h-auto cursor-pointer" alt="">
-			<div class="flex flex-col items-center px-80 py-4 gap-4 border-b-1 border-b-[#2A2A2A]">
+			<div class="flex flex-col items-center px-80 py-4 gap-4 border-b border-[#2A2A2A]">
 				<h2 class="text-[#B6BABD] text-xl font-bold">New Match</h2>
 				<div class="flex w-full justify-between gap-10 py-4">
 					<div class="flex flex-col w-full gap-1 items-center">
 						<p class="text-xs text-[#B6BABD]">Season</p>
-						<div id="season-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+						<div id="season-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 cursor-pointer hover:bg-[#1a1a1a] transition">
 							<span id="season" class="text-white font-medium"></span>
 						</div>
 					</div>
 					<div class="flex flex-col w-full gap-1 items-center">
 						<p class="text-xs text-[#B6BABD]">Competition</p>
-						<div id="competition-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+						<div id="competition-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 cursor-pointer hover:bg-[#1a1a1a] transition">
 							<span id="competition" class="text-white font-medium"></span>
 						</div>
 					</div>
@@ -56,26 +56,26 @@
 						<input 
 							type="date" 
 							name="match_date" 
-							class="date-input text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] text-white focus:outline-0 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
+							class="date-input text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 text-white focus:outline-none focus:ring-1 focus:ring-indigo-500/30 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
 						>
 					</div>
 					<div class="flex flex-col w-full gap-1 items-center">
 						<p class="text-xs text-[#B6BABD]">Venue</p>
-						<div id="venue-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+						<div id="venue-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 cursor-pointer hover:bg-[#1a1a1a] transition">
 							<span id="venue" class="text-white font-medium"></span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="flex flex-col w-full py-4 items-center border-b-1 border-b-[#2A2A2A]">
+			<div class="flex flex-col w-full py-4 items-center border-b border-[#2A2A2A]">
 				<h3 class="text-[#B6BABD] text-md font-bold py-4">Team Roster</h3>
 				<div class="flex w-full mt-4">
 					<!-- your team -->
-					<div class="flex flex-col w-full h-full py-8 px-14 border-r-1 border-r-[#2A2A2A]">
+					<div class="flex flex-col w-full h-full py-8 px-14 border-r border-white/6">
 						<div class="flex w-full justify-end gap-10">
 							<div class="flex flex-col gap-1 items-center">
 								<p class="text-xs text-[#B6BABD]">My Team</p>
-								<div id="my-team-btn" class="text-center w-50 h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+								<div id="my-team-btn" class="text-center w-50 h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 cursor-pointer hover:bg-[#1a1a1a] transition">
 									<span 
 									id="my-team" 
 									class="text-white font-medium"
@@ -90,11 +90,12 @@
 								<p class="text-xs text-[#B6BABD]">Result</p>
 								<select 
 									name="my_team_result"
-									class="text-center w-26 h-9 px-3 py-1.5 rounded-md border border-[#2A2A2A] text-white bg-[#131313] hover:bg-[#2a2a2a] focus:outline-none cursor-pointer [-moz-appearance:none] [-webkit-appearance:none] [background-image:none]"
+									class="text-center w-26 h-9 px-3 py-1.5 rounded-md border border-white/6 text-white bg-[#111111] hover:bg-[#1a1a1a] focus:outline-none cursor-pointer [-moz-appearance:none] [-webkit-appearance:none] [background-image:none]"
 								>
 									<option value="" disabled selected></option>
 									<option value="Win">Win</option>
 									<option value="Lose">Lose</option>
+									<option value="Draw">Draw</option>
 								</select>
 							</div>
 							<div class="flex flex-col gap-1 items-center">
@@ -102,7 +103,7 @@
 								<input 
 									type="number" 
 									name="my_team_goals" 
-									class="text-center w-20 h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] text-white focus:outline-0 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
+									class="text-center w-20 h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 text-white focus:outline-none appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
 								>
 							</div>
 						</div>
@@ -117,11 +118,11 @@
 										<th class="py-2 px-6 font-normal text-center w-28">XI</th>
 									</tr>
 								</thead>
-								<tbody id="my-players-tbody" class="text-white text-sm bg-[#131313]">
+								<tbody id="my-players-tbody" class="text-white text-sm bg-[#111111]">
 								<!-- rows will be created dynamically -->
 								</tbody>
 							</table>
-							<div class="bg-[#131313] border-b border-neutral-800 hover:bg-neutral-800 transition-colors">
+							<div class="bg-[#111111] border-b border-neutral-800 hover:bg-neutral-800 transition-colors">
 								<button id="add-player-btn" type="button" class="flex justify-center w-full cursor-pointer py-2.5">
 									<img src="<?php echo base_url('assets/images/icons/plus.svg'); ?>" class="w-3">
 								</button>
@@ -130,30 +131,19 @@
 					</div>
 
 					<!-- opponent team -->
-					<div class="flex flex-col w-full h-full py-8 px-14 border-r-1 border-r-[#2A2A2A]">
+					<div class="flex flex-col w-full h-full py-8 px-14 border-r border-white/6">
 						<div class="flex w-full justify-baseline gap-10">
 							<div class="flex flex-col gap-1 items-center">
 								<p class="text-xs text-[#B6BABD]">Goals</p>
 								<input 
 									type="number" 
 									name="opponent_team_goals" 
-									class="text-center w-20 h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] text-white focus:outline-0 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
+									class="text-center w-20 h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 text-white focus:outline-none appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
 								>
-							</div>
-							<div class="flex flex-col gap-1 items-center">
-								<p class="text-xs text-[#B6BABD]">Result</p>
-								<select 
-									name="opponent_team_result"
-									class="text-center w-26 h-9 px-3 py-1.5 rounded-md border border-[#2A2A2A] text-white bg-[#131313] hover:bg-[#2a2a2a] focus:outline-none cursor-pointer [-moz-appearance:none] [-webkit-appearance:none] [background-image:none]"
-								>
-									<option value="" disabled selected></option>
-									<option value="Win">Win</option>
-									<option value="Lose">Lose</option>
-								</select>
 							</div>
 							<div class="flex flex-col gap-1 items-center">
 								<p class="text-xs text-[#B6BABD]">Your Opponent's Team</p>
-								<div id="opponent-team-btn" class="text-center w-50 h-9 px-3 py-1.5 rounded-md bg-[#131313] border-1 border-[#2A2A2A] cursor-pointer hover:bg-[#2a2a2a] transition-colors">
+								<div id="opponent-team-btn" class="text-center w-50 h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 cursor-pointer hover:bg-[#1a1a1a] transition">
 									<span id="opponent-team" class="text-white font-medium"></span>
 								</div>
 							</div>
@@ -169,11 +159,11 @@
 										<th class="py-2 px-6 font-normal text-center w-28">XI</th>
 									</tr>
 								</thead>
-								<tbody id="opponent-players-tbody" class="text-white text-sm bg-[#131313]">
+								<tbody id="opponent-players-tbody" class="text-white text-sm bg-[#111111]">
 								<!-- rows will be created dynamically -->
 								</tbody>
 							</table>
-							<div class="bg-[#131313] border-b border-neutral-800 hover:bg-neutral-800 transition-colors">
+							<div class="bg-[#111111] border-b border-neutral-800 hover:bg-neutral-800 transition-colors">
 								<button id="add-opponent-player-btn" type="button" class="flex justify-center w-full cursor-pointer py-2.5">
 									<img src="<?php echo base_url('assets/images/icons/plus.svg'); ?>" class="w-3">
 								</button>
@@ -183,7 +173,7 @@
 				</div>
 			</div>
 			<div class="w-full px-4 py-6">
-				<button id="create-match-btn" type="submit" class="flex justify-center items-center w-full text-white bg-[#6366F1] rounded-lg cursor-pointer hover:bg-indigo-400 transition px-4 py-2">Save & Create Match Metadata</button>
+				<button id="create-match-btn" type="submit" class="flex justify-center items-center w-full text-white bg-[#6366F1] rounded-lg cursor-pointer hover:bg-indigo-400 transition-shadow px-4 py-2 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400/25">Save & Create Match Metadata</button>
 			</div>
 		</form>
 	</div>
@@ -193,9 +183,9 @@
 			<!-- Search -->
 			<div class="flex w-full gap-10">
 				<input type="text" placeholder="Search"
-				class="w-full border-1 border-[#2A2A2A] text-white text-sm px-4 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-white" />
+				class="w-full border border-white/6 text-white text-sm px-4 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-white/10 bg-[#0f0f0f]" />
 
-				<button id="match-filter-btn" class="flex gap-2 w-26 justify-between items-center h-relative bg-[#1d1d1d] cursor-pointer px-4 text-white font-medium text-sm rounded-lg hover:bg-[#1a1a1a] transition border-1 border-[#2A2A2A]">
+				<button id="match-filter-btn" class="flex gap-2 w-26 justify-between items-center h-relative bg-[#1d1d1d] cursor-pointer px-4 text-white font-medium text-sm rounded-lg hover:bg-[#1a1a1a] transition border border-white/6 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/10">
 					<img src="<?php echo base_url('assets/images/icons/filter.svg'); ?>">
 					Filter
 				</button>
@@ -209,36 +199,34 @@
 		<!-- month cards container -->
 		<div id="month-cards-container" class="flex flex-col py-5 gap-10 w-full h-full">
 			<!-- append all month cards here-->
-			<div id="month-card" class="flex flex-col w-full p-6 gap-5 bg-[#1D1D1D] rounded-lg">
+			<div id="month-card" class="flex flex-col w-full p-6 gap-5 bg-[#111111] rounded-lg border border-white/6 shadow-sm">
 				<div class="flex w-full justify-between items-center">
 					<h2 id="month-name" class="text-white font-bold text-xl">
 						July
 						<span id="year" class="text-[#B6BABD]">2026</span>
 					</h2>
-					<button id="view-full-replays-btn" class="px-4 py-2 border-1 border-[#2A2A2A] rounded-4xl text-[#B6BABD] text-sm cursor-pointer hover:border-[#414141] transition">
-						View all <span id="month-name-in-btn">July</span> Full Replays
-					</button>
 				</div>
-				<div id="match-cards-container" class="grid grid-cols-4 w-full gap-6">
+				<div id="match-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-6">
 					<!-- append all match cards here -->
-					<div id="match-card" class="flex flex-col w-full bg-[#2A2A2A] rounded-lg"> 
-						<div id="thumbnail" class="flex w-full h-64 bg-[#363636] rounded-lg">
-							<div class="flex w-full h-fit p-2 justify-end">
-								<button id="card-options-btn" type="button" class="p-1 hover:bg-[#2A2A2A] rounded-full cursor-pointer">
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+					<div id="match-card" class="group flex flex-col w-full bg-gradient-to-b from-[#1b1b1b] to-[#141414] rounded-xl border border-white/6 shadow-lg hover:shadow-2xl transform transition-all duration-200 hover:-translate-y-1">
+						<div id="thumbnail" class="relative flex w-full h-64 bg-[#363636] rounded-t-xl overflow-hidden">
+							<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('');"></div>
+							<div class="flex w-full h-fit p-2 justify-end z-10">
+								<button id="card-options-btn" type="button" class="p-1 hover:bg-white/6 rounded-full cursor-pointer transition focus:outline-none focus:ring-2 focus:ring-white/20">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
 										<path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 5.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
 									</svg>
 								</button>
-								<div id="match-options" class="flex flex-col bg-[#1d1d1d] border-1 border-[#2a2a2a] text-white absolute hidden">
-									<span id="start-tagging-btn" class="px-10 py-2 cursor-pointer hover:bg-[#2a2a2a] transition-colors">Open in Tagging Studio</span>
-									<span id="remove-match-card-btn" class="px-10 py-2 cursor-pointer hover:bg-[#2a2a2a] transition-colors">Remove</span>
+								<div id="match-options" class="absolute right-3 top-12 hidden group-hover:flex flex-col bg-[#0f0f0f]/95 border border-white/6 text-white rounded-md shadow-md overflow-hidden">
+									<span id="start-tagging-btn" class="px-6 py-2 cursor-pointer hover:bg-white/6 transition-colors">Open in Tagging Studio</span>
+									<span id="remove-match-card-btn" class="px-6 py-2 cursor-pointer hover:bg-red-600/60 transition-colors">Remove</span>
 								</div>
 							</div>
 						</div>
 						<!-- match info -->
-						<div class="flex flex-col w-full h-fit p-5 gap-3">
-							<div class="flex w-fit items-center gap-2 px-3 py-1 border-1 border-blue-500 rounded-2xl">
-								<div id="status-color" class="w-2 h-2 rounded-2xl bg-blue-500"></div>
+						<div class="flex flex-col w-full h-fit p-5 gap-3 rounded-b-xl">
+							<div class="flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-blue-500">
+								<div id="status-color" class="w-2 h-2 rounded-full bg-blue-500"></div>
 								<span id="status" class="text-[#B6BABD] text-xs">Ready</span>
 							</div>
 							<div class="flex w-full h-fit justify-between items-center">
@@ -246,12 +234,13 @@
 								<span id="match-date" class="text-[#B6BABD] font-medium">Jul 28</span>
 							</div>
 						</div>
-					</div>
+					</div> <!-- match-card -->
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <script>
 	window.APP_BASE_URL = '<?php echo base_url(); ?>index.php/';

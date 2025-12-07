@@ -1,122 +1,7 @@
 {
   "processed_datasets": {
-    "match_16_sbu_vs_up": {
-      "file_hash": "e505af18d914523b3e9e13c3c517bd9d",
-      "completed_steps": [
-        "convert_events",
-        "derived_metrics",
-        "regression_model",
-        "insights",
-        "team_metrics",
-        "team_model",
-        "team_insights",
-        "heatmaps",
-        "team_summary"
-      ],
-      "last_processed": "2025-11-26T13:16:41.577770",
-      "processing_history": [
-        {
-          "timestamp": "2025-11-26T13:07:24.224831",
-          "step": "convert_events",
-          "status": "failed",
-          "error": ""
-        },
-        {
-          "timestamp": "2025-11-26T13:10:33.333228",
-          "step": "convert_events",
-          "status": "failed",
-          "error": ""
-        },
-        {
-          "timestamp": "2025-11-26T13:13:29.409402",
-          "step": "convert_events",
-          "status": "failed",
-          "error": ""
-        },
-        {
-          "timestamp": "2025-11-26T13:16:03.598352",
-          "status": "completed",
-          "steps": [
-            "convert_events",
-            "derived_metrics",
-            "regression_model",
-            "insights",
-            "team_metrics",
-            "team_model",
-            "team_insights",
-            "heatmaps",
-            "team_summary"
-          ]
-        },
-        {
-          "timestamp": "2025-11-26T13:16:41.578851",
-          "status": "completed",
-          "steps": [
-            "convert_events",
-            "derived_metrics",
-            "regression_model",
-            "insights",
-            "team_metrics",
-            "team_model",
-            "team_insights",
-            "heatmaps",
-            "team_summary"
-          ]
-        }
-      ]
-    },
-    "match_17_sbu_vs_sin": {
-      "file_hash": "c2b88133a5c4c32c0a75ba19fb563038",
-      "completed_steps": [
-        "convert_events",
-        "derived_metrics",
-        "regression_model",
-        "insights",
-        "team_metrics",
-        "team_model",
-        "team_insights",
-        "heatmaps",
-        "team_summary"
-      ],
-      "last_processed": "2025-11-26T13:16:41.579106",
-      "processing_history": [
-        {
-          "timestamp": "2025-11-26T13:08:04.741340",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'match_number'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 363, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 245, in main\n    next_match_number = int(df_existing[\"match_number\"].max())+1 if not df_existing.empty else 1\n                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'match_number'\n"
-        },
-        {
-          "timestamp": "2025-11-26T13:10:35.729774",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'match_number'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 367, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 262, in main\n    synthetic_rows = generate_synthetic_matches(df_existing, flattened_real)\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 177, in generate_synthetic_matches\n    next_match_number = real_matches_csv[\"match_number\"].max() + 1\n                        ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'match_number'\n"
-        },
-        {
-          "timestamp": "2025-11-26T13:13:32.707119",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 367, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 321, in main\n    model.fit(X_train,y_train)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 1340, in fit\n    train_dmatrix, evals = _wrap_evaluation_matrices(\n                           ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        missing=self.missing,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<14 lines>...\n        feature_types=feature_types,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 701, in _wrap_evaluation_matrices\n    train_dmatrix = create_dmatrix(\n        data=X,\n    ...<9 lines>...\n        ref=None,\n    )\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 1254, in _create_dmatrix\n    return QuantileDMatrix(\n        **kwargs, ref=ref, nthread=self.n_jobs, max_bin=self.max_bin\n    )\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1768, in __init__\n    self._init(\n    ~~~~~~~~~~^\n        data,\n        ^^^^^\n    ...<12 lines>...\n        max_quantile_blocks=max_quantile_batches,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1832, in _init\n    it.reraise()\n    ~~~~~~~~~~^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 617, in reraise\n    raise exc  # pylint: disable=raising-bad-type\n    ^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 598, in _handle_exception\n    return fn()\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 685, in <lambda>\n    return self._handle_exception(lambda: int(self.next(input_data)), 0)\n                                              ~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\data.py\", line 1632, in next\n    input_data(**self.kwargs)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 674, in input_data\n    self.proxy.set_info(\n    ~~~~~~~~~~~~~~~~~~~^\n        feature_names=feature_names,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        feature_types=feature_types,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        **kwargs,\n        ^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1089, in set_info\n    self.feature_names = feature_names\n    ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1518, in feature_names\n    raise ValueError(\n        \"feature_names must be string, and may not contain [, ] or <\"\n    )\nValueError: feature_names must be string, and may not contain [, ] or <\n"
-        },
-        {
-          "timestamp": "2025-11-26T13:17:23.579196",
-          "status": "completed",
-          "steps": [
-            "convert_events",
-            "derived_metrics",
-            "regression_model",
-            "insights",
-            "team_metrics",
-            "team_model",
-            "team_insights",
-            "heatmaps",
-            "team_summary"
-          ]
-        }
-      ]
-    },
     "match_18_sbu_vs_kaya": {
-      "file_hash": "1c9f1259fbfb8aa23b5e0e9fd7d514ce",
+      "file_hash": "ebc2d167f70edf6353ae58bd55d26146",
       "completed_steps": [
         "convert_events",
         "derived_metrics",
@@ -128,28 +13,10 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-26T13:17:23.580114",
+      "last_processed": "2025-12-05T17:56:06.462966",
       "processing_history": [
         {
-          "timestamp": "2025-11-26T13:08:15.976449",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'match_number'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 363, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 245, in main\n    next_match_number = int(df_existing[\"match_number\"].max())+1 if not df_existing.empty else 1\n                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'match_number'\n"
-        },
-        {
-          "timestamp": "2025-11-26T13:10:37.402240",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'match_number'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 367, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 262, in main\n    synthetic_rows = generate_synthetic_matches(df_existing, flattened_real)\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 177, in generate_synthetic_matches\n    next_match_number = real_matches_csv[\"match_number\"].max() + 1\n                        ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'match_number'\n"
-        },
-        {
-          "timestamp": "2025-11-26T13:13:34.579941",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 367, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 321, in main\n    model.fit(X_train,y_train)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 1340, in fit\n    train_dmatrix, evals = _wrap_evaluation_matrices(\n                           ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        missing=self.missing,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<14 lines>...\n        feature_types=feature_types,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 701, in _wrap_evaluation_matrices\n    train_dmatrix = create_dmatrix(\n        data=X,\n    ...<9 lines>...\n        ref=None,\n    )\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 1254, in _create_dmatrix\n    return QuantileDMatrix(\n        **kwargs, ref=ref, nthread=self.n_jobs, max_bin=self.max_bin\n    )\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1768, in __init__\n    self._init(\n    ~~~~~~~~~~^\n        data,\n        ^^^^^\n    ...<12 lines>...\n        max_quantile_blocks=max_quantile_batches,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1832, in _init\n    it.reraise()\n    ~~~~~~~~~~^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 617, in reraise\n    raise exc  # pylint: disable=raising-bad-type\n    ^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 598, in _handle_exception\n    return fn()\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 685, in <lambda>\n    return self._handle_exception(lambda: int(self.next(input_data)), 0)\n                                              ~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\data.py\", line 1632, in next\n    input_data(**self.kwargs)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 674, in input_data\n    self.proxy.set_info(\n    ~~~~~~~~~~~~~~~~~~~^\n        feature_names=feature_names,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        feature_types=feature_types,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        **kwargs,\n        ^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1089, in set_info\n    self.feature_names = feature_names\n    ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1518, in feature_names\n    raise ValueError(\n        \"feature_names must be string, and may not contain [, ] or <\"\n    )\nValueError: feature_names must be string, and may not contain [, ] or <\n"
-        },
-        {
-          "timestamp": "2025-11-26T13:18:01.093732",
+          "timestamp": "2025-12-05T17:56:47.527367",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -166,7 +33,7 @@
       ]
     },
     "match_19_sbu_vs_2wfc": {
-      "file_hash": "5141547e14416dd81c820bbe9f543c25",
+      "file_hash": "1c0635d9a223dd8a828efabb178e6f51",
       "completed_steps": [
         "convert_events",
         "derived_metrics",
@@ -178,28 +45,74 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-11-26T13:18:01.094064",
+      "last_processed": "2025-12-05T18:07:03.233550",
       "processing_history": [
         {
-          "timestamp": "2025-11-26T13:08:27.390402",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'match_number'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 363, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 245, in main\n    next_match_number = int(df_existing[\"match_number\"].max())+1 if not df_existing.empty else 1\n                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'match_number'\n"
-        },
+          "timestamp": "2025-12-05T18:07:31.984758",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    },
+    "match_17_sbu_vs_sin": {
+      "file_hash": "34837f5e53ab59a6af995e3c41d5467d",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-12-05T18:23:27.666685",
+      "processing_history": [
         {
-          "timestamp": "2025-11-26T13:10:39.165187",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'match_number'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 367, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 262, in main\n    synthetic_rows = generate_synthetic_matches(df_existing, flattened_real)\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 177, in generate_synthetic_matches\n    next_match_number = real_matches_csv[\"match_number\"].max() + 1\n                        ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'match_number'\n"
-        },
+          "timestamp": "2025-12-05T18:24:07.435459",
+          "status": "completed",
+          "steps": [
+            "convert_events",
+            "derived_metrics",
+            "regression_model",
+            "insights",
+            "team_metrics",
+            "team_model",
+            "team_insights",
+            "heatmaps",
+            "team_summary"
+          ]
+        }
+      ]
+    },
+    "match_16_sbu_vs_up": {
+      "file_hash": "571e430726468557aba5d0d83be08726",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics",
+        "regression_model",
+        "insights",
+        "team_metrics",
+        "team_model",
+        "team_insights",
+        "heatmaps",
+        "team_summary"
+      ],
+      "last_processed": "2025-12-05T20:38:13.859290",
+      "processing_history": [
         {
-          "timestamp": "2025-11-26T13:13:36.616771",
-          "step": "team_model",
-          "status": "failed",
-          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 367, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_team.py.temp\", line 321, in main\n    model.fit(X_train,y_train)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 1340, in fit\n    train_dmatrix, evals = _wrap_evaluation_matrices(\n                           ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        missing=self.missing,\n        ^^^^^^^^^^^^^^^^^^^^^\n    ...<14 lines>...\n        feature_types=feature_types,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 701, in _wrap_evaluation_matrices\n    train_dmatrix = create_dmatrix(\n        data=X,\n    ...<9 lines>...\n        ref=None,\n    )\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\sklearn.py\", line 1254, in _create_dmatrix\n    return QuantileDMatrix(\n        **kwargs, ref=ref, nthread=self.n_jobs, max_bin=self.max_bin\n    )\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1768, in __init__\n    self._init(\n    ~~~~~~~~~~^\n        data,\n        ^^^^^\n    ...<12 lines>...\n        max_quantile_blocks=max_quantile_batches,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1832, in _init\n    it.reraise()\n    ~~~~~~~~~~^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 617, in reraise\n    raise exc  # pylint: disable=raising-bad-type\n    ^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 598, in _handle_exception\n    return fn()\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 685, in <lambda>\n    return self._handle_exception(lambda: int(self.next(input_data)), 0)\n                                              ~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\data.py\", line 1632, in next\n    input_data(**self.kwargs)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 674, in input_data\n    self.proxy.set_info(\n    ~~~~~~~~~~~~~~~~~~~^\n        feature_names=feature_names,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        feature_types=feature_types,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        **kwargs,\n        ^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 774, in inner_f\n    return func(**kwargs)\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1089, in set_info\n    self.feature_names = feature_names\n    ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAJ G. Labrador\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\xgboost\\core.py\", line 1518, in feature_names\n    raise ValueError(\n        \"feature_names must be string, and may not contain [, ] or <\"\n    )\nValueError: feature_names must be string, and may not contain [, ] or <\n"
-        },
-        {
-          "timestamp": "2025-11-26T13:18:31.763695",
+          "timestamp": "2025-12-05T20:39:01.325602",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -216,5 +129,5 @@
       ]
     }
   },
-  "last_updated": "2025-11-26T13:18:31.765441"
+  "last_updated": "2025-12-05T20:39:01.325602"
 }

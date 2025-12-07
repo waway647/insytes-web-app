@@ -32,7 +32,6 @@ class MetadataController extends CI_Controller {
         $op_team_id    = $this->input->post('opponent_team_id', TRUE);
         $op_team_name  = $this->input->post('opponent_team_name', TRUE);
         $op_team_goals = $this->input->post('opponent_team_goals', TRUE);
-        $op_team_result= $this->input->post('opponent_team_result', TRUE);
 
         // Players arrays — CI will parse nested inputs named like my_players[0][name]
         $raw_my_players = $this->input->post('my_players');           // may be array|null
@@ -67,6 +66,16 @@ class MetadataController extends CI_Controller {
         $my_team_goals = ($my_team_goals === '' || $my_team_goals === null) ? null : intval($my_team_goals);
         $op_team_goals = ($op_team_goals === '' || $op_team_goals === null) ? null : intval($op_team_goals);
 
+        if (!empty($my_team_result)) {
+            if ($my_team_result == 'Win') {
+                $opponent_team_result = 'Lose';
+            } elseif ($my_team_result == 'Lose') {
+                $opponent_team_result = 'Win';
+            } elseif ($my_team_result == 'Draw') {
+                $opponent_team_result = 'Win';
+            }
+        } 
+
         // Build match data array (adjust column names to your schema)
         $matchData = [
             'season_id'           => $season_id ?: null,
@@ -78,7 +87,7 @@ class MetadataController extends CI_Controller {
             'my_team_goals'       => $my_team_goals,
             'opponent_team_goals' => $op_team_goals,
             'my_team_result'      => $my_team_result ?: null,
-            'opponent_team_result'=> $op_team_result ?: null,
+            'opponent_team_result'=> $opponent_team_result ?: null,
             'status'              => 'Waiting for video',
             'created_by'          => $this->session->userdata('user_id') ?: null,
             'created_at'          => date('Y-m-d H:i:s')
@@ -387,7 +396,7 @@ class MetadataController extends CI_Controller {
         }
 
         // Success
-        return true;
+        return;
     }
 
     public function update_match_config_json() {
@@ -615,6 +624,244 @@ class MetadataController extends CI_Controller {
         }
 
         $payload = ['success' => true, 'message' => 'Config updated', 'id' => $file_id];
+        $this->output->set_status_header(200)->set_output(json_encode($payload));
+        return;
+    }
+
+    public function remove_match($match_id = null)
+    {
+        // Always return JSON
+        $this->output->set_content_type('application/json');
+
+        // 1) Try to read JSON body (preferred)
+        $raw = $this->input->raw_input_stream;
+        $body = json_decode($raw, true);
+        if (is_array($body) && isset($body['match_id'])) {
+            $match_id = $body['match_id'];
+        }
+
+        // 2) Fallback to normal POST body
+        if (empty($match_id)) {
+            $match_id = $this->input->post('match_id', TRUE);
+        }
+
+        // 3) Final validation
+        if (empty($match_id)) {
+            $payload = ['success' => false, 'message' => 'match_id is required'];
+            $this->output->set_status_header(400)->set_output(json_encode($payload));
+            return;
+        }
+
+        // Normalize match_id to string
+        $match_id = (string)$match_id;
+
+        // Prepare paths early (we will try to resolve file_id from registry first)
+        $baseDir = FCPATH . 'writable_data';
+        $configsDir = $baseDir . '/configs';
+        $eventsDir = $baseDir . '/events';
+        $registryFile = $configsDir . '/registry.json';
+
+        // Helper: try to find file_id in registry.json by matching numeric match_id inside entry id or equal
+        $found_file_id = null;
+        if (file_exists($registryFile)) {
+            $registryJson = @file_get_contents($registryFile);
+            if ($registryJson !== false) {
+                $registry = json_decode($registryJson, true);
+                if (is_array($registry) && isset($registry['matches']) && is_array($registry['matches'])) {
+                    foreach ($registry['matches'] as $entry) {
+                        if (!isset($entry['id'])) continue;
+                        $id = (string)$entry['id'];
+                        // exact or contains numeric id (handles both "match_123..." and "123")
+                        if ($id === $match_id || strpos($id, $match_id) !== false) {
+                            $found_file_id = $id;
+                            break;
+                        }
+                    }
+                }
+            } else {
+                log_message('debug', 'remove_match: registry.json exists but failed to read it.');
+            }
+        }
+
+        // If registry did not provide file_id, try to get opponent name from model (before DB deletion)
+        $opponent = '';
+        if ($found_file_id === null) {
+            try {
+                if (method_exists($this->Match_model, 'get_opponent_name')) {
+                    $opponent = $this->Match_model->get_opponent_name($match_id);
+                    $opponent = is_string($opponent) ? strtolower($opponent) : '';
+                }
+            } catch (Exception $ex) {
+                log_message('warning', 'remove_match - get_opponent_name failed (pre-delete): ' . $ex->getMessage());
+                $opponent = '';
+            }
+
+            if (!empty($opponent)) {
+                // build file id same as create_match_config_json uses
+                $candidate = (string)$match_id;
+                if (!preg_match('/^match_/', $candidate . '_sbu_vs_' . $opponent)) {
+                    $candidate = 'match_' . $candidate . '_sbu_vs_' . strtolower(preg_replace('/\s+/', '_', $opponent));
+                }
+                $found_file_id = $candidate;
+            }
+        }
+
+        // If still not found, fallback to numeric-based file_id (best-effort)
+        if ($found_file_id === null) {
+            $found_file_id = 'match_' . $match_id . '_sbu_vs_';
+        }
+
+        // Now compute file paths using the resolved file id
+        $file_id = (string)$found_file_id;
+        $configFile = $configsDir . '/config_' . $file_id . '.json';
+        $eventsFile = $eventsDir . '/' . $file_id . '_events.json';
+
+        // --- Delete DB record via model ---
+        try {
+            if (!method_exists($this->Match_model, 'delete_match')) {
+                log_message('error', 'remove_match - Match_model::delete_match not found');
+                $payload = ['success' => false, 'message' => 'Server error: delete method not implemented'];
+                $this->output->set_status_header(500)->set_output(json_encode($payload));
+                return;
+            }
+
+            $deleted = $this->Match_model->delete_match($match_id);
+
+            // If model returns 0 or false, consider not found
+            if ($deleted === false || $deleted === 0) {
+                $payload = ['success' => false, 'message' => 'Match not found or could not be deleted from database'];
+                $this->output->set_status_header(404)->set_output(json_encode($payload));
+                return;
+            }
+        } catch (Exception $ex) {
+            log_message('error', 'remove_match - DB delete failed: ' . $ex->getMessage());
+            $payload = ['success' => false, 'message' => 'Failed to delete match from database'];
+            $this->output->set_status_header(500)->set_output(json_encode($payload));
+            return;
+        }
+
+        // --- File cleanup (best-effort) ---
+        $configRemoved = null;
+        if (file_exists($configFile)) {
+            if (@unlink($configFile)) {
+                $configRemoved = true;
+                log_message('info', "remove_match - Removed config file: {$configFile}");
+            } else {
+                $configRemoved = false;
+                log_message('error', "remove_match - Failed to remove config file: {$configFile}");
+            }
+        } else {
+            $configRemoved = null; // not present
+            log_message('debug', "remove_match - Config file not found: {$configFile}");
+        }
+
+        $eventsRemoved = null;
+        if (file_exists($eventsFile)) {
+            if (@unlink($eventsFile)) {
+                $eventsRemoved = true;
+                log_message('info', "remove_match - Removed events file: {$eventsFile}");
+            } else {
+                $eventsRemoved = false;
+                log_message('error', "remove_match - Failed to remove events file: {$eventsFile}");
+            }
+        } else {
+            $eventsRemoved = null;
+            log_message('debug', "remove_match - Events file not found: {$eventsFile}");
+        }
+
+        // --- Remove match folder (assets/videos/matches/match_<match_id>/) recursively ---
+        $match_folder = FCPATH . 'assets/videos/matches/match_' . $match_id . '/';
+        $folderRemoved = null;
+        if (is_dir($match_folder)) {
+            try {
+                $it = new RecursiveDirectoryIterator($match_folder, FilesystemIterator::SKIP_DOTS);
+                $files = new RecursiveIteratorIterator($it, RecursiveIteratorIterator::CHILD_FIRST);
+                foreach ($files as $file) {
+                    $path = $file->getRealPath();
+                    if ($file->isDir()) {
+                        @rmdir($path);
+                    } else {
+                        @unlink($path);
+                    }
+                }
+                if (@rmdir($match_folder)) {
+                    $folderRemoved = true;
+                    log_message('info', "remove_match - Removed match folder: {$match_folder}");
+                } else {
+                    $folderRemoved = false;
+                    log_message('error', "remove_match - Failed to remove match folder (rmdir): {$match_folder}");
+                }
+            } catch (Exception $ex) {
+                $folderRemoved = false;
+                log_message('error', "remove_match - Failed to remove match folder '{$match_folder}': " . $ex->getMessage());
+            }
+        } else {
+            $folderRemoved = null;
+            log_message('debug', "remove_match - Match folder not found: {$match_folder}");
+        }
+
+        // --- Update registry.json (remove entry) ---
+        $registryUpdated = null;
+        if (!is_dir($configsDir)) {
+            $registryUpdated = null;
+            log_message('debug', 'remove_match - configs dir missing, skipping registry update');
+        } else if (!file_exists($registryFile)) {
+            $registryUpdated = null;
+            log_message('debug', 'remove_match - registry.json not found, skipping registry update');
+        } else {
+            $registryJson = @file_get_contents($registryFile);
+            if ($registryJson === false) {
+                log_message('error', 'remove_match - Failed to read registry.json: ' . $registryFile);
+                $registryUpdated = false;
+            } else {
+                $registry = json_decode($registryJson, true);
+                if (!is_array($registry) || !isset($registry['matches']) || !is_array($registry['matches'])) {
+                    log_message('warning', 'remove_match - registry.json corrupted or unexpected format, resetting matches array');
+                    $registry = ['matches' => []];
+                }
+
+                $initialCount = count($registry['matches']);
+                // remove entries that exactly match file_id
+                $registry['matches'] = array_values(array_filter($registry['matches'], function ($m) use ($file_id, $match_id) {
+                    if (!isset($m['id'])) return true;
+                    $id = (string)$m['id'];
+                    if ($id === $file_id) return false;
+                    if ($id === (string)$match_id) return false;
+                    if (strpos($id, (string)$match_id) !== false) return false;
+                    return true;
+                }));
+
+                $encoded = json_encode($registry, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+                if ($encoded === false) {
+                    log_message('error', 'remove_match - registry json_encode failed: ' . json_last_error_msg());
+                    $registryUpdated = false;
+                } else {
+                    $written = @file_put_contents($registryFile, $encoded, LOCK_EX);
+                    if ($written === false) {
+                        log_message('error', 'remove_match - Failed to write registry.json: ' . $registryFile);
+                        $registryUpdated = false;
+                    } else {
+                        $registryUpdated = true;
+                        log_message('info', 'remove_match - Registry updated, removed match entry if present: ' . $file_id);
+                    }
+                }
+            }
+        }
+
+        // Return a non-sensitive summary
+        $payload = [
+            'success' => true,
+            'message' => 'Match removed from database; attempted to remove related files/registry entry and folder.',
+            'files' => [
+                'config' => file_exists($configFile) ? 'still_exists' : ($configRemoved === true ? 'removed' : ($configRemoved === false ? 'failed' : 'not_found')),
+                'events' => file_exists($eventsFile) ? 'still_exists' : ($eventsRemoved === true ? 'removed' : ($eventsRemoved === false ? 'failed' : 'not_found')),
+                'registry' => $registryUpdated === true ? 'updated' : ($registryUpdated === false ? 'failed' : 'skipped'),
+                'folder' => is_dir($match_folder) ? 'still_exists' : ($folderRemoved === true ? 'removed' : ($folderRemoved === false ? 'failed' : 'not_found'))
+            ],
+            'match_id' => $match_id,
+            'file_id' => $file_id
+        ];
+
         $this->output->set_status_header(200)->set_output(json_encode($payload));
         return;
     }

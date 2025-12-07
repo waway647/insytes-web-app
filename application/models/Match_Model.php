@@ -192,4 +192,65 @@ class Match_Model extends CI_Model {
         }
         return null;
     }
+
+    public function delete_match($match_id)
+    {
+        if (empty($match_id)) {
+            return 0;
+        }
+
+        // normalize to string for comparisons
+        $match_key = (string)$match_id;
+
+        try {
+            // Start transaction
+            $this->db->trans_start();
+
+            // 1) Remove any related rows in match_players (if that table exists in your schema)
+            //    This is a best-effort delete — if you don't have this table remove the block below.
+            if ($this->db->table_exists('match_players')) {
+                $this->db->where('match_id', $match_key);
+                $this->db->delete('match_players');
+                // no need to act on affected_rows here, it's cleanup
+            }
+            if ($this->db->table_exists('match_videos')) {
+                $this->db->where('match_id', $match_key);
+                $this->db->delete('match_videos');
+                // no need to act on affected_rows here, it's cleanup
+            }
+
+            // 2) Delete the match row.
+            //    Support deleting by either `match_id` column (string-style id) or numeric `id` column.
+            //    Adjust column names to match your schema if different.
+            $this->db->group_start();
+                $this->db->where('id', $match_key);
+                // if $match_id is numeric, also try `id` column
+                if (is_numeric($match_key)) {
+                    $this->db->or_where('id', intval($match_key));
+                }
+            $this->db->group_end();
+
+            $this->db->delete('matches');
+
+            // Capture how many rows were removed from matches
+            $deletedCount = $this->db->affected_rows();
+
+            // Complete transaction
+            $this->db->trans_complete();
+
+            if ($this->db->trans_status() === FALSE) {
+                // Transaction failed; log and return false
+                log_message('error', 'Match_model::delete_match - DB transaction failed for match_id=' . $match_key);
+                return false;
+            }
+
+            // Return number of deleted match rows (0 if nothing deleted)
+            return (int)$deletedCount;
+
+        } catch (Exception $ex) {
+            // Log and rethrow or return false depending on how you want to handle exceptions
+            log_message('error', 'Match_model::delete_match exception: ' . $ex->getMessage());
+            return false;
+        }
+    }
 }

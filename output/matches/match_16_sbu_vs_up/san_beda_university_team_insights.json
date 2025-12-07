@@ -2,45 +2,108 @@
     "match_id": "16",
     "match_name": "match_16_sbu_vs_up",
     "team": "San Beda University",
-    "timestamp": "2025-11-26 13:15:35",
+    "timestamp": "2025-12-05 20:38:30",
     "predicted_scores": {
-        "attack": null,
-        "defense": null,
-        "discipline": null,
-        "distribution": null,
-        "general": null,
+        "attack": 5.598241586689326,
+        "defense": 8.693369641082587,
+        "discipline": 12.941560492814396,
+        "distribution": 9.713683298602838,
+        "general": 14.204828727793101,
         "overall": 0.0
     },
     "detailed_analysis": {
         "attack": {
-            "overall_assessment": "No prediction available",
-            "strengths": [],
-            "areas_for_improvement": [],
-            "key_metrics": {}
+            "overall_assessment": "Average, with room for improvement",
+            "strengths": [
+                "Generated attacking opportunities with 5 attempts",
+                "Created attacking moments with 4 shot-creating actions"
+            ],
+            "areas_for_improvement": [
+                "Low goal output with only 0 goals - need better finishing",
+                "Poor shooting accuracy at 20.0% - need more precision",
+                "Limited attacking threat with only 5 shots - need more attempts",
+                "Limited creativity with only 4 shot-creating actions"
+            ],
+            "key_metrics": {
+                "goals_scored": 0,
+                "total_shots": 5,
+                "shots_on_target": 1,
+                "shooting_accuracy": 20.0,
+                "shot_creating_actions": 4
+            }
         },
         "defense": {
-            "overall_assessment": "No prediction available",
-            "strengths": [],
-            "areas_for_improvement": [],
-            "key_metrics": {}
+            "overall_assessment": "Outstanding performance",
+            "strengths": [
+                "Excellent tackling efficiency at 100.0%",
+                "Strong anticipation with 61 interceptions",
+                "Solid defensive clearances with 18 clearances"
+            ],
+            "areas_for_improvement": [
+                "Low defensive engagement with only 4 tackles attempted",
+                "Limited ball recovery with only 1 recoveries"
+            ],
+            "key_metrics": {
+                "tackles_attempted": 4,
+                "tackle_success_rate": "100.0%",
+                "interceptions": 61,
+                "recoveries": 1,
+                "clearances": 18,
+                "blocks": 6,
+                "saves": 0
+            }
         },
         "distribution": {
-            "overall_assessment": "No prediction available",
-            "strengths": [],
-            "areas_for_improvement": [],
-            "key_metrics": {}
+            "overall_assessment": "Outstanding performance",
+            "strengths": [
+                "Good passing accuracy at 82.8%",
+                "Excellent penetrating passes with 18 through balls"
+            ],
+            "areas_for_improvement": [
+                "Limited assists (0) - need better final ball delivery"
+            ],
+            "key_metrics": {
+                "total_passes": 244,
+                "passing_accuracy": "82.8%",
+                "assists": 0,
+                "key_passes": 3,
+                "through_passes": 18,
+                "crosses": 5
+            }
         },
         "discipline": {
-            "overall_assessment": "No prediction available",
-            "strengths": [],
-            "areas_for_improvement": [],
-            "key_metrics": {}
+            "overall_assessment": "Outstanding performance",
+            "strengths": [
+                "Good discipline with no red cards",
+                "Controlled aggression with only 0 yellow cards",
+                "Clean play with only 8 fouls conceded"
+            ],
+            "areas_for_improvement": [
+                "Opportunity to play cleaner with fewer than 8 fouls"
+            ],
+            "key_metrics": {
+                "fouls_conceded": 8,
+                "yellow_cards": 0,
+                "red_cards": 0,
+                "total_disciplinary_actions": 0
+            }
         },
         "general": {
-            "overall_assessment": "No prediction available",
-            "strengths": [],
-            "areas_for_improvement": [],
-            "key_metrics": {}
+            "overall_assessment": "Outstanding performance",
+            "strengths": [
+                "Strong physical presence with 86.4% duels won",
+                "Good positioning discipline with only 2 offsides"
+            ],
+            "areas_for_improvement": [
+                "Opportunity to control more possession than 54.7%"
+            ],
+            "key_metrics": {
+                "duels_won_percentage": "86.4%",
+                "possession_percentage": "54.7%",
+                "attacking_third_possession": "8.9%",
+                "corners_awarded": 3,
+                "offsides": 2
+            }
         },
         "overall": {
             "overall_assessment": "Needs significant improvement",
@@ -56,39 +119,66 @@
     },
     "coaching_assessment": {
         "attack": {
-            "performance_rating": "Unable to assess",
-            "tactical_summary": "Insufficient data for analysis",
-            "key_observations": [],
-            "coaching_priorities": [],
-            "next_training_focus": "Gather more performance data"
+            "performance_rating": "Struggling in the final third",
+            "tactical_summary": "Limited attacking threat with minimal shot creation (5 attempts). The team needs to establish more consistent offensive patterns.",
+            "key_observations": [
+                "Generated 4 shot-creating actions indicating attacking involvement"
+            ],
+            "coaching_priorities": [
+                "Improve shot selection and technique through targeted finishing drills",
+                "Develop attacking patterns and movement in the final third",
+                "Increase attacking volume through better build-up play and forward runs"
+            ],
+            "next_training_focus": "Primary focus: improve shot selection and technique through targeted finishing drills"
         },
         "defense": {
-            "performance_rating": "Unable to assess",
-            "tactical_summary": "Insufficient data for analysis",
-            "key_observations": [],
-            "coaching_priorities": [],
-            "next_training_focus": "Gather more performance data"
+            "performance_rating": "Dominant defensive performance",
+            "tactical_summary": "Excellent defensive discipline with 100.0% tackle success rate and 61 interceptions. The defensive unit showed great anticipation and timing.",
+            "key_observations": [
+                "Exceptional tackling efficiency at 100.0% shows excellent defensive timing",
+                "Outstanding anticipation with 61 interceptions demonstrates strong defensive reading of the game"
+            ],
+            "coaching_priorities": [
+                "Coordinate pressing triggers and defensive transitions"
+            ],
+            "next_training_focus": "Primary focus: coordinate pressing triggers and defensive transitions"
         },
         "distribution": {
-            "performance_rating": "Unable to assess",
-            "tactical_summary": "Insufficient data for analysis",
-            "key_observations": [],
-            "coaching_priorities": [],
-            "next_training_focus": "Gather more performance data"
+            "performance_rating": "Exceptional ball circulation",
+            "tactical_summary": "Solid passing foundation with 82.8% accuracy from 244 attempts. Good ball retention allowed for sustained pressure.",
+            "key_observations": [
+                "Completed 244 passes with 82.8% accuracy maintaining team possession",
+                "Attempted 18 penetrating passes showing forward intent"
+            ],
+            "coaching_priorities": [
+                "Focus on final ball delivery and creating clear scoring chances",
+                "Develop vision and execution for defense-splitting passes"
+            ],
+            "next_training_focus": "Primary focus: focus on final ball delivery and creating clear scoring chances"
         },
         "discipline": {
-            "performance_rating": "Unable to assess",
-            "tactical_summary": "Insufficient data for analysis",
-            "key_observations": [],
-            "coaching_priorities": [],
-            "next_training_focus": "Gather more performance data"
+            "performance_rating": "Exemplary discipline",
+            "tactical_summary": "Excellent discipline with no red cards and 0 bookings. The team maintained composure and controlled aggression throughout the match.",
+            "key_observations": [
+                "Outstanding emotional control and clean play throughout the match",
+                "Minimal fouling with only 8 infractions shows good defensive technique"
+            ],
+            "coaching_priorities": [
+                "Maintain excellent discipline while increasing defensive aggression",
+                "Develop leadership skills to help teammates stay composed"
+            ],
+            "next_training_focus": "Primary focus: maintain excellent discipline while increasing defensive aggression"
         },
         "general": {
-            "performance_rating": "Unable to assess",
-            "tactical_summary": "Insufficient data for analysis",
-            "key_observations": [],
-            "coaching_priorities": [],
-            "next_training_focus": "Gather more performance data"
+            "performance_rating": "Commanding overall display",
+            "tactical_summary": "Maintained good territorial control with 54.7% possession. Solid foundation for building attacks and controlling tempo.",
+            "key_observations": [
+                "Excellent physical dominance with 86.4% duels won shows superior fitness and commitment"
+            ],
+            "coaching_priorities": [
+                "Create more attacking presence and forward movement patterns"
+            ],
+            "next_training_focus": "Primary focus: create more attacking presence and forward movement patterns"
         },
         "overall": {
             "performance_rating": "Poor collective display",
@@ -106,11 +196,11 @@
         }
     },
     "interpretation": {
-        "attack": "Performance data unavailable for comprehensive analysis",
-        "defense": "Performance data unavailable for comprehensive analysis",
-        "distribution": "Performance data unavailable for comprehensive analysis",
-        "discipline": "Performance data unavailable for comprehensive analysis",
-        "general": "Performance data unavailable for comprehensive analysis",
+        "attack": "Average, with room for improvement - Limited attacking threat with only 5 attempts. Team needs to create more goal-scoring opportunities through better build-up play.",
+        "defense": "Outstanding performance - Dominant defensive display with 100.0% tackle success and 61 interceptions. Exceptional reading of the game.",
+        "distribution": "Outstanding performance - Strong ball retention (82.8% accuracy) but limited final ball delivery. Need more incisive creativity.",
+        "discipline": "Outstanding performance - Exemplary discipline with no cards and only 8 fouls. Perfect emotional control throughout the match.",
+        "general": "Outstanding performance - Excellent physical dominance with 86.4% duels won. Superior fitness and commitment levels.",
         "overall": "Needs significant improvement - Unbalanced performance with excellent distribution (7.1) masking weaknesses in attack (5.5). Need more consistency."
     }
 }

@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url(); ?>assets/css/tailwind_output.css?v=<?php echo time(); ?>" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/scrollBar.css?v=<?php echo time(); ?>" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/dateInput.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/image_viewer.css?v=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body class="m-0 p-0 h-full w-full flex">
 
@@ -26,16 +27,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <input type="hidden" id="REPORT_MATCH_ID"             value="<?= htmlspecialchars($page_match_id ?? '') ?>">
     <input type="hidden" id="REPORT_MATCH_NAME"           value="<?= htmlspecialchars($page_match_name ?? '') ?>">
 
-    <div class="w-full flex gap-10">
-        <div class="w-full flex flex-col gap-10">
+    <!--
+      Client-side fetcher:
+      - Only runs if window.matchSummary is not already present (server-side embed)
+      - Uses REPORT_MATCH_NAME hidden input to request /matchapi/summary
+      - Calls window.renderInitialSummary(summary) if available, otherwise dispatches matchSummaryLoaded
+    -->
+    <script>
+    (function () {
+      // If server already embedded summary, skip fetch.
+      if (window.matchSummary) return;
+
+      const matchNameEl = document.getElementById('REPORT_MATCH_NAME');
+      const matchName = matchNameEl ? matchNameEl.value : '';
+
+      if (!matchName) {
+        window.matchSummary = null;
+        return;
+      }
+
+      const url = '<?php echo rtrim(site_url(), "/"); ?>/matchapi/summary?match_name=' + encodeURIComponent(matchName);
+
+      fetch(url, { credentials: 'same-origin' })
+        .then(resp => {
+          if (!resp.ok) return null;
+          return resp.json();
+        })
+        .then(json => {
+          window.matchSummary = json || null;
+
+          // prefer direct global function if available
+          if (typeof window.renderInitialSummary === 'function') {
+            try { window.renderInitialSummary(window.matchSummary); } catch (err) { console.error(err); }
+            return;
+          }
+
+          // otherwise fire event for listeners
+          const ev = new CustomEvent('matchSummaryLoaded', { detail: window.matchSummary });
+          window.dispatchEvent(ev);
+        })
+        .catch(err => {
+          console.error('Failed to load match summary', err);
+          window.matchSummary = null;
+        });
+    })();
+    </script>
+
+    <div class="w-full flex gap-10 h-full overflow-hidden">
+
+        <!-- Left scrollable content -->
+        <div class="left-scrollable w-full flex flex-col gap-10 overflow-y-auto pr-4 no-scrollbar min-h-0">
             <?php $this->load->view('partials/scoreboard'); ?>
-
             <?php $this->load->view('partials/report_tabs'); ?>
-
             <?php $this->load->view($report_content); ?>
         </div>
 
-        <?php $this->load->view('partials/focus_panel'); ?>
+        <!-- Fixed focus panel -->
+        <div class="flex-shrink-0">
+            <?php $this->load->view('partials/focus_panel'); ?>
+        </div>
     </div>
+    
 </body>
 </html>

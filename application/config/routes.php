@@ -69,3 +69,8 @@ $route['tagging/get_events'] = 'studio/taggingcontroller/get_events';
 // Mock API for dropdown testing
 $route['mock/(:any)'] = 'match/mockapi/index/$1';
 $route['mock/(:any)/(:num)'] = 'match/mockapi/index/$1/$2';
+
+$route['matchapi/summary'] = 'matchapi/summary';
+
+$route['reports/all'] = 'reports/reportscontroller/index';
+$route['reports/generate/last5'] = 'team/dashboardcontroller/generate_last5_report';

@@ -1,40 +1,39 @@
 {
-  "report_generated": "2025-11-26T13:16:03.413719",
+  "report_generated": "2025-12-05T20:39:01.146465",
   "match_info": {
-    "total_events": 1079,
-    "players_analyzed": 32,
+    "total_events": 1078,
+    "players_analyzed": 19,
     "events_with_coordinates": 955
   },
   "players": {
-    "Bel Escodo": {
+    "Aningalan, Jul": {
       "basic_info": {
-        "position": "CDM",
-        "enhanced_rating": 38.2,
+        "position": "CB",
+        "enhanced_rating": 75.4,
         "enhanced_breakdown": {
-          "game_control": 65.0,
-          "transition_play": 40.9,
-          "defensive_contribution": 30.0,
-          "creativity": 0.0,
-          "work_rate": 24.6
+          "defensive_impact": 87.5,
+          "build_up_quality": 88.5,
+          "positioning_score": 25.6,
+          "physical_play": 87.4
         }
       },
       "positioning_analysis": {
-        "compliance_score": 61.3,
+        "compliance_score": 27.5,
         "zone_distribution": {
-          "primary": 86.95652173913044,
-          "secondary": 8.695652173913043,
-          "danger": 4.3478260869565215
+          "primary": 53.125,
+          "secondary": 17.1875,
+          "danger": 29.6875
         },
-        "total_events": 23,
+        "total_events": 64,
         "insights": [
-          "EXCELLENT positioning: 87.0% of actions in correct zone - maintains tactical discipline"
+          "HIGH RISK: 29.7% of actions in danger zone - avoid leaving position unattended"
         ]
       },
       "heat_patterns": {
-        "concentration_score": 63.4,
+        "concentration_score": 48.5,
         "coverage_score": 100,
-        "x_range": 58.2,
-        "y_range": 76.9,
+        "x_range": 76.5,
+        "y_range": 83.9,
         "patterns": [
           "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
           "TOO ROAMING: Focus on maintaining core position"
@@ -46,12 +45,101 @@
       },
       "enhanced_insights": "",
       "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 38.2/100 overall rating",
+        "[STRONG] PERFORMER: 75.4/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[GOOD] mobility but needs better positioning discipline"
+      ]
+    },
+    "Bacaycay, Kurt": {
+      "basic_info": {
+        "position": "RWB",
+        "enhanced_rating": 22.5,
+        "enhanced_breakdown": {
+          "defensive_impact": 30.0,
+          "build_up_quality": 0.0,
+          "positioning_score": 30.0,
+          "physical_play": 40.0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 50.0,
+        "zone_distribution": {
+          "primary": 50.0,
+          "secondary": 50.0,
+          "danger": 0.0
+        },
+        "total_events": 2,
+        "insights": [
+          "GOOD mobility: 50.0% in secondary zone shows good tactical flexibility"
+        ]
+      },
+      "heat_patterns": {
+        "concentration_score": 48.7,
+        "coverage_score": 100,
+        "x_range": 22.0,
+        "y_range": 80.6,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 22.5/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[GOOD] mobility but needs better positioning discipline"
+      ]
+    },
+    "Bacnis, Louie": {
+      "basic_info": {
+        "position": "CDM",
+        "enhanced_rating": 66.2,
+        "enhanced_breakdown": {
+          "game_control": 96.9,
+          "transition_play": 91.2,
+          "defensive_contribution": 49.0,
+          "creativity": 0.0,
+          "work_rate": 45.7
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 54.5,
+        "zone_distribution": {
+          "primary": 84.0909090909091,
+          "secondary": 4.545454545454546,
+          "danger": 11.363636363636363
+        },
+        "total_events": 44,
+        "insights": [
+          "EXCELLENT positioning: 84.1% of actions in correct zone - maintains tactical discipline"
+        ]
+      },
+      "heat_patterns": {
+        "concentration_score": 61.9,
+        "coverage_score": 100,
+        "x_range": 66.2,
+        "y_range": 71.8,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[SOLID] CONTRIBUTOR: 66.2/100 overall rating",
         "[GOOD] positional awareness",
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Cesar Ien Bayubay": {
+    "Bayubay, Cesar Ien": {
       "basic_info": {
         "position": "FWB",
         "enhanced_rating": 53.4,
@@ -97,9 +185,143 @@
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Jaro Libarnes": {
+    "Encaya, Pius": {
       "basic_info": {
-        "position": "LB",
+        "position": "ST",
+        "enhanced_rating": 17.1,
+        "enhanced_breakdown": {
+          "finishing_quality": 10.8,
+          "offensive_contribution": 1.5,
+          "link_up_play": 66.6,
+          "movement_threat": 22.7
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 6.0,
+        "zone_distribution": {
+          "primary": 26.666666666666668,
+          "secondary": 30.0,
+          "danger": 43.333333333333336
+        },
+        "total_events": 30,
+        "insights": [
+          "POSITIONING ISSUE: Only 26.7% of actions in primary zone - needs to maintain positional discipline",
+          "HIGH RISK: 43.3% of actions in danger zone - avoid leaving position unattended"
+        ]
+      },
+      "heat_patterns": {
+        "concentration_score": 65.2,
+        "coverage_score": 100,
+        "x_range": 63.2,
+        "y_range": 67.5,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 17.1/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[GOOD] mobility but needs better positioning discipline"
+      ]
+    },
+    "Escodo, Bel": {
+      "basic_info": {
+        "position": "CDM",
+        "enhanced_rating": 38.2,
+        "enhanced_breakdown": {
+          "game_control": 65.0,
+          "transition_play": 40.9,
+          "defensive_contribution": 30.0,
+          "creativity": 0.0,
+          "work_rate": 24.6
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 61.3,
+        "zone_distribution": {
+          "primary": 86.95652173913044,
+          "secondary": 8.695652173913043,
+          "danger": 4.3478260869565215
+        },
+        "total_events": 23,
+        "insights": [
+          "EXCELLENT positioning: 87.0% of actions in correct zone - maintains tactical discipline"
+        ]
+      },
+      "heat_patterns": {
+        "concentration_score": 63.4,
+        "coverage_score": 100,
+        "x_range": 58.2,
+        "y_range": 76.9,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 38.2/100 overall rating",
+        "[GOOD] positional awareness",
+        "[GOOD] mobility but needs better positioning discipline"
+      ]
+    },
+    "Fernandez, Laurence": {
+      "basic_info": {
+        "position": "RW",
+        "enhanced_rating": 15,
+        "enhanced_breakdown": {
+          "finishing_quality": 11.1,
+          "offensive_contribution": 3.0,
+          "link_up_play": 44.5,
+          "movement_threat": 23.2
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 13.3,
+        "zone_distribution": {
+          "primary": 41.66666666666667,
+          "secondary": 16.666666666666664,
+          "danger": 41.66666666666667
+        },
+        "total_events": 24,
+        "insights": [
+          "HIGH RISK: 41.7% of actions in danger zone - avoid leaving position unattended"
+        ]
+      },
+      "heat_patterns": {
+        "concentration_score": 45.0,
+        "coverage_score": 100,
+        "x_range": 82.5,
+        "y_range": 82.4,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 15.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[GOOD] mobility but needs better positioning discipline"
+      ]
+    },
+    "Libarnes, Jaro": {
+      "basic_info": {
+        "position": "CB",
         "enhanced_rating": 80.4,
         "enhanced_breakdown": {
           "defensive_impact": 92.5,
@@ -141,7 +363,7 @@
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Jaryl Pineda": {
+    "Pineda, Jaryl": {
       "basic_info": {
         "position": "LW",
         "enhanced_rating": 22.9,
@@ -186,7 +408,96 @@
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Jeljel Sison": {
+    "Rogero, Stock": {
+      "basic_info": {
+        "position": "RWB",
+        "enhanced_rating": 52.7,
+        "enhanced_breakdown": {
+          "defensive_impact": 59.4,
+          "build_up_quality": 60.0,
+          "positioning_score": 39.5,
+          "physical_play": 40.0
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 70.0,
+        "zone_distribution": {
+          "primary": 100.0,
+          "secondary": 0.0,
+          "danger": 0.0
+        },
+        "total_events": 5,
+        "insights": [
+          "EXCELLENT positioning: 100.0% of actions in correct zone - maintains tactical discipline"
+        ]
+      },
+      "heat_patterns": {
+        "concentration_score": 62.0,
+        "coverage_score": 100,
+        "x_range": 34.9,
+        "y_range": 62.2,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[SOLID] CONTRIBUTOR: 52.7/100 overall rating",
+        "[GOOD] positional awareness",
+        "[GOOD] mobility but needs better positioning discipline"
+      ]
+    },
+    "Salingay, Sam": {
+      "basic_info": {
+        "position": "ST",
+        "enhanced_rating": 27.0,
+        "enhanced_breakdown": {
+          "finishing_quality": 25.0,
+          "offensive_contribution": 6.0,
+          "link_up_play": 93.7,
+          "movement_threat": 8.3
+        }
+      },
+      "positioning_analysis": {
+        "compliance_score": 0,
+        "zone_distribution": {
+          "primary": 10.344827586206897,
+          "secondary": 37.93103448275862,
+          "danger": 51.724137931034484
+        },
+        "total_events": 29,
+        "insights": [
+          "POSITIONING ISSUE: Only 10.3% of actions in primary zone - needs to maintain positional discipline",
+          "HIGH RISK: 51.7% of actions in danger zone - avoid leaving position unattended"
+        ]
+      },
+      "heat_patterns": {
+        "concentration_score": 57.2,
+        "coverage_score": 100,
+        "x_range": 83.0,
+        "y_range": 77.3,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
+      },
+      "match_phases": {
+        "phases": {},
+        "insights": []
+      },
+      "enhanced_insights": "",
+      "tactical_summary": [
+        "[WARNING] NEEDS IMPROVEMENT: 27.0/100 overall rating",
+        "[POOR] positional discipline - key focus area",
+        "[GOOD] mobility but needs better positioning discipline"
+      ]
+    },
+    "Sison, JelJel": {
       "basic_info": {
         "position": "CB",
         "enhanced_rating": 51.2,
@@ -228,29 +539,27 @@
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Joselito Soberano Jr.": {
+    "Soberano, Joselito": {
       "basic_info": {
-        "position": "FW",
-        "enhanced_rating": 1.5,
+        "position": "LWB",
+        "enhanced_rating": 22.5,
         "enhanced_breakdown": {
-          "game_control": 5.0,
-          "transition_play": 0.0,
-          "defensive_contribution": 0.0,
-          "creativity": 0.0,
-          "work_rate": 0.0
+          "defensive_impact": 30.0,
+          "build_up_quality": 0.0,
+          "positioning_score": 30.0,
+          "physical_play": 40.0
         }
       },
       "positioning_analysis": {
-        "compliance_score": 0,
+        "compliance_score": 70.0,
         "zone_distribution": {
-          "primary": 0.0,
+          "primary": 100.0,
           "secondary": 0.0,
-          "danger": 100.0
+          "danger": 0.0
         },
         "total_events": 3,
         "insights": [
-          "POSITIONING ISSUE: Only 0.0% of actions in primary zone - needs to maintain positional discipline",
-          "HIGH RISK: 100.0% of actions in danger zone - avoid leaving position unattended"
+          "EXCELLENT positioning: 100.0% of actions in correct zone - maintains tactical discipline"
         ]
       },
       "heat_patterns": {
@@ -270,56 +579,12 @@
       },
       "enhanced_insights": "",
       "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 1.5/100 overall rating",
-        "[POOR] positional discipline - key focus area",
+        "[WARNING] NEEDS IMPROVEMENT: 22.5/100 overall rating",
+        "[GOOD] positional awareness",
         "[DISCIPLINED] positioning but could be more mobile"
       ]
     },
-    "Jul Aningalan": {
-      "basic_info": {
-        "position": "RB",
-        "enhanced_rating": 75.4,
-        "enhanced_breakdown": {
-          "defensive_impact": 87.5,
-          "build_up_quality": 88.5,
-          "positioning_score": 25.6,
-          "physical_play": 87.4
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 27.5,
-        "zone_distribution": {
-          "primary": 53.125,
-          "secondary": 17.1875,
-          "danger": 29.6875
-        },
-        "total_events": 64,
-        "insights": [
-          "HIGH RISK: 29.7% of actions in danger zone - avoid leaving position unattended"
-        ]
-      },
-      "heat_patterns": {
-        "concentration_score": 48.5,
-        "coverage_score": 100,
-        "x_range": 76.5,
-        "y_range": 83.9,
-        "patterns": [
-          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
-          "TOO ROAMING: Focus on maintaining core position"
-        ]
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[STRONG] PERFORMER: 75.4/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[GOOD] mobility but needs better positioning discipline"
-      ]
-    },
-    "Kirvy Tabelin": {
+    "Tabelin, Kirvy": {
       "basic_info": {
         "position": "CAM",
         "enhanced_rating": 52.4,
@@ -364,140 +629,7 @@
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Kurt Bacaycay": {
-      "basic_info": {
-        "position": "RW",
-        "enhanced_rating": 15,
-        "enhanced_breakdown": {
-          "finishing_quality": 25.0,
-          "offensive_contribution": 0.0,
-          "link_up_play": 0.0,
-          "movement_threat": 35.0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 50.0,
-        "zone_distribution": {
-          "primary": 50.0,
-          "secondary": 50.0,
-          "danger": 0.0
-        },
-        "total_events": 2,
-        "insights": [
-          "GOOD mobility: 50.0% in secondary zone shows good tactical flexibility"
-        ]
-      },
-      "heat_patterns": {
-        "concentration_score": 48.7,
-        "coverage_score": 100,
-        "x_range": 22.0,
-        "y_range": 80.6,
-        "patterns": [
-          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
-          "TOO ROAMING: Focus on maintaining core position"
-        ]
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 15.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[GOOD] mobility but needs better positioning discipline"
-      ]
-    },
-    "Laurence Fernandez": {
-      "basic_info": {
-        "position": "RW",
-        "enhanced_rating": 15,
-        "enhanced_breakdown": {
-          "finishing_quality": 11.1,
-          "offensive_contribution": 3.0,
-          "link_up_play": 44.5,
-          "movement_threat": 23.2
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 13.3,
-        "zone_distribution": {
-          "primary": 41.66666666666667,
-          "secondary": 16.666666666666664,
-          "danger": 41.66666666666667
-        },
-        "total_events": 24,
-        "insights": [
-          "HIGH RISK: 41.7% of actions in danger zone - avoid leaving position unattended"
-        ]
-      },
-      "heat_patterns": {
-        "concentration_score": 45.0,
-        "coverage_score": 100,
-        "x_range": 82.5,
-        "y_range": 82.4,
-        "patterns": [
-          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
-          "TOO ROAMING: Focus on maintaining core position"
-        ]
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 15.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[GOOD] mobility but needs better positioning discipline"
-      ]
-    },
-    "Louie Bacnis": {
-      "basic_info": {
-        "position": "CDM",
-        "enhanced_rating": 66.2,
-        "enhanced_breakdown": {
-          "game_control": 96.9,
-          "transition_play": 91.2,
-          "defensive_contribution": 49.0,
-          "creativity": 0.0,
-          "work_rate": 45.7
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 54.5,
-        "zone_distribution": {
-          "primary": 84.0909090909091,
-          "secondary": 4.545454545454546,
-          "danger": 11.363636363636363
-        },
-        "total_events": 44,
-        "insights": [
-          "EXCELLENT positioning: 84.1% of actions in correct zone - maintains tactical discipline"
-        ]
-      },
-      "heat_patterns": {
-        "concentration_score": 61.9,
-        "coverage_score": 100,
-        "x_range": 66.2,
-        "y_range": 71.8,
-        "patterns": [
-          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
-          "TOO ROAMING: Focus on maintaining core position"
-        ]
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[SOLID] CONTRIBUTOR: 66.2/100 overall rating",
-        "[GOOD] positional awareness",
-        "[GOOD] mobility but needs better positioning discipline"
-      ]
-    },
-    "Pedro Tagara": {
+    "Tagara, Pedro": {
       "basic_info": {
         "position": "GK",
         "enhanced_rating": 36.7,
@@ -542,561 +674,7 @@
         "[GOOD] mobility but needs better positioning discipline"
       ]
     },
-    "Pius Encaya": {
-      "basic_info": {
-        "position": "CF",
-        "enhanced_rating": 40.9,
-        "enhanced_breakdown": {
-          "game_control": 86.9,
-          "transition_play": 43.2,
-          "defensive_contribution": 7.0,
-          "creativity": 0.0,
-          "work_rate": 26.1
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {
-          "primary": 6.666666666666667,
-          "secondary": 40.0,
-          "danger": 53.333333333333336
-        },
-        "total_events": 30,
-        "insights": [
-          "POSITIONING ISSUE: Only 6.7% of actions in primary zone - needs to maintain positional discipline",
-          "HIGH RISK: 53.3% of actions in danger zone - avoid leaving position unattended"
-        ]
-      },
-      "heat_patterns": {
-        "concentration_score": 65.2,
-        "coverage_score": 100,
-        "x_range": 63.2,
-        "y_range": 67.5,
-        "patterns": [
-          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
-          "TOO ROAMING: Focus on maintaining core position"
-        ]
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 40.9/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[GOOD] mobility but needs better positioning discipline"
-      ]
-    },
-    "Sam Salingay": {
-      "basic_info": {
-        "position": "CF",
-        "enhanced_rating": 53.7,
-        "enhanced_breakdown": {
-          "game_control": 96.7,
-          "transition_play": 72.0,
-          "defensive_contribution": 0.0,
-          "creativity": 21.9,
-          "work_rate": 34.0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 7.9,
-        "zone_distribution": {
-          "primary": 27.586206896551722,
-          "secondary": 31.03448275862069,
-          "danger": 41.37931034482759
-        },
-        "total_events": 29,
-        "insights": [
-          "POSITIONING ISSUE: Only 27.6% of actions in primary zone - needs to maintain positional discipline",
-          "HIGH RISK: 41.4% of actions in danger zone - avoid leaving position unattended"
-        ]
-      },
-      "heat_patterns": {
-        "concentration_score": 57.2,
-        "coverage_score": 100,
-        "x_range": 83.0,
-        "y_range": 77.3,
-        "patterns": [
-          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
-          "TOO ROAMING: Focus on maintaining core position"
-        ]
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[SOLID] CONTRIBUTOR: 53.7/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[GOOD] mobility but needs better positioning discipline"
-      ]
-    },
-    "Stock Rujiro": {
-      "basic_info": {
-        "position": "FW",
-        "enhanced_rating": 35.6,
-        "enhanced_breakdown": {
-          "game_control": 100.0,
-          "transition_play": 0.0,
-          "defensive_contribution": 22.3,
-          "creativity": 0.0,
-          "work_rate": 11.9
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {
-          "primary": 20.0,
-          "secondary": 20.0,
-          "danger": 60.0
-        },
-        "total_events": 5,
-        "insights": [
-          "POSITIONING ISSUE: Only 20.0% of actions in primary zone - needs to maintain positional discipline",
-          "HIGH RISK: 60.0% of actions in danger zone - avoid leaving position unattended"
-        ]
-      },
-      "heat_patterns": {
-        "concentration_score": 62.0,
-        "coverage_score": 100,
-        "x_range": 34.9,
-        "y_range": 62.2,
-        "patterns": [
-          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
-          "TOO ROAMING: Focus on maintaining core position"
-        ]
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 35.6/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[GOOD] mobility but needs better positioning discipline"
-      ]
-    },
-    "Tagara, Pedro": {
-      "basic_info": {
-        "position": "GK",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Libarnes, Jaro": {
-      "basic_info": {
-        "position": "CB",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Aningalan, Jul": {
-      "basic_info": {
-        "position": "CB",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Sison, JelJel": {
-      "basic_info": {
-        "position": "CB",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Bacnis, Louie": {
-      "basic_info": {
-        "position": "CDM",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Pineda, Jaryl": {
-      "basic_info": {
-        "position": "LW",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Tabelin, Kirvy": {
-      "basic_info": {
-        "position": "CAM",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Fernandez, Laurence": {
-      "basic_info": {
-        "position": "RW",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Escodo, Bel": {
-      "basic_info": {
-        "position": "CDM",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Encaya, Pius": {
-      "basic_info": {
-        "position": "ST",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Salingay, Sam": {
-      "basic_info": {
-        "position": "ST",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
     "Mellendrez, Prince": {
-      "basic_info": {
-        "position": "RWB",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Soberano, Joselito": {
-      "basic_info": {
-        "position": "LWB",
-        "enhanced_rating": 0.0,
-        "enhanced_breakdown": {
-          "attack": 0,
-          "defense": 0,
-          "distribution": 0,
-          "discipline": 0
-        }
-      },
-      "positioning_analysis": {
-        "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
-      },
-      "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
-      },
-      "match_phases": {
-        "phases": {},
-        "insights": []
-      },
-      "enhanced_insights": "",
-      "tactical_summary": [
-        "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
-        "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
-      ]
-    },
-    "Rogero, Stock": {
       "basic_info": {
         "position": "RWB",
         "enhanced_rating": 0.0,
@@ -1141,13 +719,26 @@
       },
       "positioning_analysis": {
         "compliance_score": 0,
-        "zone_distribution": {},
-        "insights": []
+        "zone_distribution": {
+          "primary": 24.78448275862069,
+          "secondary": 19.181034482758623,
+          "danger": 56.03448275862068
+        },
+        "total_events": 464,
+        "insights": [
+          "POSITIONING ISSUE: Only 24.8% of actions in primary zone - needs to maintain positional discipline",
+          "HIGH RISK: 56.0% of actions in danger zone - avoid leaving position unattended"
+        ]
       },
       "heat_patterns": {
-        "concentration_score": 0,
-        "coverage_score": 0,
-        "patterns": []
+        "concentration_score": 50.6,
+        "coverage_score": 100,
+        "x_range": 92.5,
+        "y_range": 92.5,
+        "patterns": [
+          "EXCELLENT COVERAGE: Good tactical mobility (score: 100.0)",
+          "TOO ROAMING: Focus on maintaining core position"
+        ]
       },
       "match_phases": {
         "phases": {},
@@ -1157,7 +748,7 @@
       "tactical_summary": [
         "[WARNING] NEEDS IMPROVEMENT: 0.0/100 overall rating",
         "[POOR] positional discipline - key focus area",
-        "[NEEDS] tactical positioning improvement"
+        "[GOOD] mobility but needs better positioning discipline"
       ]
     }
   }
