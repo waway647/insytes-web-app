@@ -180,45 +180,45 @@
 
 	<div id="match-library-main-content" class="">
 		<div class="flex flex-col gap-5 py-5">
-			<!-- Search and filter --> 
-			<div class="flex w-full gap-10">
-			<input type="text" id="searchInput" placeholder="Search"
-				class="w-full border border-white/6 text-white text-sm px-4 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-white/10 bg-[#0f0f0f]" />
+			<!-- Search and filter-->
+			<div class="flex w-full gap-4">
+				<input type="text" id="searchInput" placeholder="Search"
+				class="w-full border border-white/6 text-white text-sm px-4 py-2 rounded-lg bg-[#0f0f0f] focus:outline-none focus:ring-1 focus:ring-white/10" />
 
-			<button id="match-filter-btn" class="flex gap-2 w-26 justify-between items-center h-relative bg-[#1d1d1d] cursor-pointer px-4 text-white font-medium text-sm rounded-lg hover:bg-[#1a1a1a] transition border border-white/6 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/10">
-				<img src="<?php echo base_url('assets/images/icons/filter.svg'); ?>">
-				Filter
-			</button>
+				<button id="match-filter-btn" class="flex gap-2 items-center px-4 py-2 bg-[#141414] cursor-pointer text-white text-sm font-medium rounded-lg hover:bg-[#191919] transition-shadow border border-white/6 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-white/8">
+					<img src="<?php echo base_url('assets/images/icons/filter.svg'); ?>" class="w-4 h-4">
+					<span>Filter</span>
+				</button>
 			</div>
 
 			<!-- Filter modal (hidden by default) -->
-			<div id="match-filter-modal" class="hidden fixed inset-0 z-50 items-center justify-center">
+			<div id="match-filter-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
 			<div id="match-filter-modal-backdrop" class="absolute inset-0 bg-black/60"></div>
 			<div class="relative z-10 w-full max-w-md p-6 rounded-lg bg-[#0b0b0b] border border-white/6 shadow-2xl">
 				<div class="flex items-center justify-between mb-4">
 				<h3 class="text-lg font-semibold text-white">Filter matches</h3>
-				<button id="match-filter-close" class="text-white/70 hover:text-white">✕</button>
+				<button id="match-filter-close" class="text-white/70 hover:text-white cursor-pointer">✕</button>
 				</div>
 
 				<div class="flex flex-col gap-4">
 				<label class="flex flex-col text-sm text-white">
 					<span class="mb-1">Season</span>
-					<select id="filter-season" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm">
+					<select id="filter-season" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm cursor-pointer">
 					<option value="">All seasons</option>
 					</select>
 				</label>
 
 				<label class="flex flex-col text-sm text-white">
 					<span class="mb-1">Competition</span>
-					<select id="filter-competition" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm">
+					<select id="filter-competition" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm cursor-pointer">
 					<option value="">All competitions</option>
 					</select>
 				</label>
 				</div>
 
 				<div class="mt-6 flex justify-end gap-3">
-				<button id="filter-clear" class="px-4 py-2 rounded bg-transparent border border-white/6 text-white text-sm hover:bg-white/5">Clear</button>
-				<button id="filter-apply" class="px-4 py-2 rounded bg-[#1d1d1d] text-white text-sm hover:bg-[#232323]">Apply</button>
+				<button id="filter-clear" class="px-4 py-2 rounded bg-transparent border border-white/6 text-white text-sm hover:bg-white/5 cursor-pointer">Clear</button>
+				<button id="filter-apply" class="px-4 py-2 rounded bg-[#1d1d1d] text-white text-sm hover:bg-[#232323] cursor-pointer">Apply</button>
 				</div>
 			</div>
 			</div>
@@ -235,15 +235,16 @@
 			<div id="month-card" class="flex flex-col w-full p-6 gap-5 bg-[#111111] rounded-lg border border-white/6 shadow-sm">
 				<div class="flex w-full justify-between items-center">
 					<h2 id="month-name" class="text-white font-bold text-xl">
-						July
-						<span id="year" class="text-[#B6BABD]">2026</span>
+						&nbsp
+						<span id="year" class="text-[#B6BABD]">&nbsp</span>
 					</h2>
 				</div>
 				<div id="match-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-6">
 					<!-- append all match cards here -->
 					<div id="match-card" class="group flex flex-col w-full bg-gradient-to-b from-[#1b1b1b] to-[#141414] rounded-xl border border-white/6 shadow-lg hover:shadow-2xl transform transition-all duration-200 hover:-translate-y-1">
 						<div id="thumbnail" class="relative flex w-full h-64 bg-[#363636] rounded-t-xl overflow-hidden">
-							<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('');"></div>
+							
+						<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('');"></div>
 							<div class="flex w-full h-fit p-2 justify-end z-10">
 								<button id="card-options-btn" type="button" class="p-1 hover:bg-white/6 rounded-full cursor-pointer transition focus:outline-none focus:ring-2 focus:ring-white/20">
 									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
@@ -260,16 +261,16 @@
 						<div class="flex flex-col w-full h-fit p-5 gap-3 rounded-b-xl">
 							<div class="flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-blue-500">
 								<div id="status-color" class="w-2 h-2 rounded-full bg-blue-500"></div>
-								<span id="status" class="text-[#B6BABD] text-xs">Ready</span>
+								<span id="status" class="text-[#B6BABD] text-xs"></span>
 							</div>
 							<div class="flex w-full h-fit justify-between items-center">
 								<div class="flex flex-col">
 									<!-- competition label (new) -->
-									<p id="competition" class="text-xs text-[#9CA3AF] mb-1">Ang Liga</p>
-									<p id="match-name" class="text-white font-bold text-lg">vs. Ateneo</p>
+									<p id="competition" class="text-xs text-[#9CA3AF] mb-1"></p>
+									<p id="match-name" class="text-white font-bold text-lg"></p>
 								</div>
 
-								<span id="match-date" class="h-full flex items-end text-[#B6BABD] font-medium">Jul 28</span>
+								<span id="match-date" class="h-full flex items-end text-[#B6BABD] font-medium"></span>
 							</div>
 						</div>
 					</div> <!-- match-card -->

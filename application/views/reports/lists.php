@@ -10,14 +10,14 @@
 				<input type="text" id="searchInput" placeholder="Search"
 				class="w-full border border-white/6 text-white text-sm px-4 py-2 rounded-lg bg-[#0f0f0f] focus:outline-none focus:ring-1 focus:ring-white/10" />
 
-				<button id="match-filter-btn" class="flex gap-2 items-center px-4 py-2 bg-[#141414] text-white text-sm font-medium rounded-lg hover:bg-[#191919] transition-shadow border border-white/6 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-white/8">
+				<button id="match-filter-btn" class="flex gap-2 items-center px-4 py-2 bg-[#141414] cursor-pointer text-white text-sm font-medium rounded-lg hover:bg-[#191919] transition-shadow border border-white/6 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-white/8">
 					<img src="<?php echo base_url('assets/images/icons/filter.svg'); ?>" class="w-4 h-4">
 					<span>Filter</span>
 				</button>
 			</div>
 
 			<div class="flex">
-				<h1 id="season-header" class="text-[#B6BABD] font-semibold text-xl">2025/2026 Season</h1>
+				<h1 id="season-header" class="text-[#B6BABD] font-bold text-xl">2025/2026 Season</h1>
 			</div>
 		</div>
 

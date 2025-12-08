@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDE -->
+    <!-- RIGHT SIDE 
     <div class="w-full lg:w-1/3 bg-[#1D1D1D] rounded-2xl p-6">
       <h2 class="text-xl text-white font-semibold mb-2">Active Now</h2>
       <div class="text-gray-400 text-sm bg-[#181818] rounded-xl p-8 mt-4 text-center">
@@ -78,13 +78,14 @@
         <p>When one of your team starts an activity—like reviewing past matches and clips—we’ll show it here!</p>
       </div>
     </div>
+    -->
   </div>
   <script>
   		const TEAM_ID = <?php echo json_encode($team_id); ?>;
 		  const USER_ID = <?php echo json_encode($user_id); ?>;
       const ROLE = <?php echo json_encode($role); ?>;
   </script>
-  <script src="<?php echo base_url('assets/js/modalHandler.js'); ?>"></script>
-  <script src="<?php echo base_url('assets/js/inviteLinkHandler.js'); ?>"></script>
-  <script src="<?php echo base_url('assets/js/peopleListHandler.js'); ?>"></script>
-
+  
+  <script src="<?php echo base_url(); ?>assets/js/modalHandler.js?<?php echo time(); ?>"></script>
+  <script src="<?php echo base_url(); ?>assets/js/inviteLinkHandler.js?<?php echo time(); ?>"></script>
+  <script src="<?php echo base_url(); ?>assets/js/peopleListHandler.js?<?php echo time(); ?>"></script>

@@ -174,30 +174,30 @@
     if (document.getElementById('match-filter-modal')) return;
 
     const modalHtml = `
-      <div id="match-filter-modal" class="hidden fixed inset-0 z-50 items-center justify-center">
+      <div id="match-filter-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
         <div id="match-filter-modal-backdrop" class="absolute inset-0 bg-black/60"></div>
         <div class="relative z-10 w-full max-w-md p-6 rounded-lg bg-[#0b0b0b] border border-white/6 shadow-2xl">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-white">Filter matches</h3>
-            <button id="match-filter-close" class="text-white/70 hover:text-white">✕</button>
+            <button id="match-filter-close" class="text-white/70 hover:text-white cursor-pointer">✕</button>
           </div>
           <div class="flex flex-col gap-4">
             <label class="flex flex-col text-sm text-white">
               <span class="mb-1">Season</span>
-              <select id="filter-season" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm">
+              <select id="filter-season" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm cursor-pointer">
                 <option value="">All seasons</option>
               </select>
             </label>
             <label class="flex flex-col text-sm text-white">
               <span class="mb-1">Competition</span>
-              <select id="filter-competition" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm">
+              <select id="filter-competition" class="px-3 py-2 rounded bg-[#0f0f0f] border border-white/6 text-white text-sm cursor-pointer">
                 <option value="">All competitions</option>
               </select>
             </label>
           </div>
           <div class="mt-6 flex justify-end gap-3">
-            <button id="filter-clear" class="px-4 py-2 rounded bg-transparent border border-white/6 text-white text-sm hover:bg-white/5">Clear</button>
-            <button id="filter-apply" class="px-4 py-2 rounded bg-[#1d1d1d] text-white text-sm hover:bg-[#232323]">Apply</button>
+            <button id="filter-clear" class="px-4 py-2 rounded bg-transparent border border-white/6 text-white text-sm hover:bg-white/5 cursor-pointer">Clear</button>
+            <button id="filter-apply" class="px-4 py-2 rounded bg-[#1d1d1d] text-white text-sm hover:bg-[#232323] cursor-pointer">Apply</button>
           </div>
         </div>
       </div>

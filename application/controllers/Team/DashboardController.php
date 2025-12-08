@@ -17,7 +17,7 @@ class DashboardController extends CI_Controller {
     {
         // --- 1. Determine filters (prefer GET -> session -> fallback defaults)
         $current_season_id = $this->input->get('season_id') ?? $this->session->userdata('current_season_id') ?? 41;
-        $user_team_id = $this->input->get('team_id') ?? $this->session->userdata('my_team_id') ?? 14;
+        $user_team_id = $this->input->get('team_id') ?? $this->session->userdata('team_id');
 
         // Cast to int for safety
         $current_season_id = (int) $current_season_id;
