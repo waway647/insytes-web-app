@@ -15,6 +15,7 @@ $last_5_record = isset($last_5_record) ? $last_5_record : ['Win' => 0, 'Draw' =>
 $top_players = isset($top_players) && is_array($top_players) ? $top_players : [];
 $position_breakdown = isset($position_breakdown) ? $position_breakdown : [];
 $dashboard_summary = isset($dashboard_summary) ? $dashboard_summary : null;
+$role = $this->session->userdata('role');
 ?>
 
 <!-- Palette CSS (drop into this view) -->
@@ -166,6 +167,7 @@ $dashboard_summary = isset($dashboard_summary) ? $dashboard_summary : null;
     <!-- Core Performance -->
     <div class="card-floating p-6 rounded-2xl">
       <h3 class="text-xl font-semibold mb-4 text-primary-soft">📈 Core Performance</h3>
+      <?php if ($role == 'Coach'): ?>
       <div class="grid grid-cols-3 gap-4">
         <div class="card-pill text-center">
           <div class="text-2xl font-bold text-white"><?php echo count($tagged_matches); ?></div>
@@ -180,11 +182,23 @@ $dashboard_summary = isset($dashboard_summary) ? $dashboard_summary : null;
           <div class="muted-xs uppercase tracking-wider">Avg Possession</div>
         </div>
       </div>
+      <?php elseif ($role == 'Player'): ?>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="card-pill text-center">
+          <div class="text-2xl font-bold text-white"><?php echo number_format($latest_match->my_overall_rating ?? 0, 1); ?></div>
+          <div class="muted-xs uppercase tracking-wider">Recent Rating</div>
+        </div>
+        <div class="card-pill text-center">
+          <div class="text-2xl font-bold text-white"><?php echo $aggregates->avg_possession_pct ?? 0; ?><span class="text-lg">%</span></div>
+          <div class="muted-xs uppercase tracking-wider">Avg Possession</div>
+        </div>
+      </div>
+      <?php endif; ?>
     </div>
 
     <!-- Goal Metrics -->
     <div class="card-floating p-6 rounded-2xl">
-      <h3 class="text-xl font-semibold mb-4 text-primary-soft">⚽ Goal Metrics (Season)</h3>
+      <h3 class="text-xl font-semibold mb-4 text-primary-soft">⚽ Goals This Season</h3>
       <div class="grid grid-cols-2 gap-4">
         <div class="card-tile text-center">
           <div class="text-3xl font-extrabold text-green-400"><?php echo $aggregates->total_goals ?? 0; ?></div>
@@ -378,6 +392,7 @@ $dashboard_summary = isset($dashboard_summary) ? $dashboard_summary : null;
         </li>
       </ul>
 
+      <?php if($role == 'Coach'): ?>
       <h3 class="text-lg font-semibold mt-6 mb-3 text-white border-t pt-3 border-default">Recent Activity</h3>
       <ul class="text-xs space-y-2 max-h-28 overflow-y-auto">
         <?php if (!empty($tagged_matches)): ?>
@@ -391,6 +406,7 @@ $dashboard_summary = isset($dashboard_summary) ? $dashboard_summary : null;
           <li class="muted-small">No recent activity.</li>
         <?php endif; ?>
       </ul>
+      <?php endif; ?>
     </div>
 
     <!-- Top Players -->
@@ -420,10 +436,12 @@ $dashboard_summary = isset($dashboard_summary) ? $dashboard_summary : null;
 
   <hr class="border-default mt-8 mb-6">
 
+  <?php if ($role == 'Coach'): ?>
   <div class="flex justify-end gap-3">
     <a href="<?php echo site_url('match/librarycontroller/index'); ?>" class="btn-primary text-white">▶️ Start Tagging</a>
     <a href="<?php echo site_url('reports/generate/last5'); ?>" class="btn-ghost muted-small">Generate L5 Report</a>
   </div>
+  <?php endif; ?>
 
 </div>
 

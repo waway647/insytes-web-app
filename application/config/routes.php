@@ -92,5 +92,10 @@ $route['mock/(:any)/(:num)'] = 'match/mockapi/index/$1/$2';
 
 $route['matchapi/summary'] = 'matchapi/summary';
 
+// Coach Dashboard
 $route['reports/all'] = 'reports/reportscontroller/index';
 $route['reports/generate/last5'] = 'team/dashboardcontroller/generate_last5_report';
+
+// ADmin Dashboard
+$route['admin/users'] = 'admin/usercontroller/index';
+$route['admin/logs'] = 'admin/logscontroller/index';

@@ -343,17 +343,23 @@
           resultEl.style.fontWeight = '600';
         }
 
-        // <-- FIXED: use `matchCard` (the actual clone) here, not matchCardClone -->
+        // Competition, Name & date (Reports handler)
+        const compEl = matchCard.querySelector('#competition, .competition, [data-role="competition"]');
         const matchNameEl = matchCard.querySelector('#match-name, .match-name, [data-role="match-name"]');
         const matchDateEl = matchCard.querySelector('#match-date, .match-date, [data-role="match-date"]');
         const matchId = match.matchId ?? match.id ?? match.match_id ?? match.id_str ?? '';
 
+        const competitionToShow = match.competition || match.competition_name || match.matchCompetition || '';
         // compute display name (prefer server matchName)
         const serverMatchName = (match.matchName || match.match_name || '').toString().trim();
         const fallbackConfig = match.matchNameConfig ?? match.name ?? match.match_name ?? '';
         const opponent = (match.opponent_team_name || '').toString().trim();
         const matchNameToShow = serverMatchName || fallbackConfig || (opponent ? `vs. ${opponent}` : '');
 
+        if (compEl) {
+          compEl.textContent = competitionToShow;
+          compEl.classList.add('text-sm');
+        }
         if (matchNameEl) matchNameEl.textContent = matchNameToShow;
         if (matchDateEl) matchDateEl.textContent = match.matchDate || match.date || '';
 

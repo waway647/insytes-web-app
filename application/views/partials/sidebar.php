@@ -79,7 +79,7 @@
             <?php endif; ?>
 
             <?php if ($role == 'Admin'): ?>
-            <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
+            <a href="<?php echo site_url('admin/dashboardcontroller/adminDashboard'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/dashboard.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/dashboard-active.svg'); ?>" alt="">
@@ -87,7 +87,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('clips/resultscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
+            <a href="<?php echo site_url('admin/usercontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/people.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/people-active.svg'); ?>" alt="">
@@ -95,7 +95,7 @@
                 </div>
             </a>
             
-            <a href="<?php echo site_url('team/peoplecontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
+            <a href="<?php echo site_url('admin/teamcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/teams.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/teams-active.svg'); ?>" alt="">
@@ -103,7 +103,7 @@
                 </div>
             </a>
 
-            <a href="<?php echo site_url('clips/reviewcontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
+            <a href="<?php echo site_url('admin/logscontroller/index'); ?>" class="group py-2.5 px-5 rounded-md hover:bg-gray-800 transition-colors">
                 <div class="nav-item flex items-center gap-3">
                     <img class="group-hover:hidden" src="<?php echo base_url('assets/images/icons/logs.svg'); ?>" alt="">
                     <img class="hidden group-hover:block" src="<?php echo base_url('assets/images/icons/logs-active.svg'); ?>" alt="">

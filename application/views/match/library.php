@@ -263,8 +263,13 @@
 								<span id="status" class="text-[#B6BABD] text-xs">Ready</span>
 							</div>
 							<div class="flex w-full h-fit justify-between items-center">
-								<p id="match-name" class="text-white font-bold text-lg">vs. Ateneo</p>
-								<span id="match-date" class="text-[#B6BABD] font-medium">Jul 28</span>
+								<div class="flex flex-col">
+									<!-- competition label (new) -->
+									<p id="competition" class="text-xs text-[#9CA3AF] mb-1">Ang Liga</p>
+									<p id="match-name" class="text-white font-bold text-lg">vs. Ateneo</p>
+								</div>
+
+								<span id="match-date" class="h-full flex items-end text-[#B6BABD] font-medium">Jul 28</span>
 							</div>
 						</div>
 					</div> <!-- match-card -->

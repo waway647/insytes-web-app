@@ -363,10 +363,20 @@
           statusText.textContent = match.status || '';
         }
 
-        // Name & date
+        // Competition, Name & date
+        const compEl = matchCard.querySelector('#competition, .competition, [data-role="competition"]');
         const matchNameEl = matchCard.querySelector('#match-name, .match-name, [data-role="match-name"]');
         const matchDateEl = matchCard.querySelector('#match-date, .match-date, [data-role="match-date"]');
-        if (matchNameEl) matchNameEl.textContent = match.matchName || '';
+
+        const competitionToShow = match.competition || match.competition_name || match.matchCompetition || '';
+        const matchNameToShow = match.matchName || match.match_name || match.opponent_team_name || match.matchNameConfig || '';
+
+        if (compEl) {
+          compEl.textContent = competitionToShow;
+          // optional: ensure visual style if you want runtime overrides
+          compEl.classList.add('text-sm');
+        }
+        if (matchNameEl) matchNameEl.textContent = matchNameToShow;
         if (matchDateEl) matchDateEl.textContent = match.matchDate || '';
 
         // Attach handlers and append
