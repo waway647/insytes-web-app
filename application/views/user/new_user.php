@@ -46,7 +46,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
             alt="Football player"
             src="<?php echo base_url('assets/images/icons/football-player.png'); ?>"
           />
-        </a>
+        </a> <!-- Player  -->
         <p class="text-white text-lg sm:text-xl mt-4 role-text">Player</p>
       </div>
 
