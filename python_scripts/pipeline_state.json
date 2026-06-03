@@ -1,7 +1,7 @@
 {
   "processed_datasets": {
-    "match_19_sbu_vs_2wfc": {
-      "file_hash": "1c0635d9a223dd8a828efabb178e6f51",
+    "match_18_sbu_vs_kaya": {
+      "file_hash": "ebc2d167f70edf6353ae58bd55d26146",
       "completed_steps": [
         "convert_events",
         "derived_metrics",
@@ -13,10 +13,10 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-12-07T22:40:27.687610",
+      "last_processed": "2025-12-09T02:51:02.943438",
       "processing_history": [
         {
-          "timestamp": "2025-12-07T22:41:37.068544",
+          "timestamp": "2025-12-09T02:51:39.810923",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -32,8 +32,8 @@
         }
       ]
     },
-    "match_17_sbu_vs_sin": {
-      "file_hash": "34837f5e53ab59a6af995e3c41d5467d",
+    "match_19_sbu_vs_2wfc": {
+      "file_hash": "1c0635d9a223dd8a828efabb178e6f51",
       "completed_steps": [
         "convert_events",
         "derived_metrics",
@@ -45,10 +45,10 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-12-07T22:42:08.462848",
+      "last_processed": "2025-12-09T02:51:39.811911",
       "processing_history": [
         {
-          "timestamp": "2025-12-07T22:42:47.816972",
+          "timestamp": "2025-12-09T02:52:11.672818",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -61,6 +61,38 @@
             "heatmaps",
             "team_summary"
           ]
+        }
+      ]
+    },
+    "match_30_sbu_vs_cdfm": {
+      "file_hash": "2354749db86fedfead3d4bd753e3f942",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics"
+      ],
+      "last_processed": "2025-12-09T02:52:11.673817",
+      "processing_history": [
+        {
+          "timestamp": "2025-12-09T02:52:15.521572",
+          "step": "regression_model",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\venv\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'player_name'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_players.py.temp\", line 297, in <module>\n    new_df[\"position_history\"] = new_df[\"player_name\"].map(history).apply(lambda x: x if isinstance(x, list) else [])\n                                 ~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\venv\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\venv\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'player_name'\n"
+        }
+      ]
+    },
+    "match_31_sbu_vs_2wfc": {
+      "file_hash": "de3481765867b07364e1eb6ad413ff18",
+      "completed_steps": [
+        "convert_events",
+        "derived_metrics"
+      ],
+      "last_processed": "2025-12-09T02:52:15.522564",
+      "processing_history": [
+        {
+          "timestamp": "2025-12-09T02:52:19.490232",
+          "step": "regression_model",
+          "status": "failed",
+          "error": "Traceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\venv\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'player_name'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\python_scripts\\regression_model_players.py.temp\", line 297, in <module>\n    new_df[\"position_history\"] = new_df[\"player_name\"].map(history).apply(lambda x: x if isinstance(x, list) else [])\n                                 ~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\venv\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\xampp\\htdocs\\GitHub\\insytes-web-app\\venv\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'player_name'\n"
         }
       ]
     },
@@ -77,42 +109,10 @@
         "heatmaps",
         "team_summary"
       ],
-      "last_processed": "2025-12-07T22:43:15.884438",
+      "last_processed": "2025-12-09T14:10:25.320136",
       "processing_history": [
         {
-          "timestamp": "2025-12-07T22:43:51.852035",
-          "status": "completed",
-          "steps": [
-            "convert_events",
-            "derived_metrics",
-            "regression_model",
-            "insights",
-            "team_metrics",
-            "team_model",
-            "team_insights",
-            "heatmaps",
-            "team_summary"
-          ]
-        }
-      ]
-    },
-    "match_18_sbu_vs_kaya": {
-      "file_hash": "ebc2d167f70edf6353ae58bd55d26146",
-      "completed_steps": [
-        "convert_events",
-        "derived_metrics",
-        "regression_model",
-        "insights",
-        "team_metrics",
-        "team_model",
-        "team_insights",
-        "heatmaps",
-        "team_summary"
-      ],
-      "last_processed": "2025-12-07T22:44:21.807436",
-      "processing_history": [
-        {
-          "timestamp": "2025-12-07T22:44:59.567064",
+          "timestamp": "2025-12-09T14:11:07.980294",
           "status": "completed",
           "steps": [
             "convert_events",
@@ -129,5 +129,5 @@
       ]
     }
   },
-  "last_updated": "2025-12-08T09:38:02.538635"
+  "last_updated": "2025-12-09T15:05:25.994066"
 }

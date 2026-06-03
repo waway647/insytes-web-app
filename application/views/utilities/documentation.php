@@ -94,9 +94,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a href="<?php echo site_url('team/dashboardcontroller/index'); ?>" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-sm shadow">
           ← Back to Homepage
         </a>
-        <a href="<?php echo base_url('assets/documentation/platform_documentation.pdf'); ?>" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 text-sm text-slate-200 hover:bg-slate-800">
-          Download PDF
-        </a>
       </div>
     </header>
 
@@ -133,74 +130,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			</div>
 
-          <div class="mt-4 flex flex-wrap gap-3">
-            <a href="<?php echo base_url('assets/documentation/product_demo_final.mp4'); ?>" download class="px-3 py-2 rounded-md bg-slate-700 hover:bg-slate-600 text-sm">Download video</a>
-            <a href="#platform-docs" class="px-3 py-2 rounded-md border border-slate-700 text-sm hover:bg-slate-800">Platform docs</a>
-            <a href="#about-team" class="px-3 py-2 rounded-md border border-slate-700 text-sm hover:bg-slate-800">About the team</a>
-          </div>
-        </div>
-
-        <!-- Platform Documentation (detailed topics) -->
-        <div id="platform-docs" class="glass rounded-2xl p-6 shadow-lg border border-slate-800">
-          <div class="flex items-center justify-between">
-            <h3 class="text-lg font-semibold text-white">Platform Documentation</h3>
-            <div class="text-sm text-slate-400">Version: <span class="font-medium text-white">v1.0.0</span></div>
-          </div>
-
-          <p class="text-sm text-slate-400 mt-3">
-            The documentation below provides high-level and implementation details for the major areas of the Insytes platform.
-          </p>
-
-          <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Doc cards... (kept as before) -->
-            <article class="p-4 rounded-lg bg-[#071018] border border-slate-800 shadow-sm">
-              <h4 class="text-sm font-semibold text-white">1. Getting Started</h4>
-              <p class="text-xs text-slate-400 mt-1">How to onboard your team, create competitions, upload matches and start taggings.</p>
-              <ul class="mt-3 text-xs text-slate-400 space-y-1">
-                <li>• Setup & permissions</li>
-                <li>• Team & competition configuration</li>
-                <li>• Video ingestion & transcoding</li>
-              </ul>
-            </article>
-
-            <article class="p-4 rounded-lg bg-[#071018] border border-slate-800 shadow-sm">
-              <h4 class="text-sm font-semibold text-white">2. Tagging Studio</h4>
-              <p class="text-xs text-slate-400 mt-1">Guide to the tagging workflow, event types, keyboard shortcuts and recommended workflows for fast tagging.</p>
-              <ul class="mt-3 text-xs text-slate-400 space-y-1">
-                <li>• Event taxonomy</li>
-                <li>• Quick tagging tips</li>
-                <li>• Exporting event logs</li>
-              </ul>
-            </article>
-
-            <article class="p-4 rounded-lg bg-[#071018] border border-slate-800 shadow-sm">
-              <h4 class="text-sm font-semibold text-white">3. Dashboards & Reports</h4>
-              <p class="text-xs text-slate-400 mt-1">Description of the dashboards, available KPIs, and how to build custom exports and reports.</p>
-              <ul class="mt-3 text-xs text-slate-400 space-y-1">
-                <li>• Match & season aggregates</li>
-                <li>• Player sheets & per-90 stats</li>
-                <li>• CSV / PDF export</li>
-              </ul>
-            </article>
-
-            <article class="p-4 rounded-lg bg-[#071018] border border-slate-800 shadow-sm">
-              <h4 class="text-sm font-semibold text-white">4. API & Integration</h4>
-              <p class="text-xs text-slate-400 mt-1">Overview of public APIs and how to fetch the views and endpoints used by the UI.</p>
-              <ul class="mt-3 text-xs text-slate-400 space-y-1">
-                <li>• Auth & tokens</li>
-                <li>• Key endpoints</li>
-                <li>• Rate limits & webhooks</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="mt-6">
-            <h4 class="text-sm font-semibold text-white">Quick Links</h4>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <a href="<?php echo base_url('assets/documentation/platform_documentation.pdf'); ?>" class="px-3 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white text-sm shadow">Download complete docs (PDF)</a>
-              <a href="<?php echo base_url('assets/documentation/api_reference.html'); ?>" class="px-3 py-2 rounded-md border border-slate-700 text-sm hover:bg-slate-800">API reference (HTML)</a>
-            </div>
-          </div>
         </div>
 
       </section>
@@ -262,34 +191,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
 
-        <!-- Mini-card with quick facts -->
-        <div class="glass rounded-2xl p-5 shadow-lg border border-slate-800">
-          <div class="flex items-center justify-between">
-            <div>
-              <h4 class="text-sm font-semibold text-white">Platform facts</h4>
-              <p class="text-xs text-slate-400 mt-1">Designed for coaching teams and analysts.</p>
-            </div>
-            <div class="text-right">
-              <div class="text-lg font-bold text-white">30+</div>
-              <div class="text-xs text-slate-400">teams onboarded</div>
-            </div>
-          </div>
-
-          <div class="mt-4 grid grid-cols-2 gap-3 text-xs text-slate-400">
-            <div class="p-3 rounded-lg bg-[#071018]">Matches processed <div class="mt-1 text-white font-semibold">12k+</div></div>
-            <div class="p-3 rounded-lg bg-[#071018]">Events catalog <div class="mt-1 text-white font-semibold">120+</div></div>
-          </div>
-        </div>
-
-        <!-- Support / Changelog -->
-        <div class="glass rounded-2xl p-5 shadow-lg border border-slate-800">
-          <h4 class="text-sm font-semibold text-white">Support & Changelog</h4>
-          <p class="text-xs text-slate-400 mt-2">For support, feature requests or bugs, open a ticket through your organization's support channel or email the team.</p>
-
-          <div class="mt-3">
-            <a href="<?php echo base_url('changelog'); ?>" class="text-sm px-3 py-2 rounded-md border border-slate-700 hover:bg-slate-800">View changelog</a>
-          </div>
-        </div>
+        
       </aside>
     </main>
 

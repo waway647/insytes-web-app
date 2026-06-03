@@ -1,18 +1,18 @@
 player,dpr,predicted_dpr,dpr_change,minutes,position_history,position_changed
-"Aningalan, Jul",75.4,75.4,0.0,97.1,"['CB', 'CB']",0
-"Bacaycay, Kurt",22.5,22.5,0.0,10.9,['RWB'],0
-"Bacnis, Louie",66.2,66.2,0.0,94.6,['CDM'],0
-"Bayubay, Cesar Ien",53.4,53.4,0.0,78.4,['LWB'],0
-"Encaya, Pius",17.1,30.0,12.9,96.6,"['ST', 'ST']",0
-"Escodo, Bel",38.2,38.2,0.0,95.0,"['CAM', 'CDM']",1
-"Fernandez, Laurence",15.0,30.0,15.0,95.0,"['LWB', 'RW']",1
-"Libarnes, Jaro",80.4,80.4,0.0,97.4,"['CB', 'CB']",0
-"Pineda, Jaryl",22.9,30.0,7.1,94.7,['CAM'],0
-"Rogero, Stock",52.7,52.7,0.0,30.3,[],0
-"Salingay, Sam",27.0,32.8,5.8,95.3,"['ST', 'ST']",0
-"Sison, JelJel",51.2,51.2,0.0,97.0,[],0
-"Soberano, Joselito",22.5,22.5,0.0,30.3,[],0
-"Tabelin, Kirvy",52.4,52.4,0.0,95.2,"['CAM', 'CAM']",0
-"Tagara, Pedro",36.7,50.8,14.1,96.7,['GK'],0
-"Mellendrez, Prince",0.0,0.0,0.0,0.0,['RWB'],0
-Unnamed,0.0,0.0,0.0,0.0,"[nan, nan]",0
+"Aningalan, Jul",75.4,62.9,-12.5,97.1,"['CB', 'CB', 'CB', 'RB', 'CB', 'LWB', 'CM', 'CDM', 'CM', 'ST', 'LB', 'CDM', 'CDM', 'LW', 'CM', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB']",1
+"Bacaycay, Kurt",22.5,44.4,21.9,10.9,"['RWB', 'RWB', 'LB', 'CDM', 'ST', 'LWB', 'CDM', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB']",1
+"Bacnis, Louie",66.2,75.7,9.5,94.6,"['CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM', 'CDM']",0
+"Bayubay, Cesar Ien",53.4,48.3,-5.1,78.4,"['LWB', 'FWB', 'FWB', 'LWB', 'FWB', 'LWB', 'FWB', 'LWB', 'FWB', 'LWB', 'FWB', 'LWB', 'FWB', 'LWB', 'FWB', 'LWB']",1
+"Encaya, Pius",17.1,30.0,12.9,96.6,"['ST', 'ST', 'ST', 'CF', 'RB', 'CAM', 'RWB', 'CB', 'CM', 'CAM', 'RW', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST']",1
+"Escodo, Bel",38.2,30.0,-8.2,95.0,"['CAM', 'CDM', 'CDM', 'CAM', 'RW', 'CAM', 'RW', 'CAM', 'RWB', 'LW', 'CDM', 'RWB', 'CDM', 'RW', 'CAM', 'CB', 'CDM', 'CDM', 'CAM', 'CDM', 'CDM', 'CAM', 'CDM', 'CDM', 'CAM', 'CDM', 'CDM', 'CAM', 'CDM', 'CDM', 'CAM', 'CDM', 'CDM', 'CAM', 'CDM', 'CDM', 'CAM']",1
+"Fernandez, Laurence",15.0,41.3,26.3,95.0,"['LWB', 'RW', 'RW', 'RW', 'GK', 'RWB', 'GK', 'RW', 'CAM', 'CDM', 'CM', 'LB', 'CF', 'ST', 'RWB', 'RWB', 'RWB', 'LW', 'CF', 'GK', 'LWB', 'CAM', 'CF', 'RWB', 'RW', 'RW', 'RW', 'LWB', 'RW', 'RW', 'LWB', 'RW', 'RW', 'LWB', 'RW', 'RW', 'LWB', 'RW', 'RW', 'LWB', 'RW', 'RW', 'LWB', 'RW', 'RW', 'LWB']",1
+"Libarnes, Jaro",80.4,72.1,-8.3,97.4,"['CB', 'CB', 'CB', 'RWB', 'RW', 'CM', 'CB', 'CF', 'CF', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB']",1
+"Pineda, Jaryl",22.9,41.3,18.4,94.7,"['CAM', 'LW', 'LW', 'CAM', 'LW', 'CAM', 'LW', 'CAM', 'LW', 'CAM', 'LW', 'CAM', 'LW', 'CAM', 'LW', 'CAM']",1
+"Rogero, Stock",52.7,83.0,30.3,30.3,"['RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB']",0
+"Salingay, Sam",27.0,68.4,41.4,95.3,"['ST', 'ST', 'ST', 'LB', 'RB', 'GK', 'RB', 'CAM', 'RW', 'CM', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST', 'ST']",1
+"Sison, JelJel",51.2,15.0,-36.2,97.0,"['CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB', 'CB']",0
+"Soberano, Joselito",22.5,49.2,26.7,30.3,"['LWB', 'LWB', 'LWB', 'LWB', 'LWB', 'LWB', 'LWB', 'LWB']",0
+"Tabelin, Kirvy",52.4,48.3,-4.1,95.2,"['CAM', 'CAM', 'CAM', 'RWB', 'RWB', 'CM', 'CM', 'RW', 'ST', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM', 'CAM']",1
+"Tagara, Pedro",36.7,78.0,41.3,96.7,"['GK', 'GK', 'RWB', 'LB', 'LB', 'CB', 'CDM', 'RW', 'GK', 'CF', 'CM', 'ST', 'RWB', 'LB', 'RB', 'RB', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK', 'GK']",1
+"Mellendrez, Prince",0.0,22.6,22.6,0.0,"['RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB', 'RWB']",0
+Unnamed,0.0,48.3,48.3,0.0,"[nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]",0

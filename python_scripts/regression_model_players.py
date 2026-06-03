@@ -121,10 +121,10 @@ def validate_model(model, X, y, model_name):
     except Exception as e:
         print(f"Cross-validation failed for {model_name}: {e}")
     
-    # Overfitting detection
+    # Overfitting detection - be explicit about None/0.0
     overfitting = False
-    if train_r2 and test_r2:
-        overfitting = (train_r2 - test_r2) > 0.3  # Significant gap indicates overfitting
+    if (train_r2 is not None) and (test_r2 is not None) and np.isfinite(train_r2) and np.isfinite(test_r2):
+        overfitting = (train_r2 - test_r2) > 0.3
     
     validation_results = {
         "status": "validated",
@@ -132,12 +132,12 @@ def validate_model(model, X, y, model_name):
         "samples_train": len(X_train),
         "samples_test": len(X_test),
         "train_metrics": {
-            "r2": float(train_r2) if train_r2 else None,
+            "r2": float(train_r2) if (train_r2 is not None and np.isfinite(train_r2)) else None,
             "mae": float(train_mae),
             "mse": float(train_mse)
         },
         "test_metrics": {
-            "r2": float(test_r2) if test_r2 else None,
+            "r2": float(test_r2) if (test_r2 is not None and np.isfinite(test_r2)) else None,
             "mae": float(test_mae),
             "mse": float(test_mse)
         },
@@ -147,7 +147,7 @@ def validate_model(model, X, y, model_name):
             "cv_scores": cv_scores.tolist() if cv_scores is not None else None
         },
         "overfitting_detected": overfitting,
-        "model_quality": "good" if test_r2 and test_r2 > MIN_R2 else "poor"
+        "model_quality": "good" if (test_r2 is not None and np.isfinite(test_r2) and test_r2 > MIN_R2) else "poor"
     }
     
     return validation_results, model, scaler, X_train_scaled
@@ -335,6 +335,76 @@ for role, breakdown_cols in ENHANCED_BREAKDOWN_FEATS.items():
     enhanced_cols = [f"enhanced_{feat}" for feat in breakdown_cols if f"enhanced_{feat}" in combined_df.columns]
     ENHANCED_FEATS[role] = enhanced_cols
     print(f"Role {role}: Found {len(enhanced_cols)} enhanced features: {enhanced_cols}")
+
+
+# ------------------- COMPUTE PLAYER OVERALL (INSERT HERE) -------------------
+def compute_player_overall(df, team_data, role_weights):
+    """
+    Compute a player-level 'overall' score using role-specific weights.
+    Sources tried (in order):
+      1) direct columns in df named 'attack','defense','distribution','discipline'
+      2) team_data[player]['dpr_breakdown'] dict if present
+      3) fallback to existing df['dpr'] if nothing else available
+    Result: adds df['overall'] clipped 0..100
+    """
+    comps = ["attack", "defense", "distribution", "discipline"]
+    rows = []
+    for idx, row in df.iterrows():
+        role = row.get("role", "")
+        weights = role_weights.get(role, {})
+        # collect component values (try df columns first, then team_data breakdown)
+        vals = {}
+        player = row.get("player_name")
+        td_breakdown = team_data.get(player, {}).get("dpr_breakdown", {}) if player in team_data else {}
+        for c in comps:
+            v = None
+            if c in df.columns and not pd.isna(row[c]):
+                try:
+                    v = float(row[c])
+                except Exception:
+                    v = None
+            if v is None and isinstance(td_breakdown, dict) and c in td_breakdown:
+                try:
+                    v = float(td_breakdown.get(c))
+                except Exception:
+                    v = None
+            vals[c] = v if v is not None else np.nan
+
+        # weighted average using available components
+        weighted_sum = 0.0
+        weight_sum = 0.0
+        for c, w in weights.items():
+            val = vals.get(c, np.nan)
+            if not pd.isna(val):
+                weighted_sum += val * w
+                weight_sum += w
+
+        if weight_sum <= 0 or np.isnan(weighted_sum):
+            # fallback to 'dpr' if available
+            overall = row.get("dpr", np.nan)
+        else:
+            overall = weighted_sum / weight_sum
+
+        # if overall is NaN still, fallback to 50 (neutral)
+        if pd.isna(overall):
+            overall = row.get("dpr", 50.0)
+
+        # ensure in 0..100 range and numeric
+        try:
+            overall = float(overall)
+        except Exception:
+            overall = 50.0
+        overall = max(0.0, min(100.0, overall))
+        rows.append(overall)
+
+    df["overall"] = rows
+    return df
+
+# call it
+combined_df = compute_player_overall(combined_df, team_data, ROLE_WEIGHTS)
+print("Computed 'overall' for players (using ROLE_WEIGHTS where available).")
+# ---------------------------------------------------------------------------
+
 
 role_feats = {
     "attacker":   [f for f in BASE_FEATS if any(k in f for k in ["shots","goals","key_passes","assists","progressive","dribbles","minutes_played","dpr","position_changed"])] + ENHANCED_FEATS.get("attacker", []),

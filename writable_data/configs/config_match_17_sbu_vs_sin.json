@@ -5,8 +5,8 @@
         "competition": "Ang Liga",
         "venue": "Ayala Vermosa Sports Hub",
         "date": "2025-10-19",
-        "attacking_direction": "right-to-left",
-        "positions_locked": true
+        "attacking_direction": "left-to-right",
+        "positions_locked": false
     },
     "home": {
         "name": "San Beda University",
@@ -274,5 +274,5 @@
             }
         ]
     },
-    "mode": "tagging"
+    "mode": "setup"
 }

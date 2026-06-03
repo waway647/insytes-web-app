@@ -5,7 +5,7 @@
         "competition": "Ang Liga",
         "venue": "Ayala Vermosa Sports Hub",
         "date": "2025-10-26",
-        "attacking_direction": "right-to-left",
+        "attacking_direction": "left-to-right",
         "positions_locked": true
     },
     "home": {
@@ -18,7 +18,7 @@
                 "name": "Tagara, Pedro",
                 "number": 15,
                 "position": "GK",
-                "x": 82.75,
+                "x": 17.25,
                 "y": 29.751036099390532
             },
             {
@@ -26,7 +26,7 @@
                 "name": "Libarnes, Jaro",
                 "number": 28,
                 "position": "CB",
-                "x": 83.5,
+                "x": 16.5,
                 "y": 70.38087201125175
             },
             {
@@ -34,7 +34,7 @@
                 "name": "Aningalan, Jul",
                 "number": 2,
                 "position": "CB",
-                "x": 84.5,
+                "x": 15.5,
                 "y": 48.75049226441631
             },
             {
@@ -42,7 +42,7 @@
                 "name": "Sison, JelJel",
                 "number": 31,
                 "position": "CB",
-                "x": 74.75,
+                "x": 25.25,
                 "y": 42.122831692451946
             },
             {
@@ -50,7 +50,7 @@
                 "name": "Bacnis, Louie",
                 "number": 34,
                 "position": "CDM",
-                "x": 73.5,
+                "x": 26.5,
                 "y": 65.1248007501172
             },
             {
@@ -58,7 +58,7 @@
                 "name": "Pineda, Jaryl",
                 "number": 57,
                 "position": "LW",
-                "x": 94,
+                "x": 6,
                 "y": 49.12067510548524
             },
             {
@@ -66,7 +66,7 @@
                 "name": "Tabelin, Kirvy",
                 "number": 11,
                 "position": "CAM",
-                "x": 66,
+                "x": 34,
                 "y": 50.75443037974684
             },
             {
@@ -74,7 +74,7 @@
                 "name": "Fernandez, Laurence",
                 "number": 38,
                 "position": "RW",
-                "x": 65.75,
+                "x": 34.25,
                 "y": 9.996249413970933
             },
             {
@@ -82,7 +82,7 @@
                 "name": "Escodo, Bel",
                 "number": 13,
                 "position": "CDM",
-                "x": 56.49999999999999,
+                "x": 43.50000000000001,
                 "y": 63.00271917487107
             },
             {
@@ -90,7 +90,7 @@
                 "name": "Encaya, Pius",
                 "number": 17,
                 "position": "ST",
-                "x": 56.75,
+                "x": 43.25,
                 "y": 45.498359118612285
             },
             {
@@ -98,7 +98,7 @@
                 "name": "Salingay, Sam",
                 "number": 18,
                 "position": "ST",
-                "x": 68.75,
+                "x": 31.25,
                 "y": 89.12855133614627
             }
         ],
@@ -145,7 +145,7 @@
                 "name": "Unnamed",
                 "number": 1,
                 "position": "",
-                "x": 5.5,
+                "x": 94.5,
                 "y": 47.7539615564932
             },
             {
@@ -153,7 +153,7 @@
                 "name": "Unnamed",
                 "number": 19,
                 "position": "",
-                "x": 26,
+                "x": 74,
                 "y": 12.621659634317863
             },
             {
@@ -161,7 +161,7 @@
                 "name": "Unnamed",
                 "number": 9,
                 "position": "",
-                "x": 42,
+                "x": 58,
                 "y": 11.244631973745898
             },
             {
@@ -169,7 +169,7 @@
                 "name": "Unnamed",
                 "number": 11,
                 "position": "",
-                "x": 41.75,
+                "x": 58.25,
                 "y": 87.87998124706986
             },
             {
@@ -177,7 +177,7 @@
                 "name": "Unnamed",
                 "number": 22,
                 "position": "",
-                "x": 16.25,
+                "x": 83.75,
                 "y": 35.87022972339428
             },
             {
@@ -185,7 +185,7 @@
                 "name": "Unnamed",
                 "number": 3,
                 "position": "",
-                "x": 15.5,
+                "x": 84.5,
                 "y": 64.4980778246601
             },
             {
@@ -193,7 +193,7 @@
                 "name": "Unnamed",
                 "number": 14,
                 "position": "",
-                "x": 31.25,
+                "x": 68.75,
                 "y": 34.626797937177685
             },
             {
@@ -201,7 +201,7 @@
                 "name": "Unnamed",
                 "number": 20,
                 "position": "",
-                "x": 25.75,
+                "x": 74.25,
                 "y": 51.62794186591656
             },
             {
@@ -209,7 +209,7 @@
                 "name": "Unnamed",
                 "number": 6,
                 "position": "",
-                "x": 42.25,
+                "x": 57.75,
                 "y": 48.37543366150961
             },
             {
@@ -217,7 +217,7 @@
                 "name": "Unnamed",
                 "number": 16,
                 "position": "",
-                "x": 33.25,
+                "x": 66.75,
                 "y": 63.12611345522738
             },
             {
@@ -225,7 +225,7 @@
                 "name": "Unnamed",
                 "number": 15,
                 "position": "",
-                "x": 22.5,
+                "x": 77.5,
                 "y": 89.12855133614627
             }
         ],

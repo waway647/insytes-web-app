@@ -2,13 +2,13 @@
     "match_id": "16",
     "match_name": "match_16_sbu_vs_up",
     "team": "San Beda University",
-    "timestamp": "2025-12-07 22:43:28",
+    "timestamp": "2025-12-09 14:10:44",
     "predicted_scores": {
-        "attack": 0.0,
-        "defense": 10.32401881008404,
-        "discipline": 11.83187483127945,
-        "distribution": 8.20916330695026,
-        "general": 13.96159222446288,
+        "attack": 3.9565312960375225,
+        "defense": 8.99444535546551,
+        "discipline": 11.99192428362581,
+        "distribution": 8.102095943488749,
+        "general": 12.097695822239027,
         "overall": 0.0
     },
     "detailed_analysis": {

@@ -36,22 +36,22 @@
 			<input type="hidden" name="opponent_team_name" value="" />
 
 			<img id="close-new-match-panel" src="<?php echo base_url('assets/images/icons/close.svg'); ?>" class="w-3 h-auto cursor-pointer" alt="">
-			<div class="flex flex-col items-center px-80 py-4 gap-4 border-b border-[#2A2A2A]">
+			<div class="flex flex-col items-center px-20 py-4 gap-4 border-b border-[#2A2A2A]">
 				<h2 class="text-[#B6BABD] text-xl font-bold">New Match</h2>
-				<div class="flex w-full justify-between gap-10 py-4">
-					<div class="flex flex-col w-full gap-1 items-center">
+				<div class="flex w-full justify-center gap-10 py-4">
+					<div class="flex flex-col w-50 gap-1 items-center">
 						<p class="text-xs text-[#B6BABD]">Season</p>
 						<div id="season-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 cursor-pointer hover:bg-[#1a1a1a] transition">
 							<span id="season" class="text-white font-medium"></span>
 						</div>
 					</div>
-					<div class="flex flex-col w-full gap-1 items-center">
+					<div class="flex flex-col w-80 gap-1 items-center">
 						<p class="text-xs text-[#B6BABD]">Competition</p>
 						<div id="competition-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 cursor-pointer hover:bg-[#1a1a1a] transition">
 							<span id="competition" class="text-white font-medium"></span>
 						</div>
 					</div>
-					<div class="flex flex-col w-full gap-1 items-center">
+					<div class="flex flex-col w-50 gap-1 items-center">
 						<p class="text-xs text-[#B6BABD]">Date of Match</p>
 						<input 
 							type="date" 
@@ -59,7 +59,7 @@
 							class="date-input text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 text-white focus:outline-none focus:ring-1 focus:ring-indigo-500/30 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [-moz-appearance:textfield]"
 						>
 					</div>
-					<div class="flex flex-col w-full gap-1 items-center">
+					<div class="flex flex-col w-80 gap-1 items-center">
 						<p class="text-xs text-[#B6BABD]">Venue</p>
 						<div id="venue-btn" class="text-center w-full h-9 px-3 py-1.5 rounded-md bg-[#111111] border border-white/6 cursor-pointer hover:bg-[#1a1a1a] transition">
 							<span id="venue" class="text-white font-medium"></span>

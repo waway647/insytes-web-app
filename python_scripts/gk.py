@@ -6,8 +6,8 @@ import re
 # -----------------------------
 # CONFIGURATION
 # -----------------------------
-SEASONS = ["2022", "2023", "2024"]
-LEAGUE = "EPL"
+SEASONS = ["2020", "2021", "2022", "2023", "2024"]  # Added 2020 and 2021
+LEAGUES = ["EPL", "La_liga", "Bundesliga", "Serie_A", "Ligue_1", "RFPL"]  # Multiple top leagues
 OUTPUT_FILE = "data/training_data/understat_gk_features.csv"
 
 # -----------------------------
@@ -72,20 +72,23 @@ def build_gk_dataframe(gk_data, season):
 # -----------------------------
 if __name__ == "__main__":
     all_dfs = []
-    for season in SEASONS:
-        print(f"📥 Fetching Understat GK data for {LEAGUE} {season}...")
-        try:
-            gk_data = fetch_understat_data(LEAGUE, season)
-            print(f"✅ Fetched {len(gk_data)} goalkeepers.")
-            df = build_gk_dataframe(gk_data, season)
-            all_dfs.append(df)
-        except Exception as e:
-            print(f"⚠️ Skipped season {season} due to error: {e}")
+    for league in LEAGUES:
+        for season in SEASONS:
+            print(f"📥 Fetching Understat GK data for {league} {season}...")
+            try:
+                gk_data = fetch_understat_data(league, season)
+                print(f"✅ Fetched {len(gk_data)} goalkeepers from {league} {season}.")
+                df = build_gk_dataframe(gk_data, season)
+                df['league'] = league  # Add league column
+                all_dfs.append(df)
+            except Exception as e:
+                print(f"⚠️ Skipped {league} {season} due to error: {e}")
     
     if all_dfs:
         final_df = pd.concat(all_dfs, ignore_index=True)
         final_df.to_csv(OUTPUT_FILE, index=False)
-        print(f"💾 Saved CSV → {OUTPUT_FILE}")
+        print(f"\n💾 Saved CSV → {OUTPUT_FILE}")
+        print(f"📊 Total GK samples: {len(final_df)}")
         print("🏁 Done!")
     else:
         print("❌ No data fetched for any season.")
